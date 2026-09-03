@@ -2,7 +2,7 @@
 title: '3D 不死图腾生成器'
 description: '一个能将玩家皮肤制作成一个完整的 3D 角色模型，并替换游戏中不死图腾的在线工具。'
 href: 'https://www.mcneko.com/tools/3dtotem/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/3dtotem.png'
+icon: '/icons/3dtotem.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '不死图腾', '3D模型', '资源包', '个性化', '皮肤']
 subcategory: "皮肤与装扮"

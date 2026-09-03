@@ -2,7 +2,7 @@
 title: 'MineAdd'
 description: '一个面向日本社区的、综合性的创作链接分享服务，创作者可在此自由分享地图、材质、附加包和服务器等内容的链接。'
 href: 'https://mineadd.net'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mineadd.png'
+icon: '/icons/mineadd.png'
 category: '资源' # 用于分类
 subcategory: '综合'
 tags: ['社区', '链接分享', '日本', '地图', '附加包', '服务器']

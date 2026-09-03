@@ -2,7 +2,7 @@
 title: 'CASCU'
 description: '一个国际性的建筑师和城市建设者联盟，旨在通过成员间的合作创作出令人惊叹的作品，并为创作者提供交流与展示的平台。'
 href: 'https://www.cascu.info/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/cascu.jpg' # 假设图标文件名
+icon: '/icons/cascu.jpg' # 假设图标文件名
 category: '工作室 & 组织'
 tags: ['建筑', '社区联盟', '架空都市', '再現都市']
 order: 6

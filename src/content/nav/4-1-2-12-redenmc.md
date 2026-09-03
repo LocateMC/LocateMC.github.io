@@ -2,7 +2,7 @@
 title: 'RedenMC'
 description: '一个专为红石爱好者打造的在线社区与工具平台，提供原理图生成、分享与编辑功能。'
 href: 'https://redenmc.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/redenmc.png'
+icon: '/icons/redenmc.png'
 category: '资源' # 分类为资源
 subcategory: '地图、投影'
 tags: ['社区', '工具', '红石', '原理图', '生成器', '在线编辑器', '社交']

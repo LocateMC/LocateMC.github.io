@@ -2,7 +2,7 @@
 title: 'MMC Reviews'
 description: '一个由社区驱动的、专注于为 Minecraft Java 版的模组和整合包提供诚实、全面评论的平台。'
 href: 'https://mmcreviews.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mmcreviews.png'
+icon: '/icons/mmcreviews.png'
 category: '收纳' # 用于分类
 tags: ['社区', '评测', '模组', '整合包', 'Java版']
 order: 9

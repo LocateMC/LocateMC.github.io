@@ -2,7 +2,7 @@
 title: 'Minecraft Japan Wiki'
 description: '一个由日本玩家社区共同维护的大型综合性维基（百科全书）。'
 href: 'https://minecraftjapan.miraheze.org/wiki/Minecraft_Japan_Wiki'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecraft-japan-wiki.png'
+icon: '/icons/minecraft-japan-wiki.png'
 category: '百科' # 用于分类
 subcategory: '百科'
 tags: ['维基', '百科', '文档', '教程', '日本', '社区']

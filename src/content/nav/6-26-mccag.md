@@ -2,7 +2,7 @@
 title: 'MC 可爱头像生成器'
 description: '一个专门用于生成风格可爱 Q 版头像的在线工具。'
 href: 'https://mccag.cn/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mccag.png'
+icon: '/icons/mccag.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '头像生成器', '个性化', '可爱风格']
 subcategory: "皮肤与装扮"

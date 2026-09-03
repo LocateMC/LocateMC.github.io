@@ -2,7 +2,7 @@
 title: "Chunkoid"
 description: "安卓端 JE-BE 世界转换器"
 href: "https://chunkoid.top"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/chunkoid.png'
+icon: '/icons/chunkoid.png'
 category: "软件程序"
 subcategory: "实用工具（Android）"
 order: 4

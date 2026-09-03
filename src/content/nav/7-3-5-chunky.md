@@ -2,7 +2,7 @@
 title: 'Chunky'
 description: '强大的光线追踪渲染器，用于创作电影级的游戏艺术作品。'
 href: 'https://chunky-dev.github.io/docs/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/chunky.png' # 假设图标文件名
+icon: '/icons/chunky.png' # 假设图标文件名
 category: '软件程序'
 subcategory: '实用工具（PC）'
 tags: ['实用工具', '渲染', '光线追踪', '艺术', '截图']

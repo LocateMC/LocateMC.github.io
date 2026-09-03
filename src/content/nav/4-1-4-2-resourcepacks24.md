@@ -2,7 +2,7 @@
 title: 'Resource Packs 24'
 description: '德语区领先的材质包网站，提供多样化风格与高清资源。'
 href: 'https://resourcepacks24.de/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/resourcepacks24.png' # 假设图标文件名
+icon: '/icons/resourcepacks24.png' # 假设图标文件名
 category: '资源' # 分类为资源
 subcategory: '纹理、资源包、光影'
 tags: ['资源', '材质包', '德语', '英文', '高清']

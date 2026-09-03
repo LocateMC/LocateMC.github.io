@@ -2,7 +2,7 @@
 title: '星月 Minecraft 版本库'
 description: '一个始于个人留档、后因共享精神而对外开放的非盈利资源站，专注于收录并提供历史上所有发布过的版本。'
 href: 'https://mcarc.spectrollay.com/minecraft_repository/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/spectrollay.jpg'
+icon: '/icons/spectrollay.jpg'
 category: '软件程序' # 用于分类
 subcategory: '版本库'
 tags: ['历史版本', '存档', '资源', '非盈利', '星月']

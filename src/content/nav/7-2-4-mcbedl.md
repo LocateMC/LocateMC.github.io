@@ -2,7 +2,7 @@
 title: 'MCDL'
 description: '基岩版版本库，提供安卓，iOS 与 Windows 客户端下载。'
 href: 'https://mc.minebbs.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcbedl.png' # 假设图标文件名
+icon: '/icons/mcbedl.png' # 假设图标文件名
 category: '软件程序'
 subcategory: '版本库'
 tags: ['版本库', '基岩版', 'MineBBS', 'iOS', '安卓', 'Windows']

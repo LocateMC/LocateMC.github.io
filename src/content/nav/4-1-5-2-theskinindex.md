@@ -2,7 +2,7 @@
 title: 'The Skindex'
 description: '一个规模极其庞大的皮肤分享与编辑平台，是全球最著名和使用最广泛的皮肤社区之一。'
 href: 'https://www.minecraftskins.com'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/theskindex.png'
+icon: '/icons/theskindex.png'
 category: '资源' # 分类为资源
 subcategory: '皮肤'
 tags: ['资源', '皮肤', '数据库', '皮肤编辑器', '社区']

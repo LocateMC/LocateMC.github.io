@@ -2,7 +2,7 @@
 title: 'Forge 文档'
 description: 'Forge 模组平台的官方文档登陆页，是通往新旧两版文档的中央门户。'
 href: 'https://docs.minecraftforge.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/forge-docs.webp'
+icon: '/icons/forge-docs.webp'
 category: '开发'
 subcategory: 'Java 模组'
 tags: ['Forge', '模组', '开发', '文档', '门户']

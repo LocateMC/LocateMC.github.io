@@ -2,7 +2,7 @@
 title: 'Endstone'
 description: '一个基于 Python 实现的、旨在与 Bukkit/Spigot 插件生态兼容的基岩版服务器软件。'
 href: 'https://endstone.dev/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/endstone.png'
+icon: '/icons/endstone.png'
 category: '开发'
 subcategory: '基岩 服务端'
 tags: ['基岩版', '开发', '服务器', 'Python', 'Bukkit', 'API', '插件']

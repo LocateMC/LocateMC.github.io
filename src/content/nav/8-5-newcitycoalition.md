@@ -2,7 +2,7 @@
 title: 'NCC 新都市連合'
 description: '一个集结了都市开发玩家的联盟，旨在成为一个信息交换与互助合作的社群集合据点。'
 href: 'https://ncc.buildmc.jp/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/newcitycoalition.jpg' # 假设图标文件名
+icon: '/icons/newcitycoalition.jpg' # 假设图标文件名
 category: '工作室 & 组织' # 用于分类
 tags: ['都市开发', '社区联盟', '日本', '架空都市']
 order: 5

@@ -2,7 +2,7 @@
 title: 'CrackedCubes'
 description: '一个官方认证的合作伙伴 (Official Minecraft Partner)，专注于为官方基岩版市场 (Marketplace) 创作高质量的内容。'
 href: 'https://www.crackedcubes.co.uk'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/crackedcubes.png'
+icon: '/icons/crackedcubes.png'
 category: '市场' # 用于分类
 subcategory: '合作伙伴'
 tags: ['基岩版', 'Marketplace', '官方合作伙伴', '内容创作', '工作室']

@@ -2,7 +2,7 @@
 title: 'Plotz Modeller'
 description: '一个经典的在线建筑建模工具，专门用于生成各种复杂结构（如球体、高塔、飞船）的层级建造蓝图。'
 href: 'https://www.plotz.co.uk/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/plotz.png'
+icon: '/icons/plotz.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '建筑', '生成器', '模型', '球体', '塔']
 subcategory: "像素画与建筑"

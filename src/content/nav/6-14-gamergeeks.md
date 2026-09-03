@@ -2,7 +2,7 @@
 title: 'Gamer Geeks'
 description: '一个由 Gamer Geeks 网站提供的综合性在线工具集，涵盖从命令生成、物品制作到战利品表等高级机制的多种功能。'
 href: 'https://www.gamergeeks.net/apps/minecraft'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/gamergeeks.png'
+icon: '/icons/gamergeeks.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '命令生成器', '战利品表', '盔甲架', '一站式']
 subcategory: "综合工具集"

@@ -2,7 +2,7 @@
 title: 'SkinMC'
 description: '一个功能强大的皮肤数据库，以其独特的“颜色相似度搜索”功能而著称。'
 href: 'https://skinmc.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/skinmc.png'
+icon: '/icons/skinmc.png'
 category: '资源' # 分类为资源
 subcategory: '皮肤'
 tags: ['资源', '皮肤', '数据库', '搜索', '颜色搜索']

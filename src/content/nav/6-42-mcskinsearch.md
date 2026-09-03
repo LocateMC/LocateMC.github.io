@@ -2,7 +2,7 @@
 title: 'MC Skin Search'
 description: '通过输入玩家名称来查找并下载其当前皮肤的在线工具。'
 href: 'https://mcskinsearch.com'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sample.png'
+icon: '/icons/sample.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '皮肤', '搜索']
 subcategory: "查询与素材库"

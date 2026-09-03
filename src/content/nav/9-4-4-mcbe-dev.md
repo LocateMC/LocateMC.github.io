@@ -2,7 +2,7 @@
 title: '中文基岩版开发者 Wiki'
 description: '一个由爱好者社区驱动的、专注于基岩版开发的中文技术维基。'
 href: 'https://wiki.mcbe-dev.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcbe-dev.png'
+icon: '/icons/mcbe-dev.png'
 category: '开发'
 subcategory: '基岩'
 tags: ['基岩版', '开发', '文档', '教程', '中文社区', '附加包', '技术维基']

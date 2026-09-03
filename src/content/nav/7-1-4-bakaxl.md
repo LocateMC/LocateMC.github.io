@@ -2,7 +2,7 @@
 title: 'BakaXL'
 description: '以其精美的 UI 设计与独特的视觉增强功能而闻名的启动器。'
 href: 'https://www.bakaxl.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/bakaxl.png' # 假设图标文件名
+icon: '/icons/bakaxl.png' # 假设图标文件名
 category: '软件程序'
 subcategory: '启动器'
 tags: ['启动器', '设计', '中文', '视觉', '整合包']

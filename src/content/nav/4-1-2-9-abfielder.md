@@ -2,7 +2,7 @@
 title: "Abfielder's Schematics"
 description: '分享和发现建筑蓝图（Schematics）的平台。'
 href: 'https://www.abfielder.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/abfielder.png'
+icon: '/icons/abfielder.png'
 category: '资源' # 分类为资源
 subcategory: '地图、投影'
 tags: ['蓝图', '建筑', '社区', '工具']

@@ -2,7 +2,7 @@
 title: '开发者收益计算器'
 description: '一个由开发者 LRan 创建的，用于为《我的世界》中国版的开发者计算其收益的在线工具。'
 href: 'https://dev.lran.top/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/income.png'
+icon: '/icons/income.png'
 category: '在线工具' # 用于分类
 tags: ['我的世界中国版', '工具', '计算器', '开发者', '收益']
 subcategory: "服务器与开发者"

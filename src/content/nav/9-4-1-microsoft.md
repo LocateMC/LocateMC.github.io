@@ -2,7 +2,7 @@
 title: '微软基岩版创作者文档'
 description: '由微软官方提供的创作者学习门户，为基岩版的附加包、脚本和市场内容创作提供权威的文档与教程。'
 href: 'https://learn.microsoft.com/minecraft/creator/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/microsoft.png'
+icon: '/icons/microsoft.png'
 category: '开发'
 subcategory: '基岩'
 tags: ['基岩版', '开发', '文档', '教程', '微软', '官方', '附加包', '脚本API']

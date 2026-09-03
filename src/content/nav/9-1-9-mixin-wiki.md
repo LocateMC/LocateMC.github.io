@@ -2,7 +2,7 @@
 title: 'Mixin Wiki'
 description: '一个强大的 Java Mixin 框架的官方维基，该框架允许开发者在运行时精确地修改 Java 字节码。'
 href: 'https://github.com/SpongePowered/Mixin/wiki/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sample.png'
+icon: '/icons/sample.png'
 category: '开发'
 subcategory: 'Java 模组'
 tags: ['Java', '开发', 'Mixin', 'ASM', '字节码', '框架', 'API']

@@ -2,7 +2,7 @@
 title: "NeoForged"
 description: "Forge 的新兴分支，接续 1.20.4+ 新版本模组加载的官方继任者。"
 href: "https://neoforged.net/"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/neoforge-docs.png'
+icon: '/icons/neoforge-docs.png'
 category: "服务端"
 subcategory: "Mod服核心"
 tags: ["服务端", "Java版", "模组", "Mod加载器", "NeoForged"]

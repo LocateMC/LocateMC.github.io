@@ -2,7 +2,7 @@
 title: 'Forge 社区 Wiki'
 description: 'Forge 模组平台的现代化官方文档，为模组开发者提供权威的教程、参考和指南。'
 href: 'https://forge.gemwire.uk/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/forge-community-wiki.png'
+icon: '/icons/forge-community-wiki.png'
 category: '开发'
 subcategory: 'Java 模组'
 tags: ['Forge', '模组', '开发', '文档', '教程', 'API']

@@ -2,7 +2,7 @@
 title: 'Speedrun Minecraft'
 description: '全球最权威的速通记录排行榜，收录各类规则下的世界纪录。'
 href: 'https://www.speedrun.com/mc'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/speedrun.png' # 假设图标文件名
+icon: '/icons/speedrun.png' # 假设图标文件名
 category: '收纳'
 tags: ['收纳', '速通', '排行榜', '世界纪录', '竞技']
 order: 2

@@ -2,7 +2,7 @@
 title: 'BuiltByBit'
 description: '一个大型的、专业的游戏资源交易市场，服主和开发者可在此买卖插件、建筑、配置等数字商品。'
 href: 'https://builtbybit.com/resources/categories/minecraft.27/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/builtbybit.webp'
+icon: '/icons/builtbybit.webp'
 category: '资源' # 分类为资源
 subcategory: '付费'
 tags: ['交易市场', '插件', '建筑', '服务器', '开发者']

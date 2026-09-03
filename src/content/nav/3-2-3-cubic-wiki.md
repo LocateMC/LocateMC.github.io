@@ -2,7 +2,7 @@
 title: 'Cubic Wiki'
 description: '中文社区维护的高版本 Java/基岩 MC 服务器开服运维百科（项目原名 NitWikit）。'
 href: 'https://nitwikit.8aka.org'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/cubic-wiki.png'
+icon: '/icons/cubic-wiki.png'
 category: '百科'
 subcategory: '教程、文档'
 tags: ['开服', '服务端', '文档', '教程', '中文', '社区', '基岩']

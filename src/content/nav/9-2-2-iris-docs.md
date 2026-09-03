@@ -2,7 +2,7 @@
 title: 'Iris 文档'
 description: '现代光影加载器 Iris 的官方技术文档，为光影开发者提供权威的教程、参考和指南。'
 href: 'https://shaders.properties/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/iris.webp'
+icon: '/icons/iris.webp'
 category: '开发'
 subcategory: 'Java 光影'
 tags: ['开发', '光影', 'Shaders', '文档', '教程', 'Iris', 'Sodium']

@@ -2,7 +2,7 @@
 title: 'Minecraft Maps'
 description: '全球最大的地图分享平台，收录海量创意冒险地图。'
 href: 'https://www.minecraftmaps.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecraftmaps.jpg' # 假设图标文件名
+icon: '/icons/minecraftmaps.jpg' # 假设图标文件名
 category: '资源' # 分类为资源
 subcategory: '地图、投影'
 tags: ['资源', '地图', '英文', '冒险', '跑酷']

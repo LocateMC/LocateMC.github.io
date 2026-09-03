@@ -2,7 +2,7 @@
 title: 'bridge.'
 description: '为基岩版 Add-on 创作而生的强大集成开发环境 (IDE)。'
 href: 'https://bridge-core.app/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/bridge.png' # 假设图标文件名
+icon: '/icons/bridge.png' # 假设图标文件名
 category: '软件程序'
 subcategory: '实用工具（PC）'
 tags: ['实用工具', 'IDE', '基岩版', 'Addon', '开发']

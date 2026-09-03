@@ -2,7 +2,7 @@
 title: 'Bedrock Protocol Docs'
 description: 'Mojang 官方维护的 Bedrock 网络协议参考文档，面向第三方服务端与协议库开发者。'
 href: 'https://mojang.github.io/bedrock-protocol-docs/latest/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/bedrock-protocol-docs.png'
+icon: '/icons/bedrock-protocol-docs.png'
 category: '开发'
 subcategory: '基岩 服务端'
 tags: ['Bedrock', '协议', '文档', '基岩', 'Mojang', '官方', '基岩服务端']

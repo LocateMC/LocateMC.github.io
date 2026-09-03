@@ -2,7 +2,7 @@
 title: 'MCMobs'
 description: '一个专注于销售高质量、预制生物和 NPC 的专业在线市场。'
 href: 'https://www.mcmobs.net'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcmobs.png'
+icon: '/icons/mcmobs.png'
 category: '资源' # 分类为资源
 subcategory: '付费'
 tags: ['交易市场', '生物', 'NPC', '模型', '服务器', 'MythicMobs']

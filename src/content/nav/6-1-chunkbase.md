@@ -2,7 +2,7 @@
 title: "Chunk Base"
 description: "强大的在线工具集，以其世界种子地图与生物群系查找器闻名。"
 href: "https://www.chunkbase.com/apps/"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/chunkbase.png'
+icon: '/icons/chunkbase.png'
 category: "在线工具"
 tags: ["在线工具","种子","地图","生物群系","结构"]
 subcategory: "种子与地图"

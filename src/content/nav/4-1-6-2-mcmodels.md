@@ -2,7 +2,7 @@
 title: 'MCModels'
 description: '一个专业的、高质量的 3D 模型交易市场，开发者和服务器主可在此购买用于各类插件的自定义模型。'
 href: 'https://mcmodels.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcmodels.png'
+icon: '/icons/mcmodels.png'
 category: '资源' # 分类为资源
 subcategory: '付费'
 tags: ['3D模型', '交易市场', '开发者', '服务器', 'MythicMobs', 'ModelEngine']

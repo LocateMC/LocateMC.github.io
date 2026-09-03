@@ -2,7 +2,7 @@
 title: '基岩版开发者文档'
 description: '一个面向基岩版创作者的社区驱动的资源门户和导航中心。'
 href: 'https://bedrock.dev/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/bedrock-dev.png'
+icon: '/icons/bedrock-dev.png'
 category: '开发'
 subcategory: '基岩'
 tags: ['基岩版', '开发', '资源', '社区', '导航', '门户']

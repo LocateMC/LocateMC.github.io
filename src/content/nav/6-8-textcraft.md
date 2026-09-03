@@ -2,7 +2,7 @@
 title: 'Textcraft'
 description: '一个免费的在线图形编辑器，专门用于创建和定制风格的文字与徽标 (Logo)。'
 href: 'https://textcraft.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/textcraft.jpg'
+icon: '/icons/textcraft.jpg'
 category: '在线工具' # 用于分类
 tags: ['工具', '文字生成', 'Logo', '图形编辑器']
 subcategory: "文字与排版"

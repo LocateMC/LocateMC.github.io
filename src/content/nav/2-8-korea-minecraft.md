@@ -2,7 +2,7 @@
 title: '韩国 Minecraft 论坛'
 description: '韩国的技术论坛，专注资源与开发者深度交流。'
 href: 'https://www.koreaminecraft.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/korea-minecraft.png' # 假设图标文件名
+icon: '/icons/korea-minecraft.png' # 假设图标文件名
 category: '社区' # 用于分类
 tags: ['社区', '论坛', '韩语', '韩国', '开发者']
 order: 8

@@ -2,7 +2,7 @@
 title: 'GrabCraft'
 description: '一个提供海量建筑蓝图和分步建造教程的在线平台，以其逐层搭建指南而闻名。'
 href: 'https://www.grabcraft.com'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/grabcraft.jpg'
+icon: '/icons/grabcraft.jpg'
 category: '收纳' # 用于分类
 tags: ['教程', '建筑', '蓝图', '指南']
 order: 7

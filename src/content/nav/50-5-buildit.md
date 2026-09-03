@@ -2,7 +2,7 @@
 title: 'Build It'
 description: '一个专注于提供建筑教程和设计灵感的在线平台。'
 href: 'https://builditapp.com'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/buildit.webp'
+icon: '/icons/buildit.webp'
 category: '收纳' # 用于分类
 tags: ['教程', '建筑', '设计', '灵感', '指南']
 order: 5

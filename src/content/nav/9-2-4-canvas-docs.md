@@ -2,7 +2,7 @@
 title: 'Canvas Wiki'
 description: '一个为 Fabric 模组提供的高性能、高级渲染 API 库，旨在为开发者提供强大的自定义渲染能力。'
 href: 'https://github.com/vram-guild/canvas/wiki'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/canvas.webp'
+icon: '/icons/canvas.webp'
 category: '开发'
 subcategory: 'Java 光影'
 tags: ['开发', 'Fabric', 'API', '渲染', '图形学']

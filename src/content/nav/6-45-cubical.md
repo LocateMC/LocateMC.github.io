@@ -2,7 +2,7 @@
 title: 'Cubical'
 description: '先进的在线 3D 编辑器，用于创建、编辑和查看建筑，提供类似游戏内的沉浸式建造体验。'
 href: 'https://cubical.xyz'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/cubical.png'
+icon: '/icons/cubical.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '建筑', '3D编辑器', 'Schematic', '在线工具', '创作']
 subcategory: "像素画与建筑"

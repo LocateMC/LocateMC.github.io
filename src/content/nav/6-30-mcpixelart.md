@@ -2,7 +2,7 @@
 title: 'Minecraft Art'
 description: '一个集 2D 像素画/地图画、3D 雕塑和红石音乐创作于一体的综合性艺术在线平台。'
 href: 'https://mcpixelart.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcpixelart.png'
+icon: '/icons/mcpixelart.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '像素画', '地图画', '3D雕塑', '红石音乐', '艺术创作']
 subcategory: "像素画与建筑"

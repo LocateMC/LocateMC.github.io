@@ -2,7 +2,7 @@
 title: 'Fabric Wiki'
 description: 'Fabric 模组加载器的官方文档与教程维基，为开发者提供从入门到精通所需的一切技术资源。'
 href: 'https://wiki.fabricmc.net/start'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/fabric.png'
+icon: '/icons/fabric.png'
 category: '开发'
 subcategory: 'Java 模组'
 tags: ['Fabric', '模组', '开发', '文档', '教程', 'API']

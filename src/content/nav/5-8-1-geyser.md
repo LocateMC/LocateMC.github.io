@@ -2,7 +2,7 @@
 title: "Geyser"
 description: "GeyserMC 核心桥接，让基岩版玩家加入 Java 版服务器。"
 href: "https://geysermc.org/"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/geyser.png'
+icon: '/icons/geyser.png'
 category: "服务端"
 subcategory: "互通"
 tags: ["服务端", "互通", "基岩版", "Java版", "桥接", "开源"]

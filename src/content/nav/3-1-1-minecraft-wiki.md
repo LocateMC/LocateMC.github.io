@@ -2,7 +2,7 @@
 title: '中文 Minecraft Wiki'
 description: '玩家共建的权威中文知识库，囊括游戏万物数据与机制。'
 href: 'https://zh.minecraft.wiki/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecraft-wiki.png'
+icon: '/icons/minecraft-wiki.png'
 category: '百科'
 subcategory: '百科'
 tags: ['wiki', '官方', '指南']

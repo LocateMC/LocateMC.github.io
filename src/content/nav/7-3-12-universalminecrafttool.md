@@ -2,7 +2,7 @@
 title: 'UMT'
 description: '强大的多功能存档编辑器，支持世界与玩家数据修改转换。'
 href: 'https://www.universalminecrafttool.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/universalminecrafttool.png' # 假设图标文件名
+icon: '/icons/universalminecrafttool.png' # 假设图标文件名
 category: '软件程序'
 subcategory: '实用工具（PC）'
 tags: ['实用工具', '存档编辑', 'NBT', 'Java版', '基岩版', '跨平台']

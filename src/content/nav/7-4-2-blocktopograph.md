@@ -2,7 +2,7 @@
 title: 'Blocktopograph'
 description: '一个功能强大的、开源的基岩版 (Bedrock Edition) 高级世界编辑器和地图查看器。'
 href: 'https://github.com/oO0oO0oO0o0o00/blocktopograph'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/blocktopograph.webp'
+icon: '/icons/blocktopograph.webp'
 category: '软件程序' # 用于分类
 subcategory: '实用工具（Android）'
 tags: ['基岩版', '编辑器', '地图查看器', 'NBT', '开源', 'Android']

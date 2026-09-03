@@ -2,7 +2,7 @@
 title: 'Minecraft PFP Maker'
 description: '一个专门用于制作玩家个性化社交头像 (PFP) 的在线工具。'
 href: 'https://minecraftpfp.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecraftpfp.png'
+icon: '/icons/minecraftpfp.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '头像生成器', '个性化', 'PFP', '社交媒体']
 subcategory: "皮肤与装扮"

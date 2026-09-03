@@ -2,7 +2,7 @@
 title: 'Minecraft 高校联盟'
 description: '一个旨在联合中国全国高校爱好者，共同推动高校生态发展的非营利性公益组织。'
 href: 'https://www.mualliance.cn'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mualliance.png'
+icon: '/icons/mualliance.png'
 category: '工作室 & 组织' # 用于分类
 tags: ['高校', '社区联盟', '校园复原', '非盈利']
 order: 9

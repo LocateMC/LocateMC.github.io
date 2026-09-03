@@ -2,7 +2,7 @@
 title: 'Fabric 文档'
 description: 'Fabric 模组工具链的官方技术文档，提供从入门教程到核心概念的结构化学习路径。'
 href: 'https://docs.fabricmc.net/develop/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/fabric.png'
+icon: '/icons/fabric.png'
 category: '开发'
 subcategory: 'Java 模组'
 tags: ['Fabric', '模组', '开发', '文档', '教程', 'API', 'Loom']

@@ -2,7 +2,7 @@
 title: '网易我的世界'
 description: '我的世界中国官方正版，提供便捷社交与一站式组件体验。'
 href: 'https://mc.163.com'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecraft-163.webp'
+icon: '/icons/minecraft-163.webp'
 category: '官方'
 tags: ['网易', '官方', '我的世界']
 order: 2

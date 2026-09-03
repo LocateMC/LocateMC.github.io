@@ -2,7 +2,7 @@
 title: 'Sponge 文档'
 description: 'Sponge 服务器 API 平台的官方技术文档，为服务器管理员和插件开发者提供权威的指南和参考。'
 href: 'https://docs.spongepowered.org/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sponge.png'
+icon: '/icons/sponge.png'
 category: '开发'
 subcategory: 'Java 服务端'
 tags: ['开发', 'Sponge', 'API', '服务器', '插件', '文档', 'Forge']

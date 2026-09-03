@@ -2,7 +2,7 @@
 title: 'Metamo 工具箱'
 description: '一个由 Metamo 社区提供的在线工具箱，专注于为服务器服主和玩家提供便捷的命令生成与信息查询服务。'
 href: 'https://mc.metamo.cn/tool/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/metamo.png'
+icon: '/icons/metamo.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '命令生成器', 'JSON', 'MOTD', 'Metamo']
 subcategory: "综合工具集"

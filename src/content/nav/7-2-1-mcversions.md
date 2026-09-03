@@ -2,7 +2,7 @@
 title: 'MCVersions'
 description: '简洁可靠的官方版本库，提供所有 Java 版的历史版本下载。'
 href: 'https://mcversions.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcversions.webp' # 假设图标文件名
+icon: '/icons/mcversions.webp' # 假设图标文件名
 category: '软件程序'
 subcategory: '版本库'
 tags: ['版本库', 'Java版', '官方版本', '存档']

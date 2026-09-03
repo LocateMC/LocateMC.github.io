@@ -2,7 +2,7 @@
 title: 'Minecraft Forum'
 description: '历史悠久的英文论坛，早期模组与全球社区文化的发源地。'
 href: 'https://www.minecraftforum.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecraft-forum.png' # 假设图标文件名
+icon: '/icons/minecraft-forum.png' # 假设图标文件名
 category: '社区' # 用于分类
 tags: ['社区', '论坛', '英文', '模组', '历史']
 order: 1

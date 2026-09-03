@@ -2,7 +2,7 @@
 title: 'jacobsjo''s Tools'
 description: '由开发者 jacobsjo 创建的、专注于高级世界生成的数据包与模组开发工具集。'
 href: 'https://jacobsjo.eu'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/jacobsjo.jpg'
+icon: '/icons/jacobsjo.jpg'
 category: '在线工具' # 用于分类
 tags: ['工具', '数据包', '开发者工具', '世界生成', '生物群系', '结构', '密度函数']
 subcategory: "命令与数据包"

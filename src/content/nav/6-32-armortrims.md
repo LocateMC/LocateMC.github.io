@@ -2,7 +2,7 @@
 title: 'Armor Trims'
 description: '一个专门用于设计和实时预览盔甲锻造模板（Armor Trims）组合效果的在线工具。'
 href: 'https://www.armortrims.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/armortrims.png'
+icon: '/icons/armortrims.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '盔甲锻造', '个性化', '1.20', '锻造模板']
 subcategory: "皮肤与装扮"

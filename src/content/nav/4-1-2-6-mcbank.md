@@ -2,7 +2,7 @@
 title: 'MC 藏宝阁'
 description: '中文建筑蓝图与预制件分享站，专注国内原创精品设计。'
 href: 'https://mcbank.charhoo.cn/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcbank.png' # 假设图标文件名
+icon: '/icons/mcbank.png' # 假设图标文件名
 category: '资源' # 分类为资源
 subcategory: '地图、投影'
 tags: ['资源', '建筑', 'Schematics', '蓝图', '中文', '原创']

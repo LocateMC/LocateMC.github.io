@@ -2,7 +2,7 @@
 title: 'Minecraft Tools'
 description: '一个功能极其全面的在线工具集网站，提供从命令生成、游戏机制计算到信息查询等多种便捷服务。'
 href: 'https://minecraft.tools/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecrafttools.png'
+icon: '/icons/minecrafttools.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '命令生成器', '计算器', '数据库', '一站式']
 subcategory: "综合工具集"

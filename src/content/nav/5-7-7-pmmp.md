@@ -2,7 +2,7 @@
 title: "PocketMine-MP"
 description: "PHP 语言编写的基岩版服务端，历史最悠久、生态最成熟的第三方方案。"
 href: "https://pmmp.io/"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/pmmp.jpg'
+icon: '/icons/pmmp.jpg'
 category: "服务端"
 subcategory: "基岩"
 tags: ["服务端", "基岩版", "PHP", "插件", "开源"]

@@ -2,7 +2,7 @@
 title: 'MC Stacker'
 description: '功能极其全面的、用于生成各类复杂游戏命令的在线可视化工具。'
 href: 'https://mcstacker.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcstacker.png'
+icon: '/icons/mcstacker.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '命令', '生成器', 'NBT', 'Java版', '开发者']
 subcategory: "命令与数据包"

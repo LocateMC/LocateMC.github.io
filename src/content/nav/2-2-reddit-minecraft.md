@@ -2,7 +2,7 @@
 title: 'Reddit r/Minecraft'
 description: '全球最大的玩家社交中心，分享作品与讨论的聚集地。'
 href: 'https://www.reddit.com/r/Minecraft/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/reddit-minecraft.png' # 假设图标文件名
+icon: '/icons/reddit-minecraft.png' # 假设图标文件名
 category: '社区' # 用于分类
 tags: ['社区', 'Reddit', '英文', '讨论', '作品分享']
 order: 2

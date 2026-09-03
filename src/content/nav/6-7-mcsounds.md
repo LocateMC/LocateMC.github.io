@@ -2,7 +2,7 @@
 title: 'McSounds'
 description: '一个由“SomeBottle”创建并维护的音效库网站，提供在线搜索、试听、分享和下载游戏内音效的功能。'
 href: 'https://o.xbottle.top/mcsounds/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcsounds.jpg'
+icon: '/icons/mcsounds.jpg'
 category: '在线工具' # 用于分类
 tags: ['工具', '音效', '数据库', '短片制作', '音效库']
 subcategory: "查询与素材库"

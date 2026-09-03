@@ -2,7 +2,7 @@
 title: 'Architectury 文档'
 description: '一个旨在统一 Forge 和 Fabric 两大模组平台的 API，让开发者可以轻松地进行跨平台模组开发的官方文档。'
 href: 'https://docs.architectury.dev/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/architectury-docs.png'
+icon: '/icons/architectury-docs.png'
 category: '开发'
 subcategory: 'Java 模组'
 tags: ['开发', 'API', 'Architectury', 'Forge', 'Fabric', '跨平台']

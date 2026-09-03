@@ -2,7 +2,7 @@
 title: 'MixinExtras Wiki'
 description: '一个为 Mixin 框架提供额外注解和实用功能的非官方扩展库的官方维基。'
 href: 'https://github.com/LlamaLad7/MixinExtras/wiki/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sample.png'
+icon: '/icons/sample.png'
 category: '开发'
 subcategory: 'Java 模组'
 tags: ['Java', '开发', 'Mixin', '扩展库', 'API', '工具']

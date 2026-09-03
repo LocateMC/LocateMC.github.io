@@ -2,7 +2,7 @@
 title: 'MinePix'
 description: '一个可以快速、轻松地制作自定义主题壁纸的在线工具，拥有超过 700 个预设场景可供选择。'
 href: 'https://www.minepix.app/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minepix.png'
+icon: '/icons/minepix.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '壁纸', '生成器', '个性化']
 subcategory: "像素画与建筑"

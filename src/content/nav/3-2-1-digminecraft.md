@@ -2,7 +2,7 @@
 title: 'DigMinecraft'
 description: '英文世界主流的图文教程站，提供分步教程、命令生成器与海量配方/数据查询。'
 href: 'https://www.digminecraft.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/digminecraft.png'
+icon: '/icons/digminecraft.png'
 category: '百科'
 subcategory: '教程、文档'
 tags: ['教程', '指南', '数据查询', '命令生成器', '英文', '工具']

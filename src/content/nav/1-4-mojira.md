@@ -2,7 +2,7 @@
 title: 'Mojira'
 description: 'Mojang 官方缺陷追踪器，玩家可提交、检索、投票与追踪 Minecraft 各版本的漏洞报告。'
 href: 'https://bugs.mojang.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mojira.jpg'
+icon: '/icons/mojira.jpg'
 category: '官方' # 用于分类
 tags: ['官方', 'Bug追踪', 'Mojang', '漏洞报告', 'Java版', '基岩版', 'Realms', '社区反馈']
 order: 4

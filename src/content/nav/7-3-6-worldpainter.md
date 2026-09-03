@@ -2,7 +2,7 @@
 title: 'WorldPainter'
 description: '强大的自定义地形生成器，像绘画一样创造你的世界。'
 href: 'https://www.worldpainter.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/worldpainter.webp' # 假设图标文件名
+icon: '/icons/worldpainter.webp' # 假设图标文件名
 category: '软件程序'
 subcategory: '实用工具（PC）'
 tags: ['实用工具', '地图生成', '地形', '自定义世界', '创世']

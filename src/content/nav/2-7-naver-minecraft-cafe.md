@@ -2,7 +2,7 @@
 title: 'Naver Minecraft Cafe'
 description: '韩国最大的官方玩家社群，集资讯、交流与活动于一体。'
 href: 'https://cafe.naver.com/minecraftgame'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/naver-minecraft-cafe.jpg' # 假设图标文件名
+icon: '/icons/naver-minecraft-cafe.jpg' # 假设图标文件名
 category: '社区' # 用于分类
 tags: ['社区', '论坛', '韩语', '韩国', '官方社群']
 order: 7

@@ -2,7 +2,7 @@
 title: 'Nukkit'
 description: '一个用 Java 语言从头开始编写的基岩版 (Bedrock Edition) 服务器软件，拥有自己的插件 API。'
 href: 'https://cloudburstmc.org/wiki/nukkit'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/nukkit.png'
+icon: '/icons/nukkit.png'
 category: '开发'
 subcategory: '基岩 服务端'
 tags: ['基岩版', '开发', '服务器', 'Java', '插件', 'API', 'CloudburstMC']

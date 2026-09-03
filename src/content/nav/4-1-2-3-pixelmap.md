@@ -2,7 +2,7 @@
 title: '像素茶艺地图站'
 description: '专注精品原创地图的社区，强调艺术审美与分享体验。'
 href: 'https://pixelmap.minegraph.cn/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/pixelmap.png' # 假设图标文件名
+icon: '/icons/pixelmap.png' # 假设图标文件名
 category: '资源' # 分类为资源
 subcategory: '地图、投影'
 tags: ['资源', '地图', '原创', '中文', '艺术', '审美']

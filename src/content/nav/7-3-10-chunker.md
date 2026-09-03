@@ -2,7 +2,7 @@
 title: 'Chunker'
 description: '官方背景的开源世界转换工具，实现 Java 与基岩版存档互转。'
 href: 'https://www.chunker.app'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/chunker.png' # 假设图标文件名
+icon: '/icons/chunker.png' # 假设图标文件名
 category: '软件程序'
 subcategory: '实用工具（PC）'
 tags: ['实用工具', '世界转换', '开源', 'Java版', '基岩版']

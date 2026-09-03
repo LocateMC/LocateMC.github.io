@@ -2,7 +2,7 @@
 title: 'MCSeedMap'
 description: '直观的在线种子查看器，快速预览世界地图与关键结构。'
 href: 'https://mcseedmap.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcseedmap.png' # 假设图标文件名
+icon: '/icons/mcseedmap.png' # 假设图标文件名
 category: '在线工具' # 用于分类
 tags: ['在线工具', '种子', '地图', '生物群系', '简洁']
 subcategory: "种子与地图"

@@ -2,7 +2,7 @@
 title: 'LittleSkin'
 description: '一个面向中国社区的、功能强大的第三方皮肤站，提供皮肤上传、管理、分享以及一个独立的 Yggdrasil 身份验证服务。'
 href: 'https://littleskin.cn/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/littleskin.png'
+icon: '/icons/littleskin.png'
 category: '资源' # 分类为资源
 subcategory: '皮肤'
 tags: ['皮肤', '披风', '第三方皮肤站', 'Yggdrasil', 'CustomSkinLoader', '中国']

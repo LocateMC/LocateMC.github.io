@@ -2,7 +2,7 @@
 title: "Paper"
 description: "Minecraft Java 版高性能服务端核心，社区公认的服务器性能与稳定性标杆。"
 href: "https://papermc.io/"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/papermc.webp'
+icon: '/icons/papermc.webp'
 category: "服务端"
 subcategory: "Bukkit·Paper系"
 tags: ["服务端","Java版","高性能","Spigot分支","开源"]

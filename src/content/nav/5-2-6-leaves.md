@@ -2,7 +2,7 @@
 title: "Leaves"
 description: "基于 Paper 的分支服务端，专注红石、生电玩法的纯净优化体验。"
 href: "https://github.com/LeavesMC/Leaves"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/leaves.png'
+icon: '/icons/leaves.png'
 category: "服务端"
 subcategory: "Bukkit·Paper系"
 tags: ["服务端","Java版","Paper分支","生电","开源"]

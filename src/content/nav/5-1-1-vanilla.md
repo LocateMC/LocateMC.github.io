@@ -2,7 +2,7 @@
 title: "Vanilla"
 description: "Minecraft Java 版官方原版服务端，未做任何修改的纯净开服选择。"
 href: "https://www.minecraft.net/en-us/download/server"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecraft-logo.png'
+icon: '/icons/minecraft-logo.png'
 category: "服务端"
 subcategory: "原版核心"
 tags: ["服务端","Java版","官方","原版"]

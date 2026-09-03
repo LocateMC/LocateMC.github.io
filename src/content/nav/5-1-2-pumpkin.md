@@ -2,7 +2,7 @@
 title: "Pumpkin"
 description: "Rust 编写的高性能原版风格服务端，兼容最新 Java 版协议（Bedrock 开发中）。"
 href: "https://pumpkinmc.org/"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/pumpkin.png'
+icon: '/icons/pumpkin.png'
 category: "服务端"
 subcategory: "原版核心"
 tags: ["服务端","Rust","高性能","多线程","独立实现","开源"]

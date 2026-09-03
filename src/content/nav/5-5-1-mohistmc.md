@@ -2,7 +2,7 @@
 title: "MohistMC"
 description: "Bukkit + Forge 混合端，插件与模组同服的国内主流选择。"
 href: "https://mohistmc.com/"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mohistmc.png'
+icon: '/icons/mohistmc.png'
 category: "服务端"
 subcategory: "混合端"
 tags: ["服务端","Java版","混合端","Bukkit","Forge","开源"]

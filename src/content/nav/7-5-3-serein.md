@@ -2,7 +2,7 @@
 title: "Serein"
 description: "开源服务器自动化管理工具，多服统一管理、群服互通、网页远程控制。"
 href: "https://sereindev.github.io"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/serein.png'
+icon: '/icons/serein.png'
 category: "软件程序"
 subcategory: "服务器面板"
 tags: ["服务器面板","自动化","群服互通","多服务器","机器人","OneBot","开源","Minecraft"]

@@ -2,7 +2,7 @@
 title: 'Block Palettes'
 description: '为建筑玩家提供和分享各种方块搭配调色板的在线灵感库。'
 href: 'https://www.blockpalettes.com'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/blockpalettes.png'
+icon: '/icons/blockpalettes.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '建筑', '设计', '调色板', '灵感', '色彩']
 subcategory: "像素画与建筑"

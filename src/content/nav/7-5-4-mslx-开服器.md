@@ -2,7 +2,7 @@
 title: "MSLX 开服器"
 description: "新一代跨平台 MC 服务器管理与联机工具，一键开服、内置内网穿透、Web 管理面板。"
 href: "https://mslx.mslmc.cn"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mslx.png'
+icon: '/icons/mslx.png'
 category: "软件程序"
 subcategory: "服务器面板"
 tags: ["服务器面板","开服器","联机","跨平台","MSLFrp","P2P","内网穿透","开源","Web 管理","Minecraft"]

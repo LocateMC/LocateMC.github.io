@@ -2,7 +2,7 @@
 title: 'BlockBench'
 description: '免费的 3D 模型编辑器，为创建自定义方块、物品与生物而生。'
 href: 'https://www.blockbench.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/blockbench.png' # 假设图标文件名
+icon: '/icons/blockbench.png' # 假设图标文件名
 category: '软件程序'
 subcategory: '实用工具（PC）'
 tags: ['实用工具', '模型编辑', '3D', '开源', '模组', '材质包']

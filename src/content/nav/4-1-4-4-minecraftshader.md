@@ -2,7 +2,7 @@
 title: 'Minecraft Shaders'
 description: '一个专门收录和介绍各种光影包 (Shaders) 的在线资源库和下载门户。'
 href: 'https://minecraftshader.com'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecraftshaders.png'
+icon: '/icons/minecraftshaders.png'
 category: '资源' # 分类为资源
 subcategory: '纹理、资源包、光影'
 tags: ['资源', '光影', 'Shaders', '下载', 'OptiFine', 'Iris']

@@ -2,7 +2,7 @@
 title: 'BBSMC'
 description: '现代化的综合玩家社区，为 Java 与基岩版提供优质交流平台。'
 href: 'https://bbsmc.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/bbsmc.png' # 假设图标文件名
+icon: '/icons/bbsmc.png' # 假设图标文件名
 category: '资源' # 用于分类
 subcategory: '综合'
 tags: ['社区', '论坛', '现代', '综合', 'Java版', '基岩版']

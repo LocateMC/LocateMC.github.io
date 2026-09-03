@@ -2,7 +2,7 @@
 title: '联壁计划'
 description: '一个致力于翻译和引进优秀海外地图作品的本地化组织，旨在成为连接全球创作者与中国玩家的桥梁。'
 href: 'https://barrierslink.cn'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/barrierslink.jpg'
+icon: '/icons/barrierslink.jpg'
 category: '工作室 & 组织' # 用于分类
 tags: ['地图', '汉化', '本地化', '社区项目']
 order: 8

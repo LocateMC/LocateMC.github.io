@@ -2,7 +2,7 @@
 title: 'HelloSkin'
 description: '一个面向中国社区的、提供免费与付费分级服务的第三方皮肤站，基于 Blessing Skin Server 构建。'
 href: 'https://helloskin.cn/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/helloskin.png'
+icon: '/icons/helloskin.png'
 category: '资源' # 分类为资源
 subcategory: '皮肤'
 tags: ['皮肤', '第三方皮肤站', 'Yggdrasil', 'Blessing Skin Server', '中国']

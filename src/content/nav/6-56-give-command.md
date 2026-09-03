@@ -2,7 +2,7 @@
 title: 'Give 指令生成器'
 description: '一个由开发者 Ezekielelin 制作的、用于生成复杂物品 /give 命令的在线工具。'
 href: 'https://ezekielelin.com/give'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sample.png'
+icon: '/icons/sample.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '命令', 'NBT', '生成器', 'Java版', '开发者']
 subcategory: "命令与数据包"

@@ -2,7 +2,7 @@
 title: 'MCPEDL'
 description: '全球最大的基岩版资源下载站，聚焦附加包、地图与皮肤。'
 href: 'https://www.mcpedl.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcpedl.png' # 假设图标文件名
+icon: '/icons/mcpedl.png' # 假设图标文件名
 category: '资源' # 用于分类
 subcategory: '综合'
 tags: ['资源', '平台', '基岩版', '附加包', '英文']

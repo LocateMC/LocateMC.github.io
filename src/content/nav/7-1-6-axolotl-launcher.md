@@ -2,7 +2,7 @@
 title: "Axolotl Launcher"
 description: "开源无广告的跨平台启动器，Modrinth 与 CurseForge 双源合一。"
 href: "https://axlmc.org/"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/axolotl-launcher.png'
+icon: '/icons/axolotl-launcher.png'
 category: "软件程序"
 subcategory: "启动器"
 tags: ["启动器","开源","跨平台","Modrinth","CurseForge","中文"]

@@ -2,7 +2,7 @@
 title: 'Minecraft Skins'
 description: '一个提供精选和原创角色皮肤设计的分享网站，注重质量而非数量。'
 href: 'https://www.minecraftskins.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecraftskins.png'
+icon: '/icons/minecraftskins.png'
 category: '资源' # 分类为资源
 subcategory: '皮肤'
 tags: ['皮肤', '外观', '设计', '社区']

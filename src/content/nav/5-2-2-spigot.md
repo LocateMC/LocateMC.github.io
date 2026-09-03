@@ -2,7 +2,7 @@
 title: "Spigot"
 description: "经典的开源服务端核心与插件社区，Java 版服务端插件生态的基石。"
 href: "https://www.spigotmc.org/"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/spigot.png'
+icon: '/icons/spigot.png'
 category: "服务端"
 subcategory: "Bukkit·Paper系"
 tags: ["服务端", "Java版", "插件", "社区", "开源"]

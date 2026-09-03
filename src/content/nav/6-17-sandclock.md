@@ -2,7 +2,7 @@
 title: '图形化自定义数据包'
 description: '一个用于通过图形化界面创建和自定义数据包的强大在线工具。'
 href: 'https://www.sandclocks.cn/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sandclock.png'
+icon: '/icons/sandclock.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '数据包', 'Datapack', '图形化', '命令']
 subcategory: "命令与数据包"

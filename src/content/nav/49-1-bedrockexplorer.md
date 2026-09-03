@@ -2,7 +2,7 @@
 title: 'Bedrock Explorer'
 description: '一个展示和索引基岩版官方市场 (Marketplace) 内容的非官方浏览器，提供了便捷的搜索和发现功能。'
 href: 'https://www.bedrockexplorer.com'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/bedrockexplorer.webp'
+icon: '/icons/bedrockexplorer.webp'
 category: '市场'
 subcategory: '市场目录'
 tags: ['基岩版', '市场', 'Marketplace', '社区', '内容发现']

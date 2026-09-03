@@ -2,7 +2,7 @@
 title: 'MCskins.top'
 description: '一个专注于通过 3D 交互式目录展示热门皮肤的在线画廊。'
 href: 'https://mcskins.top/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcskins.png'
+icon: '/icons/mcskins.png'
 category: '资源' # 分类为资源
 subcategory: '皮肤'
 tags: ['资源', '皮肤', '数据库', '3D预览']

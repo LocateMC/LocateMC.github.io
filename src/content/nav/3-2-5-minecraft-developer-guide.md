@@ -2,7 +2,7 @@
 title: '我的世界开发者中文指南'
 description: '由社区共建的简体中文 Minecraft 开发一站式指南，覆盖 Java 模组/插件、基岩、数据包、启动器与着色器的教程、资料与类库索引。'
 href: 'https://mouse0w0.github.io/MinecraftDeveloperGuide/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecraft-developer-guide.png'
+icon: '/icons/minecraft-developer-guide.png'
 category: '百科'
 subcategory: '教程、文档'
 tags: ['开发', '教程', '文档', '中文', '模组', '插件', '基岩', '数据包', '社区']

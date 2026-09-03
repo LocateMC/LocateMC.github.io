@@ -2,7 +2,7 @@
 title: 'Convert Mcpack'
 description: 'Java 版与基岩版之间资源包版本转换工具。'
 href: 'https://convertmcpack.net'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/convertmcpack.png'
+icon: '/icons/convertmcpack.png'
 category: '在线工具'
 tags: ['在线工具', '资源包转换', '材质包', 'Java版', '基岩版']
 subcategory: "资源包与定制"

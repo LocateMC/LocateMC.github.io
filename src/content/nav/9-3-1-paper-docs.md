@@ -2,7 +2,7 @@
 title: 'PaperMC 文档'
 description: '一个高性能服务器软件 PaperMC 的官方技术文档，为服务器管理员和插件开发者提供权威的配置指南、开发教程与 API 参考。'
 href: 'https://docs.papermc.io/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/papermc.webp'
+icon: '/icons/papermc.webp'
 category: '开发'
 subcategory: 'Java 服务端'
 tags: ['开发', 'PaperMC', 'Spigot', '服务器', '插件', 'API', '文档']

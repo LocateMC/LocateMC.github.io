@@ -2,7 +2,7 @@
 title: 'ScriptIRC AI'
 description: '一个利用人工智能 (AI) 来帮助用户编写和生成服务器插件的在线平台。'
 href: 'https://scriptirc.io/chat'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/scriptirc.png'
+icon: '/icons/scriptirc.png'
 category: '在线工具' # 用于分类
 tags: ['AI', '插件', '服务器', '开发者工具', '代码生成', 'Bukkit']
 subcategory: "服务器与开发者"

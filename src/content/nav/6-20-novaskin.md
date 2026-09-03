@@ -2,7 +2,7 @@
 title: 'Nova Skin'
 description: '一个功能强大的在线创意套件，以其先进的 3D 皮肤编辑器、壁纸生成器和资源包编辑器而闻名。'
 href: 'https://minecraft.novaskin.me/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/novaskin.png'
+icon: '/icons/novaskin.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '皮肤编辑器', '皮肤', '壁纸', '资源包']
 subcategory: "皮肤与装扮"

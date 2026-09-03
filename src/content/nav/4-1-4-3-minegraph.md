@@ -2,7 +2,7 @@
 title: 'MGC 中文图形站'
 description: '中文图形技术交流社区，聚焦光影、资源包与渲染教程。'
 href: 'https://www.minegraph.cn/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minegraph.png' # 假设图标文件名
+icon: '/icons/minegraph.png' # 假设图标文件名
 category: '资源' # 分类为资源
 subcategory: '纹理、资源包、光影'
 tags: ['资源', '光影', '材质包', '中文', '渲染', '教程']

@@ -2,7 +2,7 @@
 title: 'Hielke Maps'
 description: '由创作者 Hielke 打造的跑酷地图系列网站。'
 href: 'https://hielkemaps.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/hielkemaps.png'
+icon: '/icons/hielkemaps.png'
 category: '资源' # 分类为资源
 subcategory: '地图、投影'
 tags: ['地图', '跑酷', '小游戏', 'Java版']

@@ -2,7 +2,7 @@
 title: 'MC 蓝图站'
 description: '中文建筑蓝图分享平台，提供海量便捷的结构文件下载。'
 href: 'https://www.mcschematic.top/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcschematic.png' # 假设图标文件名
+icon: '/icons/mcschematic.png' # 假设图标文件名
 category: '资源' # 分类为资源
 subcategory: '地图、投影'
 tags: ['资源', '建筑', 'Schematics', '蓝图', '中文']

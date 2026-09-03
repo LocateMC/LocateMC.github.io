@@ -2,7 +2,7 @@
 title: 'Sinytra 文档'
 description: '一个革命性的兼容层，它允许在 Forge 环境下直接加载和运行 Fabric 模组。'
 href: 'https://sinytra.org/docs/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sinytra-docs.png'
+icon: '/icons/sinytra-docs.png'
 category: '开发'
 subcategory: 'Java 模组'
 tags: ['开发', 'API', 'Sinytra Connector', 'Forge', 'Fabric', '跨平台', '兼容层']

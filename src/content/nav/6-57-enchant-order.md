@@ -2,7 +2,7 @@
 title: "附魔计算器"
 description: "计算最佳附魔顺序，以最小化经验消耗的经典在线工具。"
 href: "https://iamcal.github.io/enchant-order/"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sample.png'
+icon: '/icons/sample.png'
 category: "在线工具"
 subcategory: "查询与素材库"
 tags: ["工具","附魔","铁砧","计算器","优化","Java版"]

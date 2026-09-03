@@ -2,7 +2,7 @@
 title: 'Vanilla Tweaks'
 description: '一个用于定制和下载资源包、数据包和合成配方的模块化工具网站。'
 href: 'https://vanillatweaks.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/vanillatweaks.png'
+icon: '/icons/vanillatweaks.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '资源包', '数据包', '原版', '定制']
 subcategory: "资源包与定制"

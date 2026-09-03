@@ -2,7 +2,7 @@
 title: 'MCLogs'
 description: '一个用于粘贴、分享和智能分析游戏日志的在线工具。'
 href: 'https://mclo.gs/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mclogs.png'
+icon: '/icons/mclogs.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '日志', '服务器', '客户端', '排错', 'Aternos']
 subcategory: "服务器与开发者"

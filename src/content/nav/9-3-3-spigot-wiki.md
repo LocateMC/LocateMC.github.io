@@ -2,7 +2,7 @@
 title: 'SpigotMC Wiki'
 description: '广受欢迎的服务器软件 SpigotMC 的官方维基，为服务器管理员和插件开发者提供核心的参考文档和指南。'
 href: 'https://www.spigotmc.org/wiki/index/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/spigot.png'
+icon: '/icons/spigot.png'
 category: '开发'
 subcategory: 'Java 服务端'
 tags: ['开发', 'Spigot', 'Bukkit', '服务器', '插件', '文档', 'Wiki']

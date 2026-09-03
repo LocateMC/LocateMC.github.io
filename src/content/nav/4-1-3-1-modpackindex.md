@@ -2,7 +2,7 @@
 title: 'Modpack Index'
 description: '一个强大的整合包 (Modpack) 跨平台搜索引擎，聚合了来自 CurseForge, Modrinth 和 FTB App 的内容。'
 href: 'https://www.modpackindex.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/modpackindex.png'
+icon: '/icons/modpackindex.png'
 category: '资源' # 用于分类
 subcategory: '模组、整合包'
 tags: ['资源', '整合包', 'Modpack', '搜索引擎', 'CurseForge', 'Modrinth']

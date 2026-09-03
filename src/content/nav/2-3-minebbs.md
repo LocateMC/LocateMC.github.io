@@ -2,7 +2,7 @@
 title: 'MineBBS'
 description: '为玩家和开发者提供资源分享与技术交流。'
 href: 'https://www.minebbs.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minebbs.webp' # 假设图标文件名
+icon: '/icons/minebbs.webp' # 假设图标文件名
 category: '社区' # 用于分类
 tags: ['社区', '论坛', '资源', '插件', '服务端']
 order: 4

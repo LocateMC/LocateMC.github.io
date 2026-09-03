@@ -2,7 +2,7 @@
 title: 'StarMap'
 description: '一个专注于地图存档分享与交流的中文社区网站。'
 href: 'https://www.mcmaps.cn'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/starmap.webp'
+icon: '/icons/starmap.webp'
 category: '资源' # 分类为资源
 subcategory: '付费'
 tags: ['资源', '地图', '存档', '中文社区', '建筑', '解密']

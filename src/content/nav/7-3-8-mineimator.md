@@ -2,7 +2,7 @@
 title: 'Mine-imator'
 description: '免费易上手的动画制作软件，为新手快速创作视频而生。'
 href: 'https://www.mineimator.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mineimator.png' # 假设图标文件名
+icon: '/icons/mineimator.png' # 假设图标文件名
 category: '软件程序'
 subcategory: '实用工具（PC）'
 tags: ['实用工具', '动画', '视频制作', '免费', '渲染']

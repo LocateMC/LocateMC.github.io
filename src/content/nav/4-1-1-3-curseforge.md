@@ -2,7 +2,7 @@
 title: 'CurseForge'
 description: '历史悠久的模组托管平台，拥有全面的资源与整合包库。'
 href: 'https://www.curseforge.com/minecraft'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/curseforge.png' # 假设图标文件名
+icon: '/icons/curseforge.png' # 假设图标文件名
 category: '资源' # 用于分类
 subcategory: '综合'
 tags: ['资源', '平台', '模组', '插件', '启动器', '英文']

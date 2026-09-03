@@ -2,7 +2,7 @@
 title: 'PowerNukkitX'
 description: '一个高性能的 Nukkit 服务器软件分支，专注于性能优化、多线程处理和对新版游戏特性的支持。'
 href: 'https://docs.powernukkitx.org/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/powernukkitx.png'
+icon: '/icons/powernukkitx.png'
 category: '开发'
 subcategory: '基岩 服务端'
 tags: ['基岩版', '开发', '服务器', 'Java', '插件', 'API', 'Nukkit']

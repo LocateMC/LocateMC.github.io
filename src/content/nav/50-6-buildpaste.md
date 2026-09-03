@@ -2,7 +2,7 @@
 title: 'Buildpaste'
 description: '一个创新的在线平台，它允许玩家通过简单的链接，轻松地分享和“粘贴”建筑，且无需任何模组。'
 href: 'https://buildpaste.net'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/buildpaste.png'
+icon: '/icons/buildpaste.png'
 category: '收纳' # 用于分类
 tags: ['工具', '建筑', '分享', 'Schematic', 'NBT', '命令', '原版']
 order: 6

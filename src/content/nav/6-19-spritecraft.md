@@ -2,7 +2,7 @@
 title: 'Spritecraft'
 description: '一个经典的在线工具，能将任意图片转换为由方块构成的像素画，并生成可导入的 .schematic 文件。'
 href: 'https://autosaved.org/spritecraft'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/spritecraft.png'
+icon: '/icons/spritecraft.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '像素画', '图片转换', 'Schematic', '建筑']
 subcategory: "像素画与建筑"

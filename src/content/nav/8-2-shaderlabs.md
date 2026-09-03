@@ -2,7 +2,7 @@
 title: 'shaderLABS'
 description: '一个专注于光影包（Shader Packs）开发的技术文档与信息中心的社区维基。'
 href: 'https://shaderlabs.org/wiki/Main_Page'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/shaderlabs.png' # 假设图标文件名
+icon: '/icons/shaderlabs.png' # 假设图标文件名
 category: '工作室 & 组织'
 tags: ['Shaders', 'OptiFine', 'Iris', '技术文档', 'GLSL']
 order: 2

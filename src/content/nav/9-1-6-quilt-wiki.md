@@ -2,7 +2,7 @@
 title: 'Quilt Wiki'
 description: '现代模组工具链 Quilt 的官方维基，为用户和开发者提供全面的指南、教程和社区文档。'
 href: 'https://wiki.quiltmc.org/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/quilt.png'
+icon: '/icons/quilt.png'
 category: '开发'
 subcategory: 'Java 模组'
 tags: ['Quilt', '模组', '开发', '文档', '教程', 'Fabric Fork']

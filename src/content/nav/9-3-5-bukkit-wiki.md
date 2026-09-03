@@ -2,7 +2,7 @@
 title: 'Bukkit Wiki'
 description: '传奇的服务器 API 项目 Bukkit 的原始官方维基，为插件开发者提供了最早的、最核心的开发文档和教程。'
 href: 'https://bukkit.fandom.com/wiki/Main_Page'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/bukkit.png'
+icon: '/icons/bukkit.png'
 category: '开发'
 subcategory: 'Java 服务端'
 tags: ['开发', 'Bukkit', 'Spigot', '服务器', '插件', '文档', 'Wiki', '历史']

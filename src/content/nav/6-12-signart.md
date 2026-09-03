@@ -2,7 +2,7 @@
 title: '方块字告示牌生成器'
 description: '一个专门用于生成告示牌“像素画”的在线工具，利用特殊的 UTF 字符块来创造精细的图案。'
 href: 'https://kqakqakqa.github.io/utf-block-sign-art/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sample.png'
+icon: '/icons/sample.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '告示牌', '艺术生成', 'UTF', '像素画']
 subcategory: "文字与排版"

@@ -2,7 +2,7 @@
 title: 'Bedrock Tweaks'
 description: '作为 Vanilla Tweaks 的姊妹篇，专为基岩版提供模块化定制工具。'
 href: 'https://bedrocktweaks.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/bedrocktweaks.png'
+icon: '/icons/bedrocktweaks.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '资源包', '基岩版', '定制', 'Add-on']
 subcategory: "资源包与定制"

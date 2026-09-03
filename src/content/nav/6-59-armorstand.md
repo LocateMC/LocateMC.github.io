@@ -2,7 +2,7 @@
 title: '自定义盔甲架姿态指令'
 description: '一个通过生成“命令书”来创建和自定义盔甲架姿态的在线可视化工具。'
 href: 'https://haselkern.com/Minecraft-ArmorStand/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/armorstand.webp'
+icon: '/icons/armorstand.webp'
 category: '在线工具' # 用于分类
 tags: ['工具', '盔甲架', '命令', '生成器', 'NBT', 'Java版', '数据包']
 subcategory: "命令与数据包"

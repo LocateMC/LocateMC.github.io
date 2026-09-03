@@ -2,7 +2,7 @@
 title: 'Structura Lab'
 description: '一个专注于建筑结构文件（.mcstructure）的分享与发现平台。'
 href: 'https://structuralab.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sample.png'
+icon: '/icons/sample.png'
 category: '资源' # 分类为资源
 subcategory: '地图、投影'
 tags: ['结构文件', '建筑', '工具', '自动化', '社区']

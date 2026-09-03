@@ -2,7 +2,7 @@
 title: 'SOUのマイクラログ'
 description: '一个由个人创作者 SOU 运营的博客，专注于分享外观时尚、制作简单、尺寸紧凑的建筑教程。'
 href: 'https://minecraft-log.com'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sousminecraftlog.png' # 假设图标文件名
+icon: '/icons/sousminecraftlog.png' # 假设图标文件名
 category: '收纳' # 用于分类
 tags: ['建筑', '教程', 'コンパクト建築', 'おしゃれ']
 order: 3

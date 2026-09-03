@@ -2,7 +2,7 @@
 title: 'Dragonfly'
 description: '一个完全用 Go 语言从头编写的、高性能的基岩版 (Bedrock Edition) 服务器软件。'
 href: 'https://github.com/df-mc/dragonfly/wiki'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/dragonfly.png'
+icon: '/icons/dragonfly.png'
 category: '开发'
 subcategory: '基岩 服务端'
 tags: ['基岩版', '开发', '服务器', 'Go', '插件', 'API', '开源']

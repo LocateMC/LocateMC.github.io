@@ -2,7 +2,7 @@
 title: '自定义合成配方'
 description: '由 TheDestruc7i0n 开发的，专门用于为数据包 (Datapack) 生成自定义合成配方的在线工具。'
 href: 'https://crafting.thedestruc7i0n.ca'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/crafting-generator.png'
+icon: '/icons/crafting-generator.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '数据包', 'Datapack', '合成配方', '生成器']
 subcategory: "命令与数据包"

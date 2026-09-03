@@ -2,7 +2,7 @@
 title: 'KLPBBS 版本库'
 description: '一个专注于基岩版 (Bedrock Edition) APK 文件下载的网站，涵盖了正式版、测试版和预览版。'
 href: 'https://mcapks.net'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcapks.png'
+icon: '/icons/mcapks.png'
 category: '软件程序' # 用于分类
 subcategory: '版本库'
 tags: ['资源', '基岩版', 'APK', '下载']

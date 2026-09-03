@@ -2,7 +2,7 @@
 title: '几何形状生成器'
 description: '一个专门用于生成各种复杂几何形状建造蓝图的在线工具。'
 href: 'https://minecraftshapes.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecraftshapes.png'
+icon: '/icons/minecraftshapes.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '建筑', '生成器', '几何形状', '圆形', '球体']
 subcategory: "像素画与建筑"

@@ -2,7 +2,7 @@
 title: 'Note Block Studio'
 description: '强大的音乐创作软件，将 MIDI 转换为红石音乐。'
 href: 'https://noteblock.studio/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/noteblockstudio.png' # 假设图标文件名
+icon: '/icons/noteblockstudio.png' # 假设图标文件名
 category: '软件程序'
 subcategory: '实用工具（PC）'
 tags: ['实用工具', '音乐', '红石', '音符盒', 'MIDI']

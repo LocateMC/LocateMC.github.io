@@ -2,7 +2,7 @@
 title: 'JVM Gaming'
 description: '2009 年 5 月 13 日，游戏作者 Notch 在 JVM-Gaming.org 论坛上首次公开发布 Minecraft（当时名为 Cave Game）的传奇帖子。'
 href: 'https://jvm-gaming.org/t/minecraft/33567'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/jvm-gaming.png'
+icon: '/icons/jvm-gaming.png'
 category: '收纳' # 用于分类
 tags: ['历史', 'Notch', '发布', 'Cave Game', '开发', 'Java', 'JVM']
 order: 8

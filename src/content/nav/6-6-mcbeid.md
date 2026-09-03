@@ -2,7 +2,7 @@
 title: 'MCBEID'
 description: '一个由 ProjectXero 开发的、专注于基岩版 (Bedrock Edition) 的全类型 ID 数据库与查询工具。'
 href: 'https://ca.projectxero.top/idlist/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcbeid.webp'
+icon: '/icons/mcbeid.webp'
 category: '在线工具' # 用于分类
 tags: ['工具', '数据库', '基岩版', '物品ID', '实体ID', '命令']
 subcategory: "查询与素材库"

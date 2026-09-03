@@ -2,7 +2,7 @@
 title: 'Colorize'
 description: '一个功能强大的在线工具，用于生成彩色、渐变和彩虹效果的文本，并支持导出为多种游戏及社区常用格式。'
 href: 'https://colorize.fun/en/minecraft'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sample.png'
+icon: '/icons/sample.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '文字生成', '渐变色', 'JSON', 'MOTD', 'EssentialsX']
 subcategory: "文字与排版"

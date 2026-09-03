@@ -2,7 +2,7 @@
 title: 'CreateMod 投影站'
 description: '游戏中的“投影”文件分享和下载的社区平台，专为“机械动力 (Create)”模组设计。'
 href: 'https://createmod.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/createmod.png'
+icon: '/icons/createmod.png'
 category: '资源' # 分类为资源
 subcategory: '地图、投影'
 tags: ['社区', '机械动力', 'Create', '模组', '投影', '蓝图', '分享']

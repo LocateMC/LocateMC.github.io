@@ -2,7 +2,7 @@
 title: 'TITAIKE 地图站'
 description: '国内顶尖的原创地图分享与下载平台，聚焦精品创作。'
 href: 'https://www.titaike.cn/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/titaike.jpg' # 假设图标文件名
+icon: '/icons/titaike.jpg' # 假设图标文件名
 category: '资源' # 分类为资源
 subcategory: '地图、投影'
 tags: ['资源', '地图', '原创', '中文', '建筑', 'PVE']

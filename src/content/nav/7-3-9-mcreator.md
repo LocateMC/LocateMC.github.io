@@ -2,7 +2,7 @@
 title: 'MCreator'
 description: '可视化模组制作软件，无需编程即可创造自己的游戏内容。'
 href: 'https://mcreator.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcreator.png' # 假设图标文件名
+icon: '/icons/mcreator.png' # 假设图标文件名
 category: '软件程序'
 subcategory: '实用工具（PC）'
 tags: ['实用工具', '模组制作', '无代码', '开发', 'Java版', '基岩版']

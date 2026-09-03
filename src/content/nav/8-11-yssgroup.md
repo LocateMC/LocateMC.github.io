@@ -2,7 +2,7 @@
 title: "YSS Group"
 description: "一个专注于开发和改进基岩版 (Bedrock Edition) 光影着色器，旨在提升游戏视觉体验的开发者团队。"
 href: "https://yss.rf.gd/"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/yssgroup.png'
+icon: '/icons/yssgroup.png'
 category: "工作室 & 组织"
 tags: ["基岩版","光影","着色器","开发团队"]
 order: 11

@@ -2,7 +2,7 @@
 title: '3D 文本生成器'
 description: '一个由 EaseCation 服务器团队开发的，用于在线生成 3D 艺术字模型命令的工具。'
 href: 'http://3dtext.easecation.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sample.png'
+icon: '/icons/sample.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '3D文字', '建筑', '命令生成器', 'EaseCation']
 subcategory: "文字与排版"

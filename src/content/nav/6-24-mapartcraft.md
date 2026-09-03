@@ -2,7 +2,7 @@
 title: 'Map Art Craft'
 description: '一个功能极其强大和专业的在线工具，用于将图片转换为地图画，并支持高级的“楼梯”着色技术。'
 href: 'https://rebane2001.com/mapartcraft/zh-Hans'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mapartcraft.png'
+icon: '/icons/mapartcraft.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '地图画', '图片转换', '建筑', 'Schematic', 'Litematic']
 subcategory: "像素画与建筑"

@@ -2,7 +2,7 @@
 title: 'Mod Manager'
 description: '基于命令行的模组下载与更新工具，为整合包开发者设计。'
 href: 'https://github.com/kaniol-lck/modmanager'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/modmanager.png' # 假设图标文件名
+icon: '/icons/modmanager.png' # 假设图标文件名
 category: '软件程序'
 subcategory: '实用工具（PC）'
 tags: ['实用工具', '命令行', '模组', '整合包', '开发者', '开源']

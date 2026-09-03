@@ -2,7 +2,7 @@
 title: 'PaperMC Javadocs'
 description: '高性能服务器软件 PaperMC 及其相关项目的 Java API 参考文档 (Javadocs)。'
 href: 'https://papermc.io/javadocs/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/papermc.webp'
+icon: '/icons/papermc.webp'
 category: '开发'
 subcategory: 'Java 服务端'
 tags: ['开发', 'PaperMC', 'API', 'Javadocs', '服务器', '插件']

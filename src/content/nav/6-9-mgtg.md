@@ -2,7 +2,7 @@
 title: '渐变文字生成器'
 description: '一个用于快速生成彩色渐变文本的在线工具，支持多种文本格式和实时预览。'
 href: 'https://mcg.tuanzi.ink' # 文本未提供具体链接
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mgtg.png'
+icon: '/icons/mgtg.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '文字生成', '渐变色', 'JSON', '开源']
 subcategory: "文字与排版"

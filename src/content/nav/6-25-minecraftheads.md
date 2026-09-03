@@ -2,7 +2,7 @@
 title: 'Minecraft Heads'
 description: '一个专注于提供自定义玩家头颅的超大型在线数据库，是建筑与装饰社区最重要的资源站之一。'
 href: 'https://minecraft-heads.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecraft-heads.webp'
+icon: '/icons/minecraft-heads.webp'
 category: '在线工具' # 用于分类
 tags: ['资源', '玩家头颅', '数据库', '建筑', '装饰']
 subcategory: "查询与素材库"

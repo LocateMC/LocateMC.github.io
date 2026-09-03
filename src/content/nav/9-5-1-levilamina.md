@@ -2,7 +2,7 @@
 title: 'LeviLamina'
 description: '一个为基岩版专用服务器 (BDS) 设计的、跨语言的插件加载器与开发框架，是 LiteLoaderBDS 的官方继任者。'
 href: 'https://lamina.levimc.org/zh/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/levilamina.png'
+icon: '/icons/levilamina.png'
 category: '开发'
 subcategory: '基岩 服务端'
 tags: ['基岩版', '开发', '框架', 'API', '跨语言', 'BDS', 'LiteLoaderBDS']

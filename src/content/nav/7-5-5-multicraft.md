@@ -2,7 +2,7 @@
 title: "Multicraft"
 description: "商用级 Minecraft 托管控制面板，单面板管理上千服，内置 FTP 与计费系统集成。"
 href: "https://multicraft.org"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/multicraft.png'
+icon: '/icons/multicraft.png'
 category: "软件程序"
 subcategory: "服务器面板"
 tags: ["服务器面板","面板","开服","网页管理","Minecraft","托管","商用","多服务器","API","计费"]

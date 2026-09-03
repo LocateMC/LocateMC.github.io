@@ -2,7 +2,7 @@
 title: 'ModBay'
 description: '新兴的开放内容市场，为玩家与创作者提供新选择。'
 href: 'https://modbay.org/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/modbay.jpg' # 假设图标文件名
+icon: '/icons/modbay.jpg' # 假设图标文件名
 category: '资源' # 分类为资源
 subcategory: '综合'
 tags: ['资源', '平台', '模组', '开放', '英文']

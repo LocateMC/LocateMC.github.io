@@ -2,7 +2,7 @@
 title: '梗体中文资源包'
 description: '一个由茶馆工作室 (Teahouse Studios) 社区驱动的在线工具，用于构建和自定义“梗体中文”这一将游戏内文本替换为梗和笑话的资源包。'
 href: 'https://meme.teahouse.team/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/teahouse-meme.png'
+icon: '/icons/teahouse-meme.png'
 category: '在线工具' # 用于分类
 tags: ['资源包', '梗', 'Meme', '汉化', '社区', '茶馆工作室', '生成器']
 subcategory: "资源包与定制"

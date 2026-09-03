@@ -2,7 +2,7 @@
 title: 'BlueMap'
 description: '高性能的 3D 地图渲染器，在浏览器中呈现精美的世界模型。'
 href: 'https://bluemap.bluecolored.de/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/bluemap.png' # 假设图标文件名
+icon: '/icons/bluemap.png' # 假设图标文件名
 category: '软件程序'
 subcategory: '实用工具（PC）'
 tags: ['实用工具', '地图渲染', '3D', '网页地图', '服务端插件', '开源']

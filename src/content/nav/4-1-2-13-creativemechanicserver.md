@@ -2,7 +2,7 @@
 title: 'CMS 蓝图站'
 description: '一个专为「机械动力 (Create)」打造的蓝图与投影分享社区，提供强大的多维度筛选、分类浏览与蓝图上传功能。'
 href: 'https://www.creativemechanicserver.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/creativemechanicserver.png'
+icon: '/icons/creativemechanicserver.png'
 category: '资源' # 分类为资源
 subcategory: '地图、投影'
 tags: ['社区', '机械动力', 'Create', '模组', '投影', '蓝图', '分享', '可搜索']

@@ -2,7 +2,7 @@
 title: "Allay"
 description: "Java 从零实现的基岩版服务端，多版本架构 + JVM 插件生态。"
 href: "https://github.com/AllayMC/Allay"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/allaymc.png'
+icon: '/icons/allaymc.png'
 category: "服务端"
 subcategory: "基岩"
 tags: ["服务端","基岩版","Java","从零实现","高性能","多版本","开源"]

@@ -2,7 +2,7 @@
 title: 'OBJ to Schematic'
 description: '功能强大的在线转换器，能将标准的 3D 模型文件 (.obj) 转换为原理图 (.schematic) 文件。'
 href: 'https://objtoschematic.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/objtoschematic.png'
+icon: '/icons/objtoschematic.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '3D模型', 'Schematic', '建筑', '转换器', 'OBJ']
 subcategory: "像素画与建筑"

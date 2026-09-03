@@ -2,7 +2,7 @@
 title: 'MCBedrock'
 description: '一个专注于 Minecraft 基岩版（Bedrock Edition）的内容发现与下载的社区中心。'
 href: 'https://www.mcbedrock.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcbedrock.png'
+icon: '/icons/mcbedrock.png'
 category: '社区' # 用于分类
 tags: ['社区', '基岩版', '模组', '地图', '皮肤', '资源包', 'Add-on']
 order: 9

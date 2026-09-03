@@ -2,7 +2,7 @@
 title: "SpongeForge"
 description: "Forge + SpongeAPI 混合形态，模组服中的插件开发框架。"
 href: "https://www.spongepowered.org/downloads/spongeforge"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sample.png'
+icon: '/icons/sample.png'
 category: "服务端"
 subcategory: "混合端"
 tags: ["服务端", "Java版", "混合端", "Sponge", "Forge"]

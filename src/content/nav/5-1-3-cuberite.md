@@ -2,7 +2,7 @@
 title: "Cuberite"
 description: "C++ 实现的轻量高性能 Minecraft 服务端，自带 Lua 插件体系，跨平台。"
 href: "https://cuberite.org/"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/cuberite.png'
+icon: '/icons/cuberite.png'
 category: "服务端"
 subcategory: "原版核心"
 tags: ["服务端","C++","高性能","跨平台","独立实现","开源"]

@@ -2,7 +2,7 @@
 title: 'CTM Repository'
 description: '专注于“完成纪念碑 (Complete the Monument)”类型地图的中央存储库和社区中心。'
 href: 'https://ctmrepository.com'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/ctm-repository.png'
+icon: '/icons/ctm-repository.png'
 category: '资源' # 分类为资源
 subcategory: '地图、投影'
 tags: ['地图', 'CTM', '生存', '冒险', '社区', '挑战']

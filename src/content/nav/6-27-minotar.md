@@ -2,7 +2,7 @@
 title: 'Minotar'
 description: '一个简单、快速且免费的玩家皮肤 API 服务，为开发者提供多种尺寸的玩家头像和皮肤图像。'
 href: 'https://minotar.net'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minotar.png'
+icon: '/icons/minotar.png'
 category: '在线工具' # 用于分类
 tags: ['API', '皮肤', '头像', '开发者工具', '服务']
 subcategory: "皮肤与装扮"

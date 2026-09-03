@@ -2,7 +2,7 @@
 title: 'Minecraft Dot'
 description: '一个专门将图片转换为风格像素点画 (Dot Art) 的在线工具。'
 href: 'https://www.minecraft-dot.pictures/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecraftdot.png'
+icon: '/icons/minecraftdot.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '像素画', '图片转换', '建筑']
 subcategory: "像素画与建筑"

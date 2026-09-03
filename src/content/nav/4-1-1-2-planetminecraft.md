@@ -2,7 +2,7 @@
 title: 'Planet Minecraft'
 description: '全球性的创作分享平台，聚焦皮肤、地图与材质包艺术。'
 href: 'https://www.planetminecraft.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/planetminecraft.png' # 假设图标文件名
+icon: '/icons/planetminecraft.png' # 假设图标文件名
 category: '资源' # 用于分类
 subcategory: '综合'
 tags: ['资源', '平台', '皮肤', '地图', '材质包', '英文']

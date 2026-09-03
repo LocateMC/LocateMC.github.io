@@ -2,7 +2,7 @@
 title: "原版模组入门教程"
 description: "面向 Java 版 1.13–1.19 的简体中文「原版模组」系统教程，教读者用数据包 + 资源包（而非 Forge/Fabric）扩展游戏玩法。"
 href: "https://zhangshenxing.github.io/VanillaModTutorial/"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/vanilla-mod-tutorial.jpg'
+icon: '/icons/vanilla-mod-tutorial.jpg'
 category: "开发"
 subcategory: "Java 模组"
 tags: ["原版模组","数据包","资源包","教程","中文","Java版","开发"]

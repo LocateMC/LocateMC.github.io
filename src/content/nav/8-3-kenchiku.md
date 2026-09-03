@@ -2,7 +2,7 @@
 title: 'Minecraft 建筑社区'
 description: '一个活跃的日本建筑主题社区博客，主要组织线上建筑活动、发布活动成果并分享优秀作品。'
 href: 'https://mc-kenchiku-com.blog.jp'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/kenchiku.jpg' # 假设图标文件名
+icon: '/icons/kenchiku.jpg' # 假设图标文件名
 category: '工作室 & 组织' # 用于分类
 tags: ['建筑', '社区活动', '日本']
 order: 3

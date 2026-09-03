@@ -2,7 +2,7 @@
 title: 'Minecraft Schematics'
 description: '全球最大的建筑蓝图分享站，提供海量可复用结构文件。'
 href: 'https://www.minecraft-schematics.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecraft-schematics.png' # 假设图标文件名
+icon: '/icons/minecraft-schematics.png' # 假设图标文件名
 category: '资源' # 分类为资源
 subcategory: '地图、投影'
 tags: ['资源', '建筑', 'Schematics', '蓝图', '英文']

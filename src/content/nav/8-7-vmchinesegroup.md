@@ -2,7 +2,7 @@
 title: 'VM 汉化组'
 description: '一个专注于高质量汉化整合包与地图，并以非盈利模式运作的汉化组织。'
 href: 'https://vmct-cn.top'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/vmchinesegroup.png'
+icon: '/icons/vmchinesegroup.png'
 category: '工作室 & 组织' # 用于分类
 tags: ['汉化', '整合包', '地图', '非盈利']
 order: 7

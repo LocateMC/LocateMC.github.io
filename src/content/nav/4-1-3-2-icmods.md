@@ -2,7 +2,7 @@
 title: 'ICMods'
 description: '一个专门为 PE 的著名模组加载器“Inner Core”提供模组下载和分享的在线存储库。'
 href: 'https://icmods.mineprogramming.org'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/icmods.png'
+icon: '/icons/icmods.png'
 category: '资源' # 用于分类
 subcategory: '模组、整合包'
 tags: ['基岩版', 'Mod', 'Inner Core', '开发者工具', '携带版']

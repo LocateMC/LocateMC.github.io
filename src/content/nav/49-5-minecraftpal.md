@@ -2,7 +2,7 @@
 title: 'MinecraftPal'
 description: 'MinecraftPal（MCPal）是一个独立的市场数据分析平台，索引了基岩版官方市场 41K+ 商品，提供创作者信任评分、价格历史、分类趋势与服务器目录等深度洞察。'
 href: 'https://www.minecraftpal.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecraftpal.png'
+icon: '/icons/minecraftpal.png'
 category: '市场'
 subcategory: '市场目录'
 tags: ['基岩版', '市场', 'Marketplace', '数据分析', '创作者分析', '价格历史']

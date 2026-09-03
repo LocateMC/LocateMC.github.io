@@ -2,7 +2,7 @@
 title: 'PVPRP'
 description: '专注 PvP 优化的材质包分享平台，提升竞技战斗体验。'
 href: 'https://pvprp.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/pvprp.png' # 假设图标文件名
+icon: '/icons/pvprp.png' # 假设图标文件名
 category: '资源' # 分类为资源
 subcategory: '纹理、资源包、光影'
 tags: ['资源', '材质包', 'PvP', '英文', 'FPS']

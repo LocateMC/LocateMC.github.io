@@ -2,7 +2,7 @@
 title: 'MCC'
 description: '强大的命令行客户端，用于自动化任务与低资源占用挂机。'
 href: 'https://github.com/MCCTeam/Minecraft-Console-Client'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcc.png' # 假设图标文件名
+icon: '/icons/mcc.png' # 假设图标文件名
 category: '软件程序'
 subcategory: '实用工具（PC）'
 tags: ['实用工具', '命令行', 'Bot', '开源', '自动化', '跨平台']

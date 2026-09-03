@@ -2,7 +2,7 @@
 title: 'MinecraftJSON'
 description: '一个提供多种 JSON 文本和命令生成器的在线工具集，旨在简化游戏内复杂文本和物品的创建过程。'
 href: 'https://www.minecraftjson.com'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sample.png'
+icon: '/icons/sample.png'
 category: '在线工具' # 用于分类
 tags: ['工具', 'JSON', '命令生成器', 'Tellraw', 'Give', 'Title', 'Java版']
 subcategory: "命令与数据包"

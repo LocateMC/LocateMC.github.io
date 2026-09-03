@@ -2,7 +2,7 @@
 title: 'HMCL'
 description: '历史悠久的开源启动器，以其跨平台与高度自定义性著称。'
 href: 'https://hmcl.huangyuhui.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/hmcl.png' # 假设图标文件名
+icon: '/icons/hmcl.png' # 假设图标文件名
 category: '软件程序'
 subcategory: '启动器'
 tags: ['启动器', '开源', '跨平台', '整合包', '中文']

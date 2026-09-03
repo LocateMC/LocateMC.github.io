@@ -2,7 +2,7 @@
 title: "PowerNukkitX"
 description: "Nukkit 的增强分支，支持最新版本与更多特性的 Java 基岩版服务端。"
 href: "https://powernukkitx.com/"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/powernukkitx.png'
+icon: '/icons/powernukkitx.png'
 category: "服务端"
 subcategory: "基岩"
 tags: ["服务端", "基岩版", "Java", "Nukkit分支", "开源"]

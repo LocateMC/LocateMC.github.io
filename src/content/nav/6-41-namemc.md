@@ -2,7 +2,7 @@
 title: 'NameMC'
 description: '提供玩家名称、皮肤、披风和服务器信息查询的综合性在线服务平台。'
 href: 'https://namemc.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/namemc.png'
+icon: '/icons/namemc.png'
 category: '在线工具' # 用于分类
 tags: ['玩家名称', '皮肤', '披风', '服务器列表', 'UUID']
 subcategory: "查询与素材库"

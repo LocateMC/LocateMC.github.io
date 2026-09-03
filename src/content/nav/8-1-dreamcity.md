@@ -2,7 +2,7 @@
 title: '夢想之都工作室'
 description: '深耕创作并拓展 VTuber 业务的台湾综合内容工作室。'
 href: 'https://www.dreamcity.studio/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/dreamcity.png'
+icon: '/icons/dreamcity.png'
 category: '工作室 & 组织'
 tags: ['工作室', '地圖創作', 'VTuber', '中文社區', '台灣']
 order: 1

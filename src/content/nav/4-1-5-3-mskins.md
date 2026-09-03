@@ -2,7 +2,7 @@
 title: 'MSkins.net'
 description: '一个拥有现代化界面的皮肤数据库，提供便捷的皮肤搜索、发现和下载服务。'
 href: 'https://mskins.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mskins.png'
+icon: '/icons/mskins.png'
 category: '资源' # 分类为资源
 subcategory: '皮肤'
 tags: ['资源', '皮肤', '数据库', '搜索']

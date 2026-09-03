@@ -2,7 +2,7 @@
 title: 'Bukkit Javadocs'
 description: '由 SpigotMC 团队维护的、最原始且最核心的 Bukkit API 的官方 Java 参考文档 (Javadocs)。'
 href: 'https://hub.spigotmc.org/javadocs/bukkit/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/bukkit.png'
+icon: '/icons/bukkit.png'
 category: '开发'
 subcategory: 'Java 服务端'
 tags: ['开发', 'Bukkit', 'Spigot', 'API', 'Javadocs', '服务器', '插件', '历史']

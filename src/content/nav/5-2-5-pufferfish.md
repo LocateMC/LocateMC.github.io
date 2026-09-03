@@ -2,7 +2,7 @@
 title: "Pufferfish"
 description: "针对高版本（1.19.3+）深度优化的 Paper 高性能分支服务端。"
 href: "https://github.com/pufferfish-gg/Pufferfish"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/pufferfish.png'
+icon: '/icons/pufferfish.png'
 category: "服务端"
 subcategory: "Bukkit·Paper系"
 tags: ["服务端","Java版","Paper分支","高性能","开源"]

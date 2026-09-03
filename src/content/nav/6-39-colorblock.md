@@ -2,7 +2,7 @@
 title: '粒子指令生成器'
 description: '一个由 Minecraft_OCEAN 开发的、专注于生成复杂粒子动画效果指令的在线工具。'
 href: 'https://mc.ecylt.top/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/colorblock.png'
+icon: '/icons/colorblock.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '命令生成器', '粒子', '特效', '开发者工具', '数学']
 subcategory: "命令与数据包"

@@ -2,7 +2,7 @@
 title: 'Modrinth'
 description: '现代化的模组托管平台，提供纯净、快速的资源下载体验。'
 href: 'https://www.modrinth.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/modrinth.webp' # 假设图标文件名
+icon: '/icons/modrinth.webp' # 假设图标文件名
 category: '资源' # 用于分类
 subcategory: '综合'
 tags: ['资源', '平台', '模组', '启动器', 'API']

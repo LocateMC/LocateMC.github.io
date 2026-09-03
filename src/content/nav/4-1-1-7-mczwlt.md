@@ -2,7 +2,7 @@
 title: '红石中继站'
 description: '体验驱动的中文资源平台，提供模组、插件与整合包高速下载。'
 href: 'https://www.mczwlt.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mczwlt.jpg' # 假设图标文件名
+icon: '/icons/mczwlt.jpg' # 假设图标文件名
 category: '资源' # 分类为资源
 subcategory: '综合'
 tags: ['资源', '平台', '模组', '插件', '中文', '整合包']

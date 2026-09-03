@@ -2,7 +2,7 @@
 title: "Leaf"
 description: "高性能 Minecraft 服务端核心，专注实体与红石运算的极致优化。"
 href: "https://github.com/Winds-Studio/Leaf"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/leaf.png'
+icon: '/icons/leaf.png'
 category: "服务端"
 subcategory: "Bukkit·Paper系"
 tags: ["服务端","Java版","Paper分支","高性能","开源"]

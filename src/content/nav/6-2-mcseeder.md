@@ -2,7 +2,7 @@
 title: 'MCSeeder'
 description: '社区驱动的种子分享平台，发现与分享奇妙世界起点。'
 href: 'https://mcseeder.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcseeder.png' # 假设图标文件名
+icon: '/icons/mcseeder.png' # 假设图标文件名
 category: '在线工具' # 用于分类
 tags: ['在线工具', '种子', '社区', '英文', '地图']
 subcategory: "种子与地图"

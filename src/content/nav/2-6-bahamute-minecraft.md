@@ -2,7 +2,7 @@
 title: '巴哈姆特 Minecraft 看板'
 description: '台灣最大的玩家社群，聚焦資訊、創作分享與深度討論。'
 href: 'https://forum.gamer.com.tw/A.php?bsn=18673'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/bahamute-minecraft.png' # 假设图标文件名
+icon: '/icons/bahamute-minecraft.png' # 假设图标文件名
 category: '社区' # 用于分类
 tags: ['社区', '论坛', '繁体中文', '台湾', '攻略']
 order: 6

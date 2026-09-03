@@ -2,7 +2,7 @@
 title: 'MGC 文档'
 description: '一个专注于图形学领域的、开放的中文技术文档与知识社区。'
 href: 'https://docs.minegraph.cn/home'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minegraph.png'
+icon: '/icons/minegraph.png'
 category: '开发'
 subcategory: 'Java 光影'
 tags: ['开发', '图形学', '光影', 'Shaders', '文档', 'GLSL', '渲染']

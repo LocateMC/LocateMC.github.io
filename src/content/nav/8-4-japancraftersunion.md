@@ -2,7 +2,7 @@
 title: 'Japan Crafters Union'
 description: '一个专注于为基岩版官方市场创作和发布高品质世界与皮肤包的日本顶尖建筑创作者联盟。'
 href: 'https://crafters-union.jp/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/japancraftersunion.jpg' # 假设图标文件名
+icon: '/icons/japancraftersunion.jpg' # 假设图标文件名
 category: '工作室 & 组织'
 tags: ['基岩版', 'Marketplace', '建筑', '日本']
 order: 4

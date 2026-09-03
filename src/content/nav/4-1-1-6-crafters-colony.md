@@ -2,7 +2,7 @@
 title: 'Crafters Colony'
 description: '日本大型综合性内容分享与社区平台，提供地图、模组、资源包、皮肤等丰富资源下载。'
 href: 'https://minecraft-mcworld.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/crafters-colony.png'
+icon: '/icons/crafters-colony.png'
 category: '资源' # 用于分类
 subcategory: '综合'
 tags: ['社区', '论坛', '日语', '日本', '模组', '地图', '资源包', '皮肤']

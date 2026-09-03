@@ -2,7 +2,7 @@
 title: '森罗万象'
 description: '中文 Minecraft 资源包制作指南，深挖原版与 OptiFine 资源包的技术细节。'
 href: 'https://sqwatermark.com/resguide/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/senluowanxiang.png'
+icon: '/icons/senluowanxiang.png'
 category: '百科'
 subcategory: '教程、文档'
 tags: ['资源包', '纹理', '制作指南', '文档', '教程', '中文', 'OptiFine']

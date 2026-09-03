@@ -2,7 +2,7 @@
 title: 'MCID'
 description: '一个提供 Java 版从 1.0 至最新版本方块与物品 ID 查询的数据库网站，支持按数字 ID、中英文名等多种方式进行搜索。'
 href: 'https://mcid.lingningyu.cn/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcid.png'
+icon: '/icons/mcid.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '数据库', '方块ID', '物品ID', 'Java版']
 subcategory: "查询与素材库"

@@ -2,7 +2,7 @@
 title: 'Bedrock.gg'
 description: 'Bedrock.gg 是一个面向基岩版官方市场的一站式浏览器门户，集中提供完整的附加包、世界、皮肤、材质与混搭包目录，并附带社区评分、投票与创作者榜单。'
 href: 'https://bedrock.gg/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/bedrockgg.png'
+icon: '/icons/bedrockgg.png'
 category: '市场'
 subcategory: '市场目录'
 tags: ['基岩版', '市场', 'Marketplace', '社区', '内容发现', '评测']

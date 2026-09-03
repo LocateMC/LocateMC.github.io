@@ -2,7 +2,7 @@
 title: 'MixinSquared Wiki'
 description: '一个允许开发者将多个 Mixin 配置应用到同一个类上的高级扩展库。'
 href: 'https://github.com/Bawnorton/MixinSquared/wiki'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sample.png'
+icon: '/icons/sample.png'
 category: '开发'
 subcategory: 'Java 模组'
 tags: ['Java', '开发', 'Mixin', '扩展库', 'API', '高级工具']

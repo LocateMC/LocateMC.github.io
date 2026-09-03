@@ -2,7 +2,7 @@
 title: 'XyeBBS'
 description: '一个主要收录 Java 版资源的综合性整合包与模组汇总网站，同时也涵盖了部分基岩版内容。'
 href: 'https://xyebbs.com'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/xyebbs.png'
+icon: '/icons/xyebbs.png'
 category: '资源' # 用于分类
 subcategory: '综合'
 tags: ['资源', '整合包', '模组', 'Java版', '基岩版', '中文社区']

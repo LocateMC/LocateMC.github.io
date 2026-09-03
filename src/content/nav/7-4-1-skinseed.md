@@ -2,7 +2,7 @@
 title: 'Skinseed'
 description: '一个功能极其强大的移动端皮肤创作与分享社区平台，以其先进的编辑器和庞大的社区而闻名。'
 href: 'https://play.google.com/store/apps/details?id=com.africasunrise.skinseed'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/skinseed.png'
+icon: '/icons/skinseed.png'
 category: '软件程序' # 用于分类
 subcategory: '实用工具（Android）'
 tags: ['工具', '皮肤编辑器', '皮肤', '社区', '移动端']

@@ -2,7 +2,7 @@
 title: 'OptiFine Shaders 文档'
 description: '由 OptiFine 作者 sp614x 亲自编写和维护的、最原始且最权威的 OptiFine 光影包技术规范文档。'
 href: 'https://github.com/sp614x/optifine/blob/master/OptiFineDoc/doc/shaders.txt'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/optifine.jpg'
+icon: '/icons/optifine.jpg'
 category: '开发'
 subcategory: 'Java 光影'
 tags: ['开发', '光影', 'Shaders', '文档', 'OptiFine', 'GLSL', '规范']

@@ -2,7 +2,7 @@
 title: 'MCEdit'
 description: '传奇的开源 3D 地图编辑器，创作史上的里程碑。'
 href: 'http://www.mcedit.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcedit.png' # 假设图标文件名
+icon: '/icons/mcedit.png' # 假设图标文件名
 category: '软件程序'
 subcategory: '实用工具（PC）'
 tags: ['实用工具', '地图编辑', '开源', '经典', '历史']

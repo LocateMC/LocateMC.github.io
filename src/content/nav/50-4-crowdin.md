@@ -2,7 +2,7 @@
 title: 'Crowdin - Minecraft'
 description: 'Mojang 官方在 Crowdin 平台上发起的、面向社区的官方游戏文本翻译与本地化项目。'
 href: 'https://crowdin.com/project/minecraft'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/crowdin.png'
+icon: '/icons/crowdin.png'
 category: '收纳' # 用于分类
 tags: ['社区', '翻译', '本地化', '官方', 'Crowdin']
 order: 4

@@ -2,7 +2,7 @@
 title: 'MCTools'
 description: '一个为服务器主提供免费网站平台的在线服务，集成了投票、论坛、玩家分析和捐赠商店等多种核心功能。'
 href: 'https://mctools.org'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mctools.png'
+icon: '/icons/mctools.png'
 category: '在线工具' # 用于分类
 tags: ['服务器网站', '投票系统', '论坛', '捐赠商店', '服务器管理']
 subcategory: "服务器与开发者"

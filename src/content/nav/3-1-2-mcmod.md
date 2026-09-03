@@ -2,7 +2,7 @@
 title: 'MCMOD 中文模组百科'
 description: '专注模组中文百科，提供详尽模组教程、数据与联动查询。'
 href: 'https://www.mcmod.cn/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcmod.jpg'
+icon: '/icons/mcmod.jpg'
 category: '百科' # 用于分类
 subcategory: '百科'
 tags: ['社区', '模组', '数据查询', '教程']

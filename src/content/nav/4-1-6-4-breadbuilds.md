@@ -2,7 +2,7 @@
 title: 'BreadBuilds'
 description: '一个专注于销售高质量、专业级预制建筑的在线市场。'
 href: 'https://www.breadbuilds.com'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/breadbuilds.png'
+icon: '/icons/breadbuilds.png'
 category: '资源' # 分类为资源
 subcategory: '付费'
 tags: ['交易市场', '建筑', '服务器', '预制建筑', '地图']

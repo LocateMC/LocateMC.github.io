@@ -2,7 +2,7 @@
 title: 'Server Pack Creator'
 description: '自动化整合包服务端创建工具，简化多人模组服的部署。'
 href: 'https://serverpackcreator.de/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/serverpackcreator.png' # 假设图标文件名
+icon: '/icons/serverpackcreator.png' # 假设图标文件名
 category: '软件程序'
 subcategory: '实用工具（PC）'
 tags: ['实用工具', '服务端', '整合包', '自动化', 'Forge', 'Fabric']

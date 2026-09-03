@@ -2,7 +2,7 @@
 title: 'LauncherX'
 description: '多平台统一的启动器，致力于现代化的游戏管理体验。'
 href: 'https://corona.studio/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/launcherx.png' # 假设图标文件名
+icon: '/icons/launcherx.png' # 假设图标文件名
 category: '软件程序'
 subcategory: '启动器'
 tags: ['启动器', '跨平台', '现代', '中文', '开源']

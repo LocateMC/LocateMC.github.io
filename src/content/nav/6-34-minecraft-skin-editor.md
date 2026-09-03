@@ -2,7 +2,7 @@
 title: 'Minecraft 皮肤编辑器'
 description: '一个经典的、所见即所得的在线皮肤编辑器，提供基础的像素绘画工具。'
 href: 'https://minecraft-skin-editor.com/cn/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecraft-skin-editor.png'
+icon: '/icons/minecraft-skin-editor.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '皮肤编辑器', '皮肤', '像素画', '个性化']
 subcategory: "皮肤与装扮"

@@ -2,7 +2,7 @@
 title: 'MC-Icons'
 description: '一个提供游戏内物品、方块等高清图标下载的在线资源库。'
 href: 'https://mcicons.ccleaf.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcicons.png'
+icon: '/icons/mcicons.png'
 category: '在线工具' # 用于分类
 tags: ['资源', '图标', '素材', '图片下载']
 subcategory: "查询与素材库"

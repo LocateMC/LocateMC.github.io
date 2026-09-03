@@ -2,7 +2,7 @@
 title: 'MCSkinn'
 description: 'Windows 平台的 3D 皮肤编辑器，提供直观的创作与预览体验。'
 href: 'https://apps.microsoft.com/detail/9n8sjt329hh1?hl=zh-cn&gl=CN'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcskinn.png' # 假设图标文件名
+icon: '/icons/mcskinn.png' # 假设图标文件名
 category: '软件程序'
 subcategory: '实用工具（PC）'
 tags: ['实用工具', '皮肤编辑', 'Windows', '3D', 'UWP']

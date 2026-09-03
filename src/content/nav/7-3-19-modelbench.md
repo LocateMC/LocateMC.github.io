@@ -2,7 +2,7 @@
 title: 'Modelbench'
 description: '一个由 Mine-imator 开发团队创建的、专门用于为 Mine-imator 动画制作 3D 模型的免费建模程序。'
 href: 'https://www.mineimatorforums.com/index.php?/topic/79256-modelbench-115/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/modelbench.png'
+icon: '/icons/modelbench.png'
 category: '软件程序' # 用于分类
 subcategory: '实用工具（PC）' # 用于分类
 tags: ['3D模型', '动画', 'Mine-imator', '建模', '工具']

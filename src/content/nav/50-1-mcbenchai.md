@@ -2,7 +2,7 @@
 title: 'MC-Bench'
 description: '一个评测并比较 AI 智能体创造性建筑能力的基准。'
 href: 'https://mcbench.ai/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcbench.webp' # 假设图标文件名
+icon: '/icons/mcbench.webp' # 假设图标文件名
 category: '收纳'
 tags: ['收纳', '基准测试', '人工智能', 'LLM', '建筑', 'Agent']
 order: 1

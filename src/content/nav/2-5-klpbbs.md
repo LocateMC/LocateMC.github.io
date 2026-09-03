@@ -2,7 +2,7 @@
 title: '苦力怕论坛'
 description: '专注基岩版的中文论坛，提供资源、教程与创作交流。'
 href: 'https://www.klpbbs.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/klpbbs.png' # 假设图标文件名
+icon: '/icons/klpbbs.png' # 假设图标文件名
 category: '社区' # 用于分类
 tags: ['社区', '论坛', '基岩版', '网易版', 'Addon']
 order: 5

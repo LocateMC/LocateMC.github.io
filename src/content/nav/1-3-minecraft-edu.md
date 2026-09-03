@@ -2,7 +2,7 @@
 title: 'Minecraft Education'
 description: '游戏化学习平台，旨在通过沉浸式的游戏体验，向全球的教育工作者和学生教授各类学科知识。'
 href: 'https://education.minecraft.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecraft-edu.png'
+icon: '/icons/minecraft-edu.png'
 category: '官方' # 用于分类
 tags: ['官方', '教育', '游戏化学习', '课堂', 'STEM']
 order: 3

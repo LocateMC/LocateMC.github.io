@@ -2,7 +2,7 @@
 title: "Sponge"
 description: "SpongePowered 出品的高可扩展服务端 API（SpongeVanilla 形态）。"
 href: "https://www.spongepowered.org/"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sponge.png'
+icon: '/icons/sponge.png'
 category: "服务端"
 subcategory: "Mod服核心"
 tags: ["服务端", "Java版", "Sponge", "插件", "开源"]

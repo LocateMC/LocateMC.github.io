@@ -2,7 +2,7 @@
 title: 'TeaCon | 模组开发茶会'
 description: '一个由中文模组社区成员自发组织的、纯线上的模组开发竞赛（Hackathon）。'
 href: 'https://www.teacon.cn/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/teacon.png'
+icon: '/icons/teacon.png'
 category: '工作室 & 组织' # 用于分类
 tags: ['模组开发', '竞赛', 'Hackathon', '社区项目']
 order: 10

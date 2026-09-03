@@ -2,7 +2,7 @@
 title: 'MC Map'
 description: '一个专门用于将任意图片转换为游戏内地图画 (Item Frame Map) 的在线工具。'
 href: 'https://mc-map.djfun.de/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sample.png'
+icon: '/icons/sample.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '地图画', '图片转换', 'Item Frame', '建筑']
 subcategory: "像素画与建筑"

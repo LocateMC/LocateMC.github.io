@@ -2,7 +2,7 @@
 title: 'Minecraft Art'
 description: '一个拥有现代化界面的、能将图片实时转换为像素画的在线生成器。'
 href: 'https://minecraftart.netlify.app'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecraft-art.png'
+icon: '/icons/minecraft-art.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '像素画', '图片转换', '建筑', '蓝图', '开源']
 subcategory: "像素画与建筑"

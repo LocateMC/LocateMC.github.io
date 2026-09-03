@@ -2,7 +2,7 @@
 title: 'ShadersMods'
 description: '一个提供光影、模组、资源包和种子的综合性资源门户网站。'
 href: 'https://shadersmods.com'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/shadersmods.png'
+icon: '/icons/shadersmods.png'
 category: '资源' # 分类为资源
 subcategory: '纹理、资源包、光影'
 tags: ['资源', '光影', '模组', '资源包', '种子', '下载']

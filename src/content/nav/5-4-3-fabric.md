@@ -2,7 +2,7 @@
 title: "Fabric"
 description: "轻量现代的 Minecraft 模组加载器，启动快、版本跟进快、生态活跃。"
 href: "https://fabricmc.net/"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/fabric.png'
+icon: '/icons/fabric.png'
 category: "服务端"
 subcategory: "Mod服核心"
 tags: ["服务端", "Java版", "模组", "Mod加载器", "Fabric", "轻量"]

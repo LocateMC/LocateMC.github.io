@@ -2,7 +2,7 @@
 title: 'Sponge Javadocs'
 description: 'Sponge 服务器 API 平台的官方 Java API 参考文档 (Javadocs)。'
 href: 'https://spongepowered.org/jd/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sponge.png'
+icon: '/icons/sponge.png'
 category: '开发'
 subcategory: 'Java 服务端'
 tags: ['开发', 'Sponge', 'API', 'Javadocs', '服务器', '插件']

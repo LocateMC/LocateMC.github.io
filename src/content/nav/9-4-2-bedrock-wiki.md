@@ -2,7 +2,7 @@
 title: '英文基岩版开发者 Wiki'
 description: '一个由社区驱动的、专注于基岩版技术细节的综合性技术维基和资源中心。'
 href: 'https://wiki.bedrock.dev/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/wiki-bedrock-dev.png'
+icon: '/icons/wiki-bedrock-dev.png'
 category: '开发'
 subcategory: '基岩'
 tags: ['基岩版', '开发', '文档', '教程', '社区', '附加包', '技术维基']

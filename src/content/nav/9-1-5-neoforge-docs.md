@@ -2,7 +2,7 @@
 title: 'NeoForge 文档'
 description: '现代模组平台 NeoForge 的官方技术文档，旨在为开发者提供一个面向未来的、结构化的开发指南。'
 href: 'https://docs.neoforged.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/neoforge-docs.png'
+icon: '/icons/neoforge-docs.png'
 category: '开发'
 subcategory: 'Java 模组'
 tags: ['NeoForge', '模组', '开发', '文档', '教程', 'API', 'Forge Fork']

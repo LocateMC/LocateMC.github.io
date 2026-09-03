@@ -2,7 +2,7 @@
 title: 'SpigotMC Javadocs'
 description: '著名服务器软件 Spigot 的官方 Java API 参考文档 (Javadocs)。'
 href: 'https://hub.spigotmc.org/javadocs/spigot/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/spigot.png'
+icon: '/icons/spigot.png'
 category: '开发'
 subcategory: 'Java 服务端'
 tags: ['开发', 'Spigot', 'Bukkit', 'API', 'Javadocs', '服务器', '插件']

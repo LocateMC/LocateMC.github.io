@@ -2,7 +2,7 @@
 title: "Astroworld Tools"
 description: "Astroworld 网络旗下面向 Java 与基岩版的免费 MC 服务器工具集，31 款免注册无广告的在线工具，覆盖文字、命令、服务器配置、查询与视觉创作。"
 href: "https://tools.astroworldmc.com"
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/astroworld-tools.png'
+icon: '/icons/astroworld-tools.png'
 category: "在线工具"
 subcategory: "综合工具集"
 tags: ["在线工具","综合工具集","服务器","工具集","MOTD","命令生成","免费","Astroworld"]

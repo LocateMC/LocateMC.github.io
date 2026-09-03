@@ -2,7 +2,7 @@
 title: '百度贴吧 Minecraft 吧'
 description: '国内历史最悠久的玩家聚集地，用户交流的综合社区。'
 href: 'https://tieba.baidu.com/f?kw=minecraft'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/tieba-minecraft.jpg' # 假设图标文件名
+icon: '/icons/tieba-minecraft.jpg' # 假设图标文件名
 category: '社区' # 用于分类
 tags: ['社区', '贴吧', '论坛', '中文', '综合']
 order: 5

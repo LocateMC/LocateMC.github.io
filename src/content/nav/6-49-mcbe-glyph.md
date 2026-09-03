@@ -2,7 +2,7 @@
 title: '字体转基岩版资源包'
 description: '由 mcbeeringi 开发的，能将字体文件（.ttf, .otf）转换为基岩版可用资源包的在线工具。'
 href: 'https://mcbeeringi.github.io/apps/mc/glyph.html'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcbeeringi-glyph.png'
+icon: '/icons/mcbeeringi-glyph.png'
 category: '在线工具' # 用于分类
 tags: ['基岩版', '工具', '字体', '资源包', '生成器', '个性化']
 subcategory: "资源包与定制"

@@ -2,7 +2,7 @@
 title: 'BungeeCord Wiki'
 description: '一个由 SpigotMC 社区维护的、关于 BungeeCord 代理服务器的设置与使用指南。'
 href: 'https://www.spigotmc.org/wiki/bungeecord/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/bungeecord.png'
+icon: '/icons/bungeecord.png'
 category: '开发'
 subcategory: 'Java 服务端'
 tags: ['服务器', 'BungeeCord', '代理', '跨服', '文档', 'Spigot']

@@ -2,7 +2,7 @@
 title: 'Amulet'
 description: '强大的开源地图编辑器，支持 Java 与基岩版世界双向编辑与转换。'
 href: 'https://www.amuletmc.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/amulet.png' # 假设图标文件名
+icon: '/icons/amulet.png' # 假设图标文件名
 category: '软件程序'
 subcategory: '实用工具（PC）'
 tags: ['地图编辑器', '开源', '跨版本', 'Java版', '基岩版']

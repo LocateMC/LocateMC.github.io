@@ -2,7 +2,7 @@
 title: 'Misode''s Generators'
 description: '一个由 Misode 开发的、功能强大且极为专业的数据包与游戏内容生成器套件。'
 href: 'https://misode.github.io/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sample.png'
+icon: '/icons/sample.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '数据包', 'Datapack', 'Loot Table', '生成器', 'Misode']
 subcategory: "命令与数据包"

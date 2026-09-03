@@ -2,7 +2,7 @@
 title: 'PCL2 CE'
 description: 'PCL2 的社区维护版本，在原作者基础上持续提供更新与优化。'
 href: 'https://github.com/PCL-Community/PCL2-CE'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/pcl2-ce.webp' # 假设图标文件名
+icon: '/icons/pcl2-ce.webp' # 假设图标文件名
 category: '软件程序'
 subcategory: '启动器'
 tags: ['启动器', '社区版', '开源', '中文', 'PCL2']

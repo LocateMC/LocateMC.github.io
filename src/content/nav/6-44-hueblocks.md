@@ -2,7 +2,7 @@
 title: 'HueBlocks'
 description: '可以根据用户选择的颜色和方块，自动生成平滑的方块颜色渐变的在线工具。'
 href: 'https://1280px.github.io/hueblocks/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/hueblocks.png'
+icon: '/icons/hueblocks.png'
 category: '在线工具' # 用于分类
 tags: ['工具', '建筑', '渐变', '颜色', '生成器', '开源']
 subcategory: "像素画与建筑"

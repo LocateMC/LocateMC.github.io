@@ -2,7 +2,7 @@
 title: 'Minecraft'
 description: '像素方块构筑无限世界，集生存探索与自由创造于一体。'
 href: 'https://www.minecraft.net/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecraft-logo.png'
+icon: '/icons/minecraft-logo.png'
 category: '官方' # 用于分类
 tags: ['官方', 'Java版', '基岩版']
 order: 1

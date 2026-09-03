@@ -2,7 +2,7 @@
 title: 'MCAPPX'
 description: '专注基岩版 Windows 客户端，提供各版本 APPX 文件下载。'
 href: 'https://www.mcappx.com/'
-icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcappx.webp' # 假设图标文件名
+icon: '/icons/mcappx.webp' # 假设图标文件名
 category: '软件程序'
 subcategory: '版本库'
 tags: ['版本库', '基岩版', 'Windows', 'APPX', '英文']
