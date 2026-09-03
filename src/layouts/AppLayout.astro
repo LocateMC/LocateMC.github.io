@@ -1,0 +1,409 @@
+---
+// src/layouts/AppLayout.astro
+import SideBar from '../components/SideBar.astro';
+import CardDetailModal from '../components/CardDetailModal.astro';
+import '../styles/modal.css';
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>LocateMC</title>
+</head>
+<body>
+  <div class="app-container">
+    <aside id="sidebar" class="sidebar">
+      <SideBar />
+    </aside>
+
+    <div class="main-content-wrapper">
+      <header class="page-header">
+        <!-- 【核心修改 1】将 Logo 和按钮包裹在一个 div 中，让它们保持邻近 -->
+        <div class="header-left">
+          <h1 class="logo">LocateMC</h1>
+          <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle sidebar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <!-- 【搜索栏插槽】搜索栏由页面传入，位于页眉右侧 -->
+        <slot name="header-search" />
+      </header>
+
+      <main class="page-main">
+        <slot />
+      </main>
+    </div>
+  </div>
+
+  <CardDetailModal />
+
+  <!-- 视图模式切换按钮（页面右下角浮动）：在「分组堆叠」与「子分类 Tab」之间切换 -->
+  <button
+    id="viewModeToggle"
+    class="view-mode-toggle"
+    type="button"
+    aria-label="切换显示模式"
+    data-view="stacked"
+  >
+    <span class="vmt-icon" aria-hidden="true">▤</span>
+    <span class="vmt-label">Tab 视图</span>
+  </button>
+
+  <style is:global>
+    @font-face {
+      font-family: 'HarmonyOS Sans'; 
+      src: url('/fonts/HarmonyOS_Sans_SC_Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'HarmonyOS Sans';
+      src: url('/fonts/HarmonyOS_Sans_SC_Bold.woff') format('woff');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    body {
+      margin: 0;
+      font-family: 'HarmonyOS Sans', sans-serif;
+      background-color: #ffffff;
+    }
+  </style>
+
+  <style>
+    .app-container { 
+      display: flex; 
+    }
+    .sidebar { 
+      width: 220px; 
+      height: 100vh; 
+      position: sticky; 
+      top: 0; 
+      background-color: #f7f7f8; 
+      border-right: 1px solid #e5e5e5; 
+      flex-shrink: 0;
+      transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      padding-top: 80px; /* 为固定的页眉留出空间 */
+      box-sizing: border-box; /* 确保 padding 不会增加高度 */
+      /* 【修复】侧边栏独立滚动：全部子分类展开后内容会超过视口高度，
+         不加 overflow 会导致底部被截断且无法滚动到达。与右侧滚动区互不影响。 */
+      overflow-y: auto;
+      scrollbar-width: thin; /* Firefox 细滚动条 */
+      scrollbar-color: #d8d8da transparent;
+    }
+    .sidebar::-webkit-scrollbar { width: 6px; }
+    .sidebar::-webkit-scrollbar-thumb { background: #d8d8da; border-radius: 3px; }
+    .sidebar::-webkit-scrollbar-thumb:hover { background: #b9b9bd; }
+    .sidebar::-webkit-scrollbar-track { background: transparent; }
+    .main-content-wrapper { 
+      flex-grow: 1; 
+      width: calc(100vw - 220px);
+      height: 100vh;
+      overflow-y: auto;
+      /* 【优化】导航锚点平滑滚动：点击侧边栏分类时右侧内容区平滑滚到对应区块 */
+      scroll-behavior: smooth;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .sidebar.collapsed {
+      margin-left: -220px;
+    }
+    
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+      padding: 0 2rem;
+      position: fixed; /* 关键：始终固定在视口顶部 */
+      top: 0;
+      left: 0; /* 从左侧开始 */
+      width: 100%; /* 占满整个宽度 */
+      box-sizing: border-box; /* 确保 padding 不会增加宽度 */
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e5e5e5;
+      z-index: 200;
+    }
+    
+    /* 【核心修改 2】新增 header-left 样式，用于包裹 Logo 和按钮 */
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem; /* Logo 和按钮之间的间距 */
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #111;
+      margin: 0;
+    }
+    .sidebar-toggle {
+      background: none; 
+      border: 1px solid #ddd; 
+      border-radius: 50%;
+      width: 32px; height: 32px; 
+      flex-shrink: 0; 
+      cursor: pointer;
+      display: flex; 
+      justify-content: center; 
+      align-items: center;
+      color: #666; 
+      transition: transform 0.3s ease, background-color 0.2s;
+    }
+    .sidebar-toggle:hover {
+      background-color: #f0f0f0;
+    }
+    
+    /* 
+      【核心修改 3】
+      确保旋转效果被正确应用。
+      :global() 不是必需的，因为这个按钮和 sidebar 都在同一个组件的作用域内。
+    */
+    .sidebar.collapsed + .main-content-wrapper .sidebar-toggle {
+      transform: rotate(180deg);
+    }
+    
+    .page-main {
+      padding: 2rem 3rem;
+      margin-top: 80px; /* 关键：为固定的页眉留出空间 */
+    }
+
+    /* ===== 视图模式切换按钮（页面右下角浮动）===== */
+    .view-mode-toggle {
+      position: fixed;
+      right: 1.5rem;
+      bottom: 1.5rem;
+      z-index: 150;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.1rem;
+      background: #ffffff;
+      border: 1px solid #e5e5e5;
+      border-radius: 999px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      font-size: 0.9rem;
+      color: #333;
+      cursor: pointer;
+      transition: transform 0.15s ease,
+                  box-shadow 0.2s ease,
+                  background-color 0.2s ease;
+      font-family: inherit;
+    }
+    .view-mode-toggle:hover {
+      background-color: #f7f7f8;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+      transform: translateY(-1px);
+    }
+    .view-mode-toggle:active { transform: translateY(0); }
+    .view-mode-toggle .vmt-icon { font-size: 1.05rem; line-height: 1; }
+  </style>
+
+  <!--
+    Tab 视图相关样式必须全局生效：
+    作用于 index.astro 渲染的 .subcategory-block / .subcategory-tabs 元素，
+    若放在 scoped <style> 中会被 Astro 加 hash 属性导致选择器失配。
+  -->
+  <style is:global>
+    body[data-view-mode="tab"] .subcategory-title { display: none; }
+    body[data-view-mode="tab"] .subcategory-block:not([data-active="true"]) { display: none; }
+    body[data-view-mode="tab"] .subcategory-block[data-active="true"] { margin-bottom: 1rem; }
+    .subcategory-tabs {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      margin-bottom: 1.25rem;
+      padding: 6px;
+      background: #f5f6f8;
+      border: 1px solid #ececef;
+      border-radius: 12px;
+      scrollbar-width: thin;
+      /* 宽度贴合内容；页面过窄时不超过容器宽度并可横向滚动 */
+      width: fit-content;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .subcategory-tabs[hidden] { display: none; }
+    .subcategory-tabs::-webkit-scrollbar { height: 6px; }
+    .subcategory-tabs::-webkit-scrollbar-thumb { background: #d8d8da; border-radius: 3px; }
+    .subcategory-tab {
+      flex-shrink: 0;
+      padding: 8px 14px;
+      background: transparent;
+      border: 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      color: #555;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background-color 0.15s ease, color 0.15s ease;
+      font-family: inherit;
+    }
+    .subcategory-tab:hover { background: rgba(0, 0, 0, 0.04); color: #222; }
+    .subcategory-tab.active {
+      background: #ffffff;
+      color: #1d4ed8;
+      font-weight: 600;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+    }
+    /* 搜索期间：无命中子分类的 tab 置灰（disabled 原生阻止 click） */
+    .subcategory-tab:disabled { opacity: 0.45; cursor: not-allowed; }
+    .subcategory-tab:disabled:hover { background: transparent; color: #555; }
+    /*
+      ===== 搜索过滤 class（index.astro 搜索脚本用，须全局生效）=====
+      搜索过滤一律通过本 class 控制显隐，禁止写内联 display，
+      否则会覆盖上方 body[data-view-mode="tab"] 的折叠规则导致 Tab 视图失效。
+      !important 用于压过其它任何显示规则（如 tab 折叠 / 激活块样式）。
+    */
+    .search-hidden { display: none !important; }
+  </style>
+
+  <script>
+    const toggleButton = document.getElementById('sidebar-toggle');
+    const sidebar = document.getElementById('sidebar');
+
+    if (toggleButton && sidebar) {
+      toggleButton.addEventListener('click', () => {
+        sidebar.classList.toggle('collapsed');
+      });
+    }
+
+    // 【优化】导航点击增强：点击分类时自动展开对应子菜单 + 滚动过程高亮当前分类
+    const mainContent = document.querySelector('.main-content-wrapper');
+    const navLinks = document.querySelectorAll('.sidebar-nav a[href^="#"]');
+
+    if (mainContent && navLinks.length) {
+      // 1) 点击导航链接：若所属子菜单未展开则展开（与内容区滚动到分类的动作同步）
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const details = link.closest('details');
+          if (details && !details.open) details.open = true;
+        });
+      });
+
+      // 2) scrollspy：监听右侧滚动容器，高亮当前所在的分类
+      const sections = document.querySelectorAll('.category-section');
+      const spy = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            navLinks.forEach(a => {
+              a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+            });
+          }
+        });
+      }, { root: mainContent, rootMargin: '-15% 0px -75% 0px', threshold: 0 });
+      sections.forEach(sec => spy.observe(sec));
+
+      // 3) Tab 视图下点击侧边栏子分类链接：先激活对应子分类 Tab，再平滑滚动到主分类大标题。
+      //    —— tab 模式中未激活的子分类区块为 display:none，原生锚点滚动无法定位到隐藏元素；
+      //    这里复用 tab 按钮的点击逻辑（同步 data-active 与按钮高亮），随后手动滚动，
+      //    使「点击左侧导航也能切换 Tab」成立。
+      navLinks.forEach(link => {
+        const targetId = link.getAttribute('href')?.slice(1);
+        if (!targetId) return;
+        const block = document.getElementById(targetId);
+        // 仅处理指向子分类区块的链接；主分类链接指向的 section 在 tab 模式下始终可见，走原生锚点即可
+        if (!block || !block.classList.contains('subcategory-block')) return;
+
+        link.addEventListener('click', (event) => {
+          if (document.body.dataset.viewMode !== 'tab') return; // stacked 模式无需干预
+
+          const tabsBar = [...document.querySelectorAll('.subcategory-tabs')]
+            .find(bar => bar.dataset.tabsFor === block.dataset.category);
+          const tabBtn = tabsBar?.querySelector(`.subcategory-tab[data-target="${CSS.escape(block.dataset.subcategory)}"]`);
+          // 无对应 tab，或搜索期间该子分类无命中（tab 被置灰）时，不做特殊处理
+          if (!tabBtn || tabBtn.disabled) return;
+
+          event.preventDefault();
+          tabBtn.click(); // 切换 data-active 与按钮高亮，区块随即变为可见
+
+          // 滚动目标：所属主分类的大标题（h2），其下方的 tab 栏与激活内容顺势进入视野；
+          // 无标题时回退到 section 本身。偏移 80px 以避开固定页眉。
+          const section = block.closest('.category-section');
+          const anchor = section?.querySelector('.category-title') || section || block;
+          const containerRect = mainContent.getBoundingClientRect();
+          const targetTop = anchor.getBoundingClientRect().top - containerRect.top + mainContent.scrollTop - 80;
+          mainContent.scrollTo({ top: targetTop, behavior: 'smooth' });
+        });
+      });
+    }
+
+    // ===== 视图模式切换：「分组堆叠」↔「子分类 Tab」 =====
+    const VIEW_MODE_KEY = 'locatemc-view-mode';
+    const viewToggle = document.getElementById('viewModeToggle');
+    const viewToggleLabel = viewToggle?.querySelector('.vmt-label');
+
+    /**
+     * 根据传入的子分类块列表构建 tab 按钮；首次构建后标记 built='true' 避免重复。
+     */
+    function buildTabsForCategory(container) {
+      if (container.dataset.built === 'true') return;
+      const cat = container.dataset.tabsFor;
+      container.innerHTML = '';
+      const blocks = document.querySelectorAll(`.subcategory-block[data-category="${cat}"]`);
+      blocks.forEach(block => {
+        const name = block.dataset.subcategory;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'subcategory-tab';
+        btn.textContent = name;
+        btn.dataset.target = name;
+        if (block.dataset.active === 'true') btn.classList.add('active');
+        btn.addEventListener('click', () => {
+          blocks.forEach(b => {
+            b.dataset.active = (b.dataset.subcategory === name) ? 'true' : 'false';
+          });
+          container.querySelectorAll('.subcategory-tab').forEach(t =>
+            t.classList.toggle('active', t.dataset.target === name)
+          );
+        });
+        container.appendChild(btn);
+      });
+      container.dataset.built = 'true';
+    }
+
+    function applyViewMode(mode) {
+      document.body.dataset.viewMode = mode;
+      if (viewToggle) viewToggle.dataset.view = mode;
+      if (viewToggleLabel) viewToggleLabel.textContent = mode === 'tab' ? '分组视图' : 'Tab 视图';
+      document.querySelectorAll('[data-tabs-for]').forEach(el => {
+        if (mode === 'tab') {
+          buildTabsForCategory(el);
+          el.hidden = false;
+        } else {
+          el.hidden = true;
+        }
+      });
+      // 通知页面：视图模式已切换（供 index.astro 重放当前搜索过滤）
+      window.dispatchEvent(new CustomEvent('view-mode-changed', { detail: { mode } }));
+    }
+
+    applyViewMode(localStorage.getItem(VIEW_MODE_KEY) || 'stacked');
+
+    if (viewToggle) {
+      viewToggle.addEventListener('click', () => {
+        const next = document.body.dataset.viewMode === 'tab' ? 'stacked' : 'tab';
+        localStorage.setItem(VIEW_MODE_KEY, next);
+        applyViewMode(next);
+      });
+    }
+
+    // ===== 同步 sidebar 折叠状态到 body（供样式选择器使用） =====
+    if (sidebar) {
+      const syncCollapsed = () => {
+        document.body.dataset.sidebarCollapsed =
+          sidebar.classList.contains('collapsed') ? 'true' : 'false';
+      };
+      syncCollapsed();
+      const observer = new MutationObserver(syncCollapsed);
+      observer.observe(sidebar, { attributes: true, attributeFilter: ['class'] });
+    }
+  </script>
+</body>
+</html>

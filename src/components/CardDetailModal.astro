@@ -1,0 +1,103 @@
+---
+// src/components/CardDetailModal.astro
+import { getCollection } from 'astro:content';
+
+const allNavEntries = await getCollection('nav');
+
+// 创建“干净”的可序列化数组，防止JSON解析问题
+const serializableEntries = allNavEntries.map(entry => ({
+  id: entry.id,
+  body: entry.body,
+  data: {
+    title: entry.data.title,
+    description: entry.data.description,
+    href: entry.data.href,
+    icon: entry.data.icon,
+  },
+}));
+---
+
+<!-- HTML 结构部分保持不变 -->
+<div id="modal-backdrop" class="modal-backdrop hidden">
+  <div id="modal-panel" class="modal-panel">
+    <button id="modal-close-btn" class="modal-close-btn" aria-label="关闭">×</button>
+    <div id="modal-content" class="modal-content"></div>
+  </div>
+</div>
+
+<!-- 脚本部分保持不变，它已经可以正常工作 -->
+<script define:vars={{ navData: serializableEntries }}>
+  let markedInstance = null;
+  const backdrop = document.getElementById('modal-backdrop');
+  const contentEl = document.getElementById('modal-content');
+  const closeBtn = document.getElementById('modal-close-btn');
+  const allNavEntries = navData;
+
+  function closeModal() { backdrop.classList.add('hidden'); }
+
+  window.addEventListener('open-modal', async (event) => {
+    try {
+      if (!markedInstance) {
+        await import('https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js');
+        markedInstance = window.marked;
+      }
+      const { entryId } = event.detail;
+      const entry = allNavEntries.find((e) => e.id === entryId);
+      if (!entry) return;
+      const renderedHTML = markedInstance.parse(entry.body);
+
+      contentEl.innerHTML = `
+        <div class="modal-header-grid">
+          <div class="modal-icon-wrapper">
+            <img src="${entry.data.icon}" alt="${entry.data.title}" class="modal-icon" />
+          </div>
+          <div class="modal-main-info">
+            <h2 class="modal-title">${entry.data.title}</h2>
+            <p class="modal-description">${entry.data.description}</p>
+            <div class="modal-buttons">
+              <a href="${entry.data.href}" target="_blank" rel="noopener noreferrer" class="modal-button primary">
+                前往网站 >
+              </a>
+              <button class="modal-button" id="qr-code-btn">二维码访问</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-body">
+          <h3>基本介绍</h3>
+          ${renderedHTML}
+        </div>
+      `;
+      backdrop.classList.remove('hidden');
+    } catch (err) { console.error('Error opening modal:', err); }
+  });
+
+  if(closeBtn && backdrop) {
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', (e) => { if (e.target === backdrop) closeModal(); });
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !backdrop.classList.contains('hidden')) closeModal(); });
+  }
+</script>
+
+<!-- 
+  【核心修复】
+  这里的样式表现在变得非常干净，只包含作用于组件模板自身元素的规则。
+-->
+<style>
+  .modal-backdrop {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(18, 18, 18, 0.5); display: flex;
+    justify-content: center; align-items: center; z-index: 1000;
+    opacity: 1; transition: opacity 0.25s ease;
+  }
+  .modal-backdrop.hidden { opacity: 0; pointer-events: none; }
+  .modal-panel {
+    background-color: white; border-radius: 12px; padding: 28px 32px;
+    width: 90%; max-width: 700px; max-height: 85vh; overflow-y: auto;
+    position: relative; transform: scale(1); transition: transform 0.25s ease;
+  }
+  .modal-backdrop.hidden .modal-panel { transform: scale(0.95); }
+  .modal-close-btn {
+    position: absolute; top: 12px; right: 12px; background: transparent;
+    border: none; font-size: 2rem; cursor: pointer; color: #a0a0a0;
+  }
+</style>

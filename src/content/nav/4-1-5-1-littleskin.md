@@ -1,0 +1,23 @@
+---
+title: 'LittleSkin'
+description: '一个面向中国社区的、功能强大的第三方皮肤站，提供皮肤上传、管理、分享以及一个独立的 Yggdrasil 身份验证服务。'
+href: 'https://littleskin.cn/'
+icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/littleskin.png'
+category: '资源' # 分类为资源
+subcategory: '皮肤'
+tags: ['皮肤', '披风', '第三方皮肤站', 'Yggdrasil', 'CustomSkinLoader', '中国']
+order: 1
+---
+
+LittleSkin 是一个面向中国 Minecraft 社区的、功能强大的第三方皮肤站。它不仅仅是一个皮肤资源下载网站，更是一套完整的皮肤解决方案。通过提供独立的 Yggdrasil 身份验证服务，它允许玩家（特别是使用非官方启动器的玩家）在安装了对应模组（如 CustomSkinLoader）后，在游戏内显示自定义的皮肤和披风。
+
+### 发展历程
+
+它的诞生是为了解决中国 Minecraft 社区中一个长期存在的痛点：大量使用非官方启动器或离线模式的玩家无法拥有和显示自己的皮肤，以及正版玩家也无法使用官方不支持的自定义披风。通过建立一套稳定、开放的 API 和一个活跃的社区，LittleSkin 逐渐发展成为中国最主流、用户量最大的第三方皮肤站，是许多整合包和社区服务器的“标配”组件。
+
+### 社区生态位
+
+LittleSkin 在 Minecraft 社区中扮演着“**非官方玩家群体外观管理的中央枢纽**”这一至关重要的角色。
+1.  **服务于更广泛的玩家**：对于庞大的、未使用 Mojang 官方验证体系的玩家群体而言，LittleSkin 就是他们的“官方”皮肤服务器。它提供了身份认同和个性化外观的基础，是这个生态的基石。
+2.  **无缝的技术实现**：它通过 CustomSkinLoader 等模组，巧妙地在游戏客户端层面“劫持”了皮肤加载请求，将其指向自己的服务器。这使得玩家的体验非常无缝，就如同在使用官方皮肤一样。
+3.  **超越皮肤本身**：其 Yggdrasil 验证服务本身，也让许多主题服务器能够构建起自己独立的、不依赖于 Mojang 的用户体系，具有重要的基础设施意义，深刻地影响了中国 Minecraft 社区的形态。

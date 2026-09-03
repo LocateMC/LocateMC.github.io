@@ -1,0 +1,19 @@
+---
+title: 'Note Block Studio'
+description: '强大的音乐创作软件，将 MIDI 转换为红石音乐。'
+href: 'https://noteblock.studio/'
+icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/noteblockstudio.png' # 假设图标文件名
+category: '软件程序'
+subcategory: '实用工具（PC）'
+tags: ['实用工具', '音乐', '红石', '音符盒', 'MIDI']
+order: 11
+---
+
+
+Note Block Studio (曾用名 Minecraft Note Block Studio) 是一款功能强大的、专门用于创作 Minecraft 音符盒音乐的软件。它允许用户在一个类似于钢琴卷帘窗的界面上编排音乐，或直接导入 MIDI 文件，然后将其自动转换为可在游戏中播放的音符盒结构，并能导出为 `.schematic` 蓝图文件或数据包。
+
+### 发展历程
+作为 Minecraft 红石音乐创作领域的元老级工具，它拥有极其悠久的历史。它解决了直接在游戏中搭建大型音符盒工程效率低下、难以调试的问题，将复杂的音乐创作过程转移到了功能更专业的外部软件中。多年来，它一直是所有红石音乐家的标准配置，无数在 YouTube 上广为流传的音符盒神曲都诞生于此。
+
+### 社区生态位
+Note Block Studio 在生态中扮演着 **“红石音乐家的调音台”** 与 **“连接现实音乐与游戏的桥梁”** 的角色。它是将一首复杂的乐曲，转化为游戏中可实现、可听见的红石电路的最关键工具。它极大地解放了红石音乐的创作力，让音乐家可以专注于乐曲本身，而非繁琐的方块摆放。对于所有红石音乐爱好者而言，这是一款无可替代的、殿堂级的创作软件。

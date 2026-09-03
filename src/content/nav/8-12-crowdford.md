@@ -1,0 +1,25 @@
+---
+title: "Crowdford"
+description: "地图与游戏制作组"
+href: "https://www.crowdford.com"
+icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/crowdford.png'
+category: "工作室 & 组织"
+order: 12
+---
+Crowdford 是一个由资深地图作者组成的 Minecraft Java 版原创地图团队及其作品发布站，由 Mike Crowdford 创办。团队核心成员多出自 Vertex、Mirage 等老牌技术型地图团队，网站不转载、不搬运，只发布自家设计的精品自定义地图——每张图都配有完整机制设计与配套资源包，追求"游戏设计"级别的完成度。
+
+### 团队与历史
+Crowdford 成员以命令、数据包与资源包技术见长：如 McTsts（前 Vertex / Mirage 成员，擅长复杂命令与资源包）、Asometric（2013 年起从事地图创作）、Gibbsly（函数与浮点运算）、Suso 等，团队采用邀请制、规模小而精，不设公开申请通道。团队与 Vertex 渊源深厚：其代表作《Sleepless Night》最初正是为第一届 Vertex Map Jam（主题"冬季与魔法"）在 2.5 天内完成的作品，以 27.09% 的得票率夺得第一，此后由 Crowdford 接手长期维护，不断打磨平衡、扩充机制至今。
+
+### 代表作品
+团队地图类型跨度大且机制各异：
+- 《Sleepless Night》——守夜生存挑战：护住篝火以免冻死，围绕伐木、采矿、钓鱼、法术附魔与商店升级构建生存循环，1.20 更新还加入了深暗之域探索与随机事件系统，支持多人合作，并设有需视频验证的全球排行榜；
+- 《Tyrant's Lament》——Roguelite：每日程序生成一座新山，玩家推石上山赚取 Credits，用于开箱（六档稀有度的皮肤与耐力加成）或浇树养成，荒诞中透着浪漫；
+- 《Bitfield》《Debtor's Depths》——探索收集类（CTM）：前者收集目标物件安放纪念碑，可强化武器与抓钩；后者以"还债"为主题，定制了游泳、呼吸等专属机制；
+- 另有竞技小游戏《Capture Kings 2》《Heart Rush 2》、剧情冒险《Tales of Glarthford》等作品。
+
+### 作品特色
+所有地图均自带定制资源包并随世界打包下载——单机进入即自动加载，多人服务器可从压缩包中取出或单独下载资源包，下载即玩、上手门槛低。团队还坚持随游戏版本迭代长期更新既有作品（《Sleepless Night》已持续维护多年，近期版本适配至 1.20.x），每次更新附详细更新日志，存档历史版本。
+
+### 社区生态位
+在 Minecraft 生态中，Crowdford 定位为"地图作者 + 作品首发站"：只发布自家作品，品质与机制完成度在技术流玩家圈中口碑颇高。玩家可通过 Discord 与评论区反馈交流，或挑战官方排行榜赢取名次。网站整体风格轻松幽默（连"关于我们"页面都是一篇自嘲式叙事长文），为地图创作圈增添了一份独特气质。

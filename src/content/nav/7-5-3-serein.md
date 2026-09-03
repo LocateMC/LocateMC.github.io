@@ -1,0 +1,17 @@
+---
+title: "Serein"
+description: "开源服务器自动化管理工具，多服统一管理、群服互通、网页远程控制。"
+href: "https://sereindev.github.io"
+icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/serein.png'
+category: "软件程序"
+subcategory: "服务器面板"
+tags: ["服务器面板","自动化","群服互通","多服务器","机器人","OneBot","开源","Minecraft"]
+order: 3
+---
+Serein 是一款开源免费、专为游戏服务器设计的自动化管理工具（C#/.NET 编写，GUI 与 Console 双形态），主打「多服务器统一管理 + 群服互通 + 网页远程控制 + 插件扩展」：单个界面即可集中管理 Java 版、基岩版乃至泰拉瑞亚等多个服务器实例，并实时监控 CPU 占用与在线玩家；通过 OneBot V11/V12、Satori 等机器人协议桥接 QQ、Discord 等社交平台，实现群聊与游戏内消息互通、远程执行指令；内置基于正则匹配的智能触发与定时任务（自动重启、定时公告、定期备份），支持 Windows、Linux 与 macOS，服务端只需 .NET 8 运行时即可运行。
+
+### 发展历程
+Serein 由作者 Zaitonn 开发，自 2022 年 5 月起在 MineBBS 发布并保持长期维护，全部源码于 GitHub 的 SereinDev 组织下开源。v2.x 大版本对旧版进行了全面重构并同步推出 v1→v2 迁移教程，将产品定位进一步扩展为通用化的多服务器管理平台：架构上拆分为 Serein.Gui（桌面界面）与 Serein.Console（命令行/服务形态），配合网页控制台实现“本地管理 + 远程访问”双通道；开发上持续加入命令/触发器可视化编辑器、防爆破鉴权等新特性，截至 v2.1 正式版仍处于活跃迭代状态，并配套官网文档与社区站点（SereinCommunity）维护生态。
+
+### 社区生态位
+Serein 在生态中扮演着 **“群服互通的搭桥人”** 与 **“服务器自动化的小管家”** 的角色。与 MCSManager（网页开服面板、多用户托管）和 Pterodactyl（Docker 容器化、企业级托管）不同，Serein 的差异化在于**桌面客户端形态 + 机器人生态融合**——无需自建 Web 服务即可把服务器日志、指令与 QQ/Discord 群消息双向打通，用正则触发、定时任务与权限组实现“无人值守”的日常运营；同时开放的 JS 与 .NET 双语言插件 API 让功能可无限扩展，甚至能把面板本身变成一个多功能机器人。它尤其契合个人服主“低成本开服、让服务器接入社交群聊自动运转”的需求，在中文 Minecraft 服务器社群（含基岩版混服场景）中广受欢迎。

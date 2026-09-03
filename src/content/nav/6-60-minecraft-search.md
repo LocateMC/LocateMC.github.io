@@ -1,0 +1,22 @@
+---
+title: "Minecraft Search"
+description: "全能型 MC 内容检索站：3000+ 物品/生物/方块/群系，查配方、掉落、属性，另附 9 款免费在线工具，同时覆盖 Java 与基岩版。"
+href: "https://minecraftsearch.com/"
+icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecraftsearch.png'
+category: "在线工具"
+tags: ["工具","内容检索","合成配方","种子地图","附魔规划","命令生成","Java版","基岩版"]
+subcategory: "查询与素材库"
+order: 60
+---
+Minecraft Search 是一个全能型的 Minecraft 内容检索站，目标是"找到 MC 中任意物品、生物、方块或生物群系"。站点收录了 **3000+ 条内容数据**，每条都附带合成配方（含版本差异）、掉落表与属性数值，并支持 28 种语言。全部功能基于网页在线使用，无需安装、无需注册、完全免费，且同步覆盖 Java 版与基岩版（当前 Java 26.2 / Bedrock 1.26.40）。
+
+### 核心功能
+
+1. **内容检索库**：按物品、生物、方块、生物群系分类浏览或直接搜索，配方、掉落、统计一站查齐，同时标注 Java 与基岩版的数据差异。
+2. **种子系列工具**：Seed Map 种子地图、Seed Finder 种子查找（按结构与群系条件筛选）、Ore Finder 矿物查找（带矿点精确度）、Structure Finder 结构查找（要塞/村庄/府邸/远古城市等，附坐标）、Biome Finder 群系查找（高亮全部区块）。
+3. **装备与合成辅助**：Enchantment Planner 附魔规划器（计算铁砧上最省经验值的附魔书合并顺序）、Crafting Calculator 合成计算器（原材料、冶炼步骤与堆叠数一键算清）。
+4. **命令与文本工具**：Command Generator 命令生成器（`/give`、`/summon` 等，Java 与基岩版格式）、Text Studio 文本工坊（颜色代码、渐变与格式化告示牌文本，多种复制格式）。
+
+### 社区生态位
+
+Minecraft Search 在社区中扮演"检索与计算一体化的生产力平台"角色：生存玩家用它查配方、找种子与矿脉；基岩版玩家与附加包创作者受益于其对 Bedrock 版本号的同步覆盖；服务器服主与管理员可用命令生成、结构/群系查找等工具快速开服与管理；地图与红石作者则靠种子系列工具快速定位理想地形。相比分散的单一工具站，它把"查数据"和"算工具"收敛到了同一个入口，是日常高频使用的实用型资源站。

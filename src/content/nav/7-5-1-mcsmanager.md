@@ -1,0 +1,17 @@
+---
+title: "MCSManager"
+description: "开源网页开服面板，一键部署管理 Minecraft/Steam 游戏服务器。"
+href: "https://mcsmanager.com"
+icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcsmanager.png'
+category: "软件程序"
+subcategory: "服务器面板"
+tags: ["服务器面板","开服","网页管理","Minecraft","开源","分布式","多用户","Docker"]
+order: 1
+---
+MCSManager（简称 MCSM）是一款开源免费的游戏服务器管理面板，通过浏览器网页即可完成 Minecraft（Java 版/基岩版）乃至幻兽帕鲁、泰拉瑞亚等 Steam 游戏服务器的一键部署、启动停止、实时监控、文件管理、SSH 终端与日志查看等全部运维操作。它支持 Windows、Linux 与 Docker 部署，无需数据库，Web 面板默认端口 23333；多用户权限体系与资源分配能力，使其既能服务个人开服，也能支撑 IDC 服务商的商业化出租。
+
+### 发展历程
+MCSManager 由国内开发者苏叶（suwings）发起，是国产 Minecraft 开服工具中资历较深的一员，历经多年迭代后以 TypeScript 全栈重构（Apache-2.0 开源），演进为分布式架构的通用游戏服务器管理面板。其核心设计是「网页端 + 守护进程（daemon）」分离：可将分布在不同机器上的多台服务器接入同一个网页统一管理；内置应用市场与 Docker 镜像支持让"一键开服"覆盖海量游戏；同时开放数十个 API，社区借此构建了 QQ 机器人、销售平台等大量衍生服务。项目在 GitHub 上保持活跃维护，文档齐全，界面支持多语言。
+
+### 社区生态位
+MCSManager 在生态中扮演着 **“游戏开服的一站式中枢台”** 与 **“服务器的网页驾驶舱”** 的角色。与 Pterodactyl 等国际面板相比，它的优势在于**中文生态完善、上手门槛极低**——网页图形界面可拖拽定制，普通玩家无需命令行知识即可开服，个体商户与服务器商也能借助多用户与资源分配功能做商业化出租。它是国内 Minecraft 开服圈最流行的管理面板之一，也是从"自己搭服"走向"批量管服"最顺手的入口。

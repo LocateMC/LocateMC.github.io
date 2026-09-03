@@ -1,0 +1,20 @@
+---
+title: 'Structura Lab'
+description: '一个专注于建筑结构文件（.mcstructure）的分享与发现平台。'
+href: 'https://structuralab.com/'
+icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sample.png'
+category: '资源' # 分类为资源
+subcategory: '地图、投影'
+tags: ['结构文件', '建筑', '工具', '自动化', '社区']
+order: 11
+---
+
+Structura Lab 是一个专门为玩家服务的网站，用户可以在这里寻找、分享和下载被称为“Structura”的建筑文件（`.mcstructure` 格式）。该平台旨在汇集各类建筑创意，内容涵盖从大型建筑、地形、雕像到各类自动农场、自动化装置和飞行器等。
+
+### 核心功能与工具
+网站的核心是一个公共的建筑蓝图库，所有内容都按分类进行组织，方便用户浏览和搜索。用户上传 `.mcstructure` 文件后，可以为其添加标题、缩略图、视频链接和详细描述。一个独特的功能是，如果一次上传多个文件，它们会被自动合并成一个资源包（Structura pack），玩家可以在游戏内通过特定的命名机制来切换和选择不同的建筑。
+
+除了作为分享平台，Structura Lab 还提供一系列面向玩家的在线工具，例如将 3D 模型转换为游戏内建筑的转换器、自定义画作资源包生成器以及各种游戏内的计算器。
+
+### 社区与定位
+Structura Lab 是一个由社区驱动的开放平台，其桌面应用和核心项目都是开源的。网站为创作者提供了个人资料页，可以关联其社交媒体链接，方便粉丝支持自己喜欢的建筑师。它为特定版本的玩家群体填补了在建筑分享和技术交流领域的空白，提供了一个类似于其他版本中 Schematics 和 Litematics 等工具的社区中心。

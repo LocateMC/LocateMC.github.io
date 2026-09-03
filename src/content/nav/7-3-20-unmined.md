@@ -1,0 +1,16 @@
+---
+title: "uNmINeD"
+description: "跨平台 Minecraft 世界地图查看与渲染工具"
+href: "https://unmined.net"
+icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/unmined.png'
+category: "软件程序"
+subcategory: "实用工具（PC）"
+order: 20
+---
+uNmINeD 是一款免费的跨平台 Minecraft 世界地图查看与渲染工具，能够读取 Java 版、基岩版乃至 Hytale 的世界存档，将其渲染成可缩放浏览的二维俯视地图，并支持一键导出为高分辨率图片或交互式网页地图。它无需安装、解压即用，个人使用完全免费，同时提供图形界面（GUI）与命令行（CLI）两种形态，后者可让服务器管理员将地图生成流程自动化。
+
+### 发展历程
+uNmINeD 由独立开发者 Pavel 长期维护，拥有十余年的开发历史，是 Minecraft 生态中资历最深的地图渲染工具之一。项目从 Java 版存档渲染起步，随后逐步加入基岩版（LevelDB 格式）与 Hytale 存档的支持，并覆盖 Windows、Linux、macOS 全平台。近期的 0.20.x 版本更是引入了 2.5D 顶视方块模型与等距（Isometric）3D 渲染等预览特性——通过解析 Java 版客户端模型文件来还原方块细节，甚至能借此渲染基岩版世界的立体方块，让"平面色块地图"进化成接近游戏画面的立体视图。
+
+### 社区生态位
+uNmINeD 在生态中扮演着 **“方块世界的航拍测绘师”** 与 **“存档的可视化名片工坊”** 的角色。与主打离线唯美大图的 Chunky、面向服务器实时在线地图的 BlueMap 不同，uNmINeD 的核心价值在于**开箱即用与全版本覆盖**：从 Java 1.0 到最新快照、从基岩版 1.4 到 26.x 的存档几乎都能直接读取渲染，尤其擅长快速把老存档转成可分享的交互式网页地图。无论是地图作者展示作品、服务器主向玩家呈现世界，还是玩家为存档留档纪念，它都是一把顺手而可靠的"上帝视角钥匙"；配合官方在线服务 BedrockMap，导出的地图还能直接发布到 Discord、Reddit 等平台与更多人分享。

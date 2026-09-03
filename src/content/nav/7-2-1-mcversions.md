@@ -1,0 +1,19 @@
+---
+title: 'MCVersions'
+description: '简洁可靠的官方版本库，提供所有 Java 版的历史版本下载。'
+href: 'https://mcversions.net/'
+icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mcversions.webp' # 假设图标文件名
+category: '软件程序'
+subcategory: '版本库'
+tags: ['版本库', 'Java版', '官方版本', '存档']
+order: 1
+---
+
+
+MCVersions 是一个专注于提供 Minecraft Java 版所有历史版本官方文件的在线存档库。它为玩家、服务器服主和开发者提供了一个极其简单直接的平台，用于下载从远古的 Alpha、Beta 版本到最新快照的客户端和服务端 `.jar` 文件。
+
+### 发展历程
+该网站的建立，旨在解决一个核心需求：如何方便、可靠地获取特定版本的、未经修改的官方 Minecraft 文件。虽然官方启动器支持游玩旧版本，但直接获取独立的 `.jar` 文件并不直观。MCVersions 通过创建一个一目了然的列表，并提供纯净的下载链接，成功地服务了这一垂直需求，并因其极高的可靠性和简洁性，成为了社区内公认的标准版本库。
+
+### 社区生态位
+MCVersions 在生态中扮演着 **“游戏的数字时间胶囊”** 与 **“开发者的版本基石”** 的角色。它是一个纯粹的“工具站”，而非交流社区。它的价值在于其**完整性**和**纯净性**。对于需要为旧版本开发或测试模组的开发者、想要体验游戏演变史的玩家、以及搭建怀旧服务器的服主而言，MCVersions 是最基础、最值得信赖的资源来源，是整个社区回溯历史的“传送门”。

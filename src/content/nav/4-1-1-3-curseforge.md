@@ -1,0 +1,19 @@
+---
+title: 'CurseForge'
+description: '历史悠久的模组托管平台，拥有全面的资源与整合包库。'
+href: 'https://www.curseforge.com/minecraft'
+icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/curseforge.png' # 假设图标文件名
+category: '资源' # 用于分类
+subcategory: '综合'
+tags: ['资源', '平台', '模组', '插件', '启动器', '英文']
+order: 3 # 调整排序使其与同类平台靠近
+---
+
+
+CurseForge 是全球最大、历史最悠久的 Minecraft 内容托管平台，是无数玩家和服务器服主寻找模组 (Mods)、资源包 (Resource Packs)、整合包 (Modpacks) 和插件 (Plugins) 的首选之地。它拥有近乎最全面的资源库，几乎所有知名的模组都将其作为主要发布渠道。平台还提供官方的启动器，方便用户一键安装和管理整合包。
+
+### 发展历程
+CurseForge 的历史与模组社区的发展史深度绑定。自诞生以来，它便凭借其强大的功能和先发优势，迅速成为模组作者发布作品的“事实标准”。它经历了多次易主，先后被 Twitch 和 Overwolf 收购，其商业化策略和客户端体验也引发过社区讨论，这在一定程度上催生了 Modrinth 等新兴替代品的崛起。尽管如此，凭借其无与伦比的历史积淀和内容存量，它至今仍是模组化生态中不可动摇的基石。
+
+### 社区生态位
+CurseForge 在生态中扮演着 **“模组化世界的中央仓库”** 与 **“整合包生态的基石”** 的角色。它的价值核心在于其**全面性**和**历史存量**。几乎所有大型整合包的构建都离不开 CurseForge 上的海量资源。虽然新兴平台在用户体验上发起了挑战，但 CurseForge 依旧是模组开发者无法绕过的发布平台和绝大多数玩家的资源入口，是维系整个庞大模组化社区运转的基础设施。

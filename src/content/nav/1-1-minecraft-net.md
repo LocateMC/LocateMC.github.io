@@ -1,0 +1,18 @@
+---
+title: 'Minecraft'
+description: '像素方块构筑无限世界，集生存探索与自由创造于一体。'
+href: 'https://www.minecraft.net/'
+icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/minecraft-logo.png'
+category: '官方' # 用于分类
+tags: ['官方', 'Java版', '基岩版']
+order: 1
+---
+
+
+Minecraft 是由瑞典开发者 Markus "Notch" Persson 创造、现由 Mojang Studios 维护的沙盒式电子游戏。其核心玩法基于在一个由程序化生成的 3D 世界中，玩家可以自由破坏和放置各类方块。游戏没有强制性目标，玩家可在“生存模式”中获取资源、合成物品、建造庇护所以抵御怪物，或在“创造模式”下拥有无限资源，尽情挥洒创意，实现从微小电路到宏伟城市的一切构想。
+
+### 发展历程
+游戏于 2009 年以早期 Alpha 版本亮相，凭借其独特的开放性和口碑传播迅速积累了大量人气。2011 年，Minecraft 正式版发布，Mojang Studios 随之成立，持续为游戏添加新内容。2014 年，微软公司以 25 亿美元天价收购 Mojang，此后游戏进入了更大规模的更新迭代周期，陆续推出了“水域更新”、“洞穴与山崖”等重大版本，不断丰富着游戏世界的深度与广度，并拓展至全平台。
+
+### 社区生态位
+Minecraft 国际版是整个生态系统的“源头”与“标准”。它拥有全球最庞大、最多元化的核心玩家与开发者社区。这个生态位催生了强大的第三方模组（Mod）文化（如 Forge、Fabric），玩家可以自由地修改、扩展游戏内容。同时，它也是全球无数服务器、自定义地图、材质包以及视频内容创作者的灵感来源与基础平台，定义了整个 Minecraft 文化的基本盘。

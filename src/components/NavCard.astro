@@ -1,0 +1,127 @@
+---
+
+/*
+const { entry } = Astro.props;
+const { title, description, href, icon } = entry.data;
+---
+
+<a href={href} target="_blank" rel="noopener noreferrer" class="nav-card">
+  
+  <div class="icon-wrapper">
+    <img src={icon} alt={`${title} icon`} class="icon-image" />
+
+    <button 
+      class="detail-overlay"
+      aria-label={`查看 ${title} 的详情`}
+      onclick={`event.preventDefault(); window.dispatchEvent(new CustomEvent('open-modal', { detail: { entryId: '${entry.id}' } }))`}
+    >
+      详情
+    </button>
+  </div>
+
+  <div class="text-wrapper">
+    <h3 class="title">{title}</h3>
+    <p class="description">{description}</p>
+  </div>
+
+</a>
+*/
+
+// src/components/NavCard.astro
+const { id, title, description, href, icon } = Astro.props;
+---
+
+<a href={href} target="_blank" rel="noopener noreferrer" class="nav-card">
+  <div class="icon-wrapper">
+    <img src={icon} alt={`${title} icon`} class="icon-image" loading="lazy" decoding="async" />
+    <button
+      class="detail-overlay"
+      aria-label={`查看 ${title} 的详情`}
+      {/* 注意：这里的 event detail 需要传递 id */}
+      onclick={`event.preventDefault(); window.dispatchEvent(new CustomEvent('open-modal', { detail: { entryId: '${id}' } }))`}
+    >
+      详情
+    </button>
+  </div>
+  <div class="text-wrapper">
+    <h3 class="title">{title}</h3>
+    <p class="description">{description}</p>
+  </div>
+</a>
+
+
+<style>
+  /* .nav-card, .icon-wrapper 等样式保持不变 */
+  .nav-card {
+    display: flex;
+    align-items: center;
+    height: 62px;
+    padding: 8px 12px;
+    gap: 14px;
+    background-color: #f7f7f8;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+  .nav-card:hover {
+    transform: translateY(-2px);
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  .icon-wrapper {
+    position: relative; 
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .icon-image {
+    width: 100%; height: 100%; display: block; object-fit: cover;
+  }
+  .detail-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    opacity: 0; background-color: rgba(30, 30, 30, 0.65); color: white; 
+    font-family: 'HarmonyOS Sans', sans-serif; font-size: 0.8rem; font-weight: 400; display: flex; justify-content: center;
+    align-items: center; border: none; cursor: pointer; transition: opacity 0.2s ease;
+  }
+  .icon-wrapper:hover .detail-overlay { opacity: 1; }
+
+  /* 
+    【核心修改点 1：标题截断】
+    我们对标题部分的样式进行修改，以实现单行截断。
+  */
+  .title {
+    margin: 0 0 2px;
+    font-family: 'HarmonyOS Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    
+    /* 【实现单行截断的核心CSS属性】 */
+    white-space: nowrap;     /* 1. 强制文本不换行 */
+    overflow: hidden;        /* 2. 隐藏超出容器宽度的内容 */
+    text-overflow: ellipsis; /* 3. 将被隐藏的部分用 ... 代替 */
+  }
+  
+  /* 
+    【核心修改点 2：描述截断】
+    这里的样式保持不变，它已经实现了两行截断的功能。
+  */
+  .description {
+    margin: 0;
+    font-family: 'HarmonyOS Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #808080;
+    line-height: 1.5; 
+    height: 2.4rem; 
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+</style>
+
+

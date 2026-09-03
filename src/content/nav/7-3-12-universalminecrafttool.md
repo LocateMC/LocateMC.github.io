@@ -1,0 +1,19 @@
+---
+title: 'UMT'
+description: '强大的多功能存档编辑器，支持世界与玩家数据修改转换。'
+href: 'https://www.universalminecrafttool.com/'
+icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/universalminecrafttool.png' # 假设图标文件名
+category: '软件程序'
+subcategory: '实用工具（PC）'
+tags: ['实用工具', '存档编辑', 'NBT', 'Java版', '基岩版', '跨平台']
+order: 12
+---
+
+
+Universal Minecraft Tool (UMT) 是一款功能强大的多平台存档编辑器。它允许用户直接打开并修改几乎所有平台（Java 版、基岩版、旧主机版）的 Minecraft 世界文件，对玩家的物品栏、生命值、经验、坐标等数据进行编辑，甚至能实现不同平台间的世界存档转换。
+
+### 发展历程
+UMT 的诞生，旨在为玩家提供一个图形化的、一站式的存档修改解决方案，以取代早期繁琐的 NBT 编辑器。它精准地切入了跨平台玩家的数据互通需求，通过提供一个能同时“理解”多种存档格式的统一工具，迅速在那些希望迁移世界、修复损坏数据或进行高级自定义的玩家群体中流行起来。
+
+### 社区生态位
+UMT 在生态中扮演着 **“终极存档手术刀”** 与 **“跨平台数据魔术师”** 的角色。与侧重宏观建筑编辑的 Amulet 或纯粹进行格式转换的 Chunker 不同，UMT 的核心在于对**存档数据**的精细化读写。它是玩家用来“拯救”损坏角色、修改物品属性、或进行复杂存档修复的终极工具，是深入世界文件内部进行“外科手术”级操作的利器。

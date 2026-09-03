@@ -1,0 +1,19 @@
+---
+title: 'Mine-imator'
+description: '免费易上手的动画制作软件，为新手快速创作视频而生。'
+href: 'https://www.mineimator.com/'
+icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/mineimator.png' # 假设图标文件名
+category: '软件程序'
+subcategory: '实用工具（PC）'
+tags: ['实用工具', '动画', '视频制作', '免费', '渲染']
+order: 8
+---
+
+
+Mine-imator 是一款广受欢迎的、免费的 3D 动画制作软件，专为 Minecraft 设计。它以其极其友好的用户界面和极低的入门门槛而著称，允许用户轻松导入游戏世界、角色、物品和方块，并通过直观的时间轴和关键帧系统，快速创作出属于自己的动画视频和高清艺术图。
+
+### 发展历程
+Mine-imator 的诞生，旨在填补专业动画软件（如 Blender, C4D）与普通玩家之间的巨大技术鸿沟。它将复杂的 3D 动画流程，简化为普通用户也能快速掌握的模式，使得“制作 Minecraft 动画”这件事变得前所未有的简单。凭借这一核心优势，它迅速在 YouTube 和各大视频平台流行开来，成为无数动画短片、MV 和同人故事背后的创作工具。
+
+### 社区生态位
+Mine-imator 在生态中扮演着 **“动画创作的入门阶梯”** 与 **“YouTube 新手的首选利器”** 的角色。它并非功能最强大的动画工具，但无疑是**最易于上手**的。它赋予了无数有创意但缺乏专业技能的玩家将故事可视化的能力，极大地繁荣了 Minecraft 的同人动画创作生态，是许多动画师职业生涯的起点。

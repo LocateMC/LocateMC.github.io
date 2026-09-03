@@ -1,0 +1,23 @@
+---
+title: 'NeoForge 文档'
+description: '现代模组平台 NeoForge 的官方技术文档，旨在为开发者提供一个面向未来的、结构化的开发指南。'
+href: 'https://docs.neoforged.net/'
+icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/neoforge-docs.png'
+category: '开发'
+subcategory: 'Java 模组'
+tags: ['NeoForge', '模组', '开发', '文档', '教程', 'API', 'Forge Fork']
+order: 5
+---
+
+NeoForge 文档是现代化 Minecraft 模组平台 **NeoForge** 的官方技术文档网站。NeoForge 是从著名的 Minecraft Forge 项目中**分支 (fork)** 出来的一个全新项目，旨在解决原 Forge 中长期存在的历史遗留问题、技术债和开发流程瓶颈。这份文档则是为所有希望在新平台上进行模组开发的开发者，提供从入门到精通的、最权威的教程和参考。
+
+### 发展历程
+
+NeoForge 项目诞生于 Minecraft 1.20 版本时期，由一群经验丰富的 Forge 社区开发者共同发起。他们希望通过一次彻底的重构，创建一个更稳定、更易于维护、对开发者更友好的模组平台。这个全新的文档站与 NeoForge 项目一同诞生，其目标是吸取过往的教训，从一开始就为开发者提供一份结构清晰、内容准确、与平台本身紧密同步的高质量文档。
+
+### 社区生态位
+
+NeoForge 文档在 Minecraft 社区中扮演着“**一个新时代的开端**”和“**现代化 Forge 生态的基石**”的关键角色。
+1.  **决裂与革新**：它不仅仅是 Forge 文档的简单复制或改进，而是伴随着大量底层重构和 API 变动而进行的**全新编写**。它代表了对过去开发模式的一次“硬分叉”，为愿意拥抱变化的开发者指明了新的方向。
+2.  **新标准的定义者**：对于所有选择跟随 NeoForge 路线的开发者来说，这份文档是他们**唯一的、最权威的真理来源**。它详细阐述了新的 API 设计、数据生成系统以及推荐的最佳实践。
+3.  **迁移的灯塔**：该文档也为那些希望将自己原有的 Forge 模组迁移到新平台的开发者，提供了必要的指导和说明。它是连接旧生态与新生态最重要的桥梁。

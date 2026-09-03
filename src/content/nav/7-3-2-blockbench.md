@@ -1,0 +1,19 @@
+---
+title: 'BlockBench'
+description: '免费的 3D 模型编辑器，为创建自定义方块、物品与生物而生。'
+href: 'https://www.blockbench.net/'
+icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/blockbench.png' # 假设图标文件名
+category: '软件程序'
+subcategory: '实用工具（PC）'
+tags: ['实用工具', '模型编辑', '3D', '开源', '模组', '材质包']
+order: 2
+---
+
+
+BlockBench 是一款免费、开源、跨平台的 3D 模型编辑器，被广泛认为是 Minecraft 创作领域的标准工具。它以其直观的界面和对游戏内各种格式的强大支持而闻名，允许用户轻松创建和编辑适用于 Java 版和基岩版的方块模型、物品模型、实体（生物）模型以及它们的动画。
+
+### 发展历程
+BlockBench 由开发者 JannisX11 创建，旨在提供一个比通用 3D 软件（如 Blender）更轻量、更专注于 Minecraft 像素风格的建模工具。它通过内置的格式模板、贴图绘制和动画编辑功能，极大地简化了为游戏创作 3D 资源的流程。凭借其出色的易用性和强大的功能，它迅速取代了旧有的工具，成为了模组开发者、资源包作者和 Addon 创作者的首选。
+
+### 社区生态位
+BlockBench 在生态中扮演着 **“创作者的数字雕刻刀”** 与 **“连接创意与游戏实体的桥梁”** 的角色。如果说地图编辑器改变的是“世界”，那么 BlockBench 改变的就是构成世界的“万物”。它是实现自定义生物、物品和方块从概念到现实最关键的一环，极大地解放了社区的创造力，是支撑起模组、材质包和基岩版附加包生态的最重要的基础工具之一。

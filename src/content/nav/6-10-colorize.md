@@ -1,0 +1,20 @@
+---
+title: 'Colorize'
+description: '一个功能强大的在线工具，用于生成彩色、渐变和彩虹效果的文本，并支持导出为多种游戏及社区常用格式。'
+href: 'https://colorize.fun/en/minecraft'
+icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/sample.png'
+category: '在线工具' # 用于分类
+tags: ['工具', '文字生成', '渐变色', 'JSON', 'MOTD', 'EssentialsX']
+subcategory: "文字与排版"
+order: 10
+---
+
+Colorize 是一个专门为 Minecraft 设计的、功能非常强大的在线文本格式化工具。它允许用户轻松地为文本添加纯色、自定义渐变色或彩虹效果，并支持粗体、斜体等多种样式。其最核心的特点是能够将生成的彩色文本一键转换为多种目标格式，包括服务器 MOTD、EssentialsX 插件、JSON 指令、BBCode 论坛代码、HTML 等。
+
+### 发展历程
+
+该工具的诞生是为了解决在 Minecraft 中手动创建复杂颜色代码（尤其是 JSON 和 MOTD 格式）既繁琐又容易出错的问题。通过提供一个实时预览、所见即所得的可视化界面，它将复杂的编码过程简化为简单的点击和选择，旨在为社区提供一个比传统手动编写更高效、更用户友好的解决方案，并已成为该领域功能最全面的工具之一。
+
+### 社区生态位
+
+Colorize 在 Minecraft 社区中扮演着一个“跨应用场景的文本美化工作台”的精准角色。其核心价值在于其无与伦比的格式兼容性：它不仅服务于需要 `/tellraw` 等 JSON 指令的地图作者和数据包开发者，也同时服务于需要配置 MOTD 或 EssentialsX 聊天格式的服务器服主，甚至还考虑到了在论坛 (BBCode) 和 Discord 上发布宣传内容的需求。它通过一个统一的界面，打通了多个应用场景之间的壁垒，成为了一个高效、专业、不可或缺的生产力工具。

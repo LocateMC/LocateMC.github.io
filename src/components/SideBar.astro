@@ -1,0 +1,181 @@
+---
+// src/components/SideBar.astro
+import { getCollection } from 'astro:content';
+
+const allNavEntries = await getCollection('nav');
+const groupedByCategory = allNavEntries.reduce((acc, entry) => {
+  const { category, subcategory } = entry.data;
+  if (!acc[category]) {
+    acc[category] = { subcategories: {}, entriesWithoutSub: [] };
+  }
+  if (subcategory) {
+    if (!acc[category].subcategories[subcategory]) {
+      acc[category].subcategories[subcategory] = [];
+    }
+    acc[category].subcategories[subcategory].push(entry);
+  } else {
+    acc[category].entriesWithoutSub.push(entry);
+  }
+  return acc;
+}, {});
+const categoryOrder = { '官方': 1, '社区': 2, '百科': 3, '资源': 4, '服务端': 5, '在线工具': 6, '软件程序': 7, '工作室 & 组织': 8, '开发': 9, '市场': 10, '收纳': 50 };
+const sortedCategoryNames = Object.keys(groupedByCategory).sort((a, b) => (categoryOrder[a] || 999) - (categoryOrder[b] || 999));
+const subcategoryOrder = {
+  '百科': { '百科': 1, '教程、文档': 2 },
+  '资源': { '综合': 1, '地图、投影': 2, '模组、整合包': 3, '纹理、资源包、光影': 4 },
+  '服务端': { '原版核心': 1, 'Bukkit·Paper系': 2, 'Folia系': 3, 'Mod服核心': 4, '混合端': 5, '代理端': 6, '基岩': 7, '互通': 8 },
+  '软件程序': { '启动器': 1, '版本库': 2, '实用工具（PC）': 3, '实用工具（Android）': 4, '服务器面板': 5, },
+  '开发': { 'Java 模组': 1, 'Java 光影': 2, 'Java 服务端': 3, '基岩': 4, '基岩 服务端': 5, },
+  '在线工具': { '综合工具集': 1, '种子与地图': 2, '查询与素材库': 3, '皮肤与装扮': 4, '文字与排版': 5, '像素画与建筑': 6, '命令与数据包': 7, '资源包与定制': 8, '服务器与开发者': 9, },
+  '市场': { '市场目录': 1, '合作伙伴': 2 },
+};
+---
+
+<nav class="sidebar-nav">
+  <ul>
+    {sortedCategoryNames.map(categoryName => {
+      const hasSubcategories = Object.keys(groupedByCategory[categoryName].subcategories).length > 0;
+      return (
+        <li>
+          {hasSubcategories ? (
+            <details class="collapsible-menu">
+              <summary class="menu-summary">
+                <a href={`#${categoryName}`}>{categoryName}</a>
+              </summary>
+              <div class="submenu-wrapper">
+                <ul class="submenu">
+                  {Object.keys(groupedByCategory[categoryName].subcategories)
+                    .sort((a, b) => {
+                      const orderRules = subcategoryOrder[categoryName] || {};
+                      const orderA = orderRules[a] || 999;
+                      const orderB = orderRules[b] || 999;
+                      return orderA - orderB;
+                    })
+                    .map(subcatName => (
+                      <li><a href={`#${categoryName}-${subcatName}`}>{subcatName}</a></li>
+                    ))
+                  }
+                </ul>
+              </div>
+            </details>
+          ) : (
+            <a href={`#${categoryName}`}>{categoryName}</a>
+          )}
+        </li>
+      );
+    })}
+  </ul>
+</nav>
+
+<style>
+  .sidebar-nav {
+    padding-top: 1rem; /* 3. 向上提一些 */
+    white-space: nowrap;
+    overflow-x: hidden;
+  }
+  nav ul { 
+    list-style: none; 
+    padding: 0 0.75rem; 
+    margin: 0; 
+  }
+  nav li {
+    margin-bottom: 2px; /* 4. 间距更紧凑 */
+  }
+  nav a {
+    display: flex;
+    align-items: center;
+    padding: 8px 1rem; /* 4. 链接内边距更紧凑 */
+    font-size: 0.95rem; /* 4. 字体更小 */
+    text-decoration: none;
+    color: #333; 
+    border-radius: 6px; 
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  nav a:hover { 
+    background-color: #e9e9eb; 
+  }
+  /* 【优化】滚动高亮：当前所在分类的导航项 */
+  nav a.active {
+    background-color: #e7f0ff;
+    color: #1d4ed8;
+    font-weight: 600;
+  }
+  .collapsible-menu { 
+    transition: none; 
+  }
+  /* 
+    【优化】子菜单展开动画：grid-template-rows 0fr→1fr
+    按子菜单实际内容高度自然过渡，替代原 max-height:0→500px 的上限法，
+    展开节奏与内容高度一致，更平滑。
+  */
+  .submenu-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid-template-rows 0.3s ease-in-out;
+  }
+  .collapsible-menu[open] .submenu-wrapper {
+    grid-template-rows: 1fr;
+  }
+  .submenu { 
+    list-style: none; 
+    padding: 0; 
+    margin: 2px 0 6px; 
+    min-height: 0; /* 允许被压缩，grid 动画生效的关键 */
+    overflow: hidden;
+  }
+  .submenu a {
+    font-size: 0.9rem; 
+    color: #555;
+    padding-left: 2rem; /* 5. 子分类缩进 */
+  }
+  .menu-summary {
+    list-style: none; 
+    display: flex; 
+    align-items: center; 
+    cursor: pointer;
+    position: relative;
+  }
+  .menu-summary::-webkit-details-marker { display: none; }
+  /* 
+    【优化】折叠箭头：纯 CSS 描边 chevron（无字符依赖、缩放清晰）
+    收拢态朝右 >，展开态朝下 v，hover 时加深。
+  */
+  .menu-summary::after {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid #9a9a9a;
+    border-bottom: 2px solid #9a9a9a;
+    position: absolute;
+    right: 1.35rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg); /* 收拢：朝右 > */
+    transform-origin: center;
+    border-radius: 1px;
+    transition: transform 0.25s ease, border-color 0.2s ease;
+  }
+  .collapsible-menu[open] > .menu-summary::after {
+    transform: translateY(-50%) rotate(45deg); /* 展开：朝下 v */
+  }
+  .menu-summary:hover::after {
+    border-color: #555;
+  }
+  .menu-summary > a { 
+    flex-grow: 1; 
+  }
+  /* 底部内容管理入口 */
+  .sidebar-footer {
+    border-top: 1px solid #e5e5e5;
+    margin-top: 1rem;
+    padding: 0.75rem;
+  }
+  .sidebar-footer a {
+    display: flex; align-items: center; justify-content: center;
+    padding: 6px 1rem; font-size: 0.9rem; text-decoration: none;
+    color: #666; border-radius: 6px;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  .sidebar-footer a:hover { background-color: #e9e9eb; color: #111; }
+</style>

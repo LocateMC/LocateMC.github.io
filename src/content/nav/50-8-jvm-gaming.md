@@ -1,0 +1,22 @@
+---
+title: 'JVM Gaming'
+description: '2009 年 5 月 13 日，游戏作者 Notch 在 JVM-Gaming.org 论坛上首次公开发布 Minecraft（当时名为 Cave Game）的传奇帖子。'
+href: 'https://jvm-gaming.org/t/minecraft/33567'
+icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/jvm-gaming.png'
+category: '收纳' # 用于分类
+tags: ['历史', 'Notch', '发布', 'Cave Game', '开发', 'Java', 'JVM']
+order: 8
+---
+
+这个论坛帖子是 **Minecraft 发展历史上最重要的文献之一**。它记录了在 **2009 年 5 月 13 日**，游戏的创造者 **Markus "Notch" Persson** 首次向世界公开他正在开发的一款新游戏（当时他称之为 "Cave Game"）的历史性时刻。在这个帖子中，Notch 简单地描述了游戏的灵感来源（Infiniminer），分享了他对未来方向的构想，并附上了一个 YouTube 视频和第一个可玩的 Java Applet 版本。
+
+### 发展历程
+
+这个帖子标志着 Minecraft 从一个个人项目，**第一次进入公共视野**的起点。它是游戏从“零”到“一”的决定性瞬间。帖子发布后，迅速吸引了论坛里第一批核心玩家和技术爱好者的注意。他们在回帖中提供了最初的反馈、Bug 报告和功能建议，形成了游戏最早的社区雏形。这个帖子和其中的讨论，真实地记录了游戏早期版本是如何在 Notch 与社区的互动中，一步步迭代和演进的。
+
+### 社区生态位
+
+该帖子在 Minecraft 社区中扮演着“**创世的基石**”和“**数字的考古圣地**”这一无可替代的传奇角色。
+1.  **历史的“出生证明”**：它是 Minecraft 这款全球性文化现象的“出生证明”。所有关于游戏起源的研究，都必须追溯到这个帖子。
+2.  **社区精神的源头**：它见证了游戏从一开始就与社区紧密结合的开发模式。Notch 在这里与玩家的直接交流，奠定了 Minecraft 开放、包容、由社区共同塑造的文化基因。
+3.  **玩家的“朝圣之地”**：对于全世界的 Minecraft 爱好者来说，访问这个帖子就如同一次“数字考古”或“历史朝圣”。阅读 Notch 最初的文字和社区最早的回应，能让人深刻地感受到这款游戏在十多年前，那种充满无限可能性和原始创造力的独特魅力。

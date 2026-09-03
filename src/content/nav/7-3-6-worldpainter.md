@@ -1,0 +1,19 @@
+---
+title: 'WorldPainter'
+description: '强大的自定义地形生成器，像绘画一样创造你的世界。'
+href: 'https://www.worldpainter.net/'
+icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/worldpainter.webp' # 假设图标文件名
+category: '软件程序'
+subcategory: '实用工具（PC）'
+tags: ['实用工具', '地图生成', '地形', '自定义世界', '创世']
+order: 6
+---
+
+
+WorldPainter 是一款功能强大的交互式地图生成器，专门用于创造大规模的、完全自定义的 Minecraft 世界。它允许用户像在 Photoshop 等绘图软件中一样，通过各种笔刷和工具来“绘制”地形高度、生物群系、河流、洞穴、资源分布等，最终导出一个完整的游戏地图。
+
+### 发展历程
+WorldPainter 拥有极其悠久的历史，是 Minecraft 地图创作领域的元老级工具。它诞生于社区对超越游戏原生算法、完全掌控世界地形的迫切需求。多年来，凭借其无与伦比的创造自由度和强大的功能，它一直是无数史诗级 RPG 服务器、大型冒险地图和宏伟建筑工程项目在奠定地形基础时的不二之选。
+
+### 社区生态位
+WorldPainter 在生态中扮演着 **“世界的创世之笔”** 与 **“地形艺术家的画布”** 的角色。它不编辑已有的世界，而是从零开始创造全新的大陆。对于任何希望拥有一个独一无二、完全符合自己设想的宏大世界的创作者来说，WorldPainter 是无可替代的、最强大的工具，是整个创作流程的起点。

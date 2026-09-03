@@ -1,0 +1,239 @@
+---
+// src/components/Carousel.astro
+// 卡片栏顶部的轮播栏
+// 两种模式：card —— 引用导航卡片（图标 + 文字）；image —— 自定义图片背景 + 文字
+// 配置来源：src/data/carousel.json（可在 /admin 轮播管理中编辑）
+import { getCollection } from 'astro:content';
+import carouselConfig from '../data/carousel.json';
+
+const entries = await getCollection('nav');
+
+const DEFAULT_ACCENT = { c1: '#1d9e75', c2: '#0f6e56' };
+
+const slides = carouselConfig
+  .map((item) => {
+    const base = {
+      id: item.id,
+      mode: item.mode,
+      c1: item.c1 || DEFAULT_ACCENT.c1,
+      c2: item.c2 || DEFAULT_ACCENT.c2,
+    };
+    if (item.mode === 'image') {
+      // 模式二：上传图片
+      return {
+        ...base,
+        title: item.title || '',
+        description: item.description || '',
+        href: item.href || '#',
+        image: item.image || '',
+      };
+    }
+    // 模式一：引用导航卡片（卡片数据变动时轮播自动同步）
+    const entry = entries.find(e => e.id === item.cardId);
+    if (!entry) return null; // 引用的卡片已删除则跳过
+    return {
+      ...base,
+      title: entry.data.title,
+      description: entry.data.description,
+      href: entry.data.href,
+      icon: entry.data.icon,
+      cardId: item.cardId,
+    };
+  })
+  .filter(Boolean);
+---
+
+{slides.length > 0 && (
+  <div class="carousel" id="feature-carousel">
+    <div class="carousel-track">
+      {slides.map(slide => (
+        slide.mode === 'image' ? (
+          <a class="slide slide-image" href={slide.href} target="_blank" rel="noopener noreferrer"
+             style={`--c1:${slide.c1};--c2:${slide.c2};--img:url(${slide.image})`}
+             data-id={slide.id}>
+            <div class="slide-text">
+              <span class="slide-badge">推荐</span>
+              <h3 class="slide-title">{slide.title}</h3>
+              <p class="slide-desc">{slide.description}</p>
+            </div>
+          </a>
+        ) : (
+          <a class="slide slide-card" href={slide.href} target="_blank" rel="noopener noreferrer"
+             style={`--c1:${slide.c1};--c2:${slide.c2}`}
+             data-id={slide.id}>
+            <img class="slide-icon" src={slide.icon} alt={`${slide.title} icon`} loading="lazy" />
+            <div class="slide-text">
+              <span class="slide-badge">精选</span>
+              <h3 class="slide-title">{slide.title}</h3>
+              <p class="slide-desc">{slide.description}</p>
+            </div>
+          </a>
+        )
+      ))}
+    </div>
+
+    <button class="carousel-arrow arrow-prev" aria-label="上一张">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18L9 12L15 6"/></svg>
+    </button>
+    <button class="carousel-arrow arrow-next" aria-label="下一张">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18L15 12L9 6"/></svg>
+    </button>
+
+    <div class="carousel-dots">
+      {slides.map((_, i) => (
+        <button class={'dot' + (i === 0 ? ' active' : '')} data-index={i} aria-label={`第 ${i + 1} 张`}></button>
+      ))}
+    </div>
+  </div>
+)}
+
+<script>
+  const root = document.getElementById('feature-carousel');
+  if (root) {
+    const track = root.querySelector('.carousel-track');
+    const dots = root.querySelectorAll('.dot');
+    const total = dots.length;
+    let idx = 0;
+    let timer = null;
+
+    function go(i) {
+      idx = (i + total) % total;
+      track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+      dots.forEach((d, n) => d.classList.toggle('active', n === idx));
+    }
+    function start() { if (!timer) timer = setInterval(() => go(idx + 1), 5000); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+    const prev = root.querySelector('.arrow-prev');
+    const next = root.querySelector('.arrow-next');
+    if (prev) prev.addEventListener('click', () => go(idx - 1));
+    if (next) next.addEventListener('click', () => go(idx + 1));
+    dots.forEach((d, n) => d.addEventListener('click', () => go(n)));
+
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+
+    go(0);
+    start();
+  }
+</script>
+
+<style>
+  .carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    height: 190px;
+    margin-bottom: 2.5rem;
+  }
+  .carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .slide {
+    flex: 0 0 100%;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0 2.5rem;
+    text-decoration: none;
+    color: #fff;
+    box-sizing: border-box;
+  }
+  /* 模式一：引用导航卡片（渐变背景 + 图标） */
+  .slide-card {
+    background-image: linear-gradient(115deg, var(--c1), var(--c2));
+  }
+  /* 模式二：上传图片（图片背景 + 左侧暗色渐变遮罩保证文字可读） */
+  .slide-image {
+    background-image: linear-gradient(100deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.28) 55%, rgba(0,0,0,0.12) 100%), var(--img);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .slide-icon {
+    width: 88px; height: 88px;
+    border-radius: 18px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.18);
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  .slide-text { min-width: 0; }
+  .slide-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.22);
+    margin-bottom: 6px;
+  }
+  .slide-title {
+    margin: 0 0 6px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.18);
+  }
+  .slide-desc {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.92;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+  }
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px; height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.25);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+  }
+  .carousel:hover .carousel-arrow { opacity: 1; }
+  .carousel-arrow:hover { background: rgba(0, 0, 0, 0.45); }
+  .arrow-prev { left: 12px; }
+  .arrow-next { right: 12px; }
+
+  .carousel-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+  }
+  .dot {
+    width: 7px; height: 7px;
+    border: none;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    padding: 0;
+    transition: width 0.25s ease, background-color 0.25s ease;
+  }
+  .dot.active { background: #fff; width: 18px; }
+
+  @media (max-width: 720px) {
+    .carousel { height: 150px; }
+    .slide { padding: 0 1.25rem; gap: 1rem; }
+    .slide-icon { width: 64px; height: 64px; border-radius: 14px; }
+    .slide-title { font-size: 1.15rem; }
+    .slide-desc { font-size: 0.85rem; -webkit-line-clamp: 1; }
+  }
+</style>

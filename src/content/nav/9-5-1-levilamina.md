@@ -1,0 +1,23 @@
+---
+title: 'LeviLamina'
+description: '一个为基岩版专用服务器 (BDS) 设计的、跨语言的插件加载器与开发框架，是 LiteLoaderBDS 的官方继任者。'
+href: 'https://lamina.levimc.org/zh/'
+icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/levilamina.png'
+category: '开发'
+subcategory: '基岩 服务端'
+tags: ['基岩版', '开发', '框架', 'API', '跨语言', 'BDS', 'LiteLoaderBDS']
+order: 1
+---
+
+LeviLamina 是一个专为 **Minecraft 基岩版专用服务器 (BDS)** 设计的、功能强大的**插件加载器和开发框架**。它并非 Java 版的工具，而是通过为原生的 BDS 程序提供一个稳定的 API 层，来允许开发者使用多种编程语言（如 C++, C#, JavaScript, Lua 等）编写插件，从而修改和扩展服务器的功能。
+
+### 发展历程
+
+该项目是基岩版著名插件加载器 **LiteLoaderBDS** 的**官方继任者**。LiteLoaderBDS 在基岩版社区中拥有悠久的历史和广泛的应用，为没有官方插件 API 的 BDS 带来了模组化的可能性。随着时间的推移，为了解决旧框架在设计和维护上的一些历史遗留问题，核心开发团队启动了全新的 LeviLamina 项目。它旨在继承 LiteLoaderBDS 的精神，并以更现代、更稳定、更具扩展性的架构，为基岩版服务器开发提供一个面向未来的解决方案。
+
+### 社区生态位
+
+LeviLamina 在 Minecraft 社区中扮演着“**基岩版服务器的 Modding 基石**”和“**多语言开发生态的构建者**”这一无可替代的关键角色。
+1.  **为 BDS 带来无限可能**：官方的基岩版服务器没有任何插件或模组接口。像 LeviLamina 这样的加载器，是整个基岩版服务器能够实现复杂玩法、经济系统、权限管理等一切自定义功能的**唯一途径**。它是基岩版服务器模组生态的“创世之神”。
+2.  **跨语言的开放性**：这是它最核心的优势之一。与 Java 版模组生态几乎被 Java 语言垄断不同，LeviLamina 允许来自不同技术背景的开发者，用他们最擅长的语言来为同一个平台做贡献。这极大地降低了开发门槛，能够吸引更多元的开发者加入。
+3.  **新标准的建立者**：作为 LiteLoaderBDS 的正式继承者，它旨在为混乱的基岩版第三方开发领域，提供一个统一、可靠、社区公认的“标准答案”，是所有希望进行严肃、长期服务器开发的服主和开发者的首选平台。

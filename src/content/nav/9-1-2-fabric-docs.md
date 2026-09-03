@@ -1,0 +1,23 @@
+---
+title: 'Fabric 文档'
+description: 'Fabric 模组工具链的官方技术文档，提供从入门教程到核心概念的结构化学习路径。'
+href: 'https://docs.fabricmc.net/develop/'
+icon: 'https://cdn.jsdelivr.net/gh/LocateMC/LocateMC.github.io@main/public/icons/fabric.png'
+category: '开发'
+subcategory: 'Java 模组'
+tags: ['Fabric', '模组', '开发', '文档', '教程', 'API', 'Loom']
+order: 2
+---
+
+Fabric Documentation 是 Fabric 模组加载器和其工具链（如 Loom）的**官方技术文档网站**。与社区驱动的维基 (Wiki) 不同，该网站提供了由 Fabric 官方维护的、更加结构化和系统化的学习资源。其内容被清晰地划分为教程、核心概念、API 说明、工具链详解等模块，旨在为开发者提供一个从零开始的、清晰的学习路径。
+
+### 发展历程
+
+该文档站点的建立，标志着 Fabric 项目在专业化和成熟度上的一个重要里程碑。当一个开源项目发展到一定规模时，仅有社区维护的维基是不够的，还需要一份由核心团队编写和背书的、更具权威性和结构性的官方文档。该网站因此而生，它作为 Fabric 工具链不可分割的一部分，与工具本身同步更新，确保了信息的准确性和时效性。
+
+### 社区生态位
+
+如果说 Fabric Wiki 是一个自由、开放的“**社区知识库**”，那么 Fabric Docs 就是一本严谨、权威的“**官方教科书**”。
+1.  **结构化的学习路径**：这是它与 Wiki 最核心的区别。它为新开发者提供了一条从“安装”到“发布”的、清晰的、官方推荐的学习路线，避免了在海量维基条目中迷失方向。
+2.  **核心概念的权威解释**：对于 Fabric 的核心设计理念（如 Mappings, Mixins, Entrypoints）以及官方工具 Loom 的工作原理，该文档站提供了最深入、最权威的解释。
+3.  **与维基互补**：它并不取代维基。官方文档负责定义“是什么”和“应该怎么做”（What & How），而维基则更多地承载了“可以怎么做”和“遇到了问题怎么办”（Possibilities & Whys），包含了大量社区的最佳实践、奇技淫巧和疑难解答。两者共同构成了 Fabric 完整、健康的开发者学习生态。

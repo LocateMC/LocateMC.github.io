@@ -1,0 +1,1 @@
+{"exceptions":[{"id":1404,"code":"NOT_FOUND","name":"NotFound","message":"the resource at path '/apple-touch-icon.png' with method 'get' was not found!","data":{"path":"/apple-touch-icon.png","method":"get"},"level":2,"meta":{"http":{"statusCode":404,"exposeToPublic":true},"tty":{"exitCode":1,"printStack":true,"shouldExit":false},"capture":{"handle":false}}}]}
