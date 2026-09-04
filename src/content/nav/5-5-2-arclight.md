@@ -2,7 +2,7 @@
 title: "Arclight"
 description: "Bukkit + Forge 混合端，新版高版本支持活跃的社区项目。"
 href: "https://github.com/IzzelAliz/Arclight"
-icon: '/icons/arclight.jpg'
+icon: "/icons/arclight.jpg"
 category: "服务端"
 subcategory: "混合端"
 tags: ["服务端","Java版","混合端","Bukkit","Forge","开源"]

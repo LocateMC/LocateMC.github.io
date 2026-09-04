@@ -2,7 +2,7 @@
 title: "Nukkit"
 description: "使用 Java 语言编写的基岩版服务器软件，经典的开源解决方案。"
 href: "https://cloudburstmc.org/"
-icon: '/icons/nukkit.png'
+icon: "/icons/nukkit.png"
 category: "服务端"
 subcategory: "基岩"
 tags: ["服务端", "基岩版", "Java", "开源", "经典"]

@@ -2,7 +2,7 @@
 title: "Velocity"
 description: "PaperMC 团队出品的现代高性能代理端，连接多服务器网络的首选。"
 href: "https://papermc.io/software/velocity"
-icon: '/icons/velocity.png'
+icon: "/icons/velocity.png"
 category: "服务端"
 subcategory: "代理端"
 tags: ["服务端", "代理端", "Java版", "高性能", "PaperMC"]

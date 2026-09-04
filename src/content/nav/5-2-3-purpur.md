@@ -2,7 +2,7 @@
 title: "Purpur"
 description: "基于 Paper 的高可配置服务端分支，玩法自由度最高的服务端核心之一。"
 href: "https://purpurmc.org/"
-icon: '/icons/purpur.png'
+icon: "/icons/purpur.png"
 category: "服务端"
 subcategory: "Bukkit·Paper系"
 tags: ["服务端", "Java版", "Paper分支", "可配置", "开源"]

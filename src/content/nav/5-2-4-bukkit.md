@@ -2,7 +2,7 @@
 title: "Bukkit"
 description: "定义服务端插件 API 的鼻祖项目，Java 版插件生态的事实标准基础。"
 href: "https://www.spigotmc.org/wiki/bukkit/"
-icon: '/icons/bukkit.png'
+icon: "/icons/bukkit.png"
 category: "服务端"
 subcategory: "Bukkit·Paper系"
 tags: ["服务端", "Java版", "API", "插件", "经典"]

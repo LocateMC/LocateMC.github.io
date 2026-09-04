@@ -2,7 +2,7 @@
 title: "BungeeCord"
 description: "Spigot 团队开发的经典代理端，多服务器网络的元老级解决方案。"
 href: "https://www.spigotmc.org/wiki/bungeecord/"
-icon: '/icons/bungeecord.png'
+icon: "/icons/bungeecord.png"
 category: "服务端"
 subcategory: "代理端"
 tags: ["服务端", "代理端", "Java版", "经典", "Spigot"]

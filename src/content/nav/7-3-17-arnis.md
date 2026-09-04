@@ -2,7 +2,7 @@
 title: "Arnis"
 description: "使用真实世界地理数据，高精度生成 Java 版世界的工具。"
 href: "https://github.com/louis-e/arnis"
-icon: '/icons/arnismc.png'
+icon: "/icons/arnismc.png"
 category: "软件程序"
 subcategory: "实用工具（PC）"
 tags: ["实用工具","世界生成","真实世界","命令行","开源","Java版"]

@@ -2,7 +2,7 @@
 title: "Minestom"
 description: "Java 编写的服务端开发框架，从零构建高度自定义的 Minecraft 服务器。"
 href: "https://wiki.minestom.net/"
-icon: '/icons/minestom.png'
+icon: "/icons/minestom.png"
 category: "服务端"
 subcategory: "原版核心"
 tags: ["服务端","Java版","框架","开发库","从零实现","开源"]

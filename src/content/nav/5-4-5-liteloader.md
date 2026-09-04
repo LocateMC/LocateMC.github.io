@@ -2,7 +2,7 @@
 title: "LiteLoader"
 description: "Java 版老牌轻量模组加载器，以零侵入的方式为客户端与服务端补充模组。"
 href: "https://www.liteloader.com/"
-icon: '/icons/sample.png'
+icon: "/icons/sample.png"
 category: "服务端"
 subcategory: "Mod服核心"
 tags: ["服务端", "Java版", "模组", "Mod加载器", "轻量", "经典"]

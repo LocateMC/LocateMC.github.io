@@ -2,7 +2,7 @@
 title: "MCSManager"
 description: "开源网页开服面板，一键部署管理 Minecraft/Steam 游戏服务器。"
 href: "https://mcsmanager.com"
-icon: '/icons/mcsmanager.png'
+icon: "/icons/mcsmanager.png"
 category: "软件程序"
 subcategory: "服务器面板"
 tags: ["服务器面板","开服","网页管理","Minecraft","开源","分布式","多用户","Docker"]

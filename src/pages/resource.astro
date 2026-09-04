@@ -1,0 +1,42 @@
+---
+// src/pages/resource.astro —— 【资源】板块页（骨架版，内容后续填充）
+import AppLayout from '../layouts/AppLayout.astro';
+---
+<AppLayout title="LocateMC - 资源" showViewToggle={false} hideSidebar>
+  <!-- 资源板块占位内容：结构与样式将随内容体系演进 -->
+  <section class="resource-section">
+    <div class="resource-hero">
+      <h1>资源</h1>
+      <p class="resource-sub">
+        Minecraft 资源板块建设中，敬请期待。<br />
+        这里将汇聚各类资源下载与分享入口。
+      </p>
+    </div>
+  </section>
+</AppLayout>
+
+<style>
+  .resource-section {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .resource-hero {
+    padding: 5rem 2rem;
+    text-align: center;
+    background: linear-gradient(180deg, #f7f9fc 0%, #ffffff 100%);
+    border: 1px solid #ececf0;
+    border-radius: 20px;
+  }
+  .resource-hero h1 {
+    margin: 0 0 0.75rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111;
+  }
+  .resource-sub {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.9;
+    color: #666;
+  }
+</style>

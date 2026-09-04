@@ -2,7 +2,7 @@
 title: "Lophine"
 description: "基于 Folia 的分支服务端，专注在 Folia 上补齐更多生电内容与可配置优化。"
 href: "https://github.com/LophineLabs/Lophine"
-icon: '/icons/lophine.png'
+icon: "/icons/lophine.png"
 category: "服务端"
 subcategory: "Folia系"
 tags: ["服务端", "Java版", "Folia分支", "生电", "开源"]

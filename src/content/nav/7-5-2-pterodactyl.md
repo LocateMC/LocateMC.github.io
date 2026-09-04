@@ -2,7 +2,7 @@
 title: "Pterodactyl"
 description: "开源游戏服托管面板，Docker 隔离运行，支持多节点与海量游戏。"
 href: "https://pterodactyl.io"
-icon: '/icons/pterodactyl.png'
+icon: "/icons/pterodactyl.png"
 category: "软件程序"
 subcategory: "服务器面板"
 tags: ["服务器面板","面板","开服","网页管理","Minecraft","开源","Docker","多节点"]

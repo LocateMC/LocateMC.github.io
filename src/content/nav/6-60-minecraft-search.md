@@ -2,7 +2,7 @@
 title: "Minecraft Search"
 description: "全能型 MC 内容检索站：3000+ 物品/生物/方块/群系，查配方、掉落、属性，另附 9 款免费在线工具，同时覆盖 Java 与基岩版。"
 href: "https://minecraftsearch.com/"
-icon: '/icons/minecraftsearch.png'
+icon: "/icons/minecraftsearch.png"
 category: "在线工具"
 tags: ["工具","内容检索","合成配方","种子地图","附魔规划","命令生成","Java版","基岩版"]
 subcategory: "查询与素材库"

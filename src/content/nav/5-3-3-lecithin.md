@@ -2,7 +2,7 @@
 title: "Lecithin"
 description: "Lophine 的下游分支，为 Folia 系核心补齐 Paper/Spigot/Bukkit API 兼容性。"
 href: "https://github.com/LophineLabs/Lecithin"
-icon: '/icons/lecithin.png'
+icon: "/icons/lecithin.png"
 category: "服务端"
 subcategory: "Folia系"
 tags: ["服务端", "Java版", "Folia分支", "API兼容", "开源"]

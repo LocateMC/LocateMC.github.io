@@ -2,7 +2,7 @@
 title: "uNmINeD"
 description: "跨平台 Minecraft 世界地图查看与渲染工具"
 href: "https://unmined.net"
-icon: '/icons/unmined.png'
+icon: "/icons/unmined.png"
 category: "软件程序"
 subcategory: "实用工具（PC）"
 order: 20

@@ -1,8 +1,25 @@
 ---
 // src/layouts/AppLayout.astro
 import SideBar from '../components/SideBar.astro';
+import SearchBar from '../components/SearchBar.astro';
 import CardDetailModal from '../components/CardDetailModal.astro';
+import { ViewTransitions } from 'astro:transitions';
 import '../styles/modal.css';
+
+// 【站点主导航】依据当前路径高亮「导航 / 资源」板块 Tab
+const pathname = Astro.url.pathname;
+const isNavActive = pathname === '/' || pathname === '/index.html';
+const isResourceActive = pathname.startsWith('/resource');
+
+// 页面标题 / 右下角视图切换按钮 / 侧边栏 均可被子页面覆盖
+// （资源页 hideSidebar=true：隐藏侧边栏与折叠按钮，主内容占满整宽）
+const { title = 'LocateMC', showViewToggle = true, hideSidebar = false } = Astro.props;
+
+// 移动端下拉菜单是否需要搜索栏：仅当页面提供了 header-search 插槽（如导航页）
+const hasHeaderSearch = Astro.slots.has('header-search');
+// 移动端下拉菜单（☰ → 搜索栏 + 分类导航栏）是否需要渲染：
+// 资源页无搜索栏且无分类导航，只需底部固定「导航 / 资源」切换，无需 ☰ 菜单
+const needsMobileMenu = hasHeaderSearch || !hideSidebar;
 ---
 
 <!DOCTYPE html>
@@ -10,27 +27,83 @@ import '../styles/modal.css';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <title>LocateMC</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/LocateMC_icon.png" />
+  <title>{title}</title>
+  <!-- 页面切换平滑过渡（View Transitions），无刷新动画切换「导航 / 资源」 -->
+  <ViewTransitions />
 </head>
 <body>
-  <div class="app-container">
-    <aside id="sidebar" class="sidebar">
-      <SideBar />
-    </aside>
+  <div class:list={['app-container', { 'no-sidebar': hideSidebar }]}>
+    {!hideSidebar && (
+      <aside id="sidebar" class="sidebar">
+        <SideBar />
+      </aside>
+    )}
 
     <div class="main-content-wrapper">
       <header class="page-header">
-        <!-- 【核心修改 1】将 Logo 和按钮包裹在一个 div 中，让它们保持邻近 -->
+        <!-- 【核心修改 1】将 Logo 与折叠按钮包裹在 header-left 中保持邻近 -->
         <div class="header-left">
           <h1 class="logo">LocateMC</h1>
-          <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle sidebar">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+
+          {!hideSidebar && (
+            <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle sidebar">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          )}
         </div>
-        <!-- 【搜索栏插槽】搜索栏由页面传入，位于页眉右侧 -->
-        <slot name="header-search" />
+
+        <!-- 【站点主导航】「导航 / 资源」板块 Tab（桌面版：相对页眉水平居中略偏左）；移动端隐藏、收纳进下方下拉菜单 -->
+        <nav class="site-tabs site-tabs--header" aria-label="站点主导航">
+          <a href="/" class:list={['site-tab', { active: isNavActive }]}>导航</a>
+          <a href="/resource" class:list={['site-tab', 'site-tab--resource', { active: isResourceActive }]}>资源</a>
+        </nav>
+        <!-- 【搜索栏插槽】搜索栏由页面传入，桌面位于页眉右侧；移动端隐藏、收纳进下方下拉菜单 -->
+        <div class="header-search-slot"><slot name="header-search" /></div>
+
+        <!-- 【移动端菜单按钮】仅窄屏且页面含菜单内容时出现，位于页眉右上角；展开 / 收起下拉菜单 -->
+        {needsMobileMenu && (
+          <button
+            id="mobile-menu-toggle"
+            class="mobile-menu-toggle"
+            type="button"
+            aria-label="打开菜单"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg class="menu-icon-open" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+            <svg class="menu-icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+          </button>
+        )}
       </header>
+
+      <!-- 【移动端下拉菜单】窄屏点击 ☰ 展开，自上而下依次为：
+           ① 搜索栏  ② 分类导航栏（SideBar）；
+           「导航 / 资源」板块切换已独立为页面底部固定条（mobile-bottom-tabs）；
+           桌面宽度下本面板隐藏，不参与布局。 -->
+      {needsMobileMenu && (
+        <>
+          <div id="mobile-menu-backdrop" class="mobile-menu-backdrop"></div>
+          <div id="mobile-menu" class="mobile-menu" aria-label="移动端菜单">
+            <div class="mobile-menu-inner">
+              {hasHeaderSearch && (
+                <div class="mobile-search">
+                  <SearchBar uid="m" />
+                </div>
+              )}
+
+              {!hideSidebar && (
+                <div class="mobile-nav">
+                  <SideBar />
+                </div>
+              )}
+            </div>
+          </div>
+        </>
+      )}
 
       <main class="page-main">
         <slot />
@@ -38,19 +111,27 @@ import '../styles/modal.css';
     </div>
   </div>
 
+  <!-- 【移动端底部固定条】仅窄屏显示：把「导航 / 资源」板块切换固定在页面底部 -->
+  <nav id="mobile-bottom-tabs" class="mobile-bottom-tabs" aria-label="站点主导航">
+    <a href="/" class:list={['mbt-item', { active: isNavActive }]}>导航</a>
+    <a href="/resource" class:list={['mbt-item', { active: isResourceActive }]}>资源</a>
+  </nav>
+
   <CardDetailModal />
 
-  <!-- 视图模式切换按钮（页面右下角浮动）：在「分组堆叠」与「子分类 Tab」之间切换 -->
-  <button
-    id="viewModeToggle"
-    class="view-mode-toggle"
-    type="button"
-    aria-label="切换显示模式"
-    data-view="stacked"
-  >
-    <span class="vmt-icon" aria-hidden="true">▤</span>
-    <span class="vmt-label">Tab 视图</span>
-  </button>
+  <!-- 视图模式切换按钮（页面右下角浮动）：在「分组堆叠」与「子分类 Tab」之间切换；仅导航页需要 -->
+  {showViewToggle && (
+    <button
+      id="viewModeToggle"
+      class="view-mode-toggle"
+      type="button"
+      aria-label="切换显示模式"
+      data-view="stacked"
+    >
+      <span class="vmt-icon" aria-hidden="true">▤</span>
+      <span class="vmt-label">Tab 视图</span>
+    </button>
+  )}
 
   <style is:global>
     @font-face {
@@ -71,6 +152,35 @@ import '../styles/modal.css';
       margin: 0;
       font-family: 'HarmonyOS Sans', sans-serif;
       background-color: #ffffff;
+    }
+
+    /* ===== 页面切换平滑过渡（View Transitions）=====
+       旧页轻微下移淡出，新页轻微上移淡入；尊重系统减弱动效设置 */
+    @media (prefers-reduced-motion: no-preference) {
+      ::view-transition-old(root) {
+        animation: lm-view-out 0.16s ease both;
+      }
+      ::view-transition-new(root) {
+        animation: lm-view-in 0.26s ease both;
+      }
+    }
+    @keyframes lm-view-out {
+      to { opacity: 0; transform: translateY(5px); }
+    }
+    @keyframes lm-view-in {
+      from { opacity: 0; transform: translateY(-5px); }
+    }
+
+    /* ===== 页眉在页面过渡中保持不动 =====
+       给页眉独立的 view-transition 层并禁用其动画：切换时 header
+       （Logo / 板块 Tab / 搜索栏）原位静止，只有下方内容区做淡入淡出位移。 */
+    .page-header {
+      view-transition-name: page-header;
+    }
+    ::view-transition-old(page-header),
+    ::view-transition-new(page-header) {
+      animation: none;
+      mix-blend-mode: normal;
     }
   </style>
 
@@ -107,6 +217,11 @@ import '../styles/modal.css';
       /* 【优化】导航锚点平滑滚动：点击侧边栏分类时右侧内容区平滑滚到对应区块 */
       scroll-behavior: smooth;
       transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* 无侧边栏页面（如资源页）：主内容区不再扣除 220px，占满整宽 */
+    .app-container.no-sidebar .main-content-wrapper {
+      width: 100vw;
     }
     
     .sidebar.collapsed {
@@ -158,6 +273,130 @@ import '../styles/modal.css';
     .sidebar-toggle:hover {
       background-color: #f0f0f0;
     }
+
+    /* 【站点主导航 Tab】「导航 / 资源」板块切换：无底色，仅文字 hover / 当前页变蓝 */
+    .site-tabs {
+      display: flex;
+      gap: 2rem;
+      flex-shrink: 0;
+      z-index: 1;
+      white-space: nowrap;
+    }
+    /* 页眉内实例：绝对定位相对页眉水平居中略偏左（仅桌面 >768px 生效） */
+    .site-tabs--header {
+      position: absolute;
+      left: 26.5%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .site-tab {
+      padding: 2px 0;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #444;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.15s ease;
+    }
+    .site-tab:hover { color: #3b82f6; }
+    .site-tab.active {
+      color: #1d4ed8;
+      font-weight: 600;
+    }
+    /* 仅「资源」相对「导航」单独往右错开（组整体位置不动） */
+    .site-tab--resource {
+      margin-left: 1.5rem;
+    }
+    /* 中窄屏（769~900px 平板）：解除绝对定位回到文档流，并适度缩小字体避免挤压搜索栏 */
+    @media (max-width: 900px) {
+      .site-tabs--header { position: static; transform: none; }
+      .site-tab { font-size: 1rem; }
+      .header-left { gap: 0.75rem; }
+    }
+    /* 页眉搜索栏容器：占据页眉剩余空间并右对齐（slot 内容在内部靠右） */
+    .header-search-slot {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      flex: 1 1 auto;
+      min-width: 0;
+      margin-left: auto;
+    }
+
+    /* ===== 移动端菜单按钮（☰ / ✕）：默认隐藏，仅 ≤768px 显示在页眉右上角 ===== */
+    .mobile-menu-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      margin-left: auto;
+      flex-shrink: 0;
+      background: #ffffff;
+      border: 1px solid #e3e3e3;
+      border-radius: 50%;
+      color: #333;
+      cursor: pointer;
+      padding: 0;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .mobile-menu-toggle:hover { background-color: #f0f0f0; }
+    .menu-icon-close { display: none; }
+
+    /* ===== 移动端下拉菜单（遮罩 + 面板）：默认隐藏 ===== */
+    .mobile-menu-backdrop,
+    .mobile-menu { display: none; }
+
+    /* 下拉面板内部版式（自上而下：搜索栏 → 分类导航栏） */
+    .mobile-menu-inner {
+      padding: 0.6rem 1rem 1rem;
+    }
+    .mobile-search {
+      padding: 0.4rem 0 0.8rem;
+      border-bottom: 1px solid #f0f0f1;
+    }
+    .mobile-nav {
+      padding-top: 0.6rem;
+    }
+
+    /* ===== 移动端底部固定条（导航 / 资源）：默认隐藏，仅 ≤768px 显示 ===== */
+    .mobile-bottom-tabs {
+      display: none;
+    }
+
+    /* 菜单展开态（body.mobile-menu-open 由脚本切换）：
+       面板自页眉下缘下拉，覆盖主内容区；遮罩可点击关闭 */
+    body.mobile-menu-open .mobile-menu-backdrop {
+      display: block;
+      position: fixed;
+      top: 56px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(15, 20, 30, 0.35);
+      z-index: 204;
+    }
+    body.mobile-menu-open .mobile-menu {
+      display: block;
+      position: fixed;
+      top: 56px;
+      left: 0;
+      right: 0;
+      max-height: calc(100vh - 56px);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e5e5;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      z-index: 205;
+      animation: mobile-menu-in 0.18s ease;
+    }
+    body.mobile-menu-open .mobile-menu-toggle .menu-icon-open { display: none; }
+    body.mobile-menu-open .mobile-menu-toggle .menu-icon-close { display: block; }
+    @keyframes mobile-menu-in {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: none; }
+    }
     
     /* 
       【核心修改 3】
@@ -202,6 +441,75 @@ import '../styles/modal.css';
     }
     .view-mode-toggle:active { transform: translateY(0); }
     .view-mode-toggle .vmt-icon { font-size: 1.05rem; line-height: 1; }
+
+    /* ===== 移动端（≤768px）整体布局 =====
+       置于样式末尾：确保覆盖上方同优先级的默认布局规则 */
+    @media (max-width: 768px) {
+      /* 主容器恢复单列；页眉固定高度收窄为 56px */
+      .app-container { display: block; }
+      /* 桌面左侧固定栏隐藏：分类导航改由下拉菜单中的 SideBar 实例提供 */
+      .sidebar { display: none; }
+      .main-content-wrapper { width: 100vw; }
+
+      .page-header {
+        height: 56px;
+        padding: 0 1rem;
+      }
+      .header-left { gap: 0.5rem; }
+      .logo { font-size: 1.4rem; }
+      #sidebar-toggle { display: none; }
+      /* 页眉只保留 Logo +（有菜单内容时）右上角菜单按钮 */
+      .site-tabs--header { display: none; }
+      .header-search-slot { display: none; }
+      .mobile-menu-toggle { display: flex; }
+
+      .page-main {
+        padding: 1.25rem 1rem 2.5rem;
+        margin-top: 56px;
+        /* 主内容底部让出安全区，避免被底部固定条遮挡 */
+        padding-bottom: calc(2.5rem + 70px);
+      }
+      /* 菜单展开时锁住主内容区滚动（面板自身滚动） */
+      body.mobile-menu-open .main-content-wrapper { overflow: hidden; }
+
+      /* 底部固定「导航 / 资源」切换条 */
+      .mobile-bottom-tabs {
+        display: flex;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: calc(54px + env(safe-area-inset-bottom, 0px));
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        box-sizing: border-box;
+        z-index: 160;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid #e5e5e5;
+      }
+      .mbt-item {
+        flex: 1 1 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.02rem;
+        font-weight: 500;
+        color: #666;
+        text-decoration: none;
+        transition: color 0.15s ease, background-color 0.15s ease;
+      }
+      .mbt-item:hover { background-color: rgba(0, 0, 0, 0.03); }
+      .mbt-item.active {
+        color: #1d4ed8;
+        font-weight: 600;
+        background-color: rgba(29, 78, 216, 0.06);
+      }
+      /* 右下角「视图模式切换」按钮上移，避免与底部条重叠 */
+      .view-mode-toggle {
+        bottom: 72px;
+        z-index: 170;
+      }
+    }
   </style>
 
   <!--
@@ -264,6 +572,9 @@ import '../styles/modal.css';
   </style>
 
   <script>
+    // View Transitions：页面每次切换后 DOM 均为新实例，故侧边栏 / 滚动 / 视图模式等
+    // 交互需在每次导航后重建绑定 —— 统一由 astro:page-load（初次加载 + 每次导航触发）驱动。
+    function initAppLayout() {
     const toggleButton = document.getElementById('sidebar-toggle');
     const sidebar = document.getElementById('sidebar');
 
@@ -272,6 +583,42 @@ import '../styles/modal.css';
         sidebar.classList.toggle('collapsed');
       });
     }
+
+    // ===== 移动端下拉菜单（≤768px）：☰ 展开 / 收起 =====
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const menuBackdrop = document.getElementById('mobile-menu-backdrop');
+
+    function setMobileMenu(open: boolean) {
+      document.body.classList.toggle('mobile-menu-open', open);
+      menuToggle?.setAttribute('aria-expanded', String(open));
+    }
+
+    // 每次页面加载 / 客户端导航后，菜单复位为收起状态
+    setMobileMenu(false);
+
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        setMobileMenu(!document.body.classList.contains('mobile-menu-open'));
+      });
+    }
+    if (menuBackdrop) {
+      // 点击半透明遮罩关闭菜单
+      menuBackdrop.addEventListener('click', () => setMobileMenu(false));
+    }
+
+    // 菜单内点击任意链接（分类锚点 / 板块）后收起菜单；
+    // 点击搜索按钮同样收起（执行搜索后让主内容区呈现过滤结果，见 2-2）
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenu?.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('a') || target.closest('.search-button')) setMobileMenu(false);
+      // 点搜索按钮：过滤已应用，把主内容滚动回顶部，让结果显示在视野内
+      if (target.closest('.search-button')) {
+        document
+          .querySelector('.main-content-wrapper')
+          ?.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
 
     // 【优化】导航点击增强：点击分类时自动展开对应子菜单 + 滚动过程高亮当前分类
     const mainContent = document.querySelector('.main-content-wrapper');
@@ -324,11 +671,13 @@ import '../styles/modal.css';
           tabBtn.click(); // 切换 data-active 与按钮高亮，区块随即变为可见
 
           // 滚动目标：所属主分类的大标题（h2），其下方的 tab 栏与激活内容顺势进入视野；
-          // 无标题时回退到 section 本身。偏移 80px 以避开固定页眉。
+          // 无标题时回退到 section 本身。偏移量取固定页眉实际高度（桌面 80 / 移动 56）。
           const section = block.closest('.category-section');
           const anchor = section?.querySelector('.category-title') || section || block;
+          const headerEl = document.querySelector('.page-header');
+          const headerH = headerEl ? headerEl.getBoundingClientRect().height : 80;
           const containerRect = mainContent.getBoundingClientRect();
-          const targetTop = anchor.getBoundingClientRect().top - containerRect.top + mainContent.scrollTop - 80;
+          const targetTop = anchor.getBoundingClientRect().top - containerRect.top + mainContent.scrollTop - headerH;
           mainContent.scrollTo({ top: targetTop, behavior: 'smooth' });
         });
       });
@@ -404,6 +753,30 @@ import '../styles/modal.css';
       const observer = new MutationObserver(syncCollapsed);
       observer.observe(sidebar, { attributes: true, attributeFilter: ['class'] });
     }
+
+    // 全局收尾：Esc 关闭移动菜单；窗口回到桌面宽度时自动收起
+    // （命名函数 + remove 后 add，避免 View Transitions 导航间重复累积监听）
+    document.removeEventListener('keydown', onMenuKeydown);
+    document.addEventListener('keydown', onMenuKeydown);
+    const menuMq = window.matchMedia('(max-width: 768px)');
+    menuMq.removeEventListener?.('change', onMenuMqChange);
+    menuMq.addEventListener?.('change', onMenuMqChange);
+    }
+
+    // ===== 移动菜单辅助（模块级命名函数，供 removeEventListener 复用） =====
+    function onMenuKeydown(e: KeyboardEvent) {
+      if (e.key !== 'Escape') return;
+      if (!document.body.classList.contains('mobile-menu-open')) return;
+      document.body.classList.remove('mobile-menu-open');
+      document.getElementById('mobile-menu-toggle')?.setAttribute('aria-expanded', 'false');
+    }
+    function onMenuMqChange(e: MediaQueryListEvent) {
+      if (e.matches) return; // 仍处于移动宽度：保持现状
+      document.body.classList.remove('mobile-menu-open');
+      document.getElementById('mobile-menu-toggle')?.setAttribute('aria-expanded', 'false');
+    }
+
+    document.addEventListener('astro:page-load', initAppLayout);
   </script>
 </body>
 </html>

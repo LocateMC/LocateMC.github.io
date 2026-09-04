@@ -28,19 +28,19 @@ const serializableEntries = allNavEntries.map(entry => ({
 <!-- 脚本部分保持不变，它已经可以正常工作 -->
 <script define:vars={{ navData: serializableEntries }}>
   let markedInstance = null;
-  const backdrop = document.getElementById('modal-backdrop');
-  const contentEl = document.getElementById('modal-content');
-  const closeBtn = document.getElementById('modal-close-btn');
   const allNavEntries = navData;
 
-  function closeModal() { backdrop.classList.add('hidden'); }
-
+  // 「打开弹窗」由窗口级事件驱动：模块只注册一次即可；
+  // 弹窗元素每次导航都是新实例，故 handler 内实时查询当前文档 DOM。
   window.addEventListener('open-modal', async (event) => {
     try {
       if (!markedInstance) {
         await import('https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js');
         markedInstance = window.marked;
       }
+      const backdrop = document.getElementById('modal-backdrop');
+      const contentEl = document.getElementById('modal-content');
+      if (!backdrop || !contentEl) return;
       const { entryId } = event.detail;
       const entry = allNavEntries.find((e) => e.id === entryId);
       if (!entry) return;
@@ -71,11 +71,24 @@ const serializableEntries = allNavEntries.map(entry => ({
     } catch (err) { console.error('Error opening modal:', err); }
   });
 
-  if(closeBtn && backdrop) {
+  // 关闭相关：元素级绑定随每次导航重建；Esc 走 window 单次注册 + 动态查询当前弹窗
+  function handleGlobalKeydown(e) {
+    if (e.key !== 'Escape') return;
+    const backdrop = document.getElementById('modal-backdrop');
+    if (backdrop && !backdrop.classList.contains('hidden')) backdrop.classList.add('hidden');
+  }
+  window.addEventListener('keydown', handleGlobalKeydown);
+
+  // View Transitions：关闭按钮 / 遮罩点击绑定需在每次导航后重建（astro:page-load）
+  function initCardModal() {
+    const backdrop = document.getElementById('modal-backdrop');
+    const closeBtn = document.getElementById('modal-close-btn');
+    if (!backdrop || !closeBtn) return;
+    const closeModal = () => backdrop.classList.add('hidden');
     closeBtn.addEventListener('click', closeModal);
     backdrop.addEventListener('click', (e) => { if (e.target === backdrop) closeModal(); });
-    window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !backdrop.classList.contains('hidden')) closeModal(); });
   }
+  document.addEventListener('astro:page-load', initCardModal);
 </script>
 
 <!-- 

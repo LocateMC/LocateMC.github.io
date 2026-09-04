@@ -2,7 +2,7 @@
 title: "Youer"
 description: "MohistMC 团队基于 NeoForge 的混合服务端，实现 Paper/PurPur API 兼容插件运行。"
 href: "https://github.com/MohistMC/Youer"
-icon: '/icons/youer.webp'
+icon: "/icons/youer.webp"
 category: "服务端"
 subcategory: "混合端"
 tags: ["服务端", "Java版", "混合端", "NeoForge", "PaperAPI", "开源"]

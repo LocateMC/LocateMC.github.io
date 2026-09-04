@@ -88,21 +88,29 @@ const slides = carouselConfig
 )}
 
 <script>
-  const root = document.getElementById('feature-carousel');
-  if (root) {
+  // View Transitions 下每页 DOM 每次导航都是新实例：
+  // 由 astro:page-load（初次加载 + 每次客户端导航）重建轮播元素绑定；
+  // timer 放模块级，离开页面后先清理再重启，避免旧定时器泄漏。
+  let carouselTimer = null;
+
+  function initCarousel() {
+    const root = document.getElementById('feature-carousel');
+    // 先清理可能残留的旧轮播定时器（换页后上一轮播元素已销毁）
+    if (carouselTimer) { clearInterval(carouselTimer); carouselTimer = null; }
+    if (!root) return; // 当前页无轮播（如资源页）
+
     const track = root.querySelector('.carousel-track');
     const dots = root.querySelectorAll('.dot');
     const total = dots.length;
     let idx = 0;
-    let timer = null;
 
     function go(i) {
       idx = (i + total) % total;
       track.style.transform = 'translateX(-' + (idx * 100) + '%)';
       dots.forEach((d, n) => d.classList.toggle('active', n === idx));
     }
-    function start() { if (!timer) timer = setInterval(() => go(idx + 1), 5000); }
-    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function start() { if (!carouselTimer) carouselTimer = setInterval(() => go(idx + 1), 5000); }
+    function stop() { if (carouselTimer) { clearInterval(carouselTimer); carouselTimer = null; } }
 
     const prev = root.querySelector('.arrow-prev');
     const next = root.querySelector('.arrow-next');
@@ -116,6 +124,8 @@ const slides = carouselConfig
     go(0);
     start();
   }
+
+  document.addEventListener('astro:page-load', initCarousel);
 </script>
 
 <style>

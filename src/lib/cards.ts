@@ -7,7 +7,7 @@ export const NAV_DIR = path.join(process.cwd(), 'src', 'content', 'nav');
 export const ICON_DIR = path.join(process.cwd(), 'public', 'icons');
 
 // 与前端渲染一致的分类 / 子分类排序规则（用于生成风格统一的文件名前缀）
-export const categoryOrder: Record<string, number> = { '官方': 1, '社区': 2, '百科': 3, '资源': 4, '服务端': 5, '在线工具': 6, '软件程序': 7, '工作室 & 组织': 8, '开发': 9, '市场': 10, '收纳': 50 };
+export const categoryOrder: Record<string, number> = { '官方': 1, '社区': 2, '百科': 3, '资源': 4, '服务端': 5, '在线工具': 6, '软件程序': 7, '工作室 & 组织': 8, '博客': 9, '开发': 10, '市场': 11, '收纳': 50 };
 export const subcategoryOrder: Record<string, Record<string, number>> = {
   '百科': { '百科': 1, '教程、文档': 2 },
   '资源': { '综合': 1, '地图、投影': 2, '模组、整合包': 3, '纹理、资源包、光影': 4 },

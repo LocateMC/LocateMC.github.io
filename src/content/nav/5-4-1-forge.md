@@ -2,7 +2,7 @@
 title: "Forge"
 description: "历史最悠久的 Minecraft Java 版模组加载器，服务端模组生态的奠基者。"
 href: "https://files.minecraftforge.net/"
-icon: '/icons/forge-community-wiki.png'
+icon: "/icons/forge-community-wiki.png"
 category: "服务端"
 subcategory: "Mod服核心"
 tags: ["服务端", "Java版", "模组", "Mod加载器", "Forge"]

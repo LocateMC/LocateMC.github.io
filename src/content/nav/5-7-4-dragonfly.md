@@ -2,7 +2,7 @@
 title: "Dragonfly"
 description: "使用 Go 语言编写的基岩版服务器软件，追求高性能与现代化架构。"
 href: "https://www.dragonfly.go/"
-icon: '/icons/dragonfly.png'
+icon: "/icons/dragonfly.png"
 category: "服务端"
 subcategory: "基岩"
 tags: ["服务端", "基岩版", "Go", "高性能", "开源"]

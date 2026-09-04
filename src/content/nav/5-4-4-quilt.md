@@ -2,7 +2,7 @@
 title: "QuiltMC"
 description: "Fabric 的社区分支，兼容 Fabric 模组并倡导更开放的生态治理。"
 href: "https://quiltmc.org/"
-icon: '/icons/quilt.png'
+icon: "/icons/quilt.png"
 category: "服务端"
 subcategory: "Mod服核心"
 tags: ["服务端", "Java版", "模组", "Mod加载器", "Quilt", "Fabric分支"]

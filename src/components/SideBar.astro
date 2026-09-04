@@ -18,7 +18,7 @@ const groupedByCategory = allNavEntries.reduce((acc, entry) => {
   }
   return acc;
 }, {});
-const categoryOrder = { '官方': 1, '社区': 2, '百科': 3, '资源': 4, '服务端': 5, '在线工具': 6, '软件程序': 7, '工作室 & 组织': 8, '开发': 9, '市场': 10, '收纳': 50 };
+const categoryOrder = { '官方': 1, '社区': 2, '百科': 3, '资源': 4, '服务端': 5, '在线工具': 6, '软件程序': 7, '工作室 & 组织': 8, '博客': 9, '开发': 10, '市场': 11, '收纳': 50 };
 const sortedCategoryNames = Object.keys(groupedByCategory).sort((a, b) => (categoryOrder[a] || 999) - (categoryOrder[b] || 999));
 const subcategoryOrder = {
   '百科': { '百科': 1, '教程、文档': 2 },
@@ -66,6 +66,10 @@ const subcategoryOrder = {
     })}
   </ul>
 </nav>
+
+  <div class="sidebar-footer">
+    <a href="/admin">内容管理</a>
+  </div>
 
 <style>
   .sidebar-nav {

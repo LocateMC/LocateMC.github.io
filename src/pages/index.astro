@@ -49,7 +49,7 @@ for (const entry of sortedNavEntries) {
   }
 }
 
-const categoryOrder = { '官方': 1, '社区': 2, '百科': 3, '资源': 4, '服务端': 5, '在线工具': 6, '软件程序': 7, '工作室 & 组织': 8, '开发': 9, '市场': 10, '收纳': 50 };
+const categoryOrder = { '官方': 1, '社区': 2, '百科': 3, '资源': 4, '服务端': 5, '在线工具': 6, '软件程序': 7, '工作室 & 组织': 8, '博客': 9, '开发': 10, '市场': 11, '收纳': 50 };
 const sortedCategoryNames = Object.keys(grouped).sort((a, b) => {
   const orderA = categoryOrder[a] || 999;
   const orderB = categoryOrder[b] || 999;
@@ -259,15 +259,34 @@ const categories: CategoryData[] = sortedCategoryNames.map(categoryName => {
   }
 
   // 站内搜索事件（SearchBar 派发）
-  window.addEventListener('search-results', (event) => {
+  function handleSearchResults(event) {
     lastResults = event.detail.results;
     applySearchFilter(event.detail.results);
-  });
+  }
 
   // 视图模式切换后重放当前搜索过滤（避免切到 Tab 后停留在无命中的子分类）
-  window.addEventListener('view-mode-changed', () => {
+  function handleViewModeChanged() {
     if (lastResults !== null) applySearchFilter(lastResults);
-  });
+  }
+
+  // View Transitions 下模块脚本只执行一次，而每页 DOM 每次导航都是新实例：
+  // 经 astro:page-load（初次加载与每次客户端导航都触发）注册 window 级监听，
+  // 用 remove+add 保证不重复累积（函数内实时查询当前文档 DOM，天然适配换页）。
+  function registerIndexListeners() {
+    // 从其它板块(如资源页)切回导航页时,搜索框是新 DOM 且为空——
+    // 丢弃上一页残留的搜索状态,避免视图切换时误把旧过滤套用到新页面。
+    // （存在两个搜索实例：页眉实例 #search-input 与移动菜单实例 #m-search-input，任一有词即保留状态）
+    const searchInputs = [...document.querySelectorAll<HTMLInputElement>('#search-input, #m-search-input')];
+    if (!searchInputs.length || searchInputs.every(i => !i.value)) {
+      lastResults = null;
+      savedActive = null;
+    }
+    window.removeEventListener('search-results', handleSearchResults);
+    window.addEventListener('search-results', handleSearchResults);
+    window.removeEventListener('view-mode-changed', handleViewModeChanged);
+    window.addEventListener('view-mode-changed', handleViewModeChanged);
+  }
+  document.addEventListener('astro:page-load', registerIndexListeners);
 </script>
 
 <style>
@@ -297,5 +316,13 @@ const categories: CategoryData[] = sortedCategoryNames.map(categoryName => {
     gap: 1rem;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     transition: grid-template-columns 0.3s ease;
+  }
+
+  /* 移动端：页眉高度收窄为 56px，锚点滚动偏移随之减小 */
+  @media (max-width: 768px) {
+    .category-section,
+    .subcategory-block {
+      scroll-margin-top: 60px;
+    }
   }
 </style>

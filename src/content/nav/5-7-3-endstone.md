@@ -2,7 +2,7 @@
 title: "Endstone"
 description: "基于 Python 实现的基岩版服务端，目标兼容 Bukkit 插件生态。"
 href: "https://endstone.dev/"
-icon: '/icons/endstone.png'
+icon: "/icons/endstone.png"
 category: "服务端"
 subcategory: "基岩"
 tags: ["服务端", "基岩版", "Python", "Bukkit兼容", "开源"]

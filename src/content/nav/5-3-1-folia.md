@@ -2,7 +2,7 @@
 title: "Folia"
 description: "PaperMC 团队出品的多线程服务端，按区域并行调度彻底释放多核性能。"
 href: "https://papermc.io/software/folia"
-icon: '/icons/folia.png'
+icon: "/icons/folia.png"
 category: "服务端"
 subcategory: "Folia系"
 tags: ["服务端", "Java版", "多线程", "PaperMC", "开源"]

@@ -2,7 +2,7 @@
 title: "Crowdford"
 description: "地图与游戏制作组"
 href: "https://www.crowdford.com"
-icon: '/icons/crowdford.png'
+icon: "/icons/crowdford.png"
 category: "工作室 & 组织"
 order: 12
 ---
