@@ -1,42 +1,1326 @@
 ---
-// src/pages/resource.astro —— 【资源】板块页（骨架版，内容后续填充）
+export const prerender = true;
+// src/pages/resource.astro —— 【资源】板块页（单条资源浏览，截图式视觉）
+// 筛选面板为 Tab 驱动动态渲染：每个 Tab 可定义独立的筛选项（TAB_FILTERS）。
+// 当前已定制：「模组及附加包」（版本/版本号/加载器/类型/标签，含 Java↔基岩 联动）；
+// 「光影及着色器」沿用截图风格（Style/Feature/Performance）。其余 Tab 先用通用版本组占位，
+// 待按用户后续指示补充专属筛选项。
 import AppLayout from '../layouts/AppLayout.astro';
+import { getCollection } from 'astro:content';
+
+interface ResourceEntry {
+  id: string;
+  title: string;
+  author: string;
+  summary: string;
+  href: string;
+  icon: string;
+  screenshot?: string;
+  type: string;
+  edition?: string;
+  loaders: string[];
+  loaderAlt?: { name: string; href: string };
+  versions: string[];
+  genre?: string;
+  style?: string;
+  features: string[];
+  performance?: string;
+  downloads?: number;
+  likes?: number;
+  updated?: string;
+  tags: string[];
+  order: number;
+}
+
+const rawEntries = await getCollection('resources');
+const entries: ResourceEntry[] = rawEntries
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((e) => ({
+    id: e.id,
+    title: e.data.title,
+    author: e.data.author ?? '—',
+    summary: e.data.summary ?? '',
+    href: e.data.href,
+    icon: e.data.icon ?? '/icons/sample.webp',
+    screenshot: e.data.screenshot,
+    type: e.data.type,
+    edition: e.data.edition,
+    loaders: e.data.loaders ?? [],
+    loaderAlt: e.data.loaderAlt,
+    versions: e.data.versions ?? [],
+    genre: e.data.genre,
+    style: e.data.style,
+    features: e.data.features ?? [],
+    performance: e.data.performance,
+    downloads: e.data.downloads,
+    likes: e.data.likes,
+    updated: e.data.updated,
+    tags: e.data.tags ?? [],
+    order: e.data.order,
+  }));
+
+// ===== 数据格式化：64.33M / 10.6K =====
+function formatCount(n: number): string {
+  if (n >= 1_000_000) return (n / 1_000_000).toFixed(2) + 'M';
+  if (n >= 1_000) return (n / 1_000).toFixed(1) + 'K';
+  return String(n);
+}
+
+// 相对时间：X days ago 风格
+function relativeTime(iso?: string): string {
+  if (!iso) return '';
+  const date = new Date(iso);
+  if (isNaN(date.getTime())) return '';
+  const diffMs = Date.now() - date.getTime();
+  const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  if (days < 1) return '今天';
+  if (days < 30) return `${days} 天前`;
+  const months = Math.floor(days / 30);
+  if (months < 12) return `${months} 个月前`;
+  const years = Math.floor(days / 365);
+  return `${years} 年前`;
+}
+
+// 资源详情页地址：/resource/<子路径>/（卡片入口统一进站内详情页，下载由详情页发起）
+// 注意：Astro 5 content layer 的 entry.id 含扩展名（如 'map/jiuyun-wanxiangtu.md'），先去掉
+const detailUrl = (id: string): string =>
+  '/resource/' + id.replace(/\.(md|mdx)$/i, '').split('/').map(encodeURIComponent).join('/') + '/';
 ---
+
 <AppLayout title="LocateMC - 资源" showViewToggle={false} hideSidebar>
-  <!-- 资源板块占位内容：结构与样式将随内容体系演进 -->
-  <section class="resource-section">
-    <div class="resource-hero">
-      <h1>资源</h1>
-      <p class="resource-sub">
-        Minecraft 资源板块建设中，敬请期待。<br />
-        这里将汇聚各类资源下载与分享入口。
-      </p>
+  <section class="resource-library">
+    <!-- 搜索框：桌面悬浮于页眉右上角（fixed，与 80px 页眉垂直居中） -->
+    <div class="header-search-float">
+      <label class="fp-search" for="resource-search">
+        <input type="search" id="resource-search" placeholder="搜索资源、作者、标签…" autocomplete="off">
+        <button class="fp-search-btn" type="button" aria-label="搜索">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+      </label>
+    </div>
+
+    <!-- 左侧筛选面板（筛选项由 JS 按当前 Tab 渲染到 [data-filter-groups]） -->
+    <aside class="filter-panel" data-filter-panel aria-label="资源筛选">
+      <div class="fp-inner">
+        <!-- 抽屉标题栏（仅移动端）：提供明确的关闭入口 -->
+        <div class="fp-drawer-head">
+          <span class="fp-drawer-title">筛选</span>
+          <button class="fp-close" data-filter-close type="button" aria-label="关闭筛选">✕</button>
+        </div>
+
+        <!-- 搜索（仅移动端抽屉内显示；桌面用页眉右上角的实例） -->
+        <div class="fp-search-row mobile-only">
+          <label class="fp-search" for="m-resource-search">
+            <input type="search" id="m-resource-search" placeholder="搜索资源、作者、标签…" autocomplete="off">
+            <button class="fp-search-btn" type="button" aria-label="搜索">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+          </label>
+        </div>
+
+        <!-- 动态筛选项容器 -->
+        <div class="fp-groups" data-filter-groups></div>
+
+        <!-- 重置 / 关闭（后者仅移动端） -->
+        <div class="fp-footer">
+          <button class="fp-reset" data-reset type="button">
+            清除全部筛选
+          </button>
+          <button class="fp-done" data-filter-close type="button">
+            查看结果
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 移动端筛选切换按钮 + 遮罩 -->
+    <button class="filter-toggle" data-filter-toggle type="button" aria-label="打开筛选">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M3 6h18M6 12h12M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>筛选</span>
+    </button>
+    <div class="filter-backdrop" data-filter-backdrop aria-hidden="true"></div>
+
+    <!-- 主体网格 -->
+    <div class="resource-main">
+      <header class="resource-header">
+        <h1 class="resource-title">资源库</h1>
+        <p class="resource-count" data-count>
+          共 <span data-count-total>0</span> 项<span data-count-shown-wrap hidden>，显示 <span data-count-shown>0</span></span>
+        </p>
+      </header>
+
+      <!-- 资源分类 tab bar（Modrinth 风格：横向滚动胶囊条） -->
+      <nav class="resource-tabs" aria-label="资源分类" data-tabs>
+        <button class="rt-tab" type="button" data-tab="map" aria-pressed="true">地图及投影</button>
+        <button class="rt-tab" type="button" data-tab="mod">模组及附加包</button>
+        <button class="rt-tab" type="button" data-tab="rp">纹理及资源包</button>
+        <button class="rt-tab" type="button" data-tab="shader">光影及着色器</button>
+        <button class="rt-tab" type="button" data-tab="modpack">模组整合包</button>
+        <button class="rt-tab" type="button" data-tab="plugin">服务器插件</button>
+      </nav>
+
+      <div class="resource-grid" data-grid>
+        {entries.map((e) => (
+          <article
+            class="resource-card"
+            data-id={e.id}
+            data-type={e.type}
+            data-edition={e.edition ?? ''}
+            data-versions={e.versions.join(',')}
+            data-loaders={e.loaders.join(',')}
+            data-genre={e.genre ?? ''}
+            data-tags={e.tags.join(',')}
+            data-style={e.style ?? ''}
+            data-features={e.features.join(',')}
+            data-performance={e.performance ?? ''}
+            data-search={`${e.title} ${e.author} ${e.summary} ${e.tags.join(' ')} ${e.type}`.toLowerCase()}
+          >
+            <a class="rc-cover-link" href={detailUrl(e.id)} aria-label={`查看 ${e.title} 详情`}>
+              <div class="rc-cover">
+                {(e.screenshot && e.screenshot.length > 0) ? (
+                  <img class="rc-screenshot" src={e.screenshot} alt={`${e.title} 预览`} loading="lazy" decoding="async">
+                ) : (
+                  <div class="rc-screenshot-placeholder" aria-hidden="true"></div>
+                )}
+                <div class="rc-brand">
+                  <img class="rc-brand-icon" src={e.icon} alt={`${e.title} 标志`} loading="lazy" decoding="async">
+                </div>
+              </div>
+            </a>
+            <div class="rc-body">
+              <h3 class="rc-title"><a href={detailUrl(e.id)}>{e.title}</a></h3>
+              <p class="rc-author">by <span>{e.author}</span></p>
+              <p class="rc-summary">{e.summary}</p>
+              {e.tags.length > 0 && (
+                <div class="rc-tags">
+                  {e.tags.map((t) => <span class="rc-tag">{t}</span>)}
+                </div>
+              )}
+              {(e.loaders.length > 0 || e.loaderAlt) && (
+                <div class="rc-loaders">
+                  {e.loaders.map((l) => (
+                    <a class="rc-loader" href={detailUrl(e.id)}>{l}</a>
+                  ))}
+                  {e.loaderAlt && (
+                    <>
+                      {e.loaders.length > 0 && <span class="rc-or">or</span>}
+                      <a class="rc-loader" href={detailUrl(e.id)}>{e.loaderAlt.name}</a>
+                    </>
+                  )}
+                </div>
+              )}
+              <div class="rc-meta">
+                <div class="rc-meta-left">
+                  {e.downloads !== undefined && (
+                    <span class="rc-meta-item">
+                      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 4v12m0 0l-5-5m5 5l5-5M4 20h16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      {formatCount(e.downloads)}
+                    </span>
+                  )}
+                  {e.likes !== undefined && (
+                    <span class="rc-meta-item">
+                      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.65A4 4 0 0 1 19 10c0 6.5-7 11-7 11Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      {formatCount(e.likes)}
+                    </span>
+                  )}
+                </div>
+                <div class="rc-meta-right">
+                  {e.updated && (
+                    <span class="rc-meta-item">
+                      <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 7v5l3 2M21 12a9 9 0 1 1-3.13-6.85M21 4v5h-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      {relativeTime(e.updated)}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- 空态：集合为空 -->
+      <div class="resource-empty" data-empty="none" hidden>
+        <div class="re-card">
+          <div class="re-icon" aria-hidden="true">📦</div>
+          <h2 class="re-title">资源库内容整理中</h2>
+          <p class="re-desc">
+            在 <code>src/content/resources/</code> 下添加 Markdown 文件即可收录资源。
+            每个 md 对应一条资源，frontmatter 字段定义参见 <code>src/content/config.ts</code> 中的 <code>resources</code> collection。
+          </p>
+          <details class="re-sample">
+            <summary>查看 frontmatter 模板</summary>
+            <pre><code>{`---
+title: 'Create'
+author: 'Creators-of-Create'
+summary: 'Adding invention, exploration, and engineering to Minecraft.'
+href: 'https://modrinth.com/mod/create'
+icon: '/icons/create.webp'          # 图标建议统一 webp（tools/optimize_icons.py 重采样生成）
+screenshot: '/screenshots/create.jpg'
+type: '模组及附加包'          # 6 个 Tab 名称之一：地图及投影 / 模组及附加包 / 纹理及资源包 / 光影及着色器 / 模组整合包 / 服务器插件
+edition: 'Java'               # Java / 基岩 / 双端（筛选栏「版本」联动依据）
+loaders: ['Forge', 'Fabric']  # Java: NeoForge/Fabric/Forge/数据包；基岩: 行为包
+versions: ['1.21.1', '1.20.1']  # 适配版本号（列表值须与左栏「版本号」选项一致）
+genre: '科技'                 # 模组功能类型（单选，左栏「类型」选项一致）：科技/魔法/冒险/农业/装饰/实用/辅助/魔改/库/其它
+style: 'Cursed'               # 光影专项：Style（可选）
+features: ['Bloom']           # 光影专项：Feature 列表（可选）
+performance: 'High'           # 光影专项：Performance impact（可选）
+downloads: 9800000            # 下载量（可选）
+likes: 31000                  # 点赞数（可选）
+updated: '2026-09-02'         # ISO 日期（可选）
+tags: ['机械化', '运输', '自动化']   # 标签（筛选栏「标签」多选选项自动从全部资源派生）
+order: 1
+---`}</code></pre>
+          </details>
+        </div>
+      </div>
+
+      <!-- 空态：搜索无结果 -->
+      <div class="resource-empty" data-empty="search" hidden>
+        <div class="re-card">
+          <div class="re-icon" aria-hidden="true">🔍</div>
+          <h2 class="re-title">没有匹配的资源</h2>
+          <p class="re-desc">尝试调整或清除筛选条件。</p>
+          <button class="re-reset" data-reset type="button">清除全部筛选</button>
+        </div>
+      </div>
     </div>
   </section>
 </AppLayout>
 
+<script>
+  // ===== 资源库前端：Tab 驱动的动态筛选面板 + 卡片过滤 =====
+  // View Transitions 下，客户端导航每次都重建 DOM。模块脚本只执行一次，
+  // 所以通过 astro:page-load 重新查询节点 + 重新绑定（与 AppLayout 规约一致）。
+
+  // —— 筛选项候选常量（与卡片 frontmatter 录入值必须一致）——
+  // 版本号/加载器：随「版本(edition)」联动；修改此处列表时，资源 md 里的
+  // versions / loaders 取值需同步，否则筛选不出来。
+  const MOD_VERSIONS = {
+    Java: ['1.21.4', '1.21.3', '1.21.1', '1.20.4', '1.20.1', '1.19.4', '1.18.2', '1.17.1', '1.16.5', '1.15.2', '1.12.2'],
+    基岩: ['1.21', '1.20', '1.19', '1.18', '1.17', '1.16'],
+  };
+  const MOD_LOADERS = {
+    Java: ['NeoForge', 'Fabric', 'Forge', '数据包'],
+    基岩: ['行为包'],
+  };
+  const GENRES = ['科技', '魔法', '冒险', '农业', '装饰', '实用', '辅助', '魔改', '库', '其它'];
+  const SHADER_STYLES = ['Cursed', 'Fantasy', 'Realistic', 'Semi Realistic', 'Vanilla Like'];
+  const SHADER_FEATURES = ['Atmosphere', 'Bloom', 'Colored Lighting', 'Foliage', 'Path Tracing', 'PBR', 'Reflections', 'Shadows'];
+  const SHADER_PERFORMANCE = ['Potato', 'Low', 'Medium', 'High', 'Screenshot'];
+
+  // —— 筛选项 schema：key 需与卡片 data-* 属性名一致 ——
+  type LinkedByEdition = Record<'Java' | '基岩', string[]>;
+
+  interface FilterDef {
+    key: string;                    // state 键名 & 卡片 data-<key> 名
+    title: string;                  // 面板标题
+    kind: 'radio' | 'checkbox' | 'select';
+    options?: string[];             // 固定候选（radio 自动补「全部」空值项）
+    linkedByEdition?: LinkedByEdition; // 随 edition 变化的候选（版本号/加载器）
+    needsEdition?: boolean;         // 未选版本时整组禁用置灰
+    tagSource?: boolean;            // 选项从当前 tab 卡片 tags 聚合（多选）
+    minVersionFor?: Record<string, string>; // 选项可见的最低版本号（如 NeoForge 需 ≥1.20.1）
+  }
+
+  // 版本通用组（Java/基岩/双端 全类型适用；未定制 Tab 的兜底）
+  const EDITION_ALL = ['Java', '基岩', '双端'];
+
+  // 每个 Tab 的筛选项（Tab id → FilterDef[]）
+  const TAB_FILTERS: Record<string, FilterDef[]> = {
+    // —— 模组及附加包（用户指定 1.版本 2.版本号 3.加载器 4.类型 5.标签）——
+    mod: [
+      { key: 'edition', title: '版本', kind: 'radio', options: ['Java', '基岩'] },
+      { key: 'versions', title: '版本号', kind: 'radio', needsEdition: true, linkedByEdition: MOD_VERSIONS },
+      { key: 'loaders', title: '加载器', kind: 'checkbox', needsEdition: true, linkedByEdition: MOD_LOADERS, minVersionFor: { NeoForge: '1.20.1' } },
+      { key: 'genre', title: '类型', kind: 'radio', options: GENRES },
+      { key: 'tags', title: '标签', kind: 'checkbox', tagSource: true },
+    ],
+    // —— 光影及着色器（截图原样：Style 下拉 / Feature 多选 / Performance 单选）——
+    shader: [
+      { key: 'style', title: 'Style', kind: 'select', options: SHADER_STYLES },
+      { key: 'features', title: 'Feature', kind: 'checkbox', options: SHADER_FEATURES },
+      { key: 'performance', title: 'Performance impact', kind: 'radio', options: SHADER_PERFORMANCE },
+    ],
+  };
+
+  // 未定制 Tab 的统一兜底：通用版本组
+  const EDITION_ONLY: FilterDef[] = [
+    { key: 'edition', title: '版本', kind: 'radio', options: EDITION_ALL },
+  ];
+
+  const TAB_TYPE_MAP: Record<string, string[]> = {
+    map: ['地图及投影'],
+    mod: ['模组及附加包'],
+    rp: ['纹理及资源包'],
+    shader: ['光影及着色器'],
+    modpack: ['模组整合包'],
+    plugin: ['服务器插件'],
+  };
+
+  // Esc 关闭移动端筛选抽屉（模块级命名函数，供 removeEventListener 复用）
+  function onResourceEsc(e: KeyboardEvent) {
+    if (e.key !== 'Escape') return;
+    if (!document.body.hasAttribute('data-resource-filter-open')) return;
+    document.body.removeAttribute('data-resource-filter-open');
+  }
+
+  function initResourceLibrary() {
+    const grid = document.querySelector<HTMLElement>('[data-grid]');
+    const emptyNone = document.querySelector<HTMLElement>('[data-empty="none"]');
+    const emptySearch = document.querySelector<HTMLElement>('[data-empty="search"]');
+    const countTotalEl = document.querySelector<HTMLElement>('[data-count-total]');
+    const countShownEl = document.querySelector<HTMLElement>('[data-count-shown]');
+    const countShownWrap = document.querySelector<HTMLElement>('[data-count-shown-wrap]');
+    const searchInputs = [...document.querySelectorAll<HTMLInputElement>('#resource-search, #m-resource-search')];
+    const groupsContainer = document.querySelector<HTMLElement>('[data-filter-groups]');
+    const filterToggle = document.querySelector<HTMLButtonElement>('[data-filter-toggle]');
+    const filterBackdrop = document.querySelector<HTMLElement>('[data-filter-backdrop]');
+
+    if (!grid || !groupsContainer) return;
+
+    // ===== 状态 =====
+    const state: Record<string, string | Set<string>> = {
+      search: '',
+      style: '',
+      edition: '',
+      versions: '',
+      loaders: new Set<string>(),
+      genre: '',
+      tags: new Set<string>(),
+      features: new Set<string>(),
+      performance: '',
+      types: new Set<string>(),
+    };
+    let currentTabId: string | null = 'map'; // 默认选中「地图及投影」
+
+    // ===== Tab → type 过滤 =====
+    function applyTabToTypes(tabId: string | null) {
+      state.types = new Set(tabId ? TAB_TYPE_MAP[tabId] ?? [] : []);
+      document.querySelectorAll<HTMLButtonElement>('[data-tab]').forEach((btn) => {
+        const active = btn.dataset.tab === tabId;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-pressed', String(active));
+      });
+    }
+
+    // ===== 匹配逻辑（仅遍历一次）=====
+    function hitsEdition(cardEdition: string, sel: string): boolean {
+      // 双端资源在 Java / 基岩 筛选中都应显示
+      return sel === '' || cardEdition === sel || cardEdition === '双端';
+    }
+    function hasAny(cardList: string, sel: Set<string>): boolean {
+      if (!sel.size) return true;
+      const arr = cardList.split(',').filter(Boolean);
+      return arr.some((x) => sel.has(x));
+    }
+    function hasAll(cardList: string, sel: Set<string>): boolean {
+      if (!sel.size) return true;
+      const arr = cardList.split(',').filter(Boolean);
+      for (const x of sel) if (!arr.includes(x)) return false;
+      return true;
+    }
+
+    function matchesCard(card: HTMLElement): boolean {
+      const d = card.dataset;
+
+      // 搜索（data-search 已是小写）
+      if ((state.search as string) && !(d.search || '').includes(state.search as string)) return false;
+
+      // 单选类
+      if (state.edition && !hitsEdition(d.edition ?? '', state.edition as string)) return false;
+      if ((state.versions as string) && !((d.versions || '').split(',')).includes(state.versions as string)) return false;
+      if ((state.genre as string) && d.genre !== state.genre) return false;
+      if ((state.style as string) && d.style !== state.style) return false;
+      if ((state.performance as string) && d.performance !== state.performance) return false;
+
+      // 多选类（tags/loaders OR 语义；features AND 语义）
+      if ((state.loaders as Set<string>).size && !hasAny(d.loaders ?? '', state.loaders as Set<string>)) return false;
+      if ((state.tags as Set<string>).size && !hasAny(d.tags ?? '', state.tags as Set<string>)) return false;
+      if ((state.features as Set<string>).size && !hasAll(d.features ?? '', state.features as Set<string>)) return false;
+
+      // Tab 类型
+      if ((state.types as Set<string>).size && !(state.types as Set<string>).has(d.type ?? '')) return false;
+
+      return true;
+    }
+
+    // ===== 面板渲染 =====
+    const currentEdition = () => state.edition as string;
+
+    // 标签选项：从当前 Tab 类型（type ∈ state.types）的卡片 tags 聚合
+    function collectTagOptions(): string[] {
+      const typeSet = state.types as Set<string>;
+      const map = new Map<string, number>();
+      for (const card of grid.querySelectorAll<HTMLElement>('.resource-card')) {
+        if (typeSet.size && !typeSet.has(card.dataset.type ?? '')) continue;
+        for (const t of (card.dataset.tags || '').split(',')) {
+          if (t) map.set(t, (map.get(t) ?? 0) + 1);
+        }
+      }
+      return [...map.keys()].sort((a, b) => (map.get(b) ?? 0) - (map.get(a) ?? 0));
+    }
+
+    function defOptions(def: FilterDef): string[] {
+      let opts: string[];
+      if (def.tagSource) opts = collectTagOptions();
+      else if (def.linkedByEdition) {
+        opts = (def.linkedByEdition as LinkedByEdition)[currentEdition() as 'Java' | '基岩'] ?? [];
+      } else opts = def.options ?? [];
+
+      // 版本门槛过滤（如 NeoForge 仅当所选 Java 版本号 ≥ 1.20.1）；
+      // 未选版本号时不限制
+      if (def.minVersionFor) {
+        const ver = state.versions as string;
+        if (ver) {
+          opts = opts.filter((o) => {
+            const min = def.minVersionFor![o];
+            return !min || versionAtLeast(ver, min);
+          });
+        }
+      }
+      return opts;
+    }
+
+    // 语义化版本号逐段比较：a >= b
+    function versionAtLeast(a: string, b: string): boolean {
+      const pa = a.split('.').map(Number);
+      const pb = b.split('.').map(Number);
+      const len = Math.max(pa.length, pb.length);
+      for (let i = 0; i < len; i++) {
+        const x = pa[i] ?? 0;
+        const y = pb[i] ?? 0;
+        if (x !== y) return x > y;
+      }
+      return true;
+    }
+
+    function escHtml(s: string): string {
+      return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!));
+    }
+
+    function renderGroups() {
+      const edition = currentEdition();
+      const defs: FilterDef[] = TAB_FILTERS[currentTabId ?? ''] ?? EDITION_ONLY;
+
+      let html = '';
+      for (const def of defs) {
+        const disabled = def.needsEdition && !edition;
+        let body = '';
+
+        if (disabled) {
+          // 未选版本：整组只显示禁用提示，不渲染选项
+          body = `<li class="fp-hint">请先在上方选择「版本」</li>`;
+        } else if (def.kind === 'radio') {
+          body += `<li><label class="fp-option"><input type="radio" name="${def.key}" value="" ${state[def.key] === '' || state[def.key] === undefined ? 'checked' : ''}><span class="fp-option-label">全部</span></label></li>`;
+          for (const o of defOptions(def)) {
+            body += `<li><label class="fp-option"><input type="radio" name="${def.key}" value="${escHtml(o)}" ${state[def.key] === o ? 'checked' : ''}><span class="fp-option-label">${escHtml(o)}</span></label></li>`;
+          }
+        } else if (def.kind === 'checkbox') {
+          for (const o of defOptions(def)) {
+            const on = (state[def.key] as Set<string>).has(o);
+            body += `<li><label class="fp-option"><input type="checkbox" name="${def.key}" value="${escHtml(o)}" ${on ? 'checked' : ''}><span class="fp-option-label">${escHtml(o)}</span></label></li>`;
+          }
+          if (!body) {
+            body = `<li class="fp-hint">${def.tagSource ? '暂无可用选项（资源录入后自动生成）' : '暂无可用选项'}</li>`;
+          }
+        } else if (def.kind === 'select') {
+          body = `
+            <div class="fp-select-row">
+              <select id="filter-${def.key}" class="fp-native-select" name="${def.key}">
+                <option value="">—</option>
+                ${(def.options ?? []).map((o) => `<option value="${escHtml(o)}" ${state[def.key] === o ? 'selected' : ''}>${escHtml(o)}</option>`).join('')}
+              </select>
+              <button type="button" class="fp-clear" data-clear="${def.key}" ${state[def.key] ? '' : 'hidden'} aria-label="清除">×</button>
+            </div>`;
+        }
+
+        html += `
+          <details class="fp-block" open>
+            <summary class="fp-block-header">
+              <span class="fp-block-title">${escHtml(def.title)}</span>
+              <span class="fp-caret" aria-hidden="true"></span>
+            </summary>
+            <ul class="fp-list">${body}</ul>
+          </details>`;
+      }
+      groupsContainer.innerHTML = html;
+    }
+
+    // ===== 过滤应用 =====
+    const allCards = [...grid.querySelectorAll<HTMLElement>('.resource-card')];
+    const total = allCards.length;
+    if (countTotalEl) countTotalEl.textContent = String(total);
+
+    function applyFilters() {
+      // 空集合：无卡可筛，直接跳过（避免误显示"没有匹配的资源"空态）
+      if (total === 0) return;
+      let shown = 0;
+      for (const card of allCards) {
+        const ok = matchesCard(card);
+        card.classList.toggle('search-hidden', !ok);
+        if (ok) shown++;
+      }
+      if (countShownEl) countShownEl.textContent = String(shown);
+
+      // 仅当"有筛选生效"时才显示"显示 X / Y"
+      const active =
+        (state.search as string) ||
+        state.edition || state.versions || state.genre || state.style || state.performance ||
+        (state.loaders as Set<string>).size ||
+        (state.tags as Set<string>).size ||
+        (state.features as Set<string>).size;
+      countShownWrap?.toggleAttribute('hidden', !active || shown === total);
+
+      if (shown === 0) {
+        emptySearch?.removeAttribute('hidden');
+        grid.setAttribute('hidden', '');
+      } else {
+        emptySearch?.setAttribute('hidden', '');
+        grid.removeAttribute('hidden');
+      }
+    }
+
+    // ===== 筛选面板事件委托（公共路径：空集合时也能预览联动）=====
+    // change：radio/checkbox/select；click：select 的清除按钮
+    groupsContainer.addEventListener('change', (ev) => {
+      const t = ev.target as HTMLElement;
+      if (t instanceof HTMLInputElement) {
+        if (t.type === 'radio') {
+          if (t.checked) state[t.name] = t.value;
+        } else if (t.type === 'checkbox') {
+          const set = state[t.name] as Set<string>;
+          if (t.checked) set.add(t.value); else set.delete(t.value);
+        }
+        // 切换「版本」→ 联动组候选变化：清空版本号/加载器并重渲染
+        if (t.name === 'edition') {
+          state.versions = '';
+          (state.loaders as Set<string>).clear();
+          renderGroups();
+        }
+        // 切换「版本号」→ 加载器候选随版本门槛变化：清除已失效的加载器选择
+        if (t.name === 'versions') {
+          const loadersDef = (TAB_FILTERS[currentTabId ?? ''] ?? []).find((d) => d.key === 'loaders');
+          if (loadersDef?.minVersionFor) {
+            for (const l of [...(state.loaders as Set<string>)]) {
+              const min = loadersDef.minVersionFor[l];
+              if (min && !versionAtLeast(t.value, min)) (state.loaders as Set<string>).delete(l);
+            }
+          }
+          renderGroups();
+        }
+        applyFilters();
+      } else if (t instanceof HTMLSelectElement) {
+        state[t.name] = t.value;
+        groupsContainer.querySelector<HTMLElement>(`[data-clear="${t.name}"]`)?.toggleAttribute('hidden', !t.value);
+        applyFilters();
+      }
+    });
+    groupsContainer.addEventListener('click', (ev) => {
+      const btn = (ev.target as HTMLElement).closest<HTMLButtonElement>('[data-clear]');
+      if (!btn) return;
+      state[btn.dataset.clear!] = '';
+      renderGroups();
+      applyFilters();
+    });
+
+    // ===== 集合为 0：展示空态 + 面板参考（联动可预览，但不做卡片过滤）=====
+    applyTabToTypes(currentTabId);
+    if (total === 0) {
+      emptyNone?.removeAttribute('hidden');
+      grid.setAttribute('hidden', '');
+      // Tab 切换仍可预览各 Tab 的筛选项
+      document.querySelectorAll<HTMLButtonElement>('[data-tab]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          currentTabId = currentTabId === btn.dataset.tab ? null : btn.dataset.tab!;
+          applyTabToTypes(currentTabId);
+          renderGroups();
+        });
+      });
+      bindMobileDrawer();
+      renderGroups();
+      return;
+    }
+
+    // ===== 有卡片：完整交互 =====
+    function resetFilters(keepTab = true) {
+      for (const k of Object.keys(state)) {
+        if (keepTab && k === 'types') continue; // 保留当前 Tab 的类型过滤（applyTabToTypes 已设好）
+        if (k === 'search') continue; // 搜索词独立由输入框控制，不在此重置
+        if (state[k] instanceof Set) (state[k] as Set<string>).clear();
+        else state[k] = '';
+      }
+    }
+
+    // Tab 切换
+    document.querySelectorAll<HTMLButtonElement>('[data-tab]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.tab!;
+        currentTabId = currentTabId === id ? null : id;
+        applyTabToTypes(currentTabId);
+        resetFilters(); // 清筛选（保留搜索词与当前 Tab 的 types）
+        renderGroups();
+        applyFilters();
+        document.body.removeAttribute('data-resource-filter-open');
+      });
+    });
+
+    // 搜索（页眉实例 + 移动抽屉实例，双向同步值）
+    searchInputs.forEach((inp) => {
+      inp.addEventListener('input', () => {
+        state.search = (inp.value || '').trim().toLowerCase();
+        searchInputs.forEach((o) => { if (o !== inp) o.value = inp.value; });
+        applyFilters();
+      });
+    });
+
+    // 搜索按钮：聚焦对应输入框（过滤已实时生效，按钮仅作视觉入口）
+    document.querySelectorAll<HTMLButtonElement>('.fp-search-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const input = btn.closest<HTMLElement>('.fp-search')?.querySelector<HTMLInputElement>('input[type="search"]');
+        input?.focus();
+      });
+    });
+
+    // 重置
+    document.querySelectorAll<HTMLButtonElement>('[data-reset]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        resetFilters();
+        searchInputs.forEach((o) => { o.value = ''; });
+        state.search = '';
+        renderGroups();
+        applyFilters();
+        document.body.removeAttribute('data-resource-filter-open');
+      });
+    });
+
+    // 移动端 drawer：开关统一入口（筛选按钮 toggle / 点遮罩 / 点 ✕ / Esc）
+    function setDrawer(open: boolean) {
+      document.body.toggleAttribute('data-resource-filter-open', open);
+    }
+    function bindMobileDrawer() {
+      filterToggle?.addEventListener('click', () => {
+        setDrawer(!document.body.hasAttribute('data-resource-filter-open'));
+      });
+      filterBackdrop?.addEventListener('click', () => setDrawer(false));
+      document.querySelectorAll<HTMLButtonElement>('[data-filter-close]').forEach((btn) => {
+        btn.addEventListener('click', () => setDrawer(false));
+      });
+      // Esc 关闭（模块级命名函数 + remove→add，避免 View Transitions 下重复累积）
+      document.removeEventListener('keydown', onResourceEsc);
+      document.addEventListener('keydown', onResourceEsc);
+    }
+    bindMobileDrawer();
+
+    // 初始化
+    renderGroups();
+    applyFilters();
+  }
+
+  document.addEventListener('astro:page-load', initResourceLibrary);
+</script>
+
 <style>
-  .resource-section {
-    max-width: 880px;
+  /* 浅灰背景，白底卡片悬浮 */
+  .resource-library {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 1.5rem;
+    max-width: 1280px;
     margin: 0 auto;
+    align-items: start;
   }
-  .resource-hero {
-    padding: 5rem 2rem;
-    text-align: center;
-    background: linear-gradient(180deg, #f7f9fc 0%, #ffffff 100%);
-    border: 1px solid #ececf0;
-    border-radius: 20px;
+
+  /* ===== 筛选面板样式见下方 <style is:global> =====
+     （面板内部 .fp-* 元素由 JS 动态渲染，无 Astro scoped hash 属性，
+       scoped 选择器会失配 —— 因此面板样式必须全局生效） */
+
+  /* 移动端筛选切换按钮（桌面隐藏） */
+  .filter-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.85rem;
+    background: #ffffff;
+    border: 1px solid #e7e9ee;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: #333;
+    cursor: pointer;
+    margin-bottom: 0.75rem;
+    font-family: inherit;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
   }
-  .resource-hero h1 {
-    margin: 0 0 0.75rem;
-    font-size: 2rem;
+  .filter-toggle:hover { background: #f5f7fa; }
+  .filter-backdrop { display: none; }
+
+  /* ===== 主区 ===== */
+  .resource-main { min-width: 0; }
+  .resource-header { margin-bottom: 1rem; }
+  .resource-title {
+    margin: 0 0 0.25rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: #111;
   }
-  .resource-sub {
+  .resource-count {
     margin: 0;
-    font-size: 1rem;
-    line-height: 1.9;
-    color: #666;
+    color: #6b7280;
+    font-size: 0.88rem;
+  }
+
+  /* ===== 分类 tab bar（Modrinth 风格胶囊条）===== */
+  .resource-tabs {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+    padding: 5px;
+    background: #f5f6f8;
+    border: 1px solid #ececef;
+    border-radius: 12px;
+    scrollbar-width: thin;
+    width: fit-content;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .resource-tabs::-webkit-scrollbar { height: 6px; }
+  .resource-tabs::-webkit-scrollbar-thumb { background: #d8d8da; border-radius: 3px; }
+  .rt-tab {
+    flex-shrink: 0;
+    padding: 8px 16px;
+    background: transparent;
+    border: 0;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    color: #555;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    font-family: inherit;
+  }
+  .rt-tab:hover { background: rgba(0, 0, 0, 0.04); color: #222; }
+  .rt-tab.active {
+    background: #ffffff;
+    color: #1d4ed8;
+    font-weight: 600;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  }
+
+  /* ===== 卡片网格 ===== */
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .resource-grid[hidden] { display: none; }
+  .resource-card {
+    background: #ffffff;
+    border: 1px solid #e7e9ee;
+    border-radius: 14px;
+    overflow: visible;
+    transition: transform 0.18s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .resource-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+  }
+  .rc-cover-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 14px 14px 0 0;
+    overflow: hidden;
+  }
+  .rc-cover {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+  }
+  .rc-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .rc-screenshot-placeholder {
+    width: 100%;
+    height: 100%;
+    background:
+      radial-gradient(120% 80% at 20% 10%, rgba(255,255,255,0.5), transparent 50%),
+      linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+  }
+  .rc-brand {
+    position: absolute;
+    left: 12px;
+    bottom: -22px;
+    z-index: 2;
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: #ffffff;
+    border: 1px solid #e7e9ee;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .rc-brand-icon { width: 70%; height: 70%; object-fit: contain; }
+  .rc-body {
+    padding: 30px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    flex: 1;
+  }
+  .rc-title {
+    margin: 0;
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: #111;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .rc-title a { color: inherit; text-decoration: none; }
+  .rc-title a:hover { color: #1d4ed8; }
+  .rc-author { margin: 0; font-size: 0.82rem; color: #6b7280; }
+  .rc-author span { color: #4b5563; font-weight: 500; }
+  .rc-summary {
+    margin: 0.15rem 0 0.25rem;
+    font-size: 0.84rem;
+    color: #4b5563;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .rc-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin: 0.15rem 0;
+  }
+  .rc-tag {
+    font-size: 0.72rem;
+    color: #374151;
+    background: #f1f3f6;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+  .rc-loaders {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    font-size: 0.78rem;
+    margin: 0.1rem 0;
+  }
+  .rc-loader { color: #1d4ed8; text-decoration: none; font-weight: 500; }
+  .rc-loader:hover { text-decoration: underline; }
+  .rc-or { color: #9ca3af; font-size: 0.78rem; }
+  .rc-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 0.5rem;
+    border-top: 1px solid #f0f1f4;
+    font-size: 0.78rem;
+    color: #4b5563;
+  }
+  .rc-meta-left, .rc-meta-right {
+    display: flex;
+    gap: 0.85rem;
+    align-items: center;
+  }
+  .rc-meta-item { display: inline-flex; align-items: center; gap: 0.25rem; }
+  .rc-meta-item svg { color: #6b7280; }
+
+  /* ===== 空态 ===== */
+  /* 关键修复：`.resource-empty { display: flex }` 会压过原生 [hidden] 的 display:none，
+     导致两个空态卡片（empty-none / empty-search）同时可见。显式提高 [hidden] 优先级 */
+  .resource-empty { display: flex; justify-content: center; }
+  .resource-empty[hidden] { display: none; }
+  .re-card {
+    max-width: 520px;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #e7e9ee;
+    border-radius: 14px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  }
+  .re-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+  .re-title { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.5rem; color: #111; }
+  .re-desc { font-size: 0.9rem; color: #6b7280; line-height: 1.7; margin: 0 0 1rem; }
+  .re-desc code {
+    background: #f3f4f6;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85em;
+  }
+  .re-sample { text-align: left; margin-top: 1rem; }
+  .re-sample summary {
+    cursor: pointer;
+    color: #1d4ed8;
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 0.4rem 0;
+    list-style: none;
+  }
+  .re-sample summary::-webkit-details-marker { display: none; }
+  .re-sample pre {
+    margin: 0.5rem 0 0;
+    padding: 0.85rem 1rem;
+    background: #f8f9fb;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 0.78rem;
+    line-height: 1.55;
+    color: #374151;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  .re-sample pre code { background: transparent; padding: 0; }
+  .re-reset {
+    margin-top: 0.5rem;
+    padding: 0.55rem 1.2rem;
+    background: #1d4ed8;
+    color: #ffffff;
+    border: 0;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+  }
+  .re-reset:hover { background: #1e40af; }
+
+  /* 筛选过滤用的 hidden class（与 index.astro 保持一致，全局生效） */
+  :global(.search-hidden) { display: none !important; }
+
+  /* ===== 资源页移动端（≤768px）=====
+     必须放在 scoped <style> 末尾（不能放 is:global）：本段要覆盖的
+     .resource-library / .filter-toggle / .resource-grid / .resource-title 等
+     桌面默认值都定义在 scoped 里（带 data-astro-cid，特异性 (0,2,0)），
+     is:global 的 (0,1,0) 规则永远压不过它们 —— 实证：第一版修复把段放
+     is:global，「筛选」按钮仍被 display:none 压死，用户反馈"疑似未修复"。
+     放在本块内则 Astro 自动加 hash，与桌面规则同特异性、后声明生效。
+     body[data-resource-filter-open] 前缀会自动保留（参照 AppLayout 先例）。 */
+  @media (max-width: 768px) {
+    /* 主区改为单列：filter-panel 移出文档流改做抽屉 */
+    .resource-library { display: block; padding: 0; }
+
+    /* 抽屉容器：默认左滑出屏外，打开后滑入 */
+    .filter-panel {
+      position: fixed;
+      top: 56px;
+      left: 0;
+      width: 86vw;
+      max-width: 360px;
+      height: calc(100vh - 56px);
+      /* 覆盖 is:global 桌面的 max-height:calc(100vh - 116px)（旧版为 sticky 侧栏预留） */
+      max-height: calc(100vh - 56px);
+      transform: translateX(-100%);
+      transition: transform 0.25s ease;
+      z-index: 200;
+      background: #ffffff;
+      box-shadow: 4px 0 18px rgba(0, 0, 0, 0.12);
+      border-right: 1px solid #e5e5e5;
+      /* 右缘上下圆角：左缘贴屏幕边缘保持直角，右缘柔化（用户要求） */
+      border-radius: 0 16px 16px 0;
+      overflow-y: auto;
+    }
+    body[data-resource-filter-open] .filter-panel { transform: translateX(0); }
+
+    /* 遮罩（.filter-backdrop 桌面 display:none 在 scoped，此处同块后置覆盖） */
+    body[data-resource-filter-open] .filter-backdrop {
+      display: block;
+      position: fixed;
+      top: 56px; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 20, 30, 0.35);
+      z-index: 199;
+    }
+
+    /* 「筛选」入口：固定于页眉右上角（height 与页眉同高 56px → 视觉垂直居中于页面右上角）。
+       胶囊基样式沿用桌面 .filter-toggle；z210 高于遮罩(199)，抽屉打开时仍可二次点击收起 */
+    .filter-toggle {
+      position: fixed;
+      top: 11px; /* (56px - 34px)/2：按钮不再撑满页眉高，改为常规胶囊高度并垂直居中于 56px 页眉 */
+      right: 1rem;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin: 0;
+      padding: 0 0.8rem;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid #e7e9ee;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      color: #333;
+      cursor: pointer;
+      font-family: inherit;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+      z-index: 210;
+    }
+    /* 注：抽屉内 .fp-drawer-head / .fp-done / .mobile-only 为 JS 动态节点（无 scoped hash），
+       其移动端激活规则在下方 <style is:global> 末尾的 media 块中，不能放本 scoped 块。 */
+
+    /* 页眉固定搜索栏（fixed 80px）：移动端隐藏，搜索改走抽屉内 .mobile-only 实例 */
+    .header-search-float { display: none; }
+
+    /* 卡片网格单列 */
+    .resource-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+    .resource-title { font-size: 1.2rem; }
+  }
+</style>
+
+<!--
+  筛选面板样式必须全局生效（is:global）：
+  面板内部的 .fp-* 元素由 JS 动态 innerHTML 渲染，不带 Astro scoped hash 属性，
+  scoped 选择器（.fp-block[data-astro-cid-xxx]）会全部失配导致裸奔样式。
+  fp- / resource- 前缀在本站唯一，无污染风险。
+-->
+<style is:global>
+  /* ===== 页眉右上角搜索框（桌面）===== */
+  .header-search-float {
+    position: fixed;
+    top: 0;
+    /* 与导航页 .header-search-slot 右边缘对齐：始终距离视口右边缘 2rem，
+       这样不论窗口宽度如何变化，两个页面的搜索栏右边缘都共享同一条垂直线 */
+    right: 2rem;
+    height: 80px;
+    width: 300px;
+    max-width: calc(100vw - 4rem);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 210; /* 高于页眉(200)，保证可交互 */
+  }
+  .mobile-only { display: none; }
+
+  /* ===== 移动端抽屉标题栏（含关闭按钮）===== */
+  .fp-drawer-head {
+    display: none; /* 桌面（侧栏常驻）不需要 */
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem 0.5rem;
+    border-bottom: 1px solid #f0f1f4;
+    margin-bottom: 0.25rem;
+  }
+  .fp-drawer-title { font-size: 0.95rem; font-weight: 600; color: #111; }
+  .fp-close {
+    width: 30px;
+    height: 30px;
+    border: 0;
+    border-radius: 50%;
+    background: #f3f4f6;
+    color: #4b5563;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    line-height: 1;
+    font-family: inherit;
+    flex-shrink: 0;
+  }
+  .fp-close:hover { background: #e5e7eb; color: #111; }
+
+  /* 移动端抽屉底部的「查看结果」按钮（点击后收起抽屉看筛选结果） */
+  .fp-done {
+    display: none; /* 桌面（侧栏常驻）不需要 */
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.55rem 0.75rem;
+    background: #1d4ed8;
+    color: #ffffff;
+    border: 0;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .fp-done:hover { background: #1e40af; }
+
+  /* ===== 筛选面板 ===== */
+  .filter-panel {
+    position: sticky;
+    top: 96px;
+    max-height: calc(100vh - 116px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+  .fp-inner {
+    background: #ffffff;
+    border: 1px solid #e7e9ee;
+    border-radius: 14px;
+    padding: 0.5rem 0.5rem 0.75rem;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  }
+  .fp-search-row { padding: 0.25rem 0.5rem 0.5rem; }
+  .fp-search {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    padding: 0 4px 0 14px;
+    border: 1px solid #e3e3e3;
+    border-radius: 22px;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .fp-search:focus-within {
+    border-color: #1d9e75;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(29, 158, 117, 0.12);
+  }
+  .fp-search input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    padding: 0 12px 0 0;
+    font-size: 0.95rem;
+    color: #333;
+    font-family: 'HarmonyOS Sans', sans-serif;
+    height: 100%;
+  }
+  .fp-search input:focus { outline: none; }
+  .fp-search input::placeholder { color: #aaa; }
+  .fp-search input::-webkit-search-cancel-button { cursor: pointer; }
+  .fp-search-btn {
+    border: none;
+    background: transparent;
+    padding: 0 10px;
+    cursor: pointer;
+    color: #888;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    transition: color 0.15s ease, transform 0.15s ease;
+  }
+  .fp-search-btn:hover { color: #1d9e75; }
+  .fp-search-btn:active { transform: scale(0.92); }
+  .fp-groups { display: flex; flex-direction: column; }
+  .fp-block { padding: 0.5rem 0.25rem 0.5rem; border-top: 1px solid #f0f1f4; }
+  .fp-block:first-of-type { border-top: 0; }
+  .fp-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    padding: 0.25rem 0.5rem 0.5rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #111;
+  }
+  details.fp-block > summary.fp-block-header::-webkit-details-marker { display: none; }
+  .fp-block-header .fp-caret {
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #9ca3af;
+    border-bottom: 2px solid #9ca3af;
+    transform: rotate(-45deg);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+  }
+  details.fp-block[open] .fp-block-header .fp-caret { transform: rotate(45deg); }
+  .fp-select-row { position: relative; padding: 0 0.5rem; }
+  .fp-native-select {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    padding: 0.5rem 2rem 0.5rem 0.75rem;
+    background: #f5f7fa url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none'><path d='M6 9l6 6 6-6' stroke='%236b7280' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat right 0.75rem center;
+    border: 1px solid #e7e9ee;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: #111;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .fp-native-select:focus { outline: none; border-color: #cbd5e1; background-color: #fff; }
+  .fp-clear {
+    position: absolute;
+    right: 0.4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    border: 0;
+    border-radius: 50%;
+    background: #e5e7eb;
+    color: #4b5563;
+    cursor: pointer;
+    line-height: 1;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .fp-clear:hover { background: #d1d5db; }
+  .fp-list {
+    list-style: none;
+    margin: 0;
+    padding: 0.1rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.05rem;
+  }
+  .fp-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.5rem;
+    font-size: 0.88rem;
+    color: #374151;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.15s ease;
+  }
+  .fp-option:hover { background: #f3f4f6; }
+  .fp-option input { accent-color: #1d4ed8; cursor: pointer; margin: 0; flex-shrink: 0; }
+  .fp-option-label { font-weight: 500; }
+  .fp-hint {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.8rem;
+    color: #9ca3af;
+  }
+  .fp-footer { padding: 0.5rem; border-top: 1px solid #f0f1f4; }
+  .fp-reset {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    background: transparent;
+    border: 1px solid #e7e9ee;
+    border-radius: 8px;
+    color: #4b5563;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    font-family: inherit;
+  }
+  .fp-reset:hover { background: #f3f4f6; color: #111; }
+
+  /* ===== 移动端抽屉的动态节点（≤768px）=====
+     注意：抽屉内 .fp-drawer-head / .fp-done / .mobile-only 由 JS innerHTML 渲染、
+     不带 scoped hash —— 放在 scoped <style> 会因选择器加了 [data-astro-cid] 而失配，
+     必须在本全局块里覆盖（默认 display:none 亦在此文件全局区定义）。 */
+  @media (max-width: 768px) {
+    .fp-drawer-head { display: flex; }
+    .fp-done { display: block; }
+    .mobile-only { display: block; }
   }
 </style>

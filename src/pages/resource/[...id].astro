@@ -1,0 +1,454 @@
+---
+export const prerender = true;
+// src/pages/resource/[...id].astro —— 单条资源详情页（通用模板）
+// 资源库 /resource 每张卡片的可点区域（封面/标题/加载器 chips）不再直跳外链，
+// 而是先进本页了解内容；下载由页内「前往下载」按钮发起（保持原 href / loaderAlt）。
+// 新增资源：在 src/content/resources/ 下添加 md 即自动获得 /resource/<子路径>/ 详情页。
+import AppLayout from '../../layouts/AppLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('resources');
+  return entries.map((entry) => ({
+    // Astro 5 content layer 的 entry.id 含扩展名（'map/jiuyun-wanxiangtu.md'）：
+    // 先去掉扩展名再作 rest 参数字符串（Astro 按 / 分段生成多级路径）
+    params: { id: entry.id.replace(/\.(md|mdx)$/i, '') },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const {
+  title, author, summary, href, icon, screenshot, type,
+  edition, loaders, loaderAlt, versions,
+  downloads, likes, updated, tags,
+} = entry.data;
+
+const { Content } = await render(entry);
+
+const hasAuthor = !!author && author !== '—';
+
+// 与 /resource 页一致的数据格式化
+function formatCount(n: number): string {
+  if (n >= 1_000_000) return (n / 1_000_000).toFixed(2) + 'M';
+  if (n >= 1_000) return (n / 1_000).toFixed(1) + 'K';
+  return String(n);
+}
+function relativeTime(iso?: string): string {
+  if (!iso) return '';
+  const date = new Date(iso);
+  if (isNaN(date.getTime())) return '';
+  const diffMs = Date.now() - date.getTime();
+  const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  if (days < 1) return '今天';
+  if (days < 30) return `${days} 天前`;
+  const months = Math.floor(days / 30);
+  if (months < 12) return `${months} 个月前`;
+  const years = Math.floor(days / 365);
+  return `${years} 年前`;
+}
+
+// 下载来源域名（用于按钮下的可信提示；仅保留主域）
+function mainHost(href: string): string {
+  try {
+    const parts = new URL(href).hostname.split('.');
+    if (parts.length > 2) {
+      const tld = parts[parts.length - 1];
+      const sld = parts[parts.length - 2];
+      // 常见二级后缀（com.cn / github.io 之类）：保留三段即可，否则缩到两段
+      if (!/^(cn|com|net|org|io|co|me|cc|info|biz|xyz|top|vip|uk|us|jp|kr|de|fr|ru|in)$/.test(tld) || sld.length <= 3) {
+        return parts.slice(-2).join('.');
+      }
+      return parts.slice(-3).join('.');
+    }
+    return parts.join('.');
+  } catch {
+    return '';
+  }
+}
+const host = mainHost(href);
+
+const showDownloads = downloads !== undefined;
+const showLikes = likes !== undefined;
+const updatedText = relativeTime(updated);
+const showMeta = showDownloads || showLikes || updatedText;
+---
+
+<AppLayout title={`LocateMC - ${title}`} showViewToggle={false} hideSidebar>
+  <div class="rd">
+    <a class="rd-back" href="/resource/" title="返回资源库">
+      <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M19 12H5m0 0l6-6m-6 6l6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      返回资源库
+    </a>
+
+    <!-- 头部：大图 + 标题信息 -->
+    <header class="rd-hero">
+      <div class="rd-hero-media">
+        {screenshot ? (
+          <img class="rd-shot" src={screenshot} alt={`${title} 预览图`} loading="eager" decoding="async" />
+        ) : (
+          <div class="rd-shot rd-shot-fallback" aria-hidden="true">
+            <img class="rd-fallback-icon" src={icon} alt="" loading="eager" decoding="async" />
+          </div>
+        )}
+      </div>
+
+      <div class="rd-hero-info">
+        <h1 class="rd-title">{title}</h1>
+        {hasAuthor && <p class="rd-author">by <span>{author}</span></p>}
+
+        <div class="rd-chips">
+          {type && <span class="rd-chip rd-chip-type">{type}</span>}
+          {edition && <span class="rd-chip">{edition}</span>}
+          {loaders.map((l) => <span class="rd-chip">{l}</span>)}
+        </div>
+
+        {tags.length > 0 && (
+          <div class="rd-tags">
+            {tags.map((t) => <span class="rd-tag">{t}</span>)}
+          </div>
+        )}
+
+        {showMeta && (
+          <div class="rd-stats">
+            {showDownloads && (
+              <span class="rd-stat">
+                <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 4v12m0 0l-5-5m5 5l5-5M4 20h16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                {formatCount(downloads!)} 下载
+              </span>
+            )}
+            {showLikes && (
+              <span class="rd-stat">
+                <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 21s-7-4.5-7-11a4 4 0 0 1 7-2.65A4 4 0 0 1 19 10c0 6.5-7 11-7 11Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                {formatCount(likes!)} 收藏
+              </span>
+            )}
+            {updatedText && (
+              <span class="rd-stat">
+                <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 7v5l3 2M21 12a9 9 0 1 1-3.13-6.85M21 4v5h-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                {updatedText} 更新
+              </span>
+            )}
+          </div>
+        )}
+      </div>
+    </header>
+
+    <!-- 主内容 + 下载侧栏 -->
+    <div class="rd-grid">
+      <article class="rd-main">
+        <div class="rd-md"><Content /></div>
+        <p class="rd-md-empty">作者暂未补充详细介绍，可点击右上角「前往下载」直达资源页。</p>
+      </article>
+
+      <aside class="rd-side">
+        <div class="rd-dl-card">
+          <h2 class="rd-dl-title">下载</h2>
+          <a class="rd-dl-btn" href={href} target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M12 4v12m0 0l-5-5m5 5l5-5M4 20h16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            前往下载
+          </a>
+          {host && <p class="rd-dl-hint">将离开 LocateMC，前往 <span>{host}</span></p>}
+
+          {loaderAlt && (
+            <div class="rd-dl-alt">
+              <p class="rd-dl-alt-label">备用渠道</p>
+              <a class="rd-dl-alt-btn" href={loaderAlt.href} target="_blank" rel="noopener noreferrer">{loaderAlt.name}</a>
+            </div>
+          )}
+
+          {versions.length > 0 && (
+            <div class="rd-dl-versions">
+              <p class="rd-dl-versions-label">支持版本</p>
+              <div class="rd-dl-versions-list">
+                {versions.map((v) => <span class="rd-ver-chip">{v}</span>)}
+              </div>
+            </div>
+          )}
+        </div>
+      </aside>
+    </div>
+  </div>
+</AppLayout>
+
+<style>
+  /* 资源详情页：浅灰底 + 白卡片风格，与 /resource 视觉一致 */
+  .rd {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.25rem 0 1.5rem;
+  }
+  .rd-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #4b5563;
+    text-decoration: none;
+    font-size: 0.88rem;
+    margin: 0.25rem 0 1rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 8px;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .rd-back:hover { background: rgba(29, 78, 216, 0.08); color: #1d4ed8; }
+
+  /* ===== 头部 ===== */
+  .rd-hero {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 1.75rem;
+    background: #ffffff;
+    border: 1px solid #e7e9ee;
+    border-radius: 16px;
+    padding: 1.25rem;
+    align-items: start;
+  }
+  .rd-hero-media { min-width: 0; }
+  .rd-shot {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    border: 1px solid #eceef2;
+  }
+  .rd-shot-fallback {
+    background:
+      radial-gradient(120% 80% at 20% 10%, rgba(255,255,255,0.5), transparent 50%),
+      linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .rd-fallback-icon {
+    width: 84px;
+    height: 84px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 6px rgba(15, 23, 42, 0.2));
+  }
+  .rd-hero-info { min-width: 0; padding: 0.15rem 0; }
+  .rd-title {
+    margin: 0 0 0.3rem;
+    font-size: 1.55rem;
+    font-weight: 800;
+    line-height: 1.3;
+    color: #111;
+  }
+  .rd-author { margin: 0 0 0.9rem; font-size: 0.86rem; color: #6b7280; }
+  .rd-author span { color: #4b5563; font-weight: 600; }
+
+  .rd-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 0.75rem; }
+  .rd-chip {
+    font-size: 0.78rem;
+    color: #1e293b;
+    background: #f1f3f6;
+    border: 1px solid #e7e9ee;
+    padding: 0.28rem 0.7rem;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+  .rd-chip-type {
+    color: #ffffff;
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+  }
+
+  .rd-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.9rem; }
+  .rd-tag {
+    font-size: 0.74rem;
+    color: #374151;
+    background: #f1f3f6;
+    padding: 0.22rem 0.6rem;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+
+  .rd-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.1rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid #f0f1f4;
+    font-size: 0.82rem;
+    color: #4b5563;
+  }
+  .rd-stat { display: inline-flex; align-items: center; gap: 0.3rem; }
+  .rd-stat svg { color: #6b7280; }
+
+  /* ===== 正文 + 下载侧栏 ===== */
+  .rd-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+    align-items: start;
+  }
+  .rd-main {
+    background: #ffffff;
+    border: 1px solid #e7e9ee;
+    border-radius: 16px;
+    padding: 1.5rem 1.75rem;
+    min-width: 0;
+  }
+  .rd-md { font-size: 0.96rem; line-height: 1.85; color: #374151; }
+  /* markdown 渲染元素无 scoped hash，须 :global 收窄到容器内 */
+  .rd-md :global(p) { margin: 0 0 1em; }
+  .rd-md :global(p:last-child) { margin-bottom: 0; }
+  .rd-md :global(h1),
+  .rd-md :global(h2),
+  .rd-md :global(h3),
+  .rd-md :global(h4) {
+    color: #111;
+    margin: 1.4em 0 0.6em;
+    line-height: 1.4;
+  }
+  .rd-md :global(h1) { font-size: 1.45rem; }
+  .rd-md :global(h2) { font-size: 1.25rem; }
+  .rd-md :global(h3) { font-size: 1.08rem; }
+  .rd-md :global(h4) { font-size: 1rem; }
+  .rd-md :global(h1:first-child),
+  .rd-md :global(h2:first-child),
+  .rd-md :global(h3:first-child) { margin-top: 0; }
+  .rd-md :global(a) { color: #1d4ed8; text-decoration: none; }
+  .rd-md :global(a:hover) { text-decoration: underline; }
+  .rd-md :global(ul), .rd-md :global(ol) { margin: 0 0 1em; padding-left: 1.5em; }
+  .rd-md :global(li) { margin: 0.25em 0; }
+  .rd-md :global(blockquote) {
+    margin: 0 0 1em;
+    padding: 0.5rem 1rem;
+    border-left: 3px solid #c7d2fe;
+    background: #f8fafc;
+    color: #4b5563;
+    border-radius: 0 8px 8px 0;
+  }
+  .rd-md :global(img) { max-width: 100%; border-radius: 10px; }
+  .rd-md :global(code) {
+    font-family: 'Cascadia Code', Consolas, 'Courier New', monospace;
+    font-size: 0.86em;
+    background: #f1f3f6;
+    padding: 0.15em 0.4em;
+    border-radius: 5px;
+    color: #be123c;
+  }
+  .rd-md :global(pre) {
+    background: #0f172a;
+    color: #e2e8f0;
+    padding: 1rem 1.1rem;
+    border-radius: 10px;
+    overflow-x: auto;
+    margin: 0 0 1em;
+  }
+  .rd-md :global(pre code) { background: transparent; color: inherit; padding: 0; }
+  .rd-md :global(hr) { border: none; border-top: 1px solid #eceef2; margin: 1.4em 0; }
+  .rd-md :global(table) { border-collapse: collapse; margin: 0 0 1em; width: 100%; }
+  .rd-md :global(th), .rd-md :global(td) { border: 1px solid #e5e7eb; padding: 0.4rem 0.7rem; }
+  .rd-md :global(th) { background: #f8fafc; color: #111; }
+  .rd-md:empty { display: none; }
+  .rd-md-empty {
+    display: none;
+    margin: 0;
+    padding: 1.25rem;
+    border: 1px dashed #d7dbe2;
+    border-radius: 10px;
+    color: #9ca3af;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  .rd-md:empty + .rd-md-empty { display: block; }
+
+  /* ===== 下载卡 ===== */
+  .rd-side { position: sticky; top: 96px; }
+  .rd-dl-card {
+    background: #ffffff;
+    border: 1px solid #e7e9ee;
+    border-radius: 16px;
+    padding: 1.25rem;
+  }
+  .rd-dl-title {
+    margin: 0 0 0.9rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111;
+  }
+  .rd-dl-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: #16a34a;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: background 0.15s ease, transform 0.1s ease;
+    box-sizing: border-box;
+  }
+  .rd-dl-btn:hover { background: #15803d; }
+  .rd-dl-btn:active { transform: translateY(1px); }
+  .rd-dl-hint {
+    margin: 0.55rem 0 0;
+    text-align: center;
+    font-size: 0.76rem;
+    color: #9ca3af;
+  }
+  .rd-dl-hint span { color: #6b7280; font-weight: 600; word-break: break-all; }
+
+  .rd-dl-alt {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #f0f1f4;
+  }
+  .rd-dl-alt-label,
+  .rd-dl-versions-label {
+    margin: 0 0 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #6b7280;
+  }
+  .rd-dl-alt-btn {
+    display: block;
+    text-align: center;
+    padding: 0.55rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    color: #374151;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .rd-dl-alt-btn:hover { border-color: #1d4ed8; color: #1d4ed8; }
+
+  .rd-dl-versions { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #f0f1f4; }
+  .rd-dl-versions-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .rd-ver-chip {
+    font-size: 0.76rem;
+    color: #374151;
+    background: #f1f3f6;
+    border: 1px solid #e7e9ee;
+    padding: 0.22rem 0.6rem;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  /* ===== 移动端（≤768px）===== */
+  @media (max-width: 768px) {
+    .rd { padding: 0 0 0.75rem; }
+    .rd-back { margin-bottom: 0.65rem; }
+    .rd-hero {
+      grid-template-columns: 1fr;
+      gap: 1.1rem;
+      padding: 0.9rem;
+      border-radius: 14px;
+    }
+    .rd-title { font-size: 1.25rem; }
+    .rd-grid { grid-template-columns: 1fr; margin-top: 0.9rem; }
+    /* 单列下先展示下载卡（紧随头部），再读正文 */
+    .rd-side { position: static; order: 1; }
+    .rd-main { order: 2; padding: 1.1rem 1.1rem; }
+    .rd-dl-card { border-radius: 14px; }
+  }
+</style>

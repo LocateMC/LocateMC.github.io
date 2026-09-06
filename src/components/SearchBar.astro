@@ -6,29 +6,13 @@
 const { uid = '' } = Astro.props;
 const p = uid ? `${uid}-` : '';
 
-// 在这里定义站外搜索引擎的数据
-const searchEngines = [
-  { id: 'google', name: 'Google', url: 'https://www.google.com/search?q=' },
-  { id: 'bing', name: 'Bing', url: 'https://www.bing.com/search?q=' },
-  { id: 'mcwiki', name: 'MC Wiki', url: 'https://zh.minecraft.wiki/w/特殊:搜索?search=' },
-];
+// 【2026-09-04 暂时收敛为纯站内搜索】用户指示：取消导航页的「站外 / AI」搜索模式，
+// 仅保留站内搜索，使搜索栏与资源页一致（单一胶囊输入框 + 放大镜，无模式切换）。
+// 若要恢复站外搜索：加回 .search-tabs 三按钮（站内/站外/AI）与 #engine-select，
+// 并在下方 script 恢复模式切换分支（原站外引擎数据：Google / Bing / MC Wiki）。
 ---
 <div class="search-wrapper" data-uid={uid}>
   <div class="search-bar">
-    <!-- 模式切换标签：内嵌在搜索胶囊左侧 -->
-    <div class="search-tabs">
-      <button class="tab-btn active" data-mode="internal">站内</button>
-      <button class="tab-btn" data-mode="external">站外</button>
-      <button class="tab-btn" data-mode="ai" disabled>AI</button>
-    </div>
-
-    <!-- 站外搜索引擎选择器，默认隐藏 -->
-    <select id={`${p}engine-select`} class="engine-select hidden">
-      {searchEngines.map(engine => (
-        <option value={engine.url}>{engine.name}</option>
-      ))}
-    </select>
-    
     <input type="search" id={`${p}search-input`} class="search-input" placeholder="搜索本站内容..." autocomplete="off" />
     <button id={`${p}search-button`} class="search-button" aria-label="搜索">
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
@@ -51,13 +35,9 @@ const searchEngines = [
       // 1. 初始化状态和DOM元素
       const uid = root.dataset.uid || '';
       const prefix = uid ? `${uid}-` : '';
-      const engineSelect = document.getElementById(`${prefix}engine-select`) as HTMLSelectElement | null;
       const searchInput = document.getElementById(`${prefix}search-input`) as HTMLInputElement | null;
       const searchButton = document.getElementById(`${prefix}search-button`);
-      if (!engineSelect || !searchInput || !searchButton) return;
-
-      let currentMode = 'internal';
-      const tabs = root.querySelectorAll('.tab-btn');
+      if (!searchInput || !searchButton) return;
 
       // 2. 异步初始化 Fuse.js
       async function initializeFuse() {
@@ -74,53 +54,28 @@ const searchEngines = [
         }
       }
 
-      // 3. 模式切换逻辑
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          if ((tab as HTMLButtonElement).disabled) return;
-          tabs.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-          currentMode = (tab as HTMLElement).dataset.mode!;
-
-          engineSelect.classList.toggle('hidden', currentMode !== 'external');
-          searchInput.placeholder = currentMode === 'internal' ? '搜索本站内容...' : '在站外搜索...';
-          // 【2-1】切换模式不触发搜索：结果只在点击搜索按钮 / 回车时呈现
-        });
-      });
-
-      // 4. 执行搜索：仅由「点击搜索按钮 / 回车」显式触发（2-1），输入过程中不实时过滤
+      // 3. 执行站内搜索：仅由「点击搜索按钮 / 回车」显式触发，输入过程中不实时过滤
+      //    （与资源页一致：导航页也收敛为纯站内搜索）
       async function performSearch() {
         const query = searchInput.value.trim();
 
-        if (currentMode === 'internal') {
-          if (!fuseInstance) await initializeFuse(); // Fuse 索引尚未就绪则先加载
-          if (!fuseInstance) return;
+        if (!fuseInstance) await initializeFuse(); // Fuse 索引尚未就绪则先加载
+        if (!fuseInstance) return;
 
-          // 如果搜索框为空，发送一个特殊信号来显示所有卡片
-          if (!query) {
-            window.dispatchEvent(new CustomEvent('search-results', { detail: { results: null } }));
-            return;
-          }
-
-          const searchResults = fuseInstance.search(query);
-          // 我们只提取匹配项的 ID
-          const resultIds = searchResults.map(result => result.item.id);
-          // 通过全局事件将结果 ID 发送给主页面
-          window.dispatchEvent(new CustomEvent('search-results', { detail: { results: resultIds } }));
-        } else if (currentMode === 'external') {
-          // 站外搜索：在站外引擎中打开关键词
-          handleExternalSearch();
+        // 如果搜索框为空，发送一个特殊信号来显示所有卡片
+        if (!query) {
+          window.dispatchEvent(new CustomEvent('search-results', { detail: { results: null } }));
+          return;
         }
+
+        const searchResults = fuseInstance.search(query);
+        // 我们只提取匹配项的 ID
+        const resultIds = searchResults.map(result => result.item.id);
+        // 通过全局事件将结果 ID 发送给主页面
+        window.dispatchEvent(new CustomEvent('search-results', { detail: { results: resultIds } }));
       }
 
-      function handleExternalSearch() {
-        const query = searchInput.value.trim();
-        if (!query) return;
-        const urlTemplate = engineSelect.value;
-        window.open(urlTemplate + encodeURIComponent(query), '_blank');
-      }
-
-      // 5. 事件绑定
+      // 4. 事件绑定
       searchInput.addEventListener('focus', initializeFuse); // 聚焦输入框时预加载索引数据
       searchButton.addEventListener('click', () => performSearch());
       searchInput.addEventListener('keydown', (e) => {
@@ -138,10 +93,10 @@ const searchEngines = [
 <style>
   /* 
     搜索栏样式（页眉右侧插槽）
-    整体为单一搜索胶囊：模式标签内嵌于胶囊左侧，聚焦时高亮描边。
+    整体为单一搜索胶囊（与资源页一致，纯站内搜索无模式标签），聚焦时高亮描边。
   */
   .search-wrapper {
-    width: clamp(340px, 34vw, 430px); /* 全屏上限 480→430px，再适度收窄 */
+    width: 300px; /* 与资源页 .header-search-float 一致（固定 300px） */
     margin: 0; /* 作为页眉右侧 flex 项，不居中 */
     flex-shrink: 1;
     min-width: 0;
@@ -151,7 +106,7 @@ const searchEngines = [
     display: flex;
     align-items: center;
     height: 44px;
-    padding: 0 4px 0 6px;
+    padding: 0 4px 0 16px;
     border: 1px solid #e3e3e3;
     border-radius: 22px;
     background-color: #f0f0f0;
@@ -165,51 +120,12 @@ const searchEngines = [
     box-shadow: 0 0 0 3px rgba(29, 158, 117, 0.12);
   }
 
-  /* 模式切换标签：胶囊内左侧的紧凑分段控件 */
-  .search-tabs {
-    display: flex;
-    gap: 2px;
-    flex-shrink: 0;
-    align-items: center;
-  }
-  .tab-btn {
-    border: none;
-    background: transparent;
-    padding: 5px 11px;
-    border-radius: 15px;
-    cursor: pointer;
-    color: #777;
-    font-size: 0.85rem;
-    font-weight: 500;
-    font-family: 'HarmonyOS Sans', sans-serif;
-    white-space: nowrap;
-    transition: background-color 0.15s ease, color 0.15s ease;
-  }
-  .tab-btn.active {
-    background-color: #ffffff;
-    color: #111;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  }
-  .tab-btn:disabled { color: #ccc; cursor: not-allowed; }
-
-  .engine-select {
-    border: none;
-    background: transparent;
-    color: #555;
-    padding: 0 6px;
-    height: 26px;
-    font-size: 0.85rem;
-    font-family: 'HarmonyOS Sans', sans-serif;
-    flex-shrink: 0;
-  }
-  .engine-select.hidden { display: none; }
-
   .search-input {
     flex-grow: 1;
     min-width: 0;
     border: none;
     background: transparent;
-    padding: 0 12px;
+    padding: 0 12px 0 0;
     font-size: 0.95rem;
     color: #333;
     font-family: 'HarmonyOS Sans', sans-serif;

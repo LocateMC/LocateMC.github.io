@@ -135,15 +135,16 @@ const needsMobileMenu = hasHeaderSearch || !hideSidebar;
 
   <style is:global>
     @font-face {
-      font-family: 'HarmonyOS Sans'; 
-      src: url('/fonts/HarmonyOS_Sans_SC_Regular.woff') format('woff');
+      font-family: 'HarmonyOS Sans';
+      /* woff2（Brotli）比 woff 小约 25%；子集化产物由 tools/subset_fonts.py 生成（GB2312 全量兜底） */
+      src: url('/fonts/HarmonyOS_Sans_SC_Regular.woff2') format('woff2');
       font-weight: 400;
       font-style: normal;
       font-display: swap;
     }
     @font-face {
       font-family: 'HarmonyOS Sans';
-      src: url('/fonts/HarmonyOS_Sans_SC_Bold.woff') format('woff');
+      src: url('/fonts/HarmonyOS_Sans_SC_Bold.woff2') format('woff2');
       font-weight: 700;
       font-style: normal;
       font-display: swap;
@@ -282,10 +283,12 @@ const needsMobileMenu = hasHeaderSearch || !hideSidebar;
       z-index: 1;
       white-space: nowrap;
     }
-    /* 页眉内实例：绝对定位相对页眉水平居中略偏左（仅桌面 >768px 生效） */
+    /* 页眉内实例：绝对定位相对页眉水平居中略偏左（仅桌面 >1100px 生效）；
+  left 从 26.5% 调到 30%，让「导航 / 资源」按钮相对 Logo 再向右一些，
+  避免与右侧搜索栏在视觉上挤在一起 */
     .site-tabs--header {
       position: absolute;
-      left: 26.5%;
+      left: 30%;
       top: 50%;
       transform: translate(-50%, -50%);
     }
@@ -313,7 +316,10 @@ const needsMobileMenu = hasHeaderSearch || !hideSidebar;
       .site-tab { font-size: 1rem; }
       .header-left { gap: 0.75rem; }
     }
-    /* 页眉搜索栏容器：占据页眉剩余空间并右对齐（slot 内容在内部靠右） */
+    /* 页眉搜索栏容器：占据页眉剩余空间并右对齐（slot 内容在内部靠右）。
+       page-header 的右 padding=2rem 决定搜索栏右边缘位置，与资源页
+       .header-search-float 的 right:2rem 保持一致——两个页面搜索栏
+       右边缘共享同一条垂直线 */
     .header-search-slot {
       display: flex;
       justify-content: flex-end;
@@ -441,6 +447,59 @@ const needsMobileMenu = hasHeaderSearch || !hideSidebar;
     }
     .view-mode-toggle:active { transform: translateY(0); }
     .view-mode-toggle .vmt-icon { font-size: 1.05rem; line-height: 1; }
+
+    /* ===== 中等宽度桌面（≤1100px）：仅调整「导航 / 资源」板块切换位置 =====
+       视口宽度介于「真正移动端 768px」与「理想桌面宽度 1100px+」之间时，
+       页眉内的「导航 / 资源」按钮与 Logo / 搜索栏距离过近，观感不适。
+       此处仅把页眉内的板块切换按钮移至底部固定，其他元素（搜索栏、sidebar、
+       page-header 高度等）保持不动，不引入折叠菜单。 */
+    @media (max-width: 1100px) {
+      /* 页眉内「导航 / 资源」板块切换隐藏，改用底部固定条 */
+      .site-tabs--header { display: none; }
+
+      /* 底部预留 mobile-bottom-tabs 空间，避免被遮挡 */
+      .page-main {
+        padding-bottom: calc(2.5rem + 70px);
+      }
+
+      /* 底部固定「导航 / 资源」切换条 */
+      .mobile-bottom-tabs {
+        display: flex;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: calc(54px + env(safe-area-inset-bottom, 0px));
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        box-sizing: border-box;
+        z-index: 160;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid #e5e5e5;
+      }
+      .mbt-item {
+        flex: 1 1 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.02rem;
+        font-weight: 500;
+        color: #666;
+        text-decoration: none;
+        transition: color 0.15s ease, background-color 0.15s ease;
+      }
+      .mbt-item:hover { background-color: rgba(0, 0, 0, 0.03); }
+      .mbt-item.active {
+        color: #1d4ed8;
+        font-weight: 600;
+        background-color: rgba(29, 78, 216, 0.06);
+      }
+      /* 右下角「视图模式切换」按钮上移，避免与底部条重叠 */
+      .view-mode-toggle {
+        bottom: 72px;
+        z-index: 170;
+      }
+    }
 
     /* ===== 移动端（≤768px）整体布局 =====
        置于样式末尾：确保覆盖上方同优先级的默认布局规则 */

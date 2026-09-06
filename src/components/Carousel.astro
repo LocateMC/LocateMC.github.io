@@ -61,7 +61,7 @@ const slides = carouselConfig
           <a class="slide slide-card" href={slide.href} target="_blank" rel="noopener noreferrer"
              style={`--c1:${slide.c1};--c2:${slide.c2}`}
              data-id={slide.id}>
-            <img class="slide-icon" src={slide.icon} alt={`${slide.title} icon`} loading="lazy" />
+            <img class="slide-icon" src={slide.icon} alt={`${slide.title} icon`} loading="lazy" decoding="async" />
             <div class="slide-text">
               <span class="slide-badge">精选</span>
               <h3 class="slide-title">{slide.title}</h3>

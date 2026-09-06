@@ -33,7 +33,7 @@ const { id, title, description, href, icon } = Astro.props;
 
 <a href={href} target="_blank" rel="noopener noreferrer" class="nav-card">
   <div class="icon-wrapper">
-    <img src={icon} alt={`${title} icon`} class="icon-image" />
+    <img src={icon} alt={`${title} icon`} class="icon-image" loading="lazy" decoding="async" />
     <button 
       class="detail-overlay"
       aria-label={`查看 ${title} 的详情`}

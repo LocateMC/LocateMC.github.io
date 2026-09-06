@@ -8,6 +8,15 @@ export const ICON_DIR = path.join(process.cwd(), 'public', 'icons');
 
 // 与前端渲染一致的分类 / 子分类排序规则（用于生成风格统一的文件名前缀）
 export const categoryOrder: Record<string, number> = { '官方': 1, '社区': 2, '百科': 3, '资源': 4, '服务端': 5, '在线工具': 6, '软件程序': 7, '工作室 & 组织': 8, '博客': 9, '开发': 10, '市场': 11, '收纳': 50 };
+
+// 主分类 → nav 子文件夹（英文名）。导航内容按主分类分目录存放；
+// 新建卡片时 buildFilename 会把文件写入对应子文件夹，保持目录结构一致。
+export const categoryFolder: Record<string, string> = {
+  '官方': 'official', '社区': 'community', '百科': 'wiki', '资源': 'resource',
+  '服务端': 'server-software', '在线工具': 'tool', '软件程序': 'software',
+  '工作室 & 组织': 'studio', '博客': 'blog', '开发': 'dev',
+  '市场': 'marketplace', '收纳': 'others',
+};
 export const subcategoryOrder: Record<string, Record<string, number>> = {
   '百科': { '百科': 1, '教程、文档': 2 },
   '资源': { '综合': 1, '地图、投影': 2, '模组、整合包': 3, '纹理、资源包、光影': 4 },
@@ -76,12 +85,14 @@ export function normalizePayload(raw: Record<string, unknown>): { ok: true; payl
   return { ok: true, payload };
 }
 
-// 由 payload 生成文件名（仅新增时使用；更新保持原文件名不变）
+// 由 payload 生成文件相对路径（含主分类子文件夹；仅新增时使用；更新保持原文件路径不变）
 export function buildFilename(payload: CardPayload): string {
   const catIdx = categoryOrder[payload.category] ?? 99;
   const subIdx = payload.subcategory ? (subcategoryOrder[payload.category]?.[payload.subcategory] ?? 99) : 0;
   const slug = slugify(payload.title);
-  return subIdx > 0 ? `${catIdx}-${subIdx}-${payload.order}-${slug}.md` : `${catIdx}-${payload.order}-${slug}.md`;
+  const base = subIdx > 0 ? `${catIdx}-${subIdx}-${payload.order}-${slug}.md` : `${catIdx}-${payload.order}-${slug}.md`;
+  const folder = categoryFolder[payload.category];
+  return folder ? `${folder}/${base}` : base;
 }
 
 // 生成完整 Markdown 文件内容
@@ -91,7 +102,7 @@ export function buildMarkdown(payload: CardPayload): string {
     `title: ${yq(payload.title)}`,
     `description: ${yq(payload.description || payload.title)}`,
     `href: ${yq(payload.href)}`,
-    `icon: ${yq(payload.icon || '/icons/sample.png')}`,
+    `icon: ${yq(payload.icon || '/icons/sample.webp')}`,
     `category: ${yq(payload.category)}`,
     ...(payload.subcategory ? [`subcategory: ${yq(payload.subcategory)}`] : []),
     ...(payload.tags.length ? [`tags: ${JSON.stringify(payload.tags)}`] : []),
@@ -103,9 +114,11 @@ export function buildMarkdown(payload: CardPayload): string {
   return fm + body + '\n';
 }
 
-// 卡片文件名白名单校验（防路径穿越）
+// 卡片相对路径白名单校验（防路径穿越）。
+// 允许 `/` 作为子文件夹分隔（如 official/1-1-minecraft-net.md），
+// 但禁止 `..`、`\\`、首尾 `/`、连续 `//`（`.` 不在允许字符集内，`..` 天然无法匹配）。
 export function isValidCardId(id: string): boolean {
-  return /^[\w\u4e00-\u9fa5-]+\.md$/.test(id) && !id.includes('..') && !id.includes('/') && !id.includes('\\');
+  return /^[\w\u4e00-\u9fa5-]+(?:\/[\w\u4e00-\u9fa5-]+)*\.md$/.test(id);
 }
 
 export async function fileExists(filePath: string): Promise<boolean> {
