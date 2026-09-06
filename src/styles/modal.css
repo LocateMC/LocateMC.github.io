@@ -89,3 +89,75 @@
    font-size: 1.3rem;
    margin-bottom: 1em;
 }
+
+/* ============================================================
+   移动端模态框适配（≤768px，第三版）
+   - 整体适度缩小：面板窄边距、图标 44、标题 1.15rem 单行
+   - 图标与文字竖排（header-grid column）→ 文字区拿满宽度，
+     标题有充裕空间单行显示，不再被右上角 ✕ 按钮遮挡
+   - 按钮区纵向空间已够 → 两个按钮「并排均分」（flex:1），
+     比整宽堆叠更紧凑；描述限 2 行控制总高度
+   ============================================================ */
+@media (max-width: 768px) {
+  .modal-panel {
+    width: 94%;
+    padding: 18px 18px 22px;
+    max-height: 88vh;
+    border-radius: 10px;
+  }
+  .modal-close-btn {
+    top: 6px;
+    right: 6px;
+    font-size: 1.5rem;
+  }
+  .modal-header-grid {
+    flex-direction: column;        /* 图标与文字竖排 → 文字区拿满宽度 */
+    gap: 10px;
+  }
+  .modal-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 9px;
+  }
+  .modal-main-info {
+    min-height: 0;
+    min-width: 0;                    /* flex 子项允许收缩，让 h2 的 ellipsis 真正生效 */
+    width: 100%;
+  }
+  .modal-title {
+    font-size: 1.15rem;             /* 约 18.4px：单行放得下常见站名，又不过大 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 4px;
+    padding-right: 26px;            /* 给右上角 ✕ 按钮留出空间，避免标题与其重叠 */
+  }
+  .modal-description {
+    font-size: 0.85rem;             /* 13.6px，紧凑不糊 */
+    line-height: 1.45;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;          /* 限 2 行，控制头部总高度 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .modal-buttons {
+    flex-direction: row;            /* 纵向空间充足 → 两按钮并排均分，比堆叠紧凑 */
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .modal-button {
+    flex: 1;                        /* 均分整宽，视觉整齐、拇指易点 */
+    padding: 8px 10px;
+    font-size: 0.85rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .modal-body {
+    padding-top: 14px;
+    margin-top: 14px;
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+  .modal-body h2 { font-size: 1.05rem; margin: 1.6em 0 0.6em; }
+  .modal-body h3 { font-size: 1.1rem;  margin-bottom: 0.8em; }
+}
