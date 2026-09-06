@@ -113,4 +113,29 @@ const serializableEntries = allNavEntries.map(entry => ({
     position: absolute; top: 12px; right: 12px; background: transparent;
     border: none; font-size: 2rem; cursor: pointer; color: #a0a0a0;
   }
+
+  /* ============================================================
+     移动端覆盖（≤768px）【必须放本 scoped 块：关键修复】
+     - 桌面 .modal-panel/.modal-close-btn 在此 scoped 定义 → 带
+       [data-astro-cid] 特异性 (0,2,0)；modal.css 全局 media 里同
+       名规则 (0,1,0) 特异性不足，永远压不过 → 移动端 max-height/
+       padding/✕ 尺寸此前从未生效（五版都在改一个不生效的规则）。
+     - 本块与桌面规则同 hash 同特异性、且同 style 内后声明 → 覆盖
+       生效。其余 .modal-*（header/icon/title/buttons/body）桌面定义
+       在 modal.css 全局，仍由 modal.css 的 media 负责，勿在此重复。
+     ============================================================ */
+  @media (max-width: 768px) {
+    .modal-panel {
+      width: 94%;
+      padding: 14px 16px 16px;
+      max-height: 75vh;              /* fallback：不支持 dvh 的旧浏览器 */
+      max-height: 75dvh;             /* 面板最多占可视高 3/4，上下留白 */
+      border-radius: 10px;
+    }
+    .modal-close-btn {
+      top: 6px;
+      right: 6px;
+      font-size: 1.5rem;
+    }
+  }
 </style>

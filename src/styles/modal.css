@@ -92,26 +92,16 @@
 
 /* ============================================================
    移动端模态框适配（≤768px，第六版）
-   - max-height 从「全屏减边距」改为明确的百分比上限：
-     75dvh = 面板最多占可视高度 3/4，上下各留 ~12.5%，
-     视觉上明显比全屏矮一截（用户：视口高度过高）
-   - dvh 动态跟随地址栏 → 工具栏展开也不溢出；
-     vh 版先行声明作旧浏览器 fallback
-   - 内部尺寸维持第五版舒适值，只动外壳高度
+   【关键】.modal-panel / .modal-close-btn 的桌面规则在
+   CardDetailModal.astro scoped 内（带 data-astro-cid，(0,2,0)）——
+   本文件全局 media (0,1,0) 特异性不足、永不覆盖成功！
+   它们的移动覆盖已移入 CardDetailModal.astro scoped 块末尾
+   （max-height:75dvh / padding / ✕ 尺寸），勿在此重复添加。
+   下方其余规则（.modal-header-grid/.modal-icon/.modal-title/
+   .modal-description/.modal-buttons/.modal-button/.modal-body）
+   桌面定义在本文件全局 → 同源同特异性、media 后声明可正常覆盖。
    ============================================================ */
 @media (max-width: 768px) {
-  .modal-panel {
-    width: 94%;
-    padding: 14px 16px 16px;
-    max-height: 75vh;                /* fallback：不支持 dvh 的旧浏览器 */
-    max-height: 75dvh;               /* 现代移动浏览器：最多占可视高 3/4 */
-    border-radius: 10px;
-  }
-  .modal-close-btn {
-    top: 6px;
-    right: 6px;
-    font-size: 1.5rem;
-  }
   .modal-header-grid {
     flex-direction: column;        /* 图标与文字竖排 → 文字区拿满宽度 */
     gap: 10px;
