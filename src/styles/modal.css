@@ -91,32 +91,34 @@
 }
 
 /* ============================================================
-   移动端模态框适配（≤768px，第三版）
-   - 整体适度缩小：面板窄边距、图标 44、标题 1.15rem 单行
-   - 图标与文字竖排（header-grid column）→ 文字区拿满宽度，
-     标题有充裕空间单行显示，不再被右上角 ✕ 按钮遮挡
-   - 按钮区纵向空间已够 → 两个按钮「并排均分」（flex:1），
-     比整宽堆叠更紧凑；描述限 2 行控制总高度
+   移动端模态框适配（≤768px，第四版）
+   - max-height 弃用 88vh → calc(100dvh - 32px)：
+     vh 在移动浏览器 = 大视口（地址栏收起全高），88vh 近乎贴满
+     且地址栏展开时实际可视区更短 → 底部溢出被工具栏遮挡。
+     dvh 动态跟随地址栏，减 32px 上下留白，永不贴屏、永不溢出。
+     （100vh - 32px 写在前面作旧浏览器 fallback）
+   - 头部/正文纵向再压缩：padding/gap/图标/margins 收紧一档
    ============================================================ */
 @media (max-width: 768px) {
   .modal-panel {
     width: 94%;
-    padding: 18px 18px 22px;
-    max-height: 88vh;
+    padding: 14px 16px 16px;
+    max-height: calc(100vh - 32px);      /* fallback：不支持 dvh 的旧浏览器 */
+    max-height: calc(100dvh - 32px);     /* 现代移动浏览器：动态视口 + 上下留白 */
     border-radius: 10px;
   }
   .modal-close-btn {
-    top: 6px;
-    right: 6px;
-    font-size: 1.5rem;
+    top: 4px;
+    right: 4px;
+    font-size: 1.4rem;
   }
   .modal-header-grid {
     flex-direction: column;        /* 图标与文字竖排 → 文字区拿满宽度 */
-    gap: 10px;
+    gap: 8px;
   }
   .modal-icon {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     border-radius: 9px;
   }
   .modal-main-info {
@@ -125,39 +127,39 @@
     width: 100%;
   }
   .modal-title {
-    font-size: 1.15rem;             /* 约 18.4px：单行放得下常见站名，又不过大 */
+    font-size: 1.1rem;              /* 约 17.6px：单行放得下常见站名，又不过大 */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     padding-right: 26px;            /* 给右上角 ✕ 按钮留出空间，避免标题与其重叠 */
   }
   .modal-description {
-    font-size: 0.85rem;             /* 13.6px，紧凑不糊 */
-    line-height: 1.45;
+    font-size: 0.83rem;             /* 13.3px，紧凑不糊 */
+    line-height: 1.4;
     display: -webkit-box;
     -webkit-line-clamp: 2;          /* 限 2 行，控制头部总高度 */
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
   .modal-buttons {
-    flex-direction: row;            /* 纵向空间充足 → 两按钮并排均分，比堆叠紧凑 */
+    flex-direction: row;            /* 两按钮并排均分，比堆叠紧凑 */
     gap: 10px;
-    margin-top: 12px;
+    margin-top: 10px;
   }
   .modal-button {
     flex: 1;                        /* 均分整宽，视觉整齐、拇指易点 */
-    padding: 8px 10px;
+    padding: 6px 10px;
     font-size: 0.85rem;
     text-align: center;
     white-space: nowrap;
   }
   .modal-body {
-    padding-top: 14px;
-    margin-top: 14px;
-    font-size: 0.92rem;
-    line-height: 1.65;
+    padding-top: 10px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    line-height: 1.6;
   }
-  .modal-body h2 { font-size: 1.05rem; margin: 1.6em 0 0.6em; }
-  .modal-body h3 { font-size: 1.1rem;  margin-bottom: 0.8em; }
+  .modal-body h2 { font-size: 1rem;   margin: 1.2em 0 0.5em; }
+  .modal-body h3 { font-size: 1.05rem; margin-bottom: 0.6em; }
 }
