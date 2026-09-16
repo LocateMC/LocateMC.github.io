@@ -1,0 +1,406 @@
+---
+export const prerender = true;
+// src/pages/about.astro —— 【关于】板块页：LocateMC 站点介绍
+// 数据（站点总数、分类数量、资源条目数）均从内容集合实时统计，不写死。
+import AppLayout from '../layouts/AppLayout.astro';
+import { getCollection } from 'astro:content';
+
+const navEntries = await getCollection('nav');
+const resourceEntries = await getCollection('resources');
+
+const categoryOrder: Record<string, number> = {
+  '官方': 1, '社区': 2, '百科': 3, '资源': 4, '服务端': 5, '在线工具': 6,
+  '软件程序': 7, '工作室 & 组织': 8, '博客': 9, '开发': 10, '市场': 11, '收纳': 50,
+};
+
+// 各分类的用途说明（与首页侧边栏 / 卡片分组一一对应）
+const categoryNotes: Record<string, string> = {
+  '官方': 'Mojang 与 Microsoft 的官方站点、公告与下载渠道',
+  '社区': '玩家论坛、中文社区与内容分享平台',
+  '百科': 'Wiki、教程与文档',
+  '资源': '地图、投影、模组、整合包、材质与光影等资源集合站',
+  '服务端': '各类服务端核心、混合端与代理端',
+  '在线工具': '打开浏览器就能用的实用工具',
+  '软件程序': '启动器、版本库、桌面工具与服务器面板',
+  '工作室 & 组织': '附加包、模组开发团队与工作室',
+  '博客': '与 Minecraft 相关的个人博客与专栏',
+  '开发': '模组、光影、服务端开发所需的库、文档与工具',
+  '市场': '官方市场、第三方内容平台与合作渠道',
+  '收纳': '尚未归类的站点，等待整理归档',
+};
+
+const countByCategory: Record<string, number> = {};
+for (const entry of navEntries) {
+  const category = entry.data.category;
+  countByCategory[category] = (countByCategory[category] || 0) + 1;
+}
+
+const categoryStats = Object.keys(countByCategory)
+  .sort((a, b) => (categoryOrder[a] || 999) - (categoryOrder[b] || 999))
+  .map((name) => ({
+    name,
+    count: countByCategory[name],
+    note: categoryNotes[name] || '',
+  }));
+
+const stats = [
+  { num: String(navEntries.length), label: '收录站点' },
+  { num: String(categoryStats.length), label: '内容分类' },
+  { num: String(resourceEntries.length), label: '资源条目' },
+];
+
+// 反馈渠道：QQ 群（群号展示 + 一键加群链接 + 复制群号）
+const QQ_GROUP = '624622152';
+const QQ_LINK = 'https://qm.qq.com/q/1dlmDlEQQ2';
+---
+
+<AppLayout title="LocateMC - 介绍" showViewToggle={false} hideSidebar>
+  <article class="about">
+    <!-- 站点名片：名称 / 一句话定位 / 关键数字 -->
+    <header class="about-hero">
+      <img class="about-logo" src="/LocateMC_icon.png" alt="LocateMC" width="72" height="72" />
+      <div class="about-hero-text">
+        <h1>LocateMC</h1>
+        <p class="about-tagline">
+          力作最实用、最美观的 Minecraft 导航网站。
+        </p>
+        <dl class="about-stats">
+          {stats.map((item) => (
+            <div class="about-stat">
+              <dt class="stat-num">{item.num}</dt>
+              <dd class="stat-label">{item.label}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </header>
+
+    <section class="about-section">
+      <h2>概介</h2>
+      <p>
+        为广大 Minecraft 玩家提供便捷可靠的服务。为优化 Minecraft 内容与网站检索体验而生，收录数百网站。
+      </p>
+    </section>
+
+    <section class="about-section">
+      <h2>收录范围</h2>
+      <p>
+        目前收录 {navEntries.length} 个站点，覆盖 {categoryStats.length} 个分类。
+      </p>
+      <ul class="category-grid">
+        {categoryStats.map((cat) => (
+          <li class="category-item">
+            <div class="category-head">
+              <span class="category-name">{cat.name}</span>
+              <span class="category-count">{cat.count}</span>
+            </div>
+            {cat.note && <p class="category-note">{cat.note}</p>}
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="about-section">
+      <h2>加入我们</h2>
+      <p>
+        发现失效链接、想推荐自己的站点，或在浏览时碰到问题，欢迎加入 QQ 群告诉我们 ——
+        每条反馈都会人工核对后处理。
+      </p>
+      <div class="qq-card">
+        <div class="qq-info">
+          <span class="qq-label">QQ 群</span>
+          <span class="qq-number">{QQ_GROUP}</span>
+        </div>
+        <div class="qq-actions">
+          <a class="qq-btn qq-btn--join" href={QQ_LINK} target="_blank" rel="noopener noreferrer">加入群聊</a>
+          <button class="qq-btn qq-copy" type="button" data-qq={QQ_GROUP}>复制群号</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="about-footer">
+      <a href="/">返回导航</a>
+      <span class="dot-sep">·</span>
+      <a href="/resource">浏览资源</a>
+    </footer>
+  </article>
+</AppLayout>
+
+<script>
+  // 「复制群号」按钮：View Transitions 下模块脚本只执行一次，而每次导航 DOM 都是新实例，
+  // 因此经 astro:page-load 重新绑定（与 index.astro 同一模式）。
+  function registerAboutCopy() {
+    const btn = document.querySelector<HTMLButtonElement>('.qq-copy');
+    if (!btn) return;
+
+    btn.addEventListener('click', async () => {
+      const qq = btn.dataset.qq || '';
+      let ok = false;
+      try {
+        await navigator.clipboard.writeText(qq);
+        ok = true;
+      } catch {
+        // 非 HTTPS（如本地 http 调试）或旧浏览器的回退方案
+        const ta = document.createElement('textarea');
+        ta.value = qq;
+        ta.style.position = 'fixed';
+        ta.style.top = '-1000px';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        ok = document.execCommand('copy');
+        ta.remove();
+      }
+      btn.textContent = ok ? '已复制 ✓' : '复制失败，请手动记录';
+      btn.classList.toggle('copied', ok);
+      setTimeout(() => {
+        btn.textContent = '复制群号';
+        btn.classList.remove('copied');
+      }, 1800);
+    });
+  }
+  document.addEventListener('astro:page-load', registerAboutCopy);
+</script>
+
+<style>
+  .about {
+    max-width: 880px;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+  }
+
+  /* ===== 站点名片 ===== */
+  .about-hero {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.75rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #f5f8ff 0%, #ffffff 65%);
+  }
+  .about-logo {
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+    flex-shrink: 0;
+  }
+  .about-hero-text { min-width: 0; }
+  .about-hero h1 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #111;
+    margin: 0 0 0.6rem;
+  }
+  .about-tagline {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: #555;
+  }
+  .about-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 1.25rem 0 0;
+  }
+  .about-stat { margin: 0; }
+  .stat-num {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1d4ed8;
+    line-height: 1.2;
+  }
+  .stat-label {
+    margin: 2px 0 0;
+    font-size: 0.85rem;
+    color: #666;
+  }
+
+  /* ===== 内容分区 ===== */
+  .about-section {
+    margin-top: 2.75rem;
+  }
+  .about-section h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #222;
+    margin: 0 0 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid #eee;
+  }
+  .about-section p {
+    margin: 0 0 0.9rem;
+    font-size: 0.95rem;
+    line-height: 1.85;
+    color: #4a4a4a;
+  }
+  .about-section p:last-child { margin-bottom: 0; }
+  .about-section strong { color: #333; font-weight: 600; }
+  .about-section a {
+    color: #1d4ed8;
+    text-decoration: none;
+  }
+  .about-section a:hover { text-decoration: underline; }
+
+  /* 分类概览网格 */
+  .category-grid {
+    list-style: none;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.75rem;
+  }
+  .category-item {
+    padding: 0.85rem 1rem;
+    border: 1px solid #ececec;
+    border-radius: 12px;
+    background: #fafafa;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+  .category-item:hover {
+    border-color: #cddcff;
+    background: #f5f8ff;
+  }
+  .category-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+  .category-name {
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: #333;
+  }
+  .category-count {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1d4ed8;
+    flex-shrink: 0;
+  }
+  .category-note {
+    margin: 0.35rem 0 0;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: #777;
+  }
+
+  /* 加入我们：QQ 群卡片（群号 +「加入群聊 / 复制群号」两个并列按钮） */
+  .qq-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.1rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid #dbe4ff;
+    border-radius: 12px;
+    background: #f5f8ff;
+  }
+  .qq-info {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    min-width: 0;
+  }
+  .qq-label { font-size: 0.85rem; color: #666; flex-shrink: 0; }
+  .qq-number {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1d4ed8;
+    letter-spacing: 0.04em;
+    font-variant-numeric: tabular-nums;
+  }
+  .qq-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+  }
+  .qq-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1.1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    line-height: 1.4;
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+  /* 主按钮「加入群聊」：.about-section a 会改掉链接颜色，故用 .qq-card 提升特异性 */
+  .qq-card .qq-btn--join {
+    background: #1d4ed8;
+    border: 1px solid #1d4ed8;
+    color: #ffffff;
+  }
+  .qq-card .qq-btn--join:hover {
+    background: #1e40af;
+    border-color: #1e40af;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  /* 次按钮「复制群号」 */
+  .qq-copy {
+    background: #ffffff;
+    border: 1px solid #c2d3ff;
+    color: #1d4ed8;
+  }
+  .qq-copy:hover { background: #eaf1ff; border-color: #a9c1ff; }
+  .qq-copy.copied {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+    color: #ffffff;
+  }
+
+  .about-footer {
+    margin-top: 2.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #eee;
+    font-size: 0.88rem;
+    color: #999;
+    text-align: center;
+  }
+  .about-footer a {
+    color: #666;
+    text-decoration: none;
+  }
+  .about-footer a:hover { color: #1d4ed8; }
+  .dot-sep { margin: 0 0.6rem; }
+
+  /* ===== 移动端（≤768px）===== */
+  @media (max-width: 768px) {
+    .about-hero {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem;
+      border-radius: 14px;
+    }
+    .about-logo { width: 56px; height: 56px; border-radius: 14px; }
+    .about-hero h1 { font-size: 1.45rem; }
+    .about-tagline { font-size: 0.9rem; }
+    .about-stats { gap: 1.5rem; margin-top: 1rem; }
+    .stat-num { font-size: 1.3rem; }
+    .about-section { margin-top: 2.25rem; }
+    .about-section h2 { font-size: 1.15rem; }
+    .about-section p { font-size: 0.9rem; }
+    .category-grid { grid-template-columns: 1fr; }
+    /* QQ 群卡片改为上下排布：群号居中，两个按钮等分通栏 */
+    .qq-card {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.75rem;
+      padding: 1rem;
+    }
+    .qq-info { justify-content: center; }
+    .qq-number { font-size: 1.25rem; }
+    .qq-actions { width: 100%; }
+    .qq-btn { flex: 1 1 0; padding: 0.6rem 0.5rem; }
+  }
+</style>

@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const {
-  title, author, summary, href, icon, screenshot, type,
+  title, author, summary, href, source, icon, screenshot, type,
   edition, loaders, loaderAlt, versions,
   downloads, likes, updated, tags,
 } = entry.data;
@@ -67,6 +67,8 @@ function mainHost(href: string): string {
   }
 }
 const host = mainHost(href);
+// 来源链接的可信提示域名（可选字段）
+const sourceHost = source ? mainHost(source) : '';
 
 const showDownloads = downloads !== undefined;
 const showLikes = likes !== undefined;
@@ -142,6 +144,17 @@ const showMeta = showDownloads || showLikes || updatedText;
       </article>
 
       <aside class="rd-side">
+        {source && (
+          <div class="rd-src-card">
+            <h2 class="rd-src-title">来源</h2>
+            <a class="rd-src-btn" href={source} target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path d="M14 4h6v6M20 4l-8.5 8.5M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              前往来源
+            </a>
+            {sourceHost && <p class="rd-src-hint">将离开 LocateMC，前往 <span>{sourceHost}</span></p>}
+          </div>
+        )}
+
         <div class="rd-dl-card">
           <h2 class="rd-dl-title">下载</h2>
           <a class="rd-dl-btn" href={href} target="_blank" rel="noopener noreferrer">
@@ -356,28 +369,36 @@ const showMeta = showDownloads || showLikes || updatedText;
   }
   .rd-md:empty + .rd-md-empty { display: block; }
 
-  /* ===== 下载卡 ===== */
-  .rd-side { position: sticky; top: 96px; }
-  .rd-dl-card {
+  /* ===== 下载卡 / 来源卡 ===== */
+  .rd-side {
+    position: sticky;
+    top: 96px;
+    display: grid;
+    gap: 0.85rem;
+    align-content: start;
+  }
+  .rd-dl-card,
+  .rd-src-card {
     background: #ffffff;
     border: 1px solid #e7e9ee;
     border-radius: 16px;
     padding: 1.25rem;
   }
-  .rd-dl-title {
+  .rd-dl-title,
+  .rd-src-title {
     margin: 0 0 0.9rem;
     font-size: 1rem;
     font-weight: 700;
     color: #111;
   }
-  .rd-dl-btn {
+  .rd-dl-btn,
+  .rd-src-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.45rem;
     width: 100%;
     padding: 0.8rem 1rem;
-    background: #16a34a;
     color: #ffffff;
     font-size: 1rem;
     font-weight: 700;
@@ -386,15 +407,22 @@ const showMeta = showDownloads || showLikes || updatedText;
     transition: background 0.15s ease, transform 0.1s ease;
     box-sizing: border-box;
   }
+  /* 下载 = 绿；来源 = 蓝（与站内主色 #1d4ed8 一致） */
+  .rd-dl-btn { background: #16a34a; }
+  .rd-src-btn { background: #1d4ed8; }
   .rd-dl-btn:hover { background: #15803d; }
-  .rd-dl-btn:active { transform: translateY(1px); }
-  .rd-dl-hint {
+  .rd-src-btn:hover { background: #1e40af; }
+  .rd-dl-btn:active,
+  .rd-src-btn:active { transform: translateY(1px); }
+  .rd-dl-hint,
+  .rd-src-hint {
     margin: 0.55rem 0 0;
     text-align: center;
     font-size: 0.76rem;
     color: #9ca3af;
   }
-  .rd-dl-hint span { color: #6b7280; font-weight: 600; word-break: break-all; }
+  .rd-dl-hint span,
+  .rd-src-hint span { color: #6b7280; font-weight: 600; word-break: break-all; }
 
   .rd-dl-alt {
     margin-top: 1rem;
@@ -446,9 +474,10 @@ const showMeta = showDownloads || showLikes || updatedText;
     }
     .rd-title { font-size: 1.25rem; }
     .rd-grid { grid-template-columns: 1fr; margin-top: 0.9rem; }
-    /* 单列下先展示下载卡（紧随头部），再读正文 */
+    /* 单列下先展示来源卡 / 下载卡（紧随头部），再读正文 */
     .rd-side { position: static; order: 1; }
     .rd-main { order: 2; padding: 1.1rem 1.1rem; }
-    .rd-dl-card { border-radius: 14px; }
+    .rd-dl-card,
+    .rd-src-card { border-radius: 14px; }
   }
 </style>

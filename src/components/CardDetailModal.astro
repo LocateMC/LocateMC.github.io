@@ -1,23 +1,20 @@
 ---
 // src/components/CardDetailModal.astro
-import { getCollection } from 'astro:content';
-
-const allNavEntries = await getCollection('nav');
-
-// 创建“干净”的可序列化数组，防止JSON解析问题
-const serializableEntries = allNavEntries.map(entry => ({
-  id: entry.id,
-  body: entry.body,
-  data: {
-    title: entry.data.title,
-    description: entry.data.description,
-    href: entry.data.href,
-    icon: entry.data.icon,
-  },
-}));
+//
+// 【性能修复 2026-09-14 — 页面切换卡顿根因】
+// 原先这里是 <script define:vars={{ navData: serializableEntries }}>：
+// define:vars 会强制把脚本内联，于是 268 条导航条目的「完整 Markdown 正文」
+// 被序列化进每个渲染本组件的页面 HTML —— 实测 228,367 字符（≈450KB 字节）。
+// 后果：
+//   1) 线上首页 HTML ≈788KB、资源页 ≈500KB，其中资源页 95.2% 的 HTML
+//      是它完全用不到的数据（资源页 nav-card 数为 0）；
+//   2) View Transitions 每次客户端切换，都要重新解析并执行这 228K 脚本
+//      （astro:before-preparation 阶段实测耗时 842ms），这就是
+//      「首次加载后切换页面要停顿、还要多按几下」的直接原因。
+//
+// 现改为：脚本外置（可被打包）+ 首次真正需要时才 fetch /api/nav-detail.json，
+// 并在页面空闲时提前预取；弹窗先显示「加载中」再填充，点击即时反馈。
 ---
-
-<!-- HTML 结构部分保持不变 -->
 <div id="modal-backdrop" class="modal-backdrop hidden">
   <div id="modal-panel" class="modal-panel">
     <button id="modal-close-btn" class="modal-close-btn" aria-label="关闭">×</button>
@@ -25,26 +22,87 @@ const serializableEntries = allNavEntries.map(entry => ({
   </div>
 </div>
 
-<!-- 脚本部分保持不变，它已经可以正常工作 -->
-<script define:vars={{ navData: serializableEntries }}>
-  let markedInstance = null;
-  const allNavEntries = navData;
+<script>
+  const DETAIL_URL = '/api/nav-detail.json';
+  const MARKED_URL = 'https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js';
 
-  // 「打开弹窗」由窗口级事件驱动：模块只注册一次即可；
+  let detailPromise: Promise<any[] | null> | null = null; // 同一页面内只请求一次
+  let markedPromise: Promise<any> | null = null;
+
+  /** 拉取全部条目详情（失败后可重试） */
+  function loadDetails(): Promise<any[] | null> {
+    if (!detailPromise) {
+      detailPromise = fetch(DETAIL_URL)
+        .then((r) => (r.ok ? r.json() : null))
+        .catch((err) => {
+          console.error('Failed to load nav details:', err);
+          return null;
+        })
+        .then((list) => {
+          if (!list) detailPromise = null; // 失败不缓存，下次点击可重试
+          return list;
+        });
+    }
+    return detailPromise;
+  }
+
+  /** 加载 marked（用 script 标签注入，避免打包器去解析外部 CDN 地址） */
+  function loadMarked(): Promise<any> {
+    const w = window as any;
+    if (w.marked) return Promise.resolve(w.marked);
+    if (!markedPromise) {
+      markedPromise = new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = MARKED_URL;
+        s.async = true;
+        s.onload = () => resolve(w.marked);
+        s.onerror = () => {
+          markedPromise = null;
+          reject(new Error('marked CDN load failed'));
+        };
+        document.head.appendChild(s);
+      });
+    }
+    return markedPromise;
+  }
+
+  /** 页面空闲时预取详情数据：用户真正点「详情」时通常已就绪，弹窗瞬开 */
+  function prefetchDetails() {
+    if (!document.getElementById('modal-backdrop')) return; // 本页无弹窗（如资源页）
+    const run = () => { loadDetails(); };
+    if ('requestIdleCallback' in window) {
+      (window as any).requestIdleCallback(run, { timeout: 4000 });
+    } else {
+      setTimeout(run, 1500);
+    }
+  }
+  document.addEventListener('astro:page-load', prefetchDetails);
+
+  // 「打开弹窗」由窗口级事件驱动（仅导航页卡片会派发）；
   // 弹窗元素每次导航都是新实例，故 handler 内实时查询当前文档 DOM。
-  window.addEventListener('open-modal', async (event) => {
+  window.addEventListener('open-modal', async (event: any) => {
+    const backdrop = document.getElementById('modal-backdrop');
+    const contentEl = document.getElementById('modal-content');
+    if (!backdrop || !contentEl) return;
+
+    const { entryId } = event.detail || {};
+
+    // 先出弹窗骨架 + 加载态：点击立刻有反馈，避免「以为没点到」而重复点击
+    contentEl.innerHTML = '<div class="modal-loading">正在加载详情…</div>';
+    backdrop.classList.remove('hidden');
+
     try {
-      if (!markedInstance) {
-        await import('https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js');
-        markedInstance = window.marked;
+      const [list, marked] = await Promise.all([loadDetails(), loadMarked()]);
+      if (!list) {
+        contentEl.innerHTML = '<div class="modal-loading">详情加载失败，请检查网络后重试。</div>';
+        return;
       }
-      const backdrop = document.getElementById('modal-backdrop');
-      const contentEl = document.getElementById('modal-content');
-      if (!backdrop || !contentEl) return;
-      const { entryId } = event.detail;
-      const entry = allNavEntries.find((e) => e.id === entryId);
-      if (!entry) return;
-      const renderedHTML = markedInstance.parse(entry.body);
+      const entry = list.find((e: any) => e.id === entryId);
+      if (!entry) {
+        contentEl.innerHTML = '<div class="modal-loading">未找到该条目的详情。</div>';
+        return;
+      }
+      const renderedHTML = marked.parse(entry.body);
 
       contentEl.innerHTML = `
         <div class="modal-header-grid">
@@ -67,12 +125,14 @@ const serializableEntries = allNavEntries.map(entry => ({
           ${renderedHTML}
         </div>
       `;
-      backdrop.classList.remove('hidden');
-    } catch (err) { console.error('Error opening modal:', err); }
+    } catch (err) {
+      console.error('Error opening modal:', err);
+      contentEl.innerHTML = '<div class="modal-loading">详情加载失败，请检查网络后重试。</div>';
+    }
   });
 
   // 关闭相关：元素级绑定随每次导航重建；Esc 走 window 单次注册 + 动态查询当前弹窗
-  function handleGlobalKeydown(e) {
+  function handleGlobalKeydown(e: KeyboardEvent) {
     if (e.key !== 'Escape') return;
     const backdrop = document.getElementById('modal-backdrop');
     if (backdrop && !backdrop.classList.contains('hidden')) backdrop.classList.add('hidden');
@@ -112,6 +172,13 @@ const serializableEntries = allNavEntries.map(entry => ({
   .modal-close-btn {
     position: absolute; top: 12px; right: 12px; background: transparent;
     border: none; font-size: 2rem; cursor: pointer; color: #a0a0a0;
+  }
+  /* 详情加载中的占位提示（数据改为按需加载后新增） */
+  .modal-loading {
+    padding: 2.5rem 0;
+    text-align: center;
+    color: #999;
+    font-size: 0.95rem;
   }
 
   /* ============================================================

@@ -28,6 +28,9 @@ const resourceCollection = defineCollection({
     summary: z.string().optional().default(''),
     // 资源主链接（下载页 / 官网 / 仓库等）
     href: z.string().url(),
+    // 来源链接（可选）：介绍 / 演示该资源的出处页（如 B 站视频、发布帖）。
+    // 详情页侧栏渲染为与「下载」同款的蓝色按钮卡；缺省则整块不出现。
+    source: z.string().url().optional(),
     // 卡片左下角品牌方块图标
     icon: z.string().default('/icons/sample.webp'),
     // 卡片顶部大图（实拍截图/封面）；缺省时用纯色渐变占位

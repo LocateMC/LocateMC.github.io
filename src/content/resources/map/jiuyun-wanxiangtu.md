@@ -1,8 +1,9 @@
 ---
 title: '九韵万象图'
-author: '—'
+author: '那年那兔哪些事儿'
 summary: '徽派、佛教、中式古建、道教、神话等九大玄方幻区域，建筑块累计超 300 亿的国风巨型建筑地图。'
 href: 'https://1835870117.share.123pan.cn/123pan/IK9xTd-Rbbkd?pwd=1145'
+source: 'https://www.bilibili.com/video/BV11Y8Jz4EUZ/'
 icon: '/icons/sample.webp'
 screenshot: '/screenshots/jywxt.jpg'
 type: '地图及投影'

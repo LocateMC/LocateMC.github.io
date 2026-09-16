@@ -13,7 +13,11 @@ const isResourceActive = pathname.startsWith('/resource');
 
 // 页面标题 / 右下角视图切换按钮 / 侧边栏 均可被子页面覆盖
 // （资源页 hideSidebar=true：隐藏侧边栏与折叠按钮，主内容占满整宽）
-const { title = 'LocateMC', showViewToggle = true, hideSidebar = false } = Astro.props;
+// showCardModal：是否渲染「卡片详情弹窗」。
+// 【性能修复 2026-09-14】只有导航页的卡片会派发 open-modal 事件，
+// 故默认关闭 —— 原先所有页面（含资源页、关于页）都渲染该组件，
+// 白担一份 228K 字符的内联数据，是页面切换卡顿的主要来源。
+const { title = 'LocateMC', showViewToggle = true, hideSidebar = false, showCardModal = false } = Astro.props;
 
 // 移动端下拉菜单是否需要搜索栏：仅当页面提供了 header-search 插槽（如导航页）
 const hasHeaderSearch = Astro.slots.has('header-search');
@@ -117,7 +121,7 @@ const needsMobileMenu = hasHeaderSearch || !hideSidebar;
     <a href="/resource" class:list={['mbt-item', { active: isResourceActive }]}>资源</a>
   </nav>
 
-  <CardDetailModal />
+  {showCardModal && <CardDetailModal />}
 
   <!-- 视图模式切换按钮（页面右下角浮动）：在「分组堆叠」与「子分类 Tab」之间切换；仅导航页需要 -->
   {showViewToggle && (
@@ -203,13 +207,15 @@ const needsMobileMenu = hasHeaderSearch || !hideSidebar;
       /* 【修复】侧边栏独立滚动：全部子分类展开后内容会超过视口高度，
          不加 overflow 会导致底部被截断且无法滚动到达。与右侧滚动区互不影响。 */
       overflow-y: auto;
-      scrollbar-width: thin; /* Firefox 细滚动条 */
-      scrollbar-color: #d8d8da transparent;
+      /* 【修复】侧边栏内容区宽度恒定 219px：子分类展开使内容超出视口时滚动条会出现，
+         其占位宽度（本机实测 10px）会把内容区从 219px 压到 209px，导致导航文字右边界、
+         折叠箭头（绝对定位 right: 1.35rem）整体横向抖动。
+         这里让滚动条完全不参与布局（宽度归零），内容区恒为 219px；
+         滚动能力保留 —— 仍可用滚轮 / 触控板 / 键盘翻动，仅不再显示滚动条。 */
+      scrollbar-width: none;    /* Firefox：隐藏滚动条，不影响滚动 */
+      -ms-overflow-style: none; /* 旧 Edge / IE */
     }
-    .sidebar::-webkit-scrollbar { width: 6px; }
-    .sidebar::-webkit-scrollbar-thumb { background: #d8d8da; border-radius: 3px; }
-    .sidebar::-webkit-scrollbar-thumb:hover { background: #b9b9bd; }
-    .sidebar::-webkit-scrollbar-track { background: transparent; }
+    .sidebar::-webkit-scrollbar { width: 0; height: 0; } /* Chromium / Safari */
     .main-content-wrapper { 
       flex-grow: 1; 
       width: calc(100vw - 220px);

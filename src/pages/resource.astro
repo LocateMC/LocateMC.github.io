@@ -182,9 +182,6 @@ const detailUrl = (id: string): string =>
                 ) : (
                   <div class="rc-screenshot-placeholder" aria-hidden="true"></div>
                 )}
-                <div class="rc-brand">
-                  <img class="rc-brand-icon" src={e.icon} alt={`${e.title} 标志`} loading="lazy" decoding="async">
-                </div>
               </div>
             </a>
             <div class="rc-body">
@@ -851,25 +848,8 @@ order: 1
       radial-gradient(120% 80% at 20% 10%, rgba(255,255,255,0.5), transparent 50%),
       linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
   }
-  .rc-brand {
-    position: absolute;
-    left: 12px;
-    bottom: -22px;
-    z-index: 2;
-    width: 56px;
-    height: 56px;
-    border-radius: 12px;
-    background: #ffffff;
-    border: 1px solid #e7e9ee;
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .rc-brand-icon { width: 70%; height: 70%; object-fit: contain; }
   .rc-body {
-    padding: 30px 14px 14px;
+    padding: 14px 14px 14px;
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
