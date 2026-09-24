@@ -28,20 +28,25 @@ const { title, description, href, icon } = entry.data;
 */
 
 // src/components/NavCard.astro
-const { id, title, description, href, icon } = Astro.props;
+// showDetail：是否渲染图标上悬浮的「详情」按钮（点击派发 open-modal 事件）。
+// 只有同时渲染了 CardDetailModal（即 AppLayout 的 showCardModal 为 true）的页面
+// 才应开启，否则按钮点了毫无反应 —— 分类落地页 /nav/* 就是关闭态。
+const { id, title, description, href, icon, showDetail = true } = Astro.props;
 ---
 
 <a href={href} target="_blank" rel="noopener noreferrer" class="nav-card">
   <div class="icon-wrapper">
     <img src={icon} alt={`${title} icon`} class="icon-image" loading="lazy" decoding="async" />
-    <button 
-      class="detail-overlay"
-      aria-label={`查看 ${title} 的详情`}
-      {/* 注意：这里的 event detail 需要传递 id */}
-      onclick={`event.preventDefault(); window.dispatchEvent(new CustomEvent('open-modal', { detail: { entryId: '${id}' } }))`}
-    >
-      详情
-    </button>
+    {showDetail && (
+      <button 
+        class="detail-overlay"
+        aria-label={`查看 ${title} 的详情`}
+        {/* 注意：这里的 event detail 需要传递 id */}
+        onclick={`event.preventDefault(); window.dispatchEvent(new CustomEvent('open-modal', { detail: { entryId: '${id}' } }))`}
+      >
+        详情
+      </button>
+    )}
   </div>
   <div class="text-wrapper">
     <h3 class="title">{title}</h3>

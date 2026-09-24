@@ -1,0 +1,298 @@
+---
+// src/pages/nav/[category].astro
+// 【SEO 阶段 3 2026-09-24】主分类落地页：把全站卡片按 12 个主分类拆成独立可索引页面。
+//
+// 背景：首页把 284 张卡片装进同一个 URL，等于用一页去承接所有关键词，长尾查询
+// （如「Minecraft 服务端核心有哪些」）没有任何页面的主题与之匹配。本路由为每个
+// 主分类生成 /nav/<slug>/，可索引页面从 6 个提升到 18+。
+//
+// 三条实现约定：
+// 1. slug 复用 lib/cards.ts 的 categoryFolder（分类 → 英文目录名），不另立一套映射
+//    —— 该项目已有三处分类排序表需要手工同步，不再增加第四个同步点；
+// 2. 卡片排序与首页逐字一致：先按 frontmatter 的 order 升序，再按 subcategoryOrder
+//    分子分类，保证同一张卡在两个页面的相对位置相同；
+// 3. 隐藏侧边栏：SideBar 的条目是指向首页的锚点（#分类名），在本页点击无意义，
+//    页面底部改为输出「其他分类」互链，兼顾内链与爬虫发现路径。
+export const prerender = true;
+
+import AppLayout from '../../layouts/AppLayout.astro';
+import NavCard from '../../components/NavCard.astro';
+import { getCollection } from 'astro:content';
+import { categoryOrder, categoryFolder, subcategoryOrder } from '../../lib/cards';
+
+// 各主分类的 SEO 文案与页面导语（关键词自然融入，不做堆砌）
+const CATEGORY_META: Record<string, { title: string; description: string; intro: string }> = {
+  '官方': {
+    title: 'Minecraft 官方资源导航',
+    description: 'Mojang 与 Microsoft 官方的 Minecraft 站点入口，含官方网站、反馈平台、官方市场与下载渠道。',
+    intro: 'Mojang 与 Microsoft 的官方站点、公告与下载渠道。',
+  },
+  '社区': {
+    title: 'Minecraft 中文社区与论坛导航',
+    description: 'Minecraft 玩家社区、中文论坛与内容分享平台合集，交流、找服、看帖一站直达。',
+    intro: '玩家论坛、中文社区与内容分享平台。',
+  },
+  '百科': {
+    title: 'Minecraft 百科与教程文档导航',
+    description: 'Minecraft 中文 Wiki、教程与参考文档合集，查合成表、机制原理与版本资料都从这里开始。',
+    intro: 'Wiki、教程与文档。',
+  },
+  '资源': {
+    title: 'Minecraft 资源下载站导航',
+    description: 'Minecraft 地图、投影、模组、整合包、材质与光影等资源的集合站与下载站导航。',
+    intro: '地图、投影、模组、整合包、材质与光影等资源集合站。',
+  },
+  '服务端': {
+    title: 'Minecraft 服务端核心导航',
+    description: 'Minecraft 服务端程序与核心合集，涵盖原版核心、Bukkit 与 Paper 系、Folia 系、Mod 服核心、混合端与代理端。',
+    intro: '各类服务端核心、混合端与代理端。',
+  },
+  '在线工具': {
+    title: 'Minecraft 在线工具导航',
+    description: '打开浏览器就能用的 Minecraft 实用工具合集，含皮肤编辑、像素画、命令与数据包、查询与素材库等。',
+    intro: '打开浏览器就能用的实用工具。',
+  },
+  '软件程序': {
+    title: 'Minecraft 启动器与桌面软件导航',
+    description: 'Minecraft 启动器、版本库、桌面实用工具与服务器面板合集，覆盖 PC 与 Android 平台。',
+    intro: '启动器、版本库、桌面工具与服务器面板。',
+  },
+  '工作室 & 组织': {
+    title: 'Minecraft 开发团队与工作室导航',
+    description: 'Minecraft 附加包、模组与插件开发团队及工作室的官方站点合集，追踪作品更新与发布渠道。',
+    intro: '附加包、模组开发团队与工作室。',
+  },
+  '博客': {
+    title: 'Minecraft 博客与资讯站导航',
+    description: '与 Minecraft 相关的个人博客、专栏与资讯站点合集，看深度文章与生态动态。',
+    intro: '与 Minecraft 相关的个人博客与专栏。',
+  },
+  '开发': {
+    title: 'Minecraft 模组与插件开发资源导航',
+    description: 'Minecraft 模组、光影、服务端开发所需的库、文档、工具与社区合集，覆盖 Java 与基岩两个版本。',
+    intro: '模组、光影、服务端开发所需的库、文档与工具。',
+  },
+  '市场': {
+    title: 'Minecraft 资源市场与内容平台导航',
+    description: 'Minecraft 官方市场、第三方内容平台与合作渠道导航，找到付费与免费资源的分发入口。',
+    intro: '官方市场、第三方内容平台与合作渠道。',
+  },
+  '收纳': {
+    title: 'Minecraft 其他实用站点导航',
+    description: 'LocateMC 收录的尚未归类站点合集，等待进一步整理归档。',
+    intro: '尚未归类的站点，等待整理归档。',
+  },
+};
+
+export async function getStaticPaths() {
+  const entries = await getCollection('nav');
+  const names = [...new Set(entries.map((e) => e.data.category))];
+  return names.map((name) => ({
+    params: { category: categoryFolder[name] ?? name },
+    props: { name },
+  }));
+}
+
+const { name } = Astro.props;
+
+const all = await getCollection('nav');
+const mine = all
+  .filter((e) => e.data.category === name)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const toCard = (e: (typeof mine)[number]) => ({
+  id: e.id,
+  title: e.data.title,
+  description: e.data.description,
+  icon: e.data.icon,
+  href: e.data.href,
+});
+
+// 与首页一致：先渲染该分类下没有子分类的卡片，再按 subcategoryOrder 依次渲染各子分类
+const plainCards = mine.filter((e) => !e.data.subcategory).map(toCard);
+const subNames = [...new Set(mine.map((e) => e.data.subcategory).filter((s): s is string => Boolean(s)))]
+  .sort((a, b) => ((subcategoryOrder[name]?.[a] ?? 999) - (subcategoryOrder[name]?.[b] ?? 999)));
+const subGroups = subNames.map((sub) => ({
+  name: sub,
+  cards: mine.filter((e) => e.data.subcategory === sub).map(toCard),
+}));
+
+const total = mine.length;
+const meta = CATEGORY_META[name] ?? {
+  title: `${name} - Minecraft 站点导航`,
+  description: `LocateMC 收录的 Minecraft ${name} 类站点合集。`,
+  intro: '',
+};
+const pageTitle = `${meta.title} - LocateMC`;
+const pageDescription = `${meta.description}共收录 ${total} 个站点。`;
+
+// 其他分类互链：为爬虫提供发现路径，同时把首页权重分散到各落地页
+const siblings = [...new Set(all.map((e) => e.data.category))]
+  .filter((c) => c !== name)
+  .sort((a, b) => ((categoryOrder[a] ?? 999) - (categoryOrder[b] ?? 999)))
+  .map((c) => ({
+    name: c,
+    slug: categoryFolder[c] ?? c,
+    count: all.filter((e) => e.data.category === c).length,
+  }));
+---
+
+<AppLayout title={pageTitle} description={pageDescription} showViewToggle={false} hideSidebar>
+  <article class="cat-page">
+    <nav class="breadcrumb" aria-label="面包屑">
+      <a href="/" data-astro-prefetch="load">首页</a>
+      <span class="crumb-sep" aria-hidden="true">/</span>
+      <span class="crumb-current" aria-current="page">{name}</span>
+    </nav>
+
+    <header class="cat-header">
+      <h1 class="cat-title">{name}</h1>
+      {meta.intro && <p class="cat-intro">{meta.intro}</p>}
+      <p class="cat-count">共收录 {total} 个站点</p>
+    </header>
+
+    {plainCards.length > 0 && (
+      <div class="nav-grid">
+        {plainCards.map((card) => (
+          <NavCard
+            id={card.id}
+            title={card.title}
+            description={card.description}
+            icon={card.icon}
+            href={card.href}
+            showDetail={false}
+          />
+        ))}
+      </div>
+    )}
+
+    {subGroups.map((group) => (
+      <section class="sub-block">
+        <h2 class="sub-title">{group.name}</h2>
+        <div class="nav-grid">
+          {group.cards.map((card) => (
+            <NavCard
+              id={card.id}
+              title={card.title}
+              description={card.description}
+              icon={card.icon}
+              href={card.href}
+              showDetail={false}
+            />
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <footer class="cat-more">
+      <h2 class="more-title">其他分类</h2>
+      <ul class="more-list">
+        {siblings.map((s) => (
+          <li>
+            <a href={`/nav/${s.slug}/`}>
+              <span>{s.name}</span>
+              <span class="more-count">{s.count}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </footer>
+  </article>
+</AppLayout>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+  /* 全站规约：链接一律不带下划线，仅悬停时变色 */
+  .breadcrumb a {
+    color: #8a8a8a;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .breadcrumb a:hover { color: #1a1a1a; }
+  .crumb-sep { color: #c9c9c9; }
+  .crumb-current { color: #4a4a4a; }
+
+  .cat-header { margin-bottom: 2rem; }
+  .cat-title {
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 600;
+    margin: 0 0 0.6rem;
+  }
+  .cat-intro {
+    font-size: 1rem;
+    color: #666;
+    margin: 0 0 0.4rem;
+  }
+  .cat-count {
+    font-size: 0.85rem;
+    color: #9a9a9a;
+    margin: 0;
+  }
+
+  /* 网格参数与首页 .nav-grid 保持一致，保证卡片排布观感相同 */
+  .nav-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+
+  .sub-block { margin-bottom: 2.5rem; }
+  .sub-title {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 0 0 1rem;
+    font-weight: 500;
+  }
+
+  .cat-more {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ececec;
+  }
+  .more-title {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 0 0 1rem;
+    font-weight: 500;
+  }
+  .more-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .more-list a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.9rem;
+    background-color: #f7f7f8;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    color: #444;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .more-list a:hover {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  .more-count { font-size: 0.75rem; color: #9a9a9a; }
+
+  @media (max-width: 768px) {
+    .cat-title { font-size: 1.5rem; }
+    .nav-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+    .cat-more { margin-top: 2rem; padding-top: 1.5rem; }
+  }
+</style>

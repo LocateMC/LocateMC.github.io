@@ -6,6 +6,8 @@ import NavCard from '../components/NavCard.astro';
 import SearchBar from '../components/SearchBar.astro';
 import Carousel from '../components/Carousel.astro';
 import { getCollection } from 'astro:content';
+// 【SEO 阶段 3】分类标题需链接到落地页 /nav/<slug>/，slug 复用 lib 的 categoryFolder
+import { categoryFolder } from '../lib/cards';
 
 interface NavCardData {
   id: string;
@@ -100,7 +102,11 @@ const seoDescription = `LocateMC 是面向 Minecraft 玩家的网址导航站，
 
   {categories.map(category => (
     <section id={category.name} class="category-section">
-      <h2 class="category-title">{category.name}</h2>
+      <!-- 【SEO 阶段 3】标题指向该分类的落地页：既是站内内链（传递权重），
+           也给爬虫提供发现 /nav/* 的路径。section 的 id 仍是分类名，锚点导航不受影响 -->
+      <h2 class="category-title">
+        <a href={`/nav/${categoryFolder[category.name] ?? category.name}/`}>{category.name}</a>
+      </h2>
 
       <!--
         视图模式 2 下的子分类 tab 栏（置于主分类标题下方，由 AppLayout 脚本填充按钮）；
@@ -304,6 +310,14 @@ const seoDescription = `LocateMC 是面向 Minecraft 玩家的网址导航站，
     margin-bottom: 1.5rem; 
     font-weight: 600; 
   }
+  /* 【SEO 阶段 3】标题现为指向分类落地页的链接：继承标题配色，
+     悬停变色（全站规约：链接一律不加下划线） */
+  .category-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .category-title a:hover { color: #7C3AED; }
   .subcategory-block { 
     margin-bottom: 2.5rem; 
     scroll-margin-top: 80px;
