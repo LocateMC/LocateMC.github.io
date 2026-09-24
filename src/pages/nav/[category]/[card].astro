@@ -1,0 +1,269 @@
+---
+// src/pages/nav/[category]/[card].astro
+// 【SEO 2026-09-24】卡片详情页：把 284 张导航卡各自变成独立可索引页面。
+//
+// 背景：每张卡的 Markdown 正文（中位数 633 字）此前只在首页弹窗里渲染，搜索引擎
+// 完全看不到；卡片本身在首页只是一个外链。本路由把这些正文变成真实页面，
+// 可索引页面由 18 个增至 300+，且每页都有人工撰写的正文，不属于薄内容。
+//
+// 三个实现要点：
+// 1. 路由 /nav/<分类>/<卡片>/ 与分类落地页 /nav/<分类>/ 构成父子层级，面包屑与内链天然合理
+// 2. 卡片 slug 剥掉 admin 生成的文件名排序前缀（9-1-tomorrow-land → tomorrow-land）；
+//    若剥后同分类内撞名，则退回完整文件名，保证路由唯一
+// 3. 「相关推荐」用 NavCard + linkTo 指向其他卡片的站内页，让这些页面互相织成内链网，
+//    而不是各自跳外站
+export const prerender = true;
+
+import { getCollection, render } from 'astro:content';
+import AppLayout from '../../../layouts/AppLayout.astro';
+import NavCard from '../../../components/NavCard.astro';
+import { categoryFolder, navCardBase, navCardSlug } from '../../../lib/cards';
+
+export async function getStaticPaths() {
+  const all = await getCollection('nav');
+
+  const rows = all.map((entry) => ({
+    entry,
+    base: navCardBase(entry.id),
+    category: categoryFolder[entry.data.category] ?? entry.data.category,
+    card: navCardSlug(entry.id),
+  }));
+
+  // 剥前缀后若同分类内撞名，退回完整文件名，避免生成重复路由
+  const count = new Map<string, number>();
+  for (const r of rows) {
+    const k = `${r.category}/${r.card}`;
+    count.set(k, (count.get(k) ?? 0) + 1);
+  }
+  for (const r of rows) {
+    if ((count.get(`${r.category}/${r.card}`) ?? 0) > 1) r.card = r.base;
+  }
+
+  return rows.map((r) => ({
+    params: { category: r.category, card: r.card },
+    props: { entry: r.entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { title, description, href, icon, category, subcategory, tags } = entry.data;
+const { Content } = await render(entry);
+
+const catSlug = categoryFolder[category] ?? category;
+
+// 相关推荐：同子分类优先，不足再补同分类内其它站点；最多 6 个
+const all = await getCollection('nav');
+const siblings = all.filter((e) => e.id !== entry.id && e.data.category === category);
+const sameSub = subcategory ? siblings.filter((e) => e.data.subcategory === subcategory) : [];
+const sameSubIds = new Set(sameSub.map((e) => e.id));
+const related = [...sameSub, ...siblings.filter((e) => !sameSubIds.has(e.id))]
+  .slice(0, 6)
+  .map((e) => ({
+    id: e.id,
+    title: e.data.title,
+    description: e.data.description,
+    icon: e.data.icon,
+    href: e.data.href,
+    slug: navCardSlug(e.id),
+  }));
+
+const relatedHeading = subcategory ? `「${subcategory}」中的其他站点` : `「${category}」中的其他站点`;
+
+const pageTitle = `${title} - Minecraft ${category} - LocateMC`;
+// description 字段普遍偏短（中位 38 字），不足 40 字时补一句来源说明，免得摘要过于单薄
+const pageDescription = description.length >= 40
+  ? description
+  : `${description}（收录于 LocateMC 的「${category}」分类）`;
+---
+
+<AppLayout title={pageTitle} description={pageDescription} showViewToggle={false} hideSidebar>
+  <article class="site-page">
+    <nav class="breadcrumb" aria-label="面包屑">
+      <a href="/" data-astro-prefetch="load">首页</a>
+      <span class="crumb-sep" aria-hidden="true">/</span>
+      <a href={`/nav/${catSlug}/`} data-astro-prefetch="load">{category}</a>
+      <span class="crumb-sep" aria-hidden="true">/</span>
+      <span class="crumb-current" aria-current="page">{title}</span>
+    </nav>
+
+    <header class="site-header">
+      <img class="site-icon" src={icon} alt={`${title} 的站点图标`} width="72" height="72" />
+      <div class="site-headings">
+        <h1 class="site-title">{title}</h1>
+        <p class="site-desc">{description}</p>
+        <div class="site-chips">
+          <a class="chip chip--link" href={`/nav/${catSlug}/`}>{category}</a>
+          {subcategory && <span class="chip">{subcategory}</span>}
+          {tags?.map((t) => <span class="chip">{t}</span>)}
+        </div>
+      </div>
+    </header>
+
+    <a class="visit-btn" href={href} target="_blank" rel="noopener noreferrer">
+      访问网站
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <section class="site-body">
+      <Content />
+    </section>
+
+    {related.length > 0 && (
+      <section class="related">
+        <h2 class="related-title">{relatedHeading}</h2>
+        <div class="nav-grid">
+          {related.map((c) => (
+            <NavCard
+              id={c.id}
+              title={c.title}
+              description={c.description}
+              icon={c.icon}
+              href={c.href}
+              linkTo={`/nav/${catSlug}/${c.slug}/`}
+              showDetail={false}
+            />
+          ))}
+        </div>
+      </section>
+    )}
+  </article>
+</AppLayout>
+
+<style>
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+  /* 全站规约：链接不加下划线，仅悬停变蓝 */
+  .breadcrumb a {
+    color: #8a8a8a;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .breadcrumb a:hover { color: #1d4ed8; }
+  .crumb-sep { color: #c9c9c9; }
+  .crumb-current { color: #4a4a4a; }
+
+  .site-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .site-icon {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+    border-radius: 14px;
+    object-fit: cover;
+    background-color: #f2f2f3;
+  }
+  .site-headings { min-width: 0; }
+  .site-title {
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+    line-height: 1.3;
+  }
+  .site-desc {
+    font-size: 1rem;
+    color: #666;
+    margin: 0 0 0.75rem;
+    line-height: 1.6;
+  }
+  .site-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.7rem;
+    background-color: #f2f2f3;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    color: #666;
+  }
+  .chip--link {
+    color: #1d4ed8;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  .chip--link:hover { background-color: #e8effd; color: #1e40af; }
+
+  .visit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.4rem;
+    background-color: #1d4ed8;
+    color: #ffffff;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    margin-bottom: 2rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+  .visit-btn:hover { background-color: #1e40af; transform: translateY(-1px); }
+
+  /* 正文由 <Content /> 渲染，节点不带 Astro scoped 属性，故必须用 :global 覆写 */
+  .site-body {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.9;
+  }
+  .site-body :global(p) { margin: 0 0 1.1rem; }
+  .site-body :global(h2) {
+    font-size: 1.15rem;
+    color: #333;
+    font-weight: 600;
+    margin: 1.8rem 0 0.8rem;
+  }
+  .site-body :global(h3) {
+    font-size: 1.05rem;
+    color: #333;
+    font-weight: 600;
+    margin: 1.5rem 0 0.6rem;
+  }
+  .site-body :global(ul),
+  .site-body :global(ol) { padding-left: 1.4rem; margin: 0 0 1.1rem; }
+  .site-body :global(li) { margin-bottom: 0.4rem; }
+  .site-body :global(a) { color: #1d4ed8; text-decoration: none; }
+  .site-body :global(a:hover) { color: #3b82f6; }
+  .site-body :global(code) {
+    background-color: #f2f2f3;
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+  .site-body :global(strong) { color: #333; font-weight: 600; }
+  .site-body :global(img) { max-width: 100%; height: auto; border-radius: 10px; }
+
+  .related {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #ececec;
+  }
+  .related-title {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 0 0 1rem;
+    font-weight: 500;
+  }
+  .nav-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+
+  @media (max-width: 768px) {
+    .site-header { gap: 0.85rem; }
+    .site-icon { width: 56px; height: 56px; border-radius: 12px; }
+    .site-title { font-size: 1.45rem; }
+    .related { margin-top: 2rem; padding-top: 1.5rem; }
+    .nav-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  }
+</style>

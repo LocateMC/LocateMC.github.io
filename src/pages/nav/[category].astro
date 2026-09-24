@@ -18,7 +18,7 @@ export const prerender = true;
 import AppLayout from '../../layouts/AppLayout.astro';
 import NavCard from '../../components/NavCard.astro';
 import { getCollection } from 'astro:content';
-import { categoryOrder, categoryFolder, subcategoryOrder } from '../../lib/cards';
+import { categoryOrder, categoryFolder, subcategoryOrder, navCardSlug } from '../../lib/cards';
 
 // 各主分类的 SEO 文案与页面导语（关键词自然融入，不做堆砌）
 const CATEGORY_META: Record<string, { title: string; description: string; intro: string }> = {
@@ -106,6 +106,9 @@ const toCard = (e: (typeof mine)[number]) => ({
   description: e.data.description,
   icon: e.data.icon,
   href: e.data.href,
+  // 【入口】分类页是「目录」性质：卡片指向站内详情页，而不是直接跳外站。
+  // 首页的卡片保持外链不变（导航站要保证「点了就走」的快速跳转体验）。
+  slug: navCardSlug(e.id),
 });
 
 // 与首页一致：先渲染该分类下没有子分类的卡片，再按 subcategoryOrder 依次渲染各子分类
@@ -118,6 +121,7 @@ const subGroups = subNames.map((sub) => ({
 }));
 
 const total = mine.length;
+const catSlug = categoryFolder[name] ?? name;
 const meta = CATEGORY_META[name] ?? {
   title: `${name} - Minecraft 站点导航`,
   description: `LocateMC 收录的 Minecraft ${name} 类站点合集。`,
@@ -160,6 +164,7 @@ const siblings = [...new Set(all.map((e) => e.data.category))]
             description={card.description}
             icon={card.icon}
             href={card.href}
+            linkTo={`/nav/${catSlug}/${card.slug}/`}
             showDetail={false}
           />
         ))}
@@ -177,6 +182,7 @@ const siblings = [...new Set(all.map((e) => e.data.category))]
               description={card.description}
               icon={card.icon}
               href={card.href}
+              linkTo={`/nav/${catSlug}/${card.slug}/`}
               showDetail={false}
             />
           ))}

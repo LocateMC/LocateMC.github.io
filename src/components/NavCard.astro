@@ -31,10 +31,19 @@ const { title, description, href, icon } = entry.data;
 // showDetail：是否渲染图标上悬浮的「详情」按钮（点击派发 open-modal 事件）。
 // 只有同时渲染了 CardDetailModal（即 AppLayout 的 showCardModal 为 true）的页面
 // 才应开启，否则按钮点了毫无反应 —— 分类落地页 /nav/* 就是关闭态。
-const { id, title, description, href, icon, showDetail = true } = Astro.props;
+//
+// linkTo：可选的站内地址。给定时卡片指向站内页（如卡片详情页 /nav/<分类>/<卡片>/）
+// 而非外站，且不再加 target="_blank"。用于「相关推荐」「分类目录」这类需要把
+// 权重留在站内、并给爬虫提供发现路径的位置。
+const { id, title, description, href, icon, showDetail = true, linkTo } = Astro.props;
 ---
 
-<a href={href} target="_blank" rel="noopener noreferrer" class="nav-card">
+<a
+  href={linkTo || href}
+  target={linkTo ? undefined : '_blank'}
+  rel={linkTo ? undefined : 'noopener noreferrer'}
+  class="nav-card"
+>
   <div class="icon-wrapper">
     <img src={icon} alt={`${title} icon`} class="icon-image" loading="lazy" decoding="async" />
     {showDetail && (

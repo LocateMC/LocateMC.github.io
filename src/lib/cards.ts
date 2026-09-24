@@ -17,6 +17,23 @@ export const categoryFolder: Record<string, string> = {
   '工作室 & 组织': 'studio', '博客': 'blog', '开发': 'dev',
   '市场': 'marketplace', '收纳': 'others',
 };
+// ===== 卡片 slug 工具 =====
+// 供「卡片详情页」路由与站内内链共用。放在 lib 而不是各 .astro 的 frontmatter 里，
+// 是因为 Astro 在 getStaticPaths 中引用 frontmatter 作用域的函数并不可靠
+// （实测报 `cardBase is not defined`），而从模块 import 始终可用。
+//
+// 内容集合的 entry.id 形如 `blog/9-1-tomorrow-land.md`：含目录名、扩展名，
+// 文件名还带 admin 生成的排序前缀（<主分类序>-<子分类序>-）。
+/** 取文件名（去目录、去扩展名）：`blog/9-1-tomorrow-land.md` → `9-1-tomorrow-land` */
+export function navCardBase(id: string): string {
+  return id.replace(/\.(md|mdx)$/i, '').split('/').pop() ?? id;
+}
+/** URL 用的卡片 slug：剥掉排序前缀 → `tomorrow-land`；剥空则退回原名 */
+export function navCardSlug(id: string): string {
+  const base = navCardBase(id);
+  return base.replace(/^\d+-\d+-/, '') || base;
+}
+
 export const subcategoryOrder: Record<string, Record<string, number>> = {
   '百科': { '百科': 1, '教程、文档': 2 },
   '资源': { '综合': 1, '地图、投影': 2, '模组、整合包': 3, '纹理、资源包、光影': 4 },

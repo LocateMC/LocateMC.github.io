@@ -117,7 +117,9 @@ const jsonLd = {
       <header class="page-header">
         <!-- 【核心修改 1】将 Logo 与折叠按钮包裹在 header-left 中保持邻近 -->
         <div class="header-left">
-          <h1 class="logo">LocateMC</h1>
+          <!-- 【导航】站点标题即「回到导航页」的入口：继承标题配色，悬停转站点主蓝
+               （全站规约：链接一律不加下划线） -->
+          <h1 class="logo"><a href="/" data-astro-prefetch="load">LocateMC</a></h1>
 
           {!hideSidebar && (
             <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle sidebar">
@@ -334,6 +336,13 @@ const jsonLd = {
       color: #111;
       margin: 0;
     }
+    /* 【导航】标题链接：常态继承 #111，悬停转站点主蓝（与 .site-tab:hover 同色系） */
+    .logo a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .logo a:hover { color: #1d4ed8; }
     .sidebar-toggle {
       background: none; 
       border: 1px solid #ddd; 
