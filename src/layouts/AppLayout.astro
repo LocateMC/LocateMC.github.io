@@ -17,13 +17,55 @@ const isResourceActive = pathname.startsWith('/resource');
 // 【性能修复 2026-09-14】只有导航页的卡片会派发 open-modal 事件，
 // 故默认关闭 —— 原先所有页面（含资源页、关于页）都渲染该组件，
 // 白担一份 228K 字符的内联数据，是页面切换卡顿的主要来源。
-const { title = 'LocateMC', showViewToggle = true, hideSidebar = false, showCardModal = false } = Astro.props;
+// 【SEO 2026-09-24】description / ogImage / noindex 为本次新增项：
+// description 会被搜索引擎用作搜索结果摘要，各页应传专属文案（约 60-160 字符）。
+const {
+  title = 'LocateMC',
+  description = 'LocateMC 是面向 Minecraft 玩家的网址导航站，系统收录数百个实用网站，覆盖服务端、模组开发、在线工具、资源下载等分类，一站直达。',
+  ogImage = '/screenshots/og-cover.png',
+  noindex = false,
+  showViewToggle = true,
+  hideSidebar = false,
+  showCardModal = false,
+} = Astro.props;
 
 // 移动端下拉菜单是否需要搜索栏：仅当页面提供了 header-search 插槽（如导航页）
 const hasHeaderSearch = Astro.slots.has('header-search');
 // 移动端下拉菜单（☰ → 搜索栏 + 分类导航栏）是否需要渲染：
 // 资源页无搜索栏且无分类导航，只需底部固定「导航 / 资源」切换，无需 ☰ 菜单
 const needsMobileMenu = hasHeaderSearch || !hideSidebar;
+
+// 【SEO 2026-09-24】规范域名：canonical / OG 绝对地址的基准。
+// 站点有双身份（locatemc.com 与 locatemc.github.io 指向同一构建产物），此处统一取
+// 自定义域名，github.io 版本的重复内容问题靠本 canonical 收敛到主域名。
+// 须与 astro.config.mjs 的 site 保持一致，更换主域名时两处同改。
+const SITE_ORIGIN = 'https://locatemc.com';
+// canonical 路径归一：GitHub Pages 产物是目录型（about/index.html → /about/），
+// 统一补尾斜杠，避免 /about 与 /about/ 被判为两个 URL 而互相稀释权重。
+const canonicalPath = pathname.endsWith('/') ? pathname : `${pathname}/`;
+const canonicalURL = new URL(canonicalPath, SITE_ORIGIN).href;
+const ogImageURL = new URL(ogImage, SITE_ORIGIN).href;
+
+// 【SEO 2026-09-24】首页额外输出 WebSite 结构化数据（站点实体 + 运营方），
+// 让搜索结果展示站点层级信息。刻意不含 potentialAction（站内搜索框入口）——
+// 首页搜索目前是纯客户端行为、不支持 ?q= 参数，输出该字段等于空承诺，
+// 待阶段 4 补上 URL 参数支持后再加。
+const isHome = pathname === '/' || pathname === '/index.html';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'LocateMC',
+  alternateName: 'LocateMC 导航',
+  url: `${SITE_ORIGIN}/`,
+  description,
+  inLanguage: 'zh-CN',
+  publisher: {
+    '@type': 'Organization',
+    name: 'LocateMC',
+    url: `${SITE_ORIGIN}/`,
+    logo: `${SITE_ORIGIN}/LocateMC_icon.png`,
+  },
+};
 ---
 
 <!DOCTYPE html>
@@ -35,7 +77,31 @@ const needsMobileMenu = hasHeaderSearch || !hideSidebar;
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="512x512" href="/LocateMC_icon.png" />
+  <!-- 【首访提速】字体提前预加载：@font-face 在 CSS 下载后才被发现（~1.7s），
+       preload 让两个 woff2（1.9MB，首访最大字节）在解析 HTML 时立即开跑 -->
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/HarmonyOS_Sans_SC_Regular.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/HarmonyOS_Sans_SC_Bold.woff2" />
   <title>{title}</title>
+  <!-- 【SEO 2026-09-24】搜索结果摘要 / 规范链接 / 社交分享卡 / 结构化数据 -->
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="LocateMC" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:image" content={ogImageURL} />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL} />
+
+  {isHome && <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />}
+
   <!-- 页面切换平滑过渡（View Transitions），无刷新动画切换「导航 / 资源」 -->
   <ViewTransitions />
 </head>
@@ -62,8 +128,8 @@ const needsMobileMenu = hasHeaderSearch || !hideSidebar;
 
         <!-- 【站点主导航】「导航 / 资源」板块 Tab（桌面版：相对页眉水平居中略偏左）；移动端隐藏、收纳进下方下拉菜单 -->
         <nav class="site-tabs site-tabs--header" aria-label="站点主导航">
-          <a href="/" class:list={['site-tab', { active: isNavActive }]}>导航</a>
-          <a href="/resource" class:list={['site-tab', 'site-tab--resource', { active: isResourceActive }]}>资源</a>
+          <a href="/" class:list={['site-tab', { active: isNavActive }]} data-astro-prefetch="load">导航</a>
+          <a href="/resource" class:list={['site-tab', 'site-tab--resource', { active: isResourceActive }]} data-astro-prefetch="load">资源</a>
         </nav>
         <!-- 【搜索栏插槽】搜索栏由页面传入，桌面位于页眉右侧；移动端隐藏、收纳进下方下拉菜单 -->
         <div class="header-search-slot"><slot name="header-search" /></div>
@@ -160,20 +226,24 @@ const needsMobileMenu = hasHeaderSearch || !hideSidebar;
     }
 
     /* ===== 页面切换平滑过渡（View Transitions）=====
-       旧页轻微下移淡出，新页轻微上移淡入；尊重系统减弱动效设置 */
+       旧页快速淡出 + 新页稍慢滑入：出快进慢是标准转场节奏——
+       出太慢会拖泥带水，进稍慢才不生硬。尊重系统减弱动效设置。
+       【2026-09-24】0.16/0.26s → 0.10/0.20s：过渡快照层在动画期间会吞掉
+       点击（hit-test 落在快照上而非真实链接），在「顺滑」与「吞点击窗口」
+       之间取平衡（原窗口 ~420ms → ~200ms）；位移 5px → 3px 减少跳动 */
     @media (prefers-reduced-motion: no-preference) {
       ::view-transition-old(root) {
-        animation: lm-view-out 0.16s ease both;
+        animation: lm-view-out 0.1s ease-in both;
       }
       ::view-transition-new(root) {
-        animation: lm-view-in 0.26s ease both;
+        animation: lm-view-in 0.2s cubic-bezier(0.22, 0.61, 0.36, 1) both;
       }
     }
     @keyframes lm-view-out {
-      to { opacity: 0; transform: translateY(5px); }
+      to { opacity: 0; transform: translateY(3px); }
     }
     @keyframes lm-view-in {
-      from { opacity: 0; transform: translateY(-5px); }
+      from { opacity: 0; transform: translateY(-3px); }
     }
 
     /* ===== 页眉在页面过渡中保持不动 =====

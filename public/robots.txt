@@ -1,0 +1,19 @@
+# LocateMC - Minecraft 网址导航站
+# Primary site: https://locatemc.com
+#
+# NOTE: locatemc.com and locatemc.github.io serve the SAME repository output,
+# and robots.txt is fetched per host. Both hosts therefore read this one file,
+# so github.io must NOT be disallowed here -- doing so would also block the
+# primary domain. Duplicate content is handled by page-level canonical tags,
+# which point every page at https://locatemc.com.
+
+User-agent: *
+Allow: /
+
+# Content manager - local/dev use only, must never be indexed
+Disallow: /admin
+
+# Site data endpoints (consumed via XHR, no standalone search value)
+Disallow: /api/
+
+Sitemap: https://locatemc.com/sitemap-index.xml

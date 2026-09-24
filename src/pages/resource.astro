@@ -87,7 +87,7 @@ const detailUrl = (id: string): string =>
   '/resource/' + id.replace(/\.(md|mdx)$/i, '').split('/').map(encodeURIComponent).join('/') + '/';
 ---
 
-<AppLayout title="LocateMC - 资源" showViewToggle={false} hideSidebar>
+<AppLayout title="LocateMC - Minecraft 资源库" description="浏览 Minecraft 模组、光影、资源包、地图与整合包资源库，支持按版本、加载器、类型多维筛选，直达官方分发渠道。" showViewToggle={false} hideSidebar>
   <section class="resource-library">
     <!-- 搜索框：桌面悬浮于页眉右上角（fixed，与 80px 页眉垂直居中） -->
     <div class="header-search-float">

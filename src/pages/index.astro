@@ -86,9 +86,12 @@ const categories: CategoryData[] = sortedCategoryNames.map(categoryName => {
     })),
   };
 });
+
+// 【SEO 2026-09-24】搜索结果摘要：站点数与分类数从内容集合实时统计，不写死以免过期
+const seoDescription = `LocateMC 是面向 Minecraft 玩家的网址导航站，收录 ${allNavEntries.length} 个实用网站，覆盖服务端、模组开发、在线工具、资源下载、百科教程等 ${new Set(allNavEntries.map((e) => e.data.category)).size} 个分类，一站直达。`;
 ---
 
-<AppLayout title="LocateMC - 导航" showCardModal>
+<AppLayout title="LocateMC - Minecraft 网址导航" description={seoDescription} showCardModal>
   <!-- 搜索栏移入页眉右侧插槽（header-search），不再占据主内容区顶部 -->
   <SearchBar slot="header-search" />
 
