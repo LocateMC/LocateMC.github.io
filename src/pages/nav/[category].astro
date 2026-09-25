@@ -18,7 +18,7 @@ export const prerender = true;
 import AppLayout from '../../layouts/AppLayout.astro';
 import NavCard from '../../components/NavCard.astro';
 import { getCollection } from 'astro:content';
-import { categoryOrder, categoryFolder, subcategoryOrder, navCardSlug } from '../../lib/cards';
+import { categoryOrder, categoryFolder, subcategoryOrder, buildNavSlugMap } from '../../lib/cards';
 
 // 各主分类的 SEO 文案与页面导语（关键词自然融入，不做堆砌）
 const CATEGORY_META: Record<string, { title: string; description: string; intro: string }> = {
@@ -100,6 +100,10 @@ const mine = all
   .filter((e) => e.data.category === name)
   .sort((a, b) => a.data.order - b.data.order);
 
+// 【2026-09-26】slug 走与详情页路由同一份 map（含撞名消解），不再裸调 navCardSlug。
+// 旧写法在「同分类撞名」时会链到短 slug，而详情页生成的是别的名字 → 404。
+const slugOf = buildNavSlugMap(all.map((e) => ({ id: e.id, category: e.data.category })));
+
 const toCard = (e: (typeof mine)[number]) => ({
   id: e.id,
   title: e.data.title,
@@ -108,7 +112,7 @@ const toCard = (e: (typeof mine)[number]) => ({
   href: e.data.href,
   // 【入口】分类页是「目录」性质：卡片指向站内详情页，而不是直接跳外站。
   // 首页的卡片保持外链不变（导航站要保证「点了就走」的快速跳转体验）。
-  slug: navCardSlug(e.id),
+  slug: slugOf.get(e.id)!,
 });
 
 // 与首页一致：先渲染该分类下没有子分类的卡片，再按 subcategoryOrder 依次渲染各子分类

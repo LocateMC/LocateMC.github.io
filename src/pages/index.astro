@@ -310,15 +310,19 @@ const seoDescription = `LocateMC 是面向 Minecraft 玩家的网址导航站，
     margin-bottom: 1.5rem; 
     font-weight: 600; 
   }
-  /* 【SEO 阶段 3 + 配色统一】标题现为指向分类落地页的链接：
-     常态即用站点主蓝 #1d4ed8（与顶部 Tab、子分类 Tab、关于页链接同色），
-     悬停转 #3b82f6，让「可点击」一眼可辨（全站规约：链接不加下划线） */
+  /* 【SEO 阶段 3 + 配色】标题现为指向分类落地页的链接：
+     常态保持与标题一致的中性深灰（不再通篇蓝字），
+     只有「鼠标触碰 / 点击 / 键盘聚焦」时才转站点主蓝 —— 交互反馈即「可点击」提示
+     （全站规约：链接不加下划线） */
   .category-title a {
-    color: #1d4ed8;
+    color: inherit;
     text-decoration: none;
     transition: color 0.2s ease;
   }
-  .category-title a:hover { color: #3b82f6; }
+  .category-title a:hover,
+  .category-title a:focus-visible { color: #1d4ed8; }
+  /* :active 置于最后：按下瞬间以更深的蓝给出「已触发」反馈 */
+  .category-title a:active { color: #1e40af; }
   .subcategory-block { 
     margin-bottom: 2.5rem; 
     scroll-margin-top: 80px;

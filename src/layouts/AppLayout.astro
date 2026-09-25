@@ -342,7 +342,18 @@ const jsonLd = {
       text-decoration: none;
       transition: color 0.2s ease;
     }
-    .logo a:hover { color: #1d4ed8; }
+    /* 【全站规约：链接一律不带下划线】站点标题是 h1 里的链接，
+       必须逐一显式覆盖各交互态 —— 只写基础态时，任何后置的
+       a:hover / a:focus（含 UA 样式、浏览器扩展、其它组件里的全局 a 规则）
+       都能把它还原成「蓝色 + 下划线」的原生链接外观。 */
+    .logo a:hover,
+    .logo a:focus,
+    .logo a:active,
+    .logo a:visited {
+      text-decoration: none;
+    }
+    .logo a:hover,
+    .logo a:focus-visible { color: #1d4ed8; }
     .sidebar-toggle {
       background: none; 
       border: 1px solid #ddd; 

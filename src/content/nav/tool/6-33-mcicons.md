@@ -1,7 +1,7 @@
 ---
 title: 'MC-Icons'
 description: '一个提供游戏内物品、方块等高清图标下载的在线资源库。'
-href: 'https://mcicons.ccleaf.com/'
+href: 'https://ccvaults.com/'
 icon: '/icons/mcicons.webp'
 category: '在线工具' # 用于分类
 tags: ['资源', '图标', '素材', '图片下载']

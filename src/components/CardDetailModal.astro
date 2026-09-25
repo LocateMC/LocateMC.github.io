@@ -23,11 +23,74 @@
 </div>
 
 <script>
+  // ════════════════════════════════════════════════════════════════════════
+  // 【技术债/风险修复 2026-09-26】
+  // 1) marked 由 jsdelivr CDN 改为本地依赖
+  //    原实现加载 `https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js`：
+  //      · 路径不带版本号 → 上游任意发布即时生效（供应链风险，且无 SRI 校验）
+  //      · jsdelivr 在国内可达性差 → 加载失败直接退化成「详情加载失败」
+  //      · 每次首开弹窗多一次跨域往返
+  //    现改为 package.json 依赖（marked@18.0.14，--save-exact 锁定），随站点
+  //    产物一起构建分发，运行时零第三方请求。
+  // 2) 【重要 · 2026-09-26 二次修复】marked 改为**动态 import**
+  //    顶层静态 `import { marked } from 'marked'` 会让本模块与 marked 强绑定：
+  //    只要 marked 的依赖预构建/产物出任何问题，整个模块加载失败，连带下面的
+  //    「事件委托」与「open-modal 监听」一起失效 —— 表现为点「详情」毫无反应、
+  //    <a> 直接跳外站。此故障已真实发生：dev server 在 npm install marked
+  //    **之前**启动，Vite 依赖图未重建，对 marked 的请求返回 504。
+  //    改动态导入后：marked 成为独立 chunk（首访不再加载、点开弹窗才拉），
+  //    加载失败只影响正文渲染，交互始终可用，且退化为纯文本展示。
+  // 3) innerHTML 拼装补转义 + 危险标签剥离（见下方 esc / safeUrl / softenHtml）
+  // ════════════════════════════════════════════════════════════════════════
+
   const DETAIL_URL = '/api/nav-detail.json';
-  const MARKED_URL = 'https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js';
 
   let detailPromise: Promise<any[] | null> | null = null; // 同一页面内只请求一次
   let markedPromise: Promise<any> | null = null;
+
+  /**
+   * 动态加载 marked（原因见文件头「二次修复」）。
+   * 失败返回 null，由调用方走降级分支；不抛异常，确保不影响交互。
+   */
+  function getMarked(): Promise<any> {
+    if (markedPromise) return markedPromise;
+    markedPromise = import('marked')
+      .then((m: any) => m.marked || m.default || m)
+      .catch((err) => {
+        console.error('[CardDetailModal] marked 加载失败，正文降级为纯文本：', err);
+        markedPromise = null; // 允许下次点击重试
+        return null;
+      });
+    return markedPromise;
+  }
+
+  /** HTML 实体转义：所有插入到 innerHTML 的「数据字段」都必须先过这里 */
+  function esc(value: unknown): string {
+    return String(value ?? '').replace(/[&<>"']/g, (c) =>
+      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string)
+    );
+  }
+
+  /** 协议白名单：只放行 http/https/相对路径，挡掉 javascript: / data: 等 */
+  function safeUrl(value: unknown): string {
+    const s = String(value ?? '').trim();
+    if (!s) return '#';
+    if (/^(https?:)?\/\//i.test(s) || /^\/[^/]/.test(s)) return s;
+    return '#';
+  }
+
+  /**
+   * Markdown 渲染结果的「尽力而为」加固。
+   * 说明：条目正文由本站维护（content/nav/*.md，经 admin 写入），并非用户输入，
+   * 因此这里不做完整 sanitizer（不引入 DOMPurify 的体积）。仅剥离明确的高危构造，
+   * 作为纵深防御——避免将来万一引入外部来源内容时直接变成 XSS。
+   */
+  function softenHtml(html: unknown): string {
+    return String(html ?? '')
+      .replace(/<\/?(script|iframe|object|embed|form|link|meta|base|style)\b[^>]*>/gi, '')
+      .replace(/\son[a-z]+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, '')
+      .replace(/(href|src)\s*=\s*(["']?)\s*javascript:[^"'>\s]*/gi, '$1=$2#');
+  }
 
   /** 拉取全部条目详情（失败后可重试） */
   function loadDetails(): Promise<any[] | null> {
@@ -44,26 +107,6 @@
         });
     }
     return detailPromise;
-  }
-
-  /** 加载 marked（用 script 标签注入，避免打包器去解析外部 CDN 地址） */
-  function loadMarked(): Promise<any> {
-    const w = window as any;
-    if (w.marked) return Promise.resolve(w.marked);
-    if (!markedPromise) {
-      markedPromise = new Promise((resolve, reject) => {
-        const s = document.createElement('script');
-        s.src = MARKED_URL;
-        s.async = true;
-        s.onload = () => resolve(w.marked);
-        s.onerror = () => {
-          markedPromise = null;
-          reject(new Error('marked CDN load failed'));
-        };
-        document.head.appendChild(s);
-      });
-    }
-    return markedPromise;
   }
 
   /** 页面空闲时预取详情数据：用户真正点「详情」时通常已就绪，弹窗瞬开 */
@@ -92,7 +135,8 @@
     backdrop.classList.remove('hidden');
 
     try {
-      const [list, marked] = await Promise.all([loadDetails(), loadMarked()]);
+      // marked 已随产物打包，无需再等待 CDN，只需等数据
+      const list = await loadDetails();
       if (!list) {
         contentEl.innerHTML = '<div class="modal-loading">详情加载失败，请检查网络后重试。</div>';
         return;
@@ -102,18 +146,25 @@
         contentEl.innerHTML = '<div class="modal-loading">未找到该条目的详情。</div>';
         return;
       }
-      const renderedHTML = marked.parse(entry.body);
+      // marked v18：parse() 为同步方法（未启用 async 扩展时返回 string）。
+      // 先过 softenHtml 剥离高危构造，再交给 innerHTML。
+      // 若 marked 未能加载则降级为纯文本 —— 弹窗的核心信息（图标 / 标题 /
+      // 描述 / 访问按钮）本来就不依赖 marked，始终完整可用。
+      const md = await getMarked();
+      const renderedHTML = md
+        ? softenHtml(md.parse(entry.body ?? '') as string)
+        : `<pre class="modal-body-fallback">${esc(entry.body ?? '')}</pre>`;
 
       contentEl.innerHTML = `
         <div class="modal-header-grid">
           <div class="modal-icon-wrapper">
-            <img src="${entry.data.icon}" alt="${entry.data.title}" class="modal-icon" />
+            <img src="${esc(safeUrl(entry.data.icon))}" alt="${esc(entry.data.title)} 的图标" class="modal-icon" />
           </div>
           <div class="modal-main-info">
-            <h2 class="modal-title">${entry.data.title}</h2>
-            <p class="modal-description">${entry.data.description}</p>
+            <h2 class="modal-title">${esc(entry.data.title)}</h2>
+            <p class="modal-description">${esc(entry.data.description)}</p>
             <div class="modal-buttons">
-              <a href="${entry.data.href}" target="_blank" rel="noopener noreferrer" class="modal-button primary">
+              <a href="${esc(safeUrl(entry.data.href))}" target="_blank" rel="noopener noreferrer" class="modal-button primary">
                 前往网站 >
               </a>
               <button class="modal-button" id="qr-code-btn">二维码访问</button>
@@ -129,6 +180,18 @@
       console.error('Error opening modal:', err);
       contentEl.innerHTML = '<div class="modal-loading">详情加载失败，请检查网络后重试。</div>';
     }
+  });
+
+  // 【2026-09-26】「详情」按钮改为事件委托：
+  // NavCard 不再内联 onclick（严格 CSP 下会被拦截，且把 entryId 拼进 JS 字符串
+  // 存在注入面），改为渲染 data-entry-id，由这里统一捕获后派发既有的 open-modal
+  // 事件 —— 行为与改前完全一致（阻止 <a> 跳转 + 打开弹窗）。
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement | null;
+    const btn = target?.closest?.('.detail-overlay[data-entry-id]') as HTMLElement | null;
+    if (!btn) return;
+    e.preventDefault();
+    window.dispatchEvent(new CustomEvent('open-modal', { detail: { entryId: btn.dataset.entryId } }));
   });
 
   // 关闭相关：元素级绑定随每次导航重建；Esc 走 window 单次注册 + 动态查询当前弹窗
@@ -179,6 +242,19 @@
     text-align: center;
     color: #999;
     font-size: 0.95rem;
+  }
+
+  /* marked 加载失败时的正文降级展示（纯文本，保证内容仍可读）。
+     注意：该节点由 innerHTML 动态插入，**不带 astro scoped hash**，
+     故必须用 :global 包裹，否则样式不生效。 */
+  :global(.modal-body-fallback) {
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-family: inherit;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #444;
+    margin: 0;
   }
 
   /* ============================================================

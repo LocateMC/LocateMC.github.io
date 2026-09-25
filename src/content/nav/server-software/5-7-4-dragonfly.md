@@ -1,7 +1,7 @@
 ---
 title: "Dragonfly"
 description: "使用 Go 语言编写的基岩版服务器软件，追求高性能与现代化架构。"
-href: "https://www.dragonfly.go/"
+href: "https://github.com/df-mc/dragonfly"
 icon: "/icons/dragonfly.webp"
 category: "服务端"
 subcategory: "基岩"
@@ -17,4 +17,4 @@ Dragonfly 是一款使用 Go 语言从零编写的基岩版服务器软件，以
 - **现代化**：面向新架构设计的服务端核心
 - **开源免费**：GitHub 开源，社区持续贡献
 
-官方网站：https://www.dragonfly.go/
+官方网站：https://github.com/df-mc/dragonfly

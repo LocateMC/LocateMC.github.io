@@ -28,10 +28,83 @@ export const categoryFolder: Record<string, string> = {
 export function navCardBase(id: string): string {
   return id.replace(/\.(md|mdx)$/i, '').split('/').pop() ?? id;
 }
-/** URL 用的卡片 slug：剥掉排序前缀 → `tomorrow-land`；剥空则退回原名 */
+/**
+ * URL 用的卡片 slug：剥掉**全部**排序前缀 → `tomorrow-land`；剥空则退回原名。
+ *
+ * 【2026-09-26 修复】原正则 `/^\d+-\d+-/` 只剥两段，而 admin 的 buildFilename 对
+ * 「有子分类」的卡片生成三段前缀（`<主分类序>-<子分类序>-<order>-<slug>`），
+ * 导致 172 张卡的 URL 残留一个序号段：
+ *   `/nav/wiki/5-minecraft-developer-guide/`（应为 `minecraft-developer-guide`）
+ *   `/nav/resource/2-13-creativemechanicserver/`（应为 `creativemechanicserver`）
+ * 改为「贪婪剥掉所有 `数字 + 分隔符` 段」。分隔符含 `.`：个别历史文件名写作
+ * `7-3-18.slopecraft.md`，其序号段以点收尾，仅认 `-` 会漏掉。
+ * 安全性：只有「数字紧跟 - 或 .」才算前缀，正常的 `3dtext`（3D 文本生成器）不受影响。
+ */
 export function navCardSlug(id: string): string {
   const base = navCardBase(id);
-  return base.replace(/^\d+-\d+-/, '') || base;
+  return base.replace(/^(?:\d+[.\-])+/, '') || base;
+}
+
+/**
+ * 【2026-09-26】撞名消解：一次性算出 `entry.id → slug`，供**三处**共用。
+ *
+ * 为什么必须共用：详情页 URL 是 `/nav/<分类>/<slug>/`，slug 由**三个**地方各自产生 ——
+ *   ① `pages/nav/[category]/[card].astro` 的 getStaticPaths（真正生成路由）
+ *   ② `pages/nav/[category].astro` 的卡片链接（分类页 → 详情页）
+ *   ③ `pages/nav/[category]/[card].astro` 的「相关推荐」（详情页互链）
+ * 旧实现里 ① 有撞名回退、②③ 直接调 navCardSlug 裸值。只要出现同分类撞名，
+ * ②③ 就会链到短 slug 而 ① 生成的是别的名字 → 死链。当前 284 张 0 撞名所以没爆，
+ * 但这是「注定要爆」的结构性问题，故收敛成本函数。
+ *
+ * 规则：
+ * - 撞名只可能在**同一分类**内发生（URL 前缀 `/nav/<分类>/` 已隔离），故按分类分组独立消解；
+ * - 「剥前缀后天然唯一」的 slug 优先占名（先全量预占），避免后补的 `-2` 抢走别的卡的本名；
+ * - 撞名的按 **entry.id 升序**依次追加 `-2`、`-3`…（保持 URL 短，而不是退回长文件名）；
+ * - 后缀号跳过已被占用的名字（含其它卡的本名），最终仍冲突则退回文件名 `base`（同目录内唯一）；
+ * - 分配顺序与 `getCollection()` 的返回顺序无关（函数内按 id 排序），因此任何调用方、
+ *   任何构建次数拿到的结果都逐字相同 —— 否则 URL 会在构建之间漂移。
+ */
+export function buildNavSlugMap(entries: { id: string; category: string }[]): Map<string, string> {
+  interface Row { id: string; base: string; short: string }
+  const groups = new Map<string, Row[]>();
+  for (const e of entries) {
+    // 按 URL 目录分组：不同主分类即便撞名也不冲突
+    const folder = categoryFolder[e.category] ?? e.category;
+    const row: Row = { id: e.id, base: navCardBase(e.id), short: navCardSlug(e.id) };
+    const arr = groups.get(folder);
+    if (arr) arr.push(row);
+    else groups.set(folder, [row]);
+  }
+
+  const map = new Map<string, string>();
+  for (const rows of groups.values()) {
+    rows.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+
+    const count = new Map<string, number>();
+    for (const r of rows) count.set(r.short, (count.get(r.short) ?? 0) + 1);
+
+    // 预占「天然唯一」的短 slug：这些名字不可被别人的后缀占用
+    const taken = new Set<string>();
+    for (const r of rows) if (count.get(r.short) === 1) taken.add(r.short);
+
+    for (const r of rows) {
+      if (count.get(r.short) === 1) { map.set(r.id, r.short); continue; }
+      let slug = r.short;
+      if (taken.has(slug)) {
+        let n = 2;
+        while (n <= 100 && taken.has(`${r.short}-${n}`)) n++;
+        slug = n <= 100 ? `${r.short}-${n}` : r.base;
+        if (taken.has(slug)) { // base 也被占（正常不可能），再顺延
+          let m = 2;
+          while (taken.has(`${slug}-${m}`)) m++;
+          slug = `${slug}-${m}`;
+        }
+      }
+      taken.add(slug);
+      map.set(r.id, slug);
+    }
+  }
+  return map;
 }
 
 export const subcategoryOrder: Record<string, Record<string, number>> = {

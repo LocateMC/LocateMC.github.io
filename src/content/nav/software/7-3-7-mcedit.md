@@ -1,7 +1,7 @@
 ---
 title: 'MCEdit'
 description: '传奇的开源 3D 地图编辑器，创作史上的里程碑。'
-href: 'http://www.mcedit.net/'
+href: 'https://www.mcedit.net/'
 icon: '/icons/mcedit.webp' # 假设图标文件名
 category: '软件程序'
 subcategory: '实用工具（PC）'
