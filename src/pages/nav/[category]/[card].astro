@@ -66,9 +66,41 @@ const pageTitle = `${title} - Minecraft ${category} - LocateMC`;
 const pageDescription = description.length >= 40
   ? description
   : `${description}（收录于 LocateMC 的「${category}」分类）`;
+
+// 【结构化数据 2026-09-26】卡片详情页的 JSON-LD：
+// WebPage（本页语义，about 指向被介绍的那个站点） + BreadcrumbList（首页 / 分类 / 本站点）。
+// 刻意不用 Article：这是导航站对某个站点的介绍页而非文章，用 Article 会把
+// 「发布日期 / 作者」这类必填字段变成空承诺，反而更容易被判为无效标记。
+// cardUrl 取自与 getStaticPaths 同一份 slug map，保证标记里的 URL 与实际路由逐字一致。
+const SITE_ORIGIN = 'https://locatemc.com';
+const cardUrl = `${SITE_ORIGIN}/nav/${catSlug}/${slugOf.get(entry.id)!}/`;
+const catUrl = `${SITE_ORIGIN}/nav/${catSlug}/`;
+const jsonLdExtra = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: pageTitle,
+    description: pageDescription,
+    url: cardUrl,
+    inLanguage: 'zh-CN',
+    isPartOf: { '@type': 'WebSite', name: 'LocateMC', url: `${SITE_ORIGIN}/` },
+    about: { '@type': 'WebSite', name: title, url: href, description },
+    primaryImageOfPage: { '@type': 'ImageObject', url: new URL(icon, SITE_ORIGIN).href },
+    ...(tags && tags.length ? { keywords: tags.join(', ') } : {}),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE_ORIGIN}/` },
+      { '@type': 'ListItem', position: 2, name: category, item: catUrl },
+      { '@type': 'ListItem', position: 3, name: title, item: cardUrl },
+    ],
+  },
+];
 ---
 
-<AppLayout title={pageTitle} description={pageDescription} showViewToggle={false} hideSidebar>
+<AppLayout title={pageTitle} description={pageDescription} showViewToggle={false} hideSidebar jsonLdExtra={jsonLdExtra}>
   <article class="site-page">
     <nav class="breadcrumb" aria-label="面包屑">
       <a href="/" data-astro-prefetch="load">首页</a>
@@ -159,29 +191,45 @@ const pageDescription = description.length >= 40
     object-fit: cover;
     background-color: #f2f2f3;
   }
-  .site-headings { min-width: 0; flex: 1; }
-  /* 标题行：h1 在左、主 CTA 在右，共用一行 */
-  .site-title-row {
-    display: flex;
+  /* 【移动端修复 2026-09-26】header 信息区改用 CSS Grid 做「响应式重排」：
+       桌面 = 「标题 + 主 CTA」同行，描述与标签整宽在下（与改前观感一致）；
+       移动 = 单列，主 CTA 下沉到标签之后、整行宽。
+     改前用 flex + flex-wrap + margin-left:auto：标题一长（如 'Abfielder's Schematics'
+     这类 20+ 字符，实测 390px 必现）按钮就被挤到第二行，变成夹在标题与描述之间、
+     孤零零靠右的按钮，把「标题 → 描述」的阅读流切断；标题短时按钮又与标题之间
+     留出大片空白。改成 Grid 区域后，按钮位置只取决于断点，与标题长度无关。 */
+  .site-headings {
+    min-width: 0;
+    flex: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      'title btn'
+      'desc  desc'
+      'chips chips';
+    column-gap: 1.25rem;
+    row-gap: 0.6rem;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 0.6rem 1.25rem;
-    margin-bottom: 0.5rem;
   }
+  /* 只作网格区域占位：本身不生成盒子，让 h1 与主 CTA 直接参与父级 grid */
+  .site-title-row { display: contents; }
   .site-title {
+    grid-area: title;
     font-size: 1.8rem;
     color: #333;
     font-weight: 600;
     margin: 0;
     line-height: 1.3;
+    min-width: 0;
   }
   .site-desc {
+    grid-area: desc;
     font-size: 1rem;
     color: #666;
-    margin: 0 0 0.75rem;
+    margin: 0;
     line-height: 1.6;
   }
-  .site-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+  .site-chips { grid-area: chips; display: flex; flex-wrap: wrap; gap: 0.45rem; }
   .chip {
     display: inline-flex;
     align-items: center;
@@ -199,8 +247,10 @@ const pageDescription = description.length >= 40
   .chip--link:hover { background-color: #e8effd; color: #1e40af; }
 
   .visit-btn {
+    grid-area: btn;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     padding: 0.6rem 1.25rem;
     background-color: #1d4ed8;
@@ -209,8 +259,8 @@ const pageDescription = description.length >= 40
     font-size: 0.95rem;
     font-weight: 500;
     text-decoration: none;
-    /* 贴到标题行最右侧；即便换行到第二行也仍靠右 */
-    margin-left: auto;
+    /* 桌面端贴右（移动端由媒体查询改为整行宽，见下） */
+    justify-self: end;
     flex-shrink: 0;
     transition: background-color 0.2s ease, transform 0.2s ease;
   }
@@ -269,9 +319,25 @@ const pageDescription = description.length >= 40
   @media (max-width: 768px) {
     .site-header { gap: 0.85rem; }
     .site-icon { width: 56px; height: 56px; border-radius: 12px; }
+    /* 单列重排：标题 → 描述 → 标签 → 主 CTA。
+       主 CTA 沉到信息区末尾并占满整行 —— 拇指易点、位置恒定，
+       不再受标题长度影响（长标题挤成孤儿按钮的老问题就此消失）。 */
+    .site-headings {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'title'
+        'desc'
+        'chips'
+        'btn';
+      row-gap: 0.65rem;
+    }
     .site-title { font-size: 1.45rem; }
-    .site-title-row { gap: 0.5rem 1rem; }
-    .visit-btn { padding: 0.5rem 1rem; font-size: 0.9rem; }
+    .visit-btn {
+      /* 用 grid 的 stretch 填满整列（别写 width:100% —— 会与左右 padding 叠加，
+         实测 390px 下溢出容器 32px） */
+      justify-self: stretch;
+      padding: 0.7rem 1rem;
+    }
     .related { margin-top: 2rem; padding-top: 1.5rem; }
     .nav-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
   }

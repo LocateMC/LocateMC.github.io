@@ -27,6 +27,11 @@ const {
   showViewToggle = true,
   hideSidebar = false,
   showCardModal = false,
+  // 【结构化数据 2026-09-26】页面级 JSON-LD 注入点（数组，每个元素输出一个
+  // <script type="application/ld+json">）。首页的 WebSite 实体由本布局自行输出，
+  // 其余页面（分类落地页 / 卡片详情页）把自己的 CollectionPage / WebPage /
+  // BreadcrumbList 从这里传进来 —— 语义块由页面掌握，布局只负责渲染。
+  jsonLdExtra = [] as Record<string, unknown>[],
 } = Astro.props;
 
 // 移动端下拉菜单是否需要搜索栏：仅当页面提供了 header-search 插槽（如导航页）
@@ -101,6 +106,9 @@ const jsonLd = {
   <meta name="twitter:image" content={ogImageURL} />
 
   {isHome && <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />}
+  {jsonLdExtra.map((block) => (
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(block)} />
+  ))}
 
   <!-- 页面切换平滑过渡（View Transitions），无刷新动画切换「导航 / 资源」 -->
   <ViewTransitions />

@@ -143,9 +143,48 @@ const siblings = [...new Set(all.map((e) => e.data.category))]
     slug: categoryFolder[c] ?? c,
     count: all.filter((e) => e.data.category === c).length,
   }));
+
+// 【结构化数据 2026-09-26】分类落地页的 JSON-LD：
+// CollectionPage（本页语义） + ItemList（页内收录清单，让富结果理解「这一页是一份目录」）
+// + BreadcrumbList（面包屑，搜索结果里可替代裸 URL 显示层级路径）。
+// ItemList 只取前 100 条：这是列表型富结果实践中的上限建议；本页最多 67 张卡，实际是全量收录。
+const SITE_ORIGIN = 'https://locatemc.com';
+const catUrl = `${SITE_ORIGIN}/nav/${catSlug}/`;
+const catCards = [...plainCards, ...subGroups.flatMap((g) => g.cards)];
+const jsonLdExtra = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: pageTitle,
+    description: pageDescription,
+    url: catUrl,
+    inLanguage: 'zh-CN',
+    isPartOf: { '@type': 'WebSite', name: 'LocateMC', url: `${SITE_ORIGIN}/` },
+    mainEntity: {
+      '@type': 'ItemList',
+      name: `Minecraft ${name} 站点列表`,
+      numberOfItems: catCards.length,
+      itemListElement: catCards.slice(0, 100).map((c, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: c.title,
+        description: c.description,
+        url: `${SITE_ORIGIN}/nav/${catSlug}/${c.slug}/`,
+      })),
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: '首页', item: `${SITE_ORIGIN}/` },
+      { '@type': 'ListItem', position: 2, name, item: catUrl },
+    ],
+  },
+];
 ---
 
-<AppLayout title={pageTitle} description={pageDescription} showViewToggle={false} hideSidebar>
+<AppLayout title={pageTitle} description={pageDescription} showViewToggle={false} hideSidebar jsonLdExtra={jsonLdExtra}>
   <article class="cat-page">
     <nav class="breadcrumb" aria-label="面包屑">
       <a href="/" data-astro-prefetch="load">首页</a>
