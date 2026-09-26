@@ -1,6 +1,6 @@
 ---
 title: 'MixinSquared Wiki'
-description: '一个允许开发者将多个 Mixin 配置应用到同一个类上的高级扩展库。'
+description: 'MixinSquared 是 Bawnorton 创建的高级 Mixin 扩展库官方维基，突破一个类只能被单一 Mixin 配置修改的限制，支持多配置同应用于一类。'
 href: 'https://github.com/Bawnorton/MixinSquared/wiki'
 icon: '/icons/sample.webp'
 category: '开发'

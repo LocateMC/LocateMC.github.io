@@ -1,6 +1,6 @@
 ---
 title: 'MCSeedMap'
-description: '直观的在线种子查看器，快速预览世界地图与关键结构。'
+description: 'MCSeedMap 是轻量种子在线查看器，输入种子与版本即预览世界地图，可切换图层查看生物群系及村庄、神殿等结构位置，比 Chunk Base 更简洁易上手。'
 href: 'https://mcseedmap.net/'
 icon: '/icons/mcseedmap.webp' # 假设图标文件名
 category: '在线工具' # 用于分类

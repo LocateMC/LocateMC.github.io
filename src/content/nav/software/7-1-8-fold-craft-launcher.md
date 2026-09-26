@@ -1,6 +1,6 @@
 ---
 title: 'Fold Craft Launcher'
-description: 'Android 端的 Minecraft: Java Edition 启动器，核心移植自 HMCL，模组加载器支持齐全、更新活跃。'
+description: 'Fold Craft Launcher 是 Android 端 Minecraft Java 版启动器，移植自 HMCL，支持 Forge、Fabric、Quilt。'
 href: 'https://github.com/FCL-Team/FoldCraftLauncher'
 icon: '/icons/fold-craft-launcher.webp'
 category: '软件程序' # 用于分类

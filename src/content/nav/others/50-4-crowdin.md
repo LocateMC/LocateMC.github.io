@@ -1,6 +1,6 @@
 ---
 title: 'Crowdin - Minecraft'
-description: 'Mojang 官方在 Crowdin 平台上发起的、面向社区的官方游戏文本翻译与本地化项目。'
+description: 'Crowdin - Minecraft 是 Mojang 官方发起的游戏文本翻译项目，邀请全球多语种志愿者翻译校对游戏内文本，是官方与社区的语言桥梁。'
 href: 'https://crowdin.com/project/minecraft'
 icon: '/icons/crowdin.webp'
 category: '收纳' # 用于分类

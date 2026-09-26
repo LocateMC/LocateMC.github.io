@@ -1,6 +1,6 @@
 ---
 title: '英文基岩版开发者 Wiki'
-description: '一个由社区驱动的、专注于基岩版技术细节的综合性技术维基和资源中心。'
+description: '英文社区技术维基由社区驱动维护，专注基岩版技术细节，覆盖命令、实体组件、附加包高级技巧、Bug 修复与官方文档未深入的未公开细节。'
 href: 'https://wiki.bedrock.dev/'
 icon: '/icons/wiki-bedrock-dev.webp'
 category: '开发'

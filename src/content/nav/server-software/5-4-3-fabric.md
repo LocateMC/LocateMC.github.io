@@ -1,6 +1,6 @@
 ---
 title: "Fabric"
-description: "轻量现代的 Minecraft 模组加载器，启动快、版本跟进快、生态活跃。"
+description: "新一代轻量级 Java 版模组加载框架，以模块化设计与极快的版本更新速度著称，配合 Fabric API 已长成庞大活跃的现代模组生态，客户端与服务端皆可加载。"
 href: "https://fabricmc.net/"
 icon: "/icons/fabric.webp"
 category: "服务端"

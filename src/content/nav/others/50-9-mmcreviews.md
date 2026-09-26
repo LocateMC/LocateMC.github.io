@@ -1,6 +1,6 @@
 ---
 title: 'MMC Reviews'
-description: '一个由社区驱动的、专注于为 Minecraft Java 版的模组和整合包提供诚实、全面评论的平台。'
+description: 'MMC Reviews 是 CalaMariGold 建立的独立评测站，为 Java 版模组与整合包提供社区驱动的真实评论与评分，经版主审核，致力发掘被埋没的隐藏瑰宝。'
 href: 'https://moddex.gg/'
 icon: '/icons/mmcreviews.webp'
 category: '收纳' # 用于分类

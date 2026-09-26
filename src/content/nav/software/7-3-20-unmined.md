@@ -1,6 +1,6 @@
 ---
 title: "uNmINeD"
-description: "跨平台 Minecraft 世界地图查看与渲染工具"
+description: "uNmINeD 是免费跨平台的 Minecraft 世界地图查看与渲染工具，读取 Java 版、基岩版乃至 Hytale 存档并渲染为可缩放地图与网页。"
 href: "https://unmined.net"
 icon: "/icons/unmined.webp"
 category: "软件程序"

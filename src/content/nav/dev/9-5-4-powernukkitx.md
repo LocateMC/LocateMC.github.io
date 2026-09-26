@@ -1,6 +1,6 @@
 ---
 title: 'PowerNukkitX'
-description: '一个高性能的 Nukkit 服务器软件分支，专注于性能优化、多线程处理和对新版游戏特性的支持。'
+description: 'PowerNukkitX 是 Nukkit 的高性能分支，在兼容插件生态的同时重构底层架构，引入多线程处理区块加载与实体更新，并更快跟进游戏新版本。'
 href: 'https://docs.powernukkitx.org/'
 icon: '/icons/powernukkitx.webp'
 category: '开发'

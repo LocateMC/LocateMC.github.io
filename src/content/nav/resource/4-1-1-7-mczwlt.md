@@ -1,6 +1,6 @@
 ---
 title: '红石中继站'
-description: '体验驱动的中文资源平台，提供模组、插件与整合包高速下载。'
+description: '面向中文社区的现代化 Minecraft 资源平台，收录海量模组、插件、整合包、资源包与光影，以纯净高速的下载体验成为中文玩家首选之一。'
 href: 'https://www.mczwlt.net/'
 icon: '/icons/mczwlt.webp' # 假设图标文件名
 category: '资源' # 分类为资源

@@ -1,6 +1,6 @@
 ---
 title: 'Note Block Studio'
-description: '强大的音乐创作软件，将 MIDI 转换为红石音乐。'
+description: 'Note Block Studio 是专门创作 Minecraft 音符盒音乐的软件，提供钢琴卷帘式编排并支持导入 MIDI，自动转换为游戏内结构。'
 href: 'https://noteblock.studio/'
 icon: '/icons/noteblockstudio.webp' # 假设图标文件名
 category: '软件程序'

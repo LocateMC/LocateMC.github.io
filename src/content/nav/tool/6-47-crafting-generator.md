@@ -1,6 +1,6 @@
 ---
 title: '自定义合成配方'
-description: '由 TheDestruc7i0n 开发的，专门用于为数据包 (Datapack) 生成自定义合成配方的在线工具。'
+description: '自定义合成配方生成器由 TheDestruc7i0n 开发，用类工作台界面拖放物品即生成符合规范的 JSON 合成配方，免去手动编写。'
 href: 'https://crafting.thedestruc7i0n.ca'
 icon: '/icons/crafting-generator.webp'
 category: '在线工具' # 用于分类

@@ -1,6 +1,6 @@
 ---
 title: 'DigMinecraft'
-description: '英文世界主流的图文教程站，提供分步教程、命令生成器与海量配方/数据查询。'
+description: 'DigMinecraft 是独立作者长期维护的英文图文教程站，以分步讲解加配图覆盖生存、合成、命令与附魔，内置命令生成器与海量配方查询，是被引用最高的教学资源之一。'
 href: 'https://www.digminecraft.com/'
 icon: '/icons/digminecraft.webp'
 category: '百科'

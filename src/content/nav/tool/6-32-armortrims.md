@@ -1,6 +1,6 @@
 ---
 title: 'Armor Trims'
-description: '一个专门用于设计和实时预览盔甲锻造模板（Armor Trims）组合效果的在线工具。'
+description: 'ArmorTrims.com 是专注 1.20 盔甲锻造的在线可视化工具，为各材质盔甲搭配全部模板与材料并在 3D 模型上实时预览组合效果。'
 href: 'https://www.armortrims.com/'
 icon: '/icons/armortrims.webp'
 category: '在线工具' # 用于分类

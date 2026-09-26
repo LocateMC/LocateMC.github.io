@@ -1,6 +1,6 @@
 ---
 title: "Lophine"
-description: "基于 Folia 的分支服务端，专注在 Folia 上补齐更多生电内容与可配置优化。"
+description: "基于 Folia 的服务端分支，在 Folia 上补齐更多生电（红石/技术）内容与实用功能，修复已知问题并提供大量可配置原版特性开关。"
 href: "https://github.com/LophineLabs/Lophine"
 icon: "/icons/lophine.webp"
 category: "服务端"

@@ -1,6 +1,6 @@
 ---
 title: "附魔计算器"
-description: "计算最佳附魔顺序，以最小化经验消耗的经典在线工具。"
+description: "Enchant Order Calculator 由 iamcal 开发，解决铁砧附魔合并最优顺序：选定物品与附魔即生成合并树，以最低经验成本避免「过于昂贵」。"
 href: "https://iamcal.github.io/enchant-order/"
 icon: "/icons/sample.webp"
 category: "在线工具"

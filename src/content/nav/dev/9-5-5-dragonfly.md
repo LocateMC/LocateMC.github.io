@@ -1,6 +1,6 @@
 ---
 title: 'Dragonfly'
-description: '一个完全用 Go 语言从头编写的、高性能的基岩版 (Bedrock Edition) 服务器软件。'
+description: 'Dragonfly 是完全用 Go 语言为基岩版从零编写的全新独立服务器软件，追求极致性能与简洁性，充分利用 Go 在并发处理与开发效率上的优势。'
 href: 'https://github.com/df-mc/dragonfly/wiki'
 icon: '/icons/dragonfly.webp'
 category: '开发'

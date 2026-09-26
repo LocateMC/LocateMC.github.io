@@ -1,6 +1,6 @@
 ---
 title: 'Block Palettes'
-description: '为建筑玩家提供和分享各种方块搭配调色板的在线灵感库。'
+description: 'Block Palettes 是方块调色板分享平台，收录社区搭配好的和谐组合，可按中世纪、现代等风格浏览，也能从核心方块找相配方案。'
 href: 'https://www.blockpalettes.com'
 icon: '/icons/blockpalettes.webp'
 category: '在线工具' # 用于分类

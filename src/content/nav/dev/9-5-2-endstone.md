@@ -1,6 +1,6 @@
 ---
 title: 'Endstone'
-description: '一个基于 Python 实现的、旨在与 Bukkit/Spigot 插件生态兼容的基岩版服务器软件。'
+description: 'Endstone 是用 Python 编写的基岩版服务器，兼容为 Java 版 Bukkit/Spigot/Paper 插件，让基岩服加载运行 Java 版插件。'
 href: 'https://endstone.dev/'
 icon: '/icons/endstone.webp'
 category: '开发'

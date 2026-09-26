@@ -1,6 +1,6 @@
 ---
 title: 'SkinMC'
-description: '一个功能强大的皮肤数据库，以其独特的“颜色相似度搜索”功能而著称。'
+description: '海量皮肤的在线数据库，除常规关键词搜索与热门榜单外，核心特色是颜色相似度搜索：上传一张皮肤即可从库中找出视觉最相似的其他皮肤，方便玩家发现同风格外观。'
 href: 'https://skinmc.net/'
 icon: '/icons/skinmc.webp'
 category: '资源' # 分类为资源

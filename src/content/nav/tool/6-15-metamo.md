@@ -1,6 +1,6 @@
 ---
 title: 'Metamo 工具箱'
-description: '一个由 Metamo 社区提供的在线工具箱，专注于为服务器服主和玩家提供便捷的命令生成与信息查询服务。'
+description: 'Metamo 工具箱由社区开发，面向服主与玩家，提供 MOTD、JSON 文本、粒子指令等生成器，以及头颅、UUID 与 ID 的快速查询。'
 href: 'https://mc.metamo.cn/tool/'
 icon: '/icons/metamo.webp'
 category: '在线工具' # 用于分类

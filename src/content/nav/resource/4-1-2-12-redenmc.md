@@ -1,6 +1,6 @@
 ---
 title: 'RedenMC'
-description: '一个专为红石爱好者打造的在线社区与工具平台，提供原理图生成、分享与编辑功能。'
+description: '专为 Minecraft 红石爱好者打造的集成式在线平台，提供强大的在线工具与社区功能，目标是为全球红石玩家创造创作与交流的「红石天堂」。'
 href: 'https://redenmc.com/'
 icon: '/icons/redenmc.webp'
 category: '资源' # 分类为资源

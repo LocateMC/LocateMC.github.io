@@ -1,6 +1,6 @@
 ---
 title: "Abfielder's Schematics"
-description: '分享和发现建筑蓝图（Schematics）的平台。'
+description: '分享、发现、下载建筑蓝图的平台，由个人开发者全职维护，定位高质量、家庭友好的社区，所有上传内容均经过手动审核，为玩家提供可靠内容。'
 href: 'https://www.abfielder.com/'
 icon: '/icons/abfielder.webp'
 category: '资源' # 分类为资源

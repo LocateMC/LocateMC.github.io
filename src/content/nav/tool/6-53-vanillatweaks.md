@@ -1,6 +1,6 @@
 ---
 title: 'Vanilla Tweaks'
-description: '一个用于定制和下载资源包、数据包和合成配方的模块化工具网站。'
+description: 'Vanilla Tweaks 是广受欢迎的原版增强站，用模块化「勾选」让玩家高度定制体验，提供资源包、数据包与合成配方三类微调，在保持原版玩法的前提下优化体验。'
 href: 'https://vanillatweaks.net/'
 icon: '/icons/vanillatweaks.webp'
 category: '在线工具' # 用于分类

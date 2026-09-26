@@ -1,6 +1,6 @@
 ---
 title: 'BuiltByBit'
-description: '一个大型的、专业的游戏资源交易市场，服主和开发者可在此买卖插件、建筑、配置等数字商品。'
+description: '大型专业数字商品交易平台（前身 MC-Market），服主与开发者在此买卖付费插件、高质量建筑、服务器配置、艺术设计与完整整合包。'
 href: 'https://builtbybit.com/resources/categories/minecraft.27/'
 icon: '/icons/builtbybit.webp'
 category: '资源' # 分类为资源

@@ -1,6 +1,6 @@
 ---
 title: "NeoForged"
-description: "Forge 的新兴分支，接续 1.20.4+ 新版本模组加载的官方继任者。"
+description: "从 Minecraft Forge 分叉的社区主导模组加载器，自 1.20.4 起接棒新版本模组生态的维护与开发，以更开放治理与更快版本跟进受开发者欢迎。"
 href: "https://neoforged.net/"
 icon: "/icons/neoforge-docs.webp"
 category: "服务端"

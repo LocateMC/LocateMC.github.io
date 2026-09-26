@@ -1,6 +1,6 @@
 ---
 title: 'NCC 新都市連合'
-description: '一个集结了都市开发玩家的联盟，旨在成为一个信息交换与互助合作的社群集合据点。'
+description: 'NCC 新都市連合是面向各版本都市开发玩家的社群联盟，通过统一 Wiki 交换信息、展示加盟都市并促成互助合作，是都市开发者的行会与总登记处。'
 href: 'https://ncc.buildmc.jp/'
 icon: '/icons/newcitycoalition.webp' # 假设图标文件名
 category: '工作室 & 组织' # 用于分类

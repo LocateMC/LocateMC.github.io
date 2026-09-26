@@ -1,6 +1,6 @@
 ---
 title: 'VM 汉化组'
-description: '一个专注于高质量汉化整合包与地图，并以非盈利模式运作的汉化组织。'
+description: 'VM 汉化组是用爱发电的非盈利团队，专注翻译优质国外整合包与地图，多数作品经官方授权且仅以补丁发布，还开发游戏内检查推送汉化的专用模组。'
 href: 'https://vmct-cn.top'
 icon: '/icons/vmchinesegroup.webp'
 category: '工作室 & 组织' # 用于分类

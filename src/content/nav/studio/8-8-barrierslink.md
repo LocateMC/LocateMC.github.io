@@ -1,6 +1,6 @@
 ---
 title: '联壁计划'
-description: '一个致力于翻译和引进优秀海外地图作品的本地化组织，旨在成为连接全球创作者与中国玩家的桥梁。'
+description: '联壁计划是专注 Minecraft 地图本地化的项目，翻译并分享优秀海外冒险与解密地图，以「熟肉」形式在官网集中发布，是消除语言障碍、把全球创意内容引入中文社区的桥梁。'
 href: 'https://barrierslink.cn'
 icon: '/icons/barrierslink.webp'
 category: '工作室 & 组织' # 用于分类

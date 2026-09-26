@@ -1,6 +1,6 @@
 ---
 title: 'CurseForge'
-description: '历史悠久的模组托管平台，拥有全面的资源与整合包库。'
+description: '全球最大、历史最久的 Minecraft 内容托管平台，资源库近乎最全，模组、整合包、资源包与插件均以此为主发布渠道，并提供官方启动器。'
 href: 'https://www.curseforge.com/minecraft'
 icon: '/icons/curseforge.webp' # 假设图标文件名
 category: '资源' # 用于分类

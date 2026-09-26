@@ -1,6 +1,6 @@
 ---
 title: 'CrackedCubes'
-description: '一个官方认证的合作伙伴 (Official Minecraft Partner)，专注于为官方基岩版市场 (Marketplace) 创作高质量的内容。'
+description: 'CrackedCubes 是经 Mojang 官方认证的 Minecraft 合作伙伴，专为基岩版市场创作冒险地图、皮肤包与迷你游戏，从社区团队转型为商业工作室。'
 href: 'https://www.crackedcubes.co.uk'
 icon: '/icons/crackedcubes.webp'
 category: '市场' # 用于分类

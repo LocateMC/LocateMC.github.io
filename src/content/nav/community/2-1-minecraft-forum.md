@@ -1,6 +1,6 @@
 ---
 title: 'Minecraft Forum'
-description: '历史悠久的英文论坛，早期模组与全球社区文化的发源地。'
+description: 'Minecraft Forum 是全球历史最悠久的英文 MC 论坛，几乎所有早期模组、材质、地图都在此发布，2010 年成立，历经收购，如今仍是社区的数字档案馆与活化石。'
 href: 'https://www.minecraftforum.net/'
 icon: '/icons/minecraft-forum.webp' # 假设图标文件名
 category: '社区' # 用于分类

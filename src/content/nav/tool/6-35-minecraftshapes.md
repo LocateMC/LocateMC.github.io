@@ -1,6 +1,6 @@
 ---
 title: '几何形状生成器'
-description: '一个专门用于生成各种复杂几何形状建造蓝图的在线工具。'
+description: 'Minecraft Shapes Generator 为建筑玩家自动计算几何形状，可选圆、球、穹顶、环面等并输入尺寸，生成由方块构成的搭建蓝图。'
 href: 'https://minecraftshapes.com/'
 icon: '/icons/minecraftshapes.webp'
 category: '在线工具' # 用于分类

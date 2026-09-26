@@ -1,6 +1,6 @@
 ---
 title: 'Nova Skin'
-description: '一个功能强大的在线创意套件，以其先进的 3D 皮肤编辑器、壁纸生成器和资源包编辑器而闻名。'
+description: 'Nova Skin 是网页版创意套件，以先进 3D 皮肤编辑器闻名，同时内置壁纸生成器与资源包编辑器，免费在浏览器里一站式完成皮肤与材质创作。'
 href: 'https://minecraft.novaskin.me/'
 icon: '/icons/novaskin.webp'
 category: '在线工具' # 用于分类

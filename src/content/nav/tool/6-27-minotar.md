@@ -1,6 +1,6 @@
 ---
 title: 'Minotar'
-description: '一个简单、快速且免费的玩家皮肤 API 服务，为开发者提供多种尺寸的玩家头像和皮肤图像。'
+description: 'Minotar 是面向开发者的极简皮肤公共 API，仅靠拼接链接即可获取任意正版玩家的头像、头部渲染图或完整皮肤文件，高缓存高可用。'
 href: 'https://minotar.net'
 icon: '/icons/minotar.webp'
 category: '在线工具' # 用于分类

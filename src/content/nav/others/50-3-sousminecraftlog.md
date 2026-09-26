@@ -1,6 +1,6 @@
 ---
 title: 'SOUのマイクラログ'
-description: '一个由个人创作者 SOU 运营的博客，专注于分享外观时尚、制作简单、尺寸紧凑的建筑教程。'
+description: 'SOUのマイクラログ是博主 SOU 的个人建筑博客，主打时尚美观、制作简单且紧凑的 10x10 建筑教程，每周更新配效果图与视频，已积累 230 余篇。'
 href: 'https://minecraft-log.com'
 icon: '/icons/sousminecraftlog.webp' # 假设图标文件名
 category: '收纳' # 用于分类

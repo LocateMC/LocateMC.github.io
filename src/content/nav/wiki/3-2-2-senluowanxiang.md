@@ -1,6 +1,6 @@
 ---
 title: '森罗万象'
-description: '中文 Minecraft 资源包制作指南，深挖原版与 OptiFine 资源包的技术细节。'
+description: '森罗万象（ResGuide）是 SQwatermark 编写的中文 Java 版资源包制作指南，系统讲解原版资源包规范与 OptiFine 的 CTM、动态材质。'
 href: 'https://sqwatermark.com/resguide/'
 icon: '/icons/senluowanxiang.webp'
 category: '百科'

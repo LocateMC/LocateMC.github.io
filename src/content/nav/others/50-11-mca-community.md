@@ -1,6 +1,6 @@
 ---
 title: 'MCA Community'
-description: '日本《我的世界》基岩版铁路与车辆附加包开发团体，MCA / MTC 控制系统的开发者与附加包配布所。'
+description: 'MCA Community 是日本基岩版铁路与车辆附加包开发团体，前身浜急電鉄，2021 年 8 月独立，负责 MCA 与 MTC 控制系统的开发、发布与用户交流。'
 href: 'https://mca.cloudfree.jp/'
 icon: '/icons/mca-community.webp'
 category: '收纳' # 用于分类

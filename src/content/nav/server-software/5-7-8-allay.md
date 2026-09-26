@@ -1,6 +1,6 @@
 ---
 title: "Allay"
-description: "Java 从零实现的基岩版服务端，多版本架构 + JVM 插件生态。"
+description: "使用 Java 21 从零编写的基岩版服务端，多版本架构一次部署兼容多个基岩协议版本（含网易版 1.21.90 至国际版 1.26.44），避免玩家因版本不匹配流失。"
 href: "https://github.com/AllayMC/Allay"
 icon: "/icons/allaymc.webp"
 category: "服务端"

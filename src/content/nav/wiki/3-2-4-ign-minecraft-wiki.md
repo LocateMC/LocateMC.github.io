@@ -1,6 +1,6 @@
 ---
 title: 'IGN Minecraft Wiki'
-description: 'IGN 旗下由专业编辑团队撰写的 Minecraft 专家级图文教程与百科，覆盖新手生存、合成、命令、附魔、药水与生物图鉴等。'
+description: 'IGN Minecraft Wiki 是知名媒体 IGN 旗下由专业编辑撰写的专家级图文教程与百科，覆盖新手生存、合成、命令、附魔与生物图鉴，随版本持续更新。'
 href: 'https://www.ign.com/wikis/minecraft'
 icon: '/icons/ign-minecraft-wiki.webp'
 category: '百科'

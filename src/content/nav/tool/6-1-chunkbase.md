@@ -1,6 +1,6 @@
 ---
 title: "Chunk Base"
-description: "强大的在线工具集，以其世界种子地图与生物群系查找器闻名。"
+description: "输入世界种子与游戏版本，即可在浏览器中生成完整地图并精确定位生物群系、区块、村庄、要塞、史莱姆区块和林地府邸等结构的在线工具，同时支持 Java 版与基岩版。"
 href: "https://www.chunkbase.com/apps/"
 icon: "/icons/chunkbase.webp"
 category: "在线工具"

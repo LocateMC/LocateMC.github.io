@@ -1,6 +1,6 @@
 ---
 title: '百度贴吧 Minecraft 吧'
-description: '国内历史最悠久的玩家聚集地，用户交流的综合社区。'
+description: '百度贴吧 Minecraft 吧（MC 吧）是国内历史最久、规模最大的 MC 主题社区，门槛低、用户庞大，涵盖新手提问、资源分享与同人文，是草根玩家大本营。'
 href: 'https://tieba.baidu.com/f?kw=minecraft'
 icon: '/icons/tieba-minecraft.webp' # 假设图标文件名
 category: '社区' # 用于分类

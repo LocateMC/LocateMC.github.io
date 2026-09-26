@@ -1,6 +1,6 @@
 ---
 title: "Pterodactyl"
-description: "开源游戏服托管面板，Docker 隔离运行，支持多节点与海量游戏。"
+description: "Pterodactyl（翼龙面板）是国际知名的开源游戏服务器管理面板，以 Docker 容器隔离运行服务器，提供网页开服、监控与多节点管理。"
 href: "https://pterodactyl.io"
 icon: "/icons/pterodactyl.webp"
 category: "软件程序"

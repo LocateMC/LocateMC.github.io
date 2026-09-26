@@ -1,6 +1,6 @@
 ---
 title: 'MixinExtras Wiki'
-description: '一个为 Mixin 框架提供额外注解和实用功能的非官方扩展库的官方维基。'
+description: 'MixinExtras 是 LlamaLad7 创建的 Mixin 扩展库官方维基，补充 @WrapOperation 等标准 Mixin 缺少的实用注解。'
 href: 'https://github.com/LlamaLad7/MixinExtras/wiki/'
 icon: '/icons/sample.webp'
 category: '开发'

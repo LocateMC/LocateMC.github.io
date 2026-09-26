@@ -1,6 +1,6 @@
 ---
 title: 'OptiFine Shaders 文档'
-description: '由 OptiFine 作者 sp614x 亲自编写和维护的、最原始且最权威的 OptiFine 光影包技术规范文档。'
+description: 'OptiFine 官方 GitHub 上的技术规范文档，由作者 sp614x 编写维护，定义光影包完整标准，涵盖文件结构、渲染管线、uniform 变量与配置格式。'
 href: 'https://github.com/sp614x/optifine/blob/master/OptiFineDoc/doc/shaders.txt'
 icon: '/icons/optifine.webp'
 category: '开发'

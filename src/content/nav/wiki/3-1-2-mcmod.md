@@ -1,6 +1,6 @@
 ---
 title: 'MCMOD 中文模组百科'
-description: '专注模组中文百科，提供详尽模组教程、数据与联动查询。'
+description: 'MCMOD 中文模组百科是玩家驱动的垂直模组百科，收录数万模组介绍、合成与物品数据，以强大的联动查询著称，集数据查询、教程与社区问答于一体，是国内最权威的模组主题图典。'
 href: 'https://www.mcmod.cn/'
 icon: '/icons/mcmod.webp'
 category: '百科' # 用于分类

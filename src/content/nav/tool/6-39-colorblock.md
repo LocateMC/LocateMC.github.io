@@ -1,6 +1,6 @@
 ---
 title: '粒子指令生成器'
-description: '一个由 Minecraft_OCEAN 开发的、专注于生成复杂粒子动画效果指令的在线工具。'
+description: 'ColorBlock 由 Bilibili UP 主 Minecraft_OCEAN 打造，侧重数学的粒子指令生成器，支持三角函数与极坐标，调参即设计动态特效并生成命令。'
 href: 'https://mc.ecylt.top/'
 icon: '/icons/colorblock.webp'
 category: '在线工具' # 用于分类

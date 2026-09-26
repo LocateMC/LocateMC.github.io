@@ -1,6 +1,6 @@
 ---
 title: 'CTM Repository'
-description: '专注于“完成纪念碑 (Complete the Monument)”类型地图的中央存储库和社区中心。'
+description: '高度专业化的网站，作为完成纪念碑（CTM）地图类型的中央存储库与社区中心，系统收录分类存档了社区中几乎所有的 CTM 地图，堪称这一类型在网络上的总目录。'
 href: 'https://ctmrepository.com'
 icon: '/icons/ctm-repository.webp'
 category: '资源' # 分类为资源

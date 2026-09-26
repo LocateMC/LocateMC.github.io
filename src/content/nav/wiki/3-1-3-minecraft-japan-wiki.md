@@ -1,6 +1,6 @@
 ---
 title: 'Minecraft Japan Wiki'
-description: '一个由日本玩家社区共同维护的大型综合性维基（百科全书）。'
+description: 'Minecraft Japan Wiki 是由日本玩家社区在 Miraheze 共建的大型综合维基，以母语详尽记录方块、红石、命令与版本历史，是日本最权威的知识库之一。'
 href: 'https://minecraftjapan.miraheze.org/wiki/Minecraft_Japan_Wiki'
 icon: '/icons/minecraft-japan-wiki.webp'
 category: '百科' # 用于分类

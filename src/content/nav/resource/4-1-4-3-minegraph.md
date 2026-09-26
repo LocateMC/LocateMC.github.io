@@ -1,6 +1,6 @@
 ---
 title: 'MGC 中文图形站'
-description: '中文图形技术交流社区，聚焦光影、资源包与渲染教程。'
+description: '专注 Minecraft 图形技术与视觉艺术的中文社区，收录分享高质量光影、资源包与专业渲染教程，交流氛围浓厚，为玩家提供追求极致视觉的平台。'
 href: 'https://www.minegraph.cn/'
 icon: '/icons/minegraph.webp' # 假设图标文件名
 category: '资源' # 分类为资源

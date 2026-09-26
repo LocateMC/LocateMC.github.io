@@ -1,6 +1,6 @@
 ---
 title: 'BBSMC'
-description: '现代化的综合玩家社区，为 Java 与基岩版提供优质交流平台。'
+description: '采用现代化架构的综合性 Minecraft 玩家论坛，为 Java 与基岩版设立对等板块，涵盖模组、插件、地图、材质与问答等全方位内容。'
 href: 'https://bbsmc.net/'
 icon: '/icons/bbsmc.webp' # 假设图标文件名
 category: '资源' # 用于分类

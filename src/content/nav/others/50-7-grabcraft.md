@@ -1,6 +1,6 @@
 ---
 title: 'GrabCraft'
-description: '一个提供海量建筑蓝图和分步建造教程的在线平台，以其逐层搭建指南而闻名。'
+description: 'GrabCraft 是提供数千个建筑蓝图与分步教程的大型平台，以逐层 3D 建造指南和精确材料清单著称，让玩家照图施工，是生存模式建筑师的说明书。'
 href: 'https://www.grabcraft.com'
 icon: '/icons/grabcraft.webp'
 category: '收纳' # 用于分类

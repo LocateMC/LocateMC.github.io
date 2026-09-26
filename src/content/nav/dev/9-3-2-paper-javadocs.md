@@ -1,6 +1,6 @@
 ---
 title: 'PaperMC Javadocs'
-description: '高性能服务器软件 PaperMC 及其相关项目的 Java API 参考文档 (Javadocs)。'
+description: 'Paper Javadocs 是 Paper 及其生态（如 Velocity）的 Java API 参考，由源码注释自动生成，供插件开发者快速精确查询每个类、方法与字段。'
 href: 'https://papermc.io/javadocs/'
 icon: '/icons/papermc.webp'
 category: '开发'

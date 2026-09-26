@@ -1,6 +1,6 @@
 ---
 title: 'MCC'
-description: '强大的命令行客户端，用于自动化任务与低资源占用挂机。'
+description: 'Minecraft Console Client（MCC）是开源跨平台命令行客户端，无需图形界面即可连接服务器，以极低资源占用进行挂机与执行命令。'
 href: 'https://github.com/MCCTeam/Minecraft-Console-Client'
 icon: '/icons/mcc.webp' # 假设图标文件名
 category: '软件程序'

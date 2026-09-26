@@ -1,6 +1,6 @@
 ---
 title: "Purpur"
-description: "基于 Paper 的高可配置服务端分支，玩法自由度最高的服务端核心之一。"
+description: "基于 Paper 的第三方服务端分支，继承 Paper 全部性能优势，额外提供大量独有配置项，让服主自由调整玩法细节，自由度极高。"
 href: "https://purpurmc.org/"
 icon: "/icons/purpur.webp"
 category: "服务端"

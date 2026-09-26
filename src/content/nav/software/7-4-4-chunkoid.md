@@ -1,6 +1,6 @@
 ---
 title: "Chunkoid"
-description: "安卓端 JE-BE 世界转换器"
+description: "Android 端的 Minecraft 存档转换工具，无需电脑即可在基岩版与 Java 版之间双向互转存档、升降游戏版本并转换材质包格式，开源免费（GPL v3）。"
 href: "https://chunkoid.top"
 icon: "/icons/chunkoid.webp"
 category: "软件程序"

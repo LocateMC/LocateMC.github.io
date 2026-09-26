@@ -1,6 +1,6 @@
 ---
 title: 'Iris 文档'
-description: '现代光影加载器 Iris 的官方技术文档，为光影开发者提供权威的教程、参考和指南。'
+description: 'Iris 文档是光影加载器 Iris 的官方技术文档，面向光影开发者，提供使其与 Iris 及 Sodium 渲染引擎兼容的从入门到精通的教程与指南。'
 href: 'https://shaders.properties/'
 icon: '/icons/iris.webp'
 category: '开发'

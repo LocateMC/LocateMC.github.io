@@ -1,6 +1,6 @@
 ---
 title: 'NeoForge 文档'
-description: '现代模组平台 NeoForge 的官方技术文档，旨在为开发者提供一个面向未来的、结构化的开发指南。'
+description: 'NeoForge 文档是 NeoForge 模组平台的官方技术文档，项目从 Forge 分支以解决历史技术债，为开发者提供从入门到精通的权威教程与参考。'
 href: 'https://docs.neoforged.net/'
 icon: '/icons/neoforge-docs.webp'
 category: '开发'

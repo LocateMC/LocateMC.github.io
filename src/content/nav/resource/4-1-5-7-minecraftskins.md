@@ -1,6 +1,6 @@
 ---
 title: 'Minecraft Skins'
-description: '一个提供精选和原创角色皮肤设计的分享网站，注重质量而非数量。'
+description: '独立的角色外观分享网站，与 The Skindex 不同，主打人工精选的高质量设计，首页展示取材影视、游戏与神话的精良创意作品，质量优先于数量。'
 href: 'https://www.minecraftskins.net/'
 icon: '/icons/minecraftskins.webp'
 category: '资源' # 分类为资源

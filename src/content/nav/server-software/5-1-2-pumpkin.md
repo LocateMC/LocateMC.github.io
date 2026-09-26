@@ -1,6 +1,6 @@
 ---
 title: "Pumpkin"
-description: "Rust 编写的高性能原版风格服务端，兼容最新 Java 版协议（Bedrock 开发中）。"
+description: "完全使用 Rust 从零编写的 Minecraft 服务器软件，支持最新 Java 版协议（基岩版支持开发中），以多线程架构与高效内存管理著称，适合托管高效服务器。"
 href: "https://pumpkinmc.org/"
 icon: "/icons/pumpkin.webp"
 category: "服务端"

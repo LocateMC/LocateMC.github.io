@@ -1,6 +1,6 @@
 ---
 title: 'CreateMod 投影站'
-description: '游戏中的“投影”文件分享和下载的社区平台，专为“机械动力 (Create)”模组设计。'
+description: '专为机械动力（Create）模组打造的投影分享平台，玩家可上传、分享、下载供投影仪使用的 .nbt 蓝图文件，实现机械装置的自动搭建。'
 href: 'https://createmod.com/'
 icon: '/icons/createmod.webp'
 category: '资源' # 分类为资源

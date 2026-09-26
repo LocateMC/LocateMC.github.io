@@ -1,6 +1,6 @@
 ---
 title: 'Hielke Maps'
-description: '由创作者 Hielke 打造的跑酷地图系列网站。'
+description: '由地图制作者 Hielke 运营的个人网站，专门发布其创作的 Minecraft 跑酷地图，是这些高质量、富挑战性作品的主要展示窗口。'
 href: 'https://hielkemaps.com/'
 icon: '/icons/hielkemaps.webp'
 category: '资源' # 分类为资源

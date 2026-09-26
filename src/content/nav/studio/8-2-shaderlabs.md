@@ -1,6 +1,6 @@
 ---
 title: 'shaderLABS'
-description: '一个专注于光影包（Shader Packs）开发的技术文档与信息中心的社区维基。'
+description: 'shaderLABS 是由社区维护的 Minecraft 光影技术维基，记录 Iris 与 OptiFine 的渲染管线、LabPBR 材质标准，为光影开发者提供知识链。'
 href: 'https://shaderlabs.org/wiki/Main_Page'
 icon: '/icons/shaderlabs.webp' # 假设图标文件名
 category: '工作室 & 组织'

@@ -1,6 +1,6 @@
 ---
 title: 'Japan Crafters Union'
-description: '一个专注于为基岩版官方市场创作和发布高品质世界与皮肤包的日本顶尖建筑创作者联盟。'
+description: 'Japan Crafters Union 是日本的顶尖建筑创作者联盟，专为官方基岩版市场开发冒险世界与皮肤包，聚合独立团队，充当日本创意与官方平台的桥梁。'
 href: 'https://crafters-union.jp/'
 icon: '/icons/japancraftersunion.webp' # 假设图标文件名
 category: '工作室 & 组织'

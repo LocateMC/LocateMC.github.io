@@ -1,6 +1,6 @@
 ---
 title: 'MC Skin Search'
-description: '通过输入玩家名称来查找并下载其当前皮肤的在线工具。'
+description: 'MC Skin Search 极致专一：输入玩家游戏 ID 即找出并下载其当前皮肤，不提供社区库与热门列表，专做精准取件，满足玩家直达需求。'
 href: 'https://mcskinsearch.com'
 icon: '/icons/sample.webp'
 category: '在线工具' # 用于分类

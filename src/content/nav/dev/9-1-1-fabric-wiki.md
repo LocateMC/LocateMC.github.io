@@ -1,6 +1,6 @@
 ---
 title: 'Fabric Wiki'
-description: 'Fabric 模组加载器的官方文档与教程维基，为开发者提供从入门到精通所需的一切技术资源。'
+description: 'Fabric Wiki 是轻量模组加载器 Fabric 的官方文档与社区维基，提供从环境搭建、首个模组到 Fabric API、Mixin 与游戏映射等主题的权威教程。'
 href: 'https://wiki.fabricmc.net/start'
 icon: '/icons/fabric.webp'
 category: '开发'

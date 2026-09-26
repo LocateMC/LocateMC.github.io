@@ -1,6 +1,6 @@
 ---
 title: "MohistMC"
-description: "Bukkit + Forge 混合端，插件与模组同服的国内主流选择。"
+description: "基于 Forge 的混合服务端，能同时加载 Forge 模组与 Bukkit/Spigot 插件，让服主兼顾模组玩法与管理插件，是国内混合端服务器的主流方案之一。"
 href: "https://mohistmc.com/"
 icon: "/icons/mohistmc.webp"
 category: "服务端"

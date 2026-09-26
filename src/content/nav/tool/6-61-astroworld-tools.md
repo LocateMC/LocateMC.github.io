@@ -1,6 +1,6 @@
 ---
 title: "Astroworld Tools"
-description: "Astroworld 网络旗下面向 Java 与基岩版的免费 MC 服务器工具集，31 款免注册无广告的在线工具，覆盖文字、命令、服务器配置、查询与视觉创作。"
+description: "Astroworld Tools 是免费无广告的 MC 工具集，共 31 款分 6 大类覆盖文字、服务器规划、坐标、命令配置与视觉创作，对服主实用。"
 href: "https://tools.astroworldmc.com"
 icon: "/icons/astroworld-tools.webp"
 category: "在线工具"

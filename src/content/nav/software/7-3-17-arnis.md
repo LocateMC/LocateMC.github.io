@@ -1,6 +1,6 @@
 ---
 title: "Arnis"
-description: "使用真实世界地理数据，高精度生成 Java 版世界的工具。"
+description: "Arnis 是开源命令行工具，能利用 SRTM 高程与 OpenStreetMap 数据，在 Minecraft Java 版中生成高度真实的现实世界地形与水体。"
 href: "https://github.com/louis-e/arnis"
 icon: "/icons/arnismc.webp"
 category: "软件程序"

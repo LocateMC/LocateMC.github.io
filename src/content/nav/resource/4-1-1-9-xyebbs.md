@@ -1,6 +1,6 @@
 ---
 title: 'XyeBBS'
-description: '一个主要收录 Java 版资源的综合性整合包与模组汇总网站，同时也涵盖了部分基岩版内容。'
+description: '跨平台资源汇总网站，以 Java 版整合包、模组、插件为主并兼顾部分基岩版内容，定位内容汇总而非社区，让玩家不必在多个站点间反复查找，浏览效率优先。'
 href: 'https://xyebbs.com'
 icon: '/icons/xyebbs.webp'
 category: '资源' # 用于分类

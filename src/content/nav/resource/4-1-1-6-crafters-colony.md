@@ -1,6 +1,6 @@
 ---
 title: 'Crafters Colony'
-description: '日本大型综合性内容分享与社区平台，提供地图、模组、资源包、皮肤等丰富资源下载。'
+description: '面向日本玩家的大型综合社区 minecraft-mcworld.com，既是论坛也是内容中心，提供 Java 与基岩版的地图、模组、插件、资源包与皮肤下载。'
 href: 'https://minecraft-mcworld.com/'
 icon: '/icons/crafters-colony.webp'
 category: '资源' # 用于分类

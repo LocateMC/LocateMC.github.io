@@ -1,6 +1,6 @@
 ---
 title: 'Minecraft 高校联盟'
-description: '一个旨在联合中国全国高校爱好者，共同推动高校生态发展的非营利性公益组织。'
+description: 'Minecraft 高校联盟（MUA）是联合全国高校爱好者的非营利组织，已吸纳 224 个高校社团、覆盖超 50000 名学生，组织高校复原工程等联合项目。'
 href: 'https://www.mualliance.cn'
 icon: '/icons/mualliance.webp'
 category: '工作室 & 组织' # 用于分类

@@ -1,6 +1,6 @@
 ---
 title: 'Minecraft Shaders'
-description: '一个专门收录和介绍各种光影包 (Shaders) 的在线资源库和下载门户。'
+description: '专一的光影包在线资源门户，以博文详细介绍每款光影的特色、风格与性能要求并提供预览截图，本身不直接托管文件，引导用户前往官方渠道下载。'
 href: 'https://minecraftshader.com'
 icon: '/icons/minecraftshaders.webp'
 category: '资源' # 分类为资源

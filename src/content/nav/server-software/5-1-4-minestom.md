@@ -1,6 +1,6 @@
 ---
 title: "Minestom"
-description: "Java 编写的服务端开发框架，从零构建高度自定义的 Minecraft 服务器。"
+description: "开源的 Minecraft 服务器开发库，不含 Mojang 代码，默认不带生物 AI、合成、红石等游戏逻辑，开发者用现代 API 自行实现功能，适合小游戏与空岛。"
 href: "https://wiki.minestom.net/"
 icon: "/icons/minestom.webp"
 category: "服务端"

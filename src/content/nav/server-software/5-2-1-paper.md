@@ -1,6 +1,6 @@
 ---
 title: "Paper"
-description: "Minecraft Java 版高性能服务端核心，社区公认的服务器性能与稳定性标杆。"
+description: "目前最流行的 Minecraft Java 版服务端核心，由 Spigot 分支而来，以数百项性能优化补丁提升并发与稳定性，完整兼容 Bukkit/Spigot 插件。"
 href: "https://papermc.io/"
 icon: "/icons/papermc.webp"
 category: "服务端"

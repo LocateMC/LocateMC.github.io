@@ -1,6 +1,6 @@
 ---
 title: 'MCVersions'
-description: '简洁可靠的官方版本库，提供所有 Java 版的历史版本下载。'
+description: 'MCVersions 是专注收录 Minecraft Java 版所有历史版本官方文件的在线存档库，从远古 Alpha、Beta 到最新快照均可一键下载。'
 href: 'https://mcversions.net/'
 icon: '/icons/mcversions.webp' # 假设图标文件名
 category: '软件程序'

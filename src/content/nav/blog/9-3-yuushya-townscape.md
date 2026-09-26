@@ -1,6 +1,6 @@
 ---
 title: 'Yuushya Townscape'
-description: '方块小镇 Yuushya 官方项目主页：写实风建筑模组，1000+ 建材与方块建模系统，配作品画廊与全套教程文档。'
+description: '方块小镇（Yuushya Townscape）是结合 Mod 的 Java 版建筑系列，提供 1000+ 建材与方块建模系统，官网配作品画廊与教程，是入门该模组的首选。'
 href: 'https://yuushya.com/townscape'
 icon: '/icons/yuushya.webp'
 category: '博客'

@@ -1,6 +1,6 @@
 ---
 title: 'Textcraft'
-description: '一个免费的在线图形编辑器，专门用于创建和定制风格的文字与徽标 (Logo)。'
+description: 'Textcraft 是免费在线图形编辑器，专做 Minecraft 风格文字与徽标，提供 40 多种方块纹理与字体及发光、边框等效果。'
 href: 'https://textcraft.net/'
 icon: '/icons/textcraft.webp'
 category: '在线工具' # 用于分类

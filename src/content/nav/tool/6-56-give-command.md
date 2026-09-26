@@ -1,6 +1,6 @@
 ---
 title: 'Give 指令生成器'
-description: '一个由开发者 Ezekielelin 制作的、用于生成复杂物品 /give 命令的在线工具。'
+description: 'Ezekielelin 的 Give Command Generator 是 /give 生成器，图形化控制物品 NBT：自定义名称、附魔、属性与 Lore，免去手写。'
 href: 'https://ezekielelin.com/give'
 icon: '/icons/sample.webp'
 category: '在线工具' # 用于分类

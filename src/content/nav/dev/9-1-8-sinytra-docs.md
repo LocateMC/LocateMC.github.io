@@ -1,6 +1,6 @@
 ---
 title: 'Sinytra 文档'
-description: '一个革命性的兼容层，它允许在 Forge 环境下直接加载和运行 Fabric 模组。'
+description: 'Sinytra Connector 是开创性兼容层官方文档，在 Forge 环境下把 Fabric API 调用实时翻译为等效调用，从而直接加载运行 Fabric 模组。'
 href: 'https://sinytra.org/docs/'
 icon: '/icons/sinytra-docs.webp'
 category: '开发'

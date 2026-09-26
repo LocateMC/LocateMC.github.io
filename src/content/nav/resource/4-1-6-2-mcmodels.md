@@ -1,6 +1,6 @@
 ---
 title: 'MCModels'
-description: '一个专业的、高质量的 3D 模型交易市场，开发者和服务器主可在此购买用于各类插件的自定义模型。'
+description: '专业 3D 模型交易市场，出售用于 MythicMobs、ModelEngine 等插件的可交互 3D 模型，如自定义怪物、Boss、宠物、坐骑、武器与家具。'
 href: 'https://mcmodels.net/'
 icon: '/icons/mcmodels.webp'
 category: '资源' # 分类为资源

@@ -1,6 +1,6 @@
 ---
 title: 'ICMods'
-description: '一个专门为 PE 的著名模组加载器“Inner Core”提供模组下载和分享的在线存储库。'
+description: 'Inner Core 模组的中央存储库，Inner Core 是基岩版上功能强大的第三方模组加载器，ICMods 是为其开发模组发布、分享与下载的中心。'
 href: 'https://icmods.mineprogramming.org'
 icon: '/icons/icmods.webp'
 category: '资源' # 用于分类

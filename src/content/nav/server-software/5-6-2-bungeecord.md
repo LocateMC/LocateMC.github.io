@@ -1,6 +1,6 @@
 ---
 title: "BungeeCord"
-description: "Spigot 团队开发的经典代理端，多服务器网络的元老级解决方案。"
+description: "Spigot 团队开发的经典代理端，玩家通过单一入口即可连接多个后端服务器实现无缝跨服，作为最早广泛使用的代理方案，插件生态成熟、资料丰富。"
 href: "https://www.spigotmc.org/wiki/bungeecord/"
 icon: "/icons/bungeecord.webp"
 category: "服务端"

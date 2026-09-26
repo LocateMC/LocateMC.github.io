@@ -1,6 +1,6 @@
 ---
 title: 'MC 动图网'
-description: '输入正版账号 ID 即可把皮肤做成动图的在线工具，支持打招呼、旋转、扭头等动作，还能与天坛、理塘等地标“合影打卡”。'
+description: 'MC 动图网输入正版账号 ID 即渲染打招呼、旋转、扭头等动作动图，支持多人合影与天坛、理塘等地标模板，由开发者阿永发起，全站提供简繁日英四种语言。'
 href: 'https://mcgif.cn/'
 icon: '/icons/mcgif.webp'
 category: '在线工具' # 用于分类

@@ -1,6 +1,6 @@
 ---
 title: 'MinecraftJSON'
-description: '一个提供多种 JSON 文本和命令生成器的在线工具集，旨在简化游戏内复杂文本和物品的创建过程。'
+description: 'MinecraftJSON 用可视化界面生成各类 JSON 命令，涵盖 /give 自定义物品、/tellraw、/title、自定义告示牌与书本，简化 NBT 编写。'
 href: 'https://www.minecraftjson.com'
 icon: '/icons/sample.webp'
 category: '在线工具' # 用于分类

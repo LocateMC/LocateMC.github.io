@@ -1,6 +1,6 @@
 ---
 title: 'Forge 文档'
-description: 'Forge 模组平台的官方文档登陆页，是通往新旧两版文档的中央门户。'
+description: 'Forge 文档门户是 Forge 官方文档主域名与中央导航，把用户引导至两个版本：Gemwire 托管的现代化新版，与 Read the Docs 上的旧版文档。'
 href: 'https://docs.minecraftforge.net/'
 icon: '/icons/forge-docs.webp'
 category: '开发'

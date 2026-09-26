@@ -1,6 +1,6 @@
 ---
 title: 'Map Art Craft'
-description: '一个功能极其强大和专业的在线工具，用于将图片转换为地图画，并支持高级的“楼梯”着色技术。'
+description: 'Map Art Craft 由 Rebane2001 开发，是专业地图画生成器，除调色板与抖动外支持「楼梯」技术提升画质，并输出 .litematic 与材料清单。'
 href: 'https://rebane2001.com/mapartcraft/zh-Hans'
 icon: '/icons/mapartcraft.webp'
 category: '在线工具' # 用于分类

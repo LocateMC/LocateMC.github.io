@@ -1,6 +1,6 @@
 ---
 title: "SpongeForge"
-description: "Forge + SpongeAPI 混合形态，模组服中的插件开发框架。"
+description: "SpongePowered 为 Forge 模组服打造的混合实现，把 SpongeAPI 注入 Forge，让模组服运行 Sponge 插件，兼顾模组扩展与规范插件开发。"
 href: "https://www.spongepowered.org/downloads/spongeforge"
 icon: "/icons/sample.webp"
 category: "服务端"

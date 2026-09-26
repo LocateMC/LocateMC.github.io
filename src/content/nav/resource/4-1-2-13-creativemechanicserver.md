@@ -1,6 +1,6 @@
 ---
 title: 'CMS 蓝图站'
-description: '一个专为「机械动力 (Create)」打造的蓝图与投影分享社区，提供强大的多维度筛选、分类浏览与蓝图上传功能。'
+description: '专为机械动力（Create）模组打造的蓝图分享平台，创作者可上传、分享、下载供投影仪使用的 .nbt 蓝图文件，并支持多维度筛选与分类浏览。'
 href: 'https://www.creativemechanicserver.com/'
 icon: '/icons/creativemechanicserver.webp'
 category: '资源' # 分类为资源

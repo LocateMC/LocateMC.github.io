@@ -1,6 +1,6 @@
 ---
 title: "Velocity"
-description: "PaperMC 团队出品的现代高性能代理端，连接多服务器网络的首选。"
+description: "PaperMC 团队开发的现代代理端，用来把多个独立服务器统一接入同一网络，提供跨服传送与统一登录等能力，以极低延迟和高稳定性著称。"
 href: "https://papermc.io/software/velocity"
 icon: "/icons/velocity.webp"
 category: "服务端"

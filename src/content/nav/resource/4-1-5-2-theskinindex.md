@@ -1,6 +1,6 @@
 ---
 title: 'The Skindex'
-description: '一个规模极其庞大的皮肤分享与编辑平台，是全球最著名和使用最广泛的皮肤社区之一。'
+description: '历史悠久、内容海量的皮肤中心，既拥有数百万款用户上传皮肤的搜索数据库，也提供从零创作或编辑皮肤的在线编辑器，供玩家互动分享，是全球最常用皮肤社区之一。'
 href: 'https://www.minecraftskins.com'
 icon: '/icons/theskindex.webp'
 category: '资源' # 分类为资源

@@ -1,6 +1,6 @@
 ---
 title: 'Bukkit Wiki'
-description: '传奇的服务器 API 项目 Bukkit 的原始官方维基，为插件开发者提供了最早的、最核心的开发文档和教程。'
+description: 'Bukkit Wiki 是首个被广泛采用的服务器 API 项目 Bukkit 的原始官方维基，系统收录服务器架设、插件编写（事件、命令、权限）与 API 教程。'
 href: 'https://bukkit.fandom.com/wiki/Main_Page'
 icon: '/icons/bukkit.webp'
 category: '开发'

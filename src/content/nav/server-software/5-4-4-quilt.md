@@ -1,6 +1,6 @@
 ---
 title: "QuiltMC"
-description: "Fabric 的社区分支，兼容 Fabric 模组并倡导更开放的生态治理。"
+description: "从 Fabric 生态分叉的模组加载器（Quilt Loader），能运行绝大多数既有 Fabric 模组，并提供更开放的社区治理与更完善的开发工具链。"
 href: "https://quiltmc.org/"
 icon: "/icons/quilt.webp"
 category: "服务端"

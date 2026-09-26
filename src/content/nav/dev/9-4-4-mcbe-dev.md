@@ -1,6 +1,6 @@
 ---
 title: '中文基岩版开发者 Wiki'
-description: '一个由爱好者社区驱动的、专注于基岩版开发的中文技术维基。'
+description: 'MCBE-Dev Wiki 是中国爱好者社区维护的基岩版开发中文技术维基，为中文开发者提供附加包制作、命令方块、JSON UI 定制等技术的学习平台。'
 href: 'https://wiki.mcbe-dev.net/'
 icon: '/icons/mcbe-dev.webp'
 category: '开发'

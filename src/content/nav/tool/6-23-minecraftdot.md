@@ -1,6 +1,6 @@
 ---
 title: 'Minecraft Dot'
-description: '一个专门将图片转换为风格像素点画 (Dot Art) 的在线工具。'
+description: 'Dot Pictures 把任意图片转为由独立方块构成的点阵像素画，选定尺寸即自动计算最佳方块组合，并提供预览与所需方块数量统计。'
 href: 'https://www.minecraft-dot.pictures/'
 icon: '/icons/minecraftdot.webp'
 category: '在线工具' # 用于分类

@@ -1,6 +1,6 @@
 ---
 title: 'Cubical'
-description: '先进的在线 3D 编辑器，用于创建、编辑和查看建筑，提供类似游戏内的沉浸式建造体验。'
+description: 'Cubical 是基于浏览器的建筑编辑器与查看器，提供 20 多种工具并支持导入导出 .schematic、.nbt、.bo2，打开网页即可沉浸编辑。'
 href: 'https://cubical.xyz'
 icon: '/icons/cubical.webp'
 category: '在线工具' # 用于分类

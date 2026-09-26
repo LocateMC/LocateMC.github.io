@@ -1,6 +1,6 @@
 ---
 title: 'Fabric 文档'
-description: 'Fabric 模组工具链的官方技术文档，提供从入门教程到核心概念的结构化学习路径。'
+description: 'Fabric Documentation 是 Fabric 加载器与 Loom 工具链的官方文档，划分为教程、核心概念、API 等模块，提供从零起步的结构化学习路径。'
 href: 'https://docs.fabricmc.net/develop/'
 icon: '/icons/fabric.webp'
 category: '开发'

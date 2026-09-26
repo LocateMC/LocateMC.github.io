@@ -1,6 +1,6 @@
 ---
 title: 'MCID'
-description: '一个提供 Java 版从 1.0 至最新版本方块与物品 ID 查询的数据库网站，支持按数字 ID、中英文名等多种方式进行搜索。'
+description: 'MCID 是「伶宁域」企划下的 Java 版 ID 数据库，收录约 1600 项方块与物品 ID，覆盖 JE 1.0 至 1.21.8，支持数字与中英文名检索。'
 href: 'https://mcid.lingningyu.cn/'
 icon: '/icons/mcid.webp'
 category: '在线工具' # 用于分类

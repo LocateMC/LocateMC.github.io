@@ -1,6 +1,6 @@
 ---
 title: 'Spritecraft'
-description: '一个经典的在线工具，能将任意图片转换为由方块构成的像素画，并生成可导入的 .schematic 文件。'
+description: 'Spritecraft 是经典在线工具，把任意图片转换为由方块构成的像素艺术，可调整尺寸与抖动，导出 .schematic 借 WorldEdit 导入游戏。'
 href: 'https://autosaved.org/spritecraft'
 icon: '/icons/spritecraft.webp'
 category: '在线工具' # 用于分类

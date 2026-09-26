@@ -1,6 +1,6 @@
 ---
 title: 'Plotz Modeller'
-description: '一个经典的在线建筑建模工具，专门用于生成各种复杂结构（如球体、高塔、飞船）的层级建造蓝图。'
+description: 'Plotz Modeller 是建筑建模工具，除球体等基础形状外提供巫师塔、灯塔等预设结构，并以 2D 视图逐层展示建造方式，可直接当施工图。'
 href: 'https://www.plotz.co.uk/'
 icon: '/icons/plotz.webp'
 category: '在线工具' # 用于分类

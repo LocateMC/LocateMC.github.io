@@ -1,6 +1,6 @@
 ---
 title: 'Zalith Launcher'
-description: '基于 PojavLauncher 打造的 Android 版 Minecraft: Java Edition 启动器，稳定、高效、无广告。'
+description: 'Zalith Launcher 是 Android 端稳定高效无广告的 Minecraft Java 版启动器，基于 PojavLauncher 开发，提供多源加速下载。'
 href: 'https://zalithlauncher.cn/'
 icon: '/icons/zalith-launcher.webp'
 category: '软件程序' # 用于分类

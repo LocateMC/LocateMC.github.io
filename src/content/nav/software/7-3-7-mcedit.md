@@ -1,6 +1,6 @@
 ---
 title: 'MCEdit'
-description: '传奇的开源 3D 地图编辑器，创作史上的里程碑。'
+description: 'MCEdit 是 Minecraft 历史上最具传奇色彩的开源 3D 地图编辑器，支持大范围区域的选择、移动、复制粘贴与笔刷雕刻，并普及了 .schematic。'
 href: 'https://www.mcedit.net/'
 icon: '/icons/mcedit.webp' # 假设图标文件名
 category: '软件程序'

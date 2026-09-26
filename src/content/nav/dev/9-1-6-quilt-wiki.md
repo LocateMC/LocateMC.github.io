@@ -1,6 +1,6 @@
 ---
 title: 'Quilt Wiki'
-description: '现代模组工具链 Quilt 的官方维基，为用户和开发者提供全面的指南、教程和社区文档。'
+description: 'The Quilt Wiki 是模组工具链 Quilt 的官方社区维基，Quilt 从 Fabric 分支，强化社区治理，是用户与模组开发者学习教程的核心平台。'
 href: 'https://wiki.quiltmc.org/'
 icon: '/icons/quilt.webp'
 category: '开发'

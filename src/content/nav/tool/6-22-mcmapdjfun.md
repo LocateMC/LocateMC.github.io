@@ -1,6 +1,6 @@
 ---
 title: 'MC Map'
-description: '一个专门用于将任意图片转换为游戏内地图画 (Item Frame Map) 的在线工具。'
+description: 'MC Map 由 DJFun 维护，把任意图片转换为用物品展示框拼成的地图画，自定义尺寸后生成 map_xx.dat 文件放入存档即可重现。'
 href: 'https://mc-map.djfun.de/'
 icon: '/icons/sample.webp'
 category: '在线工具' # 用于分类

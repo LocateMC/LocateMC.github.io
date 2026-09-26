@@ -1,6 +1,6 @@
 ---
 title: '香草图书馆'
-description: '中文原版数据包知识库：从零上手原版开发、短文月刊《Feature》、开发工具索引与实践教程。'
+description: '香草图书馆（Vanilla Library）是 Java 版原版机制与数据包开发的中文知识库，以短文拆解门槛概念，设有快速开始、月刊 Feature 与实践教程。'
 href: 'https://vanillalibrary.mcfpp.top/'
 icon: '/icons/vanillalibrary.webp'
 category: '百科'

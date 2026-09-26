@@ -1,6 +1,6 @@
 ---
 title: 'MCSeeder'
-description: '社区驱动的种子分享平台，发现与分享奇妙世界起点。'
+description: 'MCSeeder 是社区驱动的种子分享平台，可按版本、Java/基岩版平台与生物群系结构筛选玩家提交的好种子，并内置地图预览关键地点。'
 href: 'https://mcseeder.com/'
 icon: '/icons/mcseeder.webp' # 假设图标文件名
 category: '在线工具' # 用于分类

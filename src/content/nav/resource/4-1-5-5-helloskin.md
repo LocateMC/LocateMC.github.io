@@ -1,6 +1,6 @@
 ---
 title: 'HelloSkin'
-description: '一个面向中国社区的、提供免费与付费分级服务的第三方皮肤站，基于 Blessing Skin Server 构建。'
+description: '面向中国玩家的皮肤站，基于 Blessing Skin Server 构建，可上传管理分享皮肤与披风，并通过独立 Yggdrasil 验证让玩家显示个性化外观。'
 href: 'https://helloskin.cn/'
 icon: '/icons/helloskin.webp'
 category: '资源' # 分类为资源

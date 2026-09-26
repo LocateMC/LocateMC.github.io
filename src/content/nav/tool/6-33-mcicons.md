@@ -1,6 +1,6 @@
 ---
 title: 'MC-Icons'
-description: '一个提供游戏内物品、方块等高清图标下载的在线资源库。'
+description: 'MC-Icons 是在线资源库，提供 Minecraft 物品、方块与 UI 元素的高清图标，支持搜索并一键下载为透明背景图片，方便创作者取用。'
 href: 'https://ccvaults.com/'
 icon: '/icons/mcicons.webp'
 category: '在线工具' # 用于分类

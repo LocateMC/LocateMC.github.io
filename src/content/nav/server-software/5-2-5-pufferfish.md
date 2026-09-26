@@ -1,6 +1,6 @@
 ---
 title: "Pufferfish"
-description: "针对高版本（1.19.3+）深度优化的 Paper 高性能分支服务端。"
+description: "基于 Paper 的高性能服务端分支，主要针对 1.19.3 及更高版本深度优化，在保持插件兼容的同时以更激进调度进一步提升服务器性能。"
 href: "https://github.com/pufferfish-gg/Pufferfish"
 icon: "/icons/pufferfish.webp"
 category: "服务端"

@@ -1,6 +1,6 @@
 ---
 title: 'ScriptIRC AI'
-description: '一个利用人工智能 (AI) 来帮助用户编写和生成服务器插件的在线平台。'
+description: 'ScriptIRC AI 以聊天界面驱动，用自然语言描述需求即生成 Minecraft 服务器插件 Java 代码，遵循 Bukkit/Spigot/Paper 规范。'
 href: 'https://scriptirc.io/chat'
 icon: '/icons/scriptirc.webp'
 category: '在线工具' # 用于分类

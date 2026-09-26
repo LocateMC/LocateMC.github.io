@@ -1,6 +1,6 @@
 ---
 title: 'Minecraft 披风生成器'
-description: '一个由 lraty-li 开发的，用于在线设计自定义披风的工具，支持 OptiFine 和多种模组。'
+description: 'Minecraft 披风生成器由 lraty-li 创建，用所见即所得编辑器设计披风，叠加渐变、条纹或苦力怕脸等图案，导出 OptiFine 等模组文件。'
 href: 'https://lraty-li.github.io/Minecraft-Cape-Generator/'
 icon: '/icons/sample.webp'
 category: '在线工具' # 用于分类

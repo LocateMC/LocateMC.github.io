@@ -1,6 +1,6 @@
 ---
 title: 'Speedrun Minecraft'
-description: '全球最权威的速通记录排行榜，收录各类规则下的世界纪录。'
+description: 'Speedrun 的 Minecraft 板块是全球最权威的速通记录认证与排行榜，收录任意%、随机种子等多规则世界纪录，要求完整视频证据并由审核员把关。'
 href: 'https://www.speedrun.com/mc'
 icon: '/icons/speedrun.webp' # 假设图标文件名
 category: '收纳'

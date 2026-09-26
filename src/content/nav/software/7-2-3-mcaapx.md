@@ -1,6 +1,6 @@
 ---
 title: 'MCAPPX'
-description: '专注基岩版 Windows 客户端，提供各版本 APPX 文件下载。'
+description: 'MCAPPX 是专注 Minecraft 基岩版 Windows 安装包的资源站，为 Windows 10/11 提供 .appx 与 .msixbundle 安装文件。'
 href: 'https://www.mcappx.com/'
 icon: '/icons/mcappx.webp' # 假设图标文件名
 category: '软件程序'

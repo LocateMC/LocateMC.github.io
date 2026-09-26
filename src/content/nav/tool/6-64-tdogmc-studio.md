@@ -1,6 +1,6 @@
 ---
 title: 'TDoGMC Studio'
-description: '国产在线 Minecraft 皮肤编辑器，直接在 3D 模型上绘制并云端同步，可导出 64×64 与 128×128 HD 皮肤。'
+description: 'TDoGMC Studio 是国产在线皮肤编辑器，画布与 3D 模型实时联动，支持 64×64 与 128×128 导出并通吃网易版与国际版，游客可用。'
 href: 'https://studio.tdogmc.cn/'
 icon: '/icons/tdogmc-studio.webp'
 category: '在线工具' # 用于分类

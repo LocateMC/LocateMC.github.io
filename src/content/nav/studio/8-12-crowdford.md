@@ -1,6 +1,6 @@
 ---
 title: "Crowdford"
-description: "地图与游戏制作组"
+description: "由资深地图作者组成的 Minecraft Java 版原创地图团队与作品发布站，只发布自家设计的精品自定义地图，每张图都配有完整机制设计与配套资源包。"
 href: "https://www.crowdford.com"
 icon: "/icons/crowdford.webp"
 category: "工作室 & 组织"

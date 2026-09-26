@@ -1,6 +1,6 @@
 ---
 title: 'MineBBS'
-description: '为玩家和开发者提供资源分享与技术交流。'
+description: '面向全球华语 Minecraft 玩家与开发者的综合性中文论坛，板块覆盖模组、插件、服务端、地图、材质与开发教程，是国内较活跃的 Minecraft 社区之一。'
 href: 'https://www.minebbs.com/'
 icon: '/icons/minebbs.webp' # 假设图标文件名
 category: '社区' # 用于分类

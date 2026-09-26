@@ -1,6 +1,6 @@
 ---
 title: 'Minecraft'
-description: '像素方块构筑无限世界，集生存探索与自由创造于一体。'
+description: 'Minecraft 是由 Notch 创造、Mojang 维护的沙盒游戏，玩家在程序生成的 3D 世界中自由破坏与放置方块，可玩生存探索或创造模式，2014 年微软收购。'
 href: 'https://www.minecraft.net/'
 icon: '/icons/minecraft-logo.webp'
 category: '官方' # 用于分类

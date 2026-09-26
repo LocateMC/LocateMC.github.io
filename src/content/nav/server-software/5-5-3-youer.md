@@ -1,6 +1,6 @@
 ---
 title: "Youer"
-description: "MohistMC 团队基于 NeoForge 的混合服务端，实现 Paper/PurPur API 兼容插件运行。"
+description: "MohistMC 团队的 NeoForge 混合服务端，可同时加载模组与运行 Bukkit/Spigot/Paper/PurPur 插件，持续完善 API 兼容层。"
 href: "https://github.com/MohistMC/Youer"
 icon: "/icons/youer.webp"
 category: "服务端"

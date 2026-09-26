@@ -1,6 +1,6 @@
 ---
 title: "Sponge"
-description: "SpongePowered 出品的高可扩展服务端 API（SpongeVanilla 形态）。"
+description: "SpongePowered 社区打造的服务端插件 API，纯服务端形态 SpongeVanilla 在保持原版玩法基础上提供强大插件接口，追求长期稳定与向后兼容。"
 href: "https://www.spongepowered.org/"
 icon: "/icons/sponge.webp"
 category: "服务端"

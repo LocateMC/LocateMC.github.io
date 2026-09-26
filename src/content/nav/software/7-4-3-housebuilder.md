@@ -1,6 +1,6 @@
 ---
 title: 'House Builder'
-description: '一个移动端应用程序，允许用户一键将数千种预制建筑和创作导入到他们的基岩版 (PE) 世界中。'
+description: 'House Builder 是移动端辅助应用，提供含数千个预制建筑的庞大库，可一键将现代住宅到城堡等结构直接导入 Minecraft 基岩版世界。'
 href: 'https://play.google.com/store/apps/details?id=co.pamobile.minecraft.builder.structureblock'
 icon: '/icons/housebuilder.webp'
 category: '软件程序' # 用于分类

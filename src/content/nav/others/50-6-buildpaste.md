@@ -1,6 +1,6 @@
 ---
 title: 'Buildpaste'
-description: '一个创新的在线平台，它允许玩家通过简单的链接，轻松地分享和“粘贴”建筑，且无需任何模组。'
+description: 'Buildpaste 是无需模组的建筑分享平台，玩家上传结构方块保存的 NBT 文件即生成链接，他人用命令方块把建筑直接粘贴进自己的世界，打破模组壁垒。'
 href: 'https://buildpaste.net'
 icon: '/icons/buildpaste.webp'
 category: '收纳' # 用于分类

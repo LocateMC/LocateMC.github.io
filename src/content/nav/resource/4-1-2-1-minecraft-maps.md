@@ -1,6 +1,6 @@
 ---
 title: 'Minecraft Maps'
-description: '全球最大的地图分享平台，收录海量创意冒险地图。'
+description: '全球最大的 Minecraft 地图分享网站，完全专注地图单一内容，地图库庞大且分类清晰，涵盖冒险、跑酷、生存、解密与建筑等类型。'
 href: 'https://www.minecraftmaps.com/'
 icon: '/icons/minecraftmaps.webp' # 假设图标文件名
 category: '资源' # 分类为资源

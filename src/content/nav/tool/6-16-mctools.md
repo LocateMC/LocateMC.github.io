@@ -1,6 +1,6 @@
 ---
 title: 'MCTools'
-description: '一个为服务器主提供免费网站平台的在线服务，集成了投票、论坛、玩家分析和捐赠商店等多种核心功能。'
+description: 'MCTools 是面向服主的免费在线平台，零成本帮服务器搭建专属网站，内置投票、论坛、玩家分析与捐赠商店，整合运营核心功能，省去分别配置。'
 href: 'https://mctools.org'
 icon: '/icons/mctools.webp'
 category: '在线工具' # 用于分类

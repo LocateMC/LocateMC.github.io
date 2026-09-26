@@ -1,6 +1,6 @@
 ---
 title: "MCSTools"
-description: "基于 Tauri 的跨平台蓝图工具箱，5 种结构格式互转，还能做材料统计与 360° 3D 预览。"
+description: "MCSTools（蓝图工具箱）是基于 Tauri 2.0 的跨平台蓝图工具，支持 .nbt、.litematic、.schem 等五种结构格式互转，并提供 3D 预览。"
 href: "https://docs.mcschematic.top/zh/"
 icon: "/icons/mcstools.webp"
 category: "软件程序"

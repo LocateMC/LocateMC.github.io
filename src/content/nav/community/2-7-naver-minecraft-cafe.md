@@ -1,6 +1,6 @@
 ---
 title: 'Naver Minecraft Cafe'
-description: '韩国最大的官方玩家社群，集资讯、交流与活动于一体。'
+description: 'Naver Minecraft Cafe（我们的 Minecraft 空间）是韩国最大的官方玩家社群，依托 Naver Cafe 集资讯、攻略与活动于一体，会员破千万。'
 href: 'https://cafe.naver.com/minecraftgame'
 icon: '/icons/naver-minecraft-cafe.webp' # 假设图标文件名
 category: '社区' # 用于分类

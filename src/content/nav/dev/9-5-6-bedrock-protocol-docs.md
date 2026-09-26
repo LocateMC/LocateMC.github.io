@@ -1,6 +1,6 @@
 ---
 title: 'Bedrock Protocol Docs'
-description: 'Mojang 官方维护的 Bedrock 网络协议参考文档，面向第三方服务端与协议库开发者。'
+description: 'Bedrock Protocol Docs 是 Mojang 官方维护的基岩版网络协议参考，由版本化 schema 自动生成，精确描述客户端与服务器间的协议数据。'
 href: 'https://mojang.github.io/bedrock-protocol-docs/latest/'
 icon: '/icons/bedrock-protocol-docs.webp'
 category: '开发'

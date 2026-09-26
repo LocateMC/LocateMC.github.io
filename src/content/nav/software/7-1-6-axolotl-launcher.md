@@ -1,6 +1,6 @@
 ---
 title: "Axolotl Launcher"
-description: "开源无广告的跨平台启动器，Modrinth 与 CurseForge 双源合一。"
+description: "Axolotl Launcher 是跨平台 Minecraft Java 版启动器，免费开源无广告，同时接入 Modrinth 与 CurseForge 双内容源。"
 href: "https://axlmc.org/"
 icon: "/icons/axolotl-launcher.webp"
 category: "软件程序"

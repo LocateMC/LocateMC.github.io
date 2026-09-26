@@ -1,6 +1,6 @@
 ---
 title: 'Convert Mcpack'
-description: 'Java 版与基岩版之间资源包版本转换工具。'
+description: 'ConvertMcpack 由 Itsme64 开发，是免费在线工具，上传资源包并选目标版本即可一键转换，解决跨版本、跨平台材质包兼容问题，无需注册。'
 href: 'https://convertmcpack.net'
 icon: '/icons/convertmcpack.webp'
 category: '在线工具'

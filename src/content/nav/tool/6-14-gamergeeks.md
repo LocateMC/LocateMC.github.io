@@ -1,6 +1,6 @@
 ---
 title: 'Gamer Geeks'
-description: '一个由 Gamer Geeks 网站提供的综合性在线工具集，涵盖从命令生成、物品制作到战利品表等高级机制的多种功能。'
+description: 'Gamer Geeks 的 Minecraft Tools 是大型在线工具集合，除盔甲架、旗帜、附魔外，还提供战利品表生成器等面向数据包开发者的功能。'
 href: 'https://www.gamergeeks.net/apps/minecraft'
 icon: '/icons/gamergeeks.webp'
 category: '在线工具' # 用于分类

@@ -1,6 +1,6 @@
 ---
 title: 'Mojira'
-description: 'Mojang 官方缺陷追踪器，玩家可提交、检索、投票与追踪 Minecraft 各版本的漏洞报告。'
+description: 'Mojira 是 Mojang 官方基于 Jira 的缺陷追踪器，玩家可检索、提交、投票与追踪 Java 版、基岩版漏洞，仅用于缺陷报告，是向官方反馈问题的正式渠道。'
 href: 'https://bugs.mojang.com/'
 icon: '/icons/mojira.webp'
 category: '官方' # 用于分类

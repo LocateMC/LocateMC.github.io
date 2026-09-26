@@ -1,6 +1,6 @@
 ---
 title: 'UMT'
-description: '强大的多功能存档编辑器，支持世界与玩家数据修改转换。'
+description: 'Universal Minecraft Tool（UMT）是多平台存档编辑器，可打开并修改 Java 版、基岩版与旧主机版世界文件并跨平台转换。'
 href: 'https://www.universalminecrafttool.com/'
 icon: '/icons/universalminecrafttool.webp' # 假设图标文件名
 category: '软件程序'

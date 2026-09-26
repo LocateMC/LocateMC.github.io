@@ -1,6 +1,6 @@
 ---
 title: 'SpigotMC Wiki'
-description: '广受欢迎的服务器软件 SpigotMC 的官方维基，为服务器管理员和插件开发者提供核心的参考文档和指南。'
+description: 'SpigotMC Wiki 是服务器软件 Spigot 的官方社区维基，为管理员提供安装配置优化指南，也为插件开发者提供 API、事件与命令系统教程。'
 href: 'https://www.spigotmc.org/wiki/index/'
 icon: '/icons/spigot.webp'
 category: '开发'

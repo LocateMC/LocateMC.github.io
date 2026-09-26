@@ -1,6 +1,6 @@
 ---
 title: "Endstone"
-description: "基于 Python 实现的基岩版服务端，目标兼容 Bukkit 插件生态。"
+description: "用 Python 编写的基岩版服务器软件，核心目标是在 Python 中重新实现 Bukkit API，让 Java 版生态里成熟插件有机会运行于基岩版服务器上。"
 href: "https://endstone.dev/"
 icon: "/icons/endstone.webp"
 category: "服务端"

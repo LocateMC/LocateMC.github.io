@@ -1,6 +1,6 @@
 ---
 title: "MineBackup"
-description: "跨平台 MC 存档备份与还原工具，增量备份 + 内置 7-Zip 高压缩，支持游戏内热键一键备份。"
+description: "MineBackup 是专注 Minecraft 存档保护的开源桌面工具，首次向导可扫描标准 Java 版、基岩版及网易版等实例，支持热键还原。"
 href: "https://github.com/Leafuke/MineBackup"
 icon: "/icons/minebackup.webp"
 category: "软件程序"

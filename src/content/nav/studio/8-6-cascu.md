@@ -1,6 +1,6 @@
 ---
 title: 'CASCU'
-description: '一个国际性的建筑师和城市建设者联盟，旨在通过成员间的合作创作出令人惊叹的作品，并为创作者提供交流与展示的平台。'
+description: 'CASCU 是面向全球建筑创作者的国际社群联盟，集结架空都市与再現都市开发者并提供成员名录、作品画廊与新闻发布，以日英双语打破语言壁垒，扮演跨国界建筑创作者行会。'
 href: 'https://www.cascu.info/'
 icon: '/icons/cascu.webp' # 假设图标文件名
 category: '工作室 & 组织'

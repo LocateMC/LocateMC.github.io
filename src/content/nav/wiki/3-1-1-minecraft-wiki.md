@@ -1,6 +1,6 @@
 ---
 title: '中文 Minecraft Wiki'
-description: '玩家共建的权威中文知识库，囊括游戏万物数据与机制。'
+description: '中文 Minecraft Wiki 是由全球华人玩家共建的非营利线上百科全书，详尽记录方块、生物、红石与命令等机制并随版本更新，任何人可注册编辑。'
 href: 'https://zh.minecraft.wiki/'
 icon: '/icons/minecraft-wiki.webp'
 category: '百科'

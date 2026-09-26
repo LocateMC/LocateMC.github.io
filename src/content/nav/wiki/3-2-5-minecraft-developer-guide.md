@@ -1,6 +1,6 @@
 ---
 title: '我的世界开发者中文指南'
-description: '由社区共建的简体中文 Minecraft 开发一站式指南，覆盖 Java 模组/插件、基岩、数据包、启动器与着色器的教程、资料与类库索引。'
+description: '我的世界开发者中文指南是社区共建的简体中文 Minecraft 开发一站式指南，覆盖 Java 模组、插件、基岩、数据包与着色器，弥补 MCBBS 关站后的中文教程空白。'
 href: 'https://mouse0w0.github.io/MinecraftDeveloperGuide/'
 icon: '/icons/minecraft-developer-guide.webp'
 category: '百科'

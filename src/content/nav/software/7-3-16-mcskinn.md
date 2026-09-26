@@ -1,6 +1,6 @@
 ---
 title: 'MCSkinn'
-description: 'Windows 平台的 3D 皮肤编辑器，提供直观的创作与预览体验。'
+description: 'MCSkinn 是专为 Windows 打造的 Minecraft 皮肤编辑器，提供直观的 3D 编辑环境，让玩家轻松绘制、修改并实时预览角色皮肤。'
 href: 'https://apps.microsoft.com/detail/9n8sjt329hh1?hl=zh-cn&gl=CN'
 icon: '/icons/mcskinn.webp' # 假设图标文件名
 category: '软件程序'

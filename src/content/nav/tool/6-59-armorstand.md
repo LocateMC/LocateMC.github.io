@@ -1,6 +1,6 @@
 ---
 title: '自定义盔甲架姿态指令'
-description: '一个通过生成“命令书”来创建和自定义盔甲架姿态的在线可视化工具。'
+description: 'Haselkern 的盔甲架命令生成器拖动滑块调整姿态并设置隐身、无重力等属性，最终生成可在游戏内点击召唤的 /give 命令书。'
 href: 'https://haselkern.com/Minecraft-ArmorStand/'
 icon: '/icons/armorstand.webp'
 category: '在线工具' # 用于分类

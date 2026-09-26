@@ -1,6 +1,6 @@
 ---
 title: 'MC 藏宝阁'
-description: '中文建筑蓝图与预制件分享站，专注国内原创精品设计。'
+description: '界面精美的中文建筑蓝图分享平台，专注收录国内玩家创作的高质量建筑预制件，为创作者提供发布空间，也让玩家下载精美设计快速复现于自己的世界。'
 href: 'https://mcbank.charhoo.cn/'
 icon: '/icons/mcbank.webp' # 假设图标文件名
 category: '资源' # 分类为资源

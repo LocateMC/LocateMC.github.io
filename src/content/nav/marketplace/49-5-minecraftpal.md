@@ -1,6 +1,6 @@
 ---
 title: 'MinecraftPal'
-description: 'MinecraftPal（MCPal）是一个独立的市场数据分析平台，索引了基岩版官方市场 41K+ 商品，提供创作者信任评分、价格历史、分类趋势与服务器目录等深度洞察。'
+description: 'MinecraftPal（MCPal）是基岩版市场的独立数据分析平台，索引 41K+ 商品并提供市场脉搏、创作者信任评分与价格历史等深度洞察，供玩家与创作者使用。'
 href: 'https://www.minecraftpal.com/'
 icon: '/icons/minecraftpal.webp'
 category: '市场'

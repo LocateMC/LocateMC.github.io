@@ -1,6 +1,6 @@
 ---
 title: 'CHUNK'
-description: 'CHUNK 是一个面向 Minecraft 基岩版官方市场 (Marketplace) 的第三方浏览器，集中提供浏览、搜索、筛选、热度追踪与每周新货速递等功能。'
+description: 'CHUNK 是基岩版官方市场的网页端第三方浏览平台，提供发现、趋势、经典与本周新货等栏目，索引皮肤包、世界与附加包并附热度追踪，自身不交易、全部引导回官方市场。'
 href: 'https://www.chunk.gg/'
 icon: '/icons/chunk.webp'
 category: '市场'

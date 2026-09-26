@@ -1,6 +1,6 @@
 ---
 title: 'TITAIKE 地图站'
-description: '国内顶尖的原创地图分享与下载平台，聚焦精品创作。'
+description: '国内顶尖的原创 Minecraft 地图分享平台，为优秀地图创作者提供展示舞台，供玩家发现下载建筑、解密、跑酷、生存与 PVE 等精品地图。'
 href: 'https://www.titaike.cn/'
 icon: '/icons/titaike.webp' # 假设图标文件名
 category: '资源' # 分类为资源

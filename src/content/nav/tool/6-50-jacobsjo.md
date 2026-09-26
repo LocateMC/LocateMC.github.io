@@ -1,6 +1,6 @@
 ---
 title: 'jacobsjo''s Tools'
-description: '由开发者 jacobsjo 创建的、专注于高级世界生成的数据包与模组开发工具集。'
+description: '该站是 jacobsjo 的个人工具门户，聚焦自定义世界生成，提供生物群系布局展示、多噪声配置编辑、结构调试与地形设计等可视化工具。'
 href: 'https://jacobsjo.eu'
 icon: '/icons/jacobsjo.webp'
 category: '在线工具' # 用于分类

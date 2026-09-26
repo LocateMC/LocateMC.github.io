@@ -1,6 +1,6 @@
 ---
 title: "Arclight"
-description: "Bukkit + Forge 混合端，新版高版本支持活跃的社区项目。"
+description: "基于 Forge 的混合服务端实现，致力于在较新游戏版本上同时运行 Bukkit 插件与 Forge 模组，以活跃的版本跟进与社区支持著称。"
 href: "https://github.com/IzzelAliz/Arclight"
 icon: "/icons/arclight.webp"
 category: "服务端"

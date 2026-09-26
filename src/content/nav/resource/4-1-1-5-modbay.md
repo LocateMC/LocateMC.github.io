@@ -1,6 +1,6 @@
 ---
 title: 'ModBay'
-description: '新兴的开放内容市场，为玩家与创作者提供新选择。'
+description: '新兴的开源 Minecraft 内容托管平台，界面现代、社区驱动，支持模组、插件与资源包发布下载，以对创作者友好的政策成为生态全新选择。'
 href: 'https://modbay.org/'
 icon: '/icons/modbay.webp' # 假设图标文件名
 category: '资源' # 分类为资源

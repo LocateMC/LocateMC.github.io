@@ -1,6 +1,6 @@
 ---
 title: 'MCPEDL'
-description: '全球最大的基岩版资源下载站，聚焦附加包、地图与皮肤。'
+description: '全球最大的基岩版资源下载站，聚合来自世界各地创作者的附加包、地图、皮肤、材质包与种子等海量内容，是基岩版玩家寻找与下载资源的首要集散地。'
 href: 'https://www.mcpedl.com/'
 icon: '/icons/mcpedl.webp' # 假设图标文件名
 category: '资源' # 用于分类

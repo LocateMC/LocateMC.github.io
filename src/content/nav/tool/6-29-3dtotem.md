@@ -1,6 +1,6 @@
 ---
 title: '3D 不死图腾生成器'
-description: '一个能将玩家皮肤制作成一个完整的 3D 角色模型，并替换游戏中不死图腾的在线工具。'
+description: 'MC Neko 3D 不死图腾生成器由 MC Neko 社区开发，把玩家皮肤转为完整 3D 角色模型并打包成资源包替换游戏不死图腾，手持即是会动的迷你手办。'
 href: 'https://www.mcneko.com/tools/3dtotem/'
 icon: '/icons/3dtotem.webp'
 category: '在线工具' # 用于分类

@@ -1,6 +1,6 @@
 ---
 title: 'Blocktopograph'
-description: '一个功能强大的、开源的基岩版 (Bedrock Edition) 高级世界编辑器和地图查看器。'
+description: 'Blocktopograph 是主要运行于 Android 的开源应用，可直接读取并修改 Minecraft 基岩版世界存档，提供俯视地图视图与内置 NBT 编辑器。'
 href: 'https://github.com/oO0oO0oO0o0o00/blocktopograph'
 icon: '/icons/blocktopograph.webp'
 category: '软件程序' # 用于分类

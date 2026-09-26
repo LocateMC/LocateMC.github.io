@@ -1,6 +1,6 @@
 ---
 title: 'MCreator'
-description: '可视化模组制作软件，无需编程即可创造自己的游戏内容。'
+description: 'MCreator 是功能强大的可视化模组与附加包制作软件，通过图形界面与预设模板让玩家无需编写代码即可创造方块、生物与游戏机制，支持 Java 版与基岩版。'
 href: 'https://mcreator.net/'
 icon: '/icons/mcreator.webp' # 假设图标文件名
 category: '软件程序'

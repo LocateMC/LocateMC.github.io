@@ -1,6 +1,6 @@
 ---
 title: 'flags.sh'
-description: "一键生成 Minecraft 服务端启动脚本，内置 Aikar's Flags 的 G1GC 调优与崩溃自动重启。"
+description: "flags.sh 是服务端启动脚本生成器，生成调好的 java 启动命令，核心是 Aikar's Flags 的 G1GC 调优方案，区分 Windows 与 bash。"
 href: 'https://flags.sh'
 icon: '/icons/flags-sh.webp'
 category: '在线工具' # 用于分类

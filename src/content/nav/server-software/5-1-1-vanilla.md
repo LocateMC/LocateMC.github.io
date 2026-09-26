@@ -1,6 +1,6 @@
 ---
 title: "Vanilla"
-description: "Minecraft Java 版官方原版服务端，未做任何修改的纯净开服选择。"
+description: "Mojang 官方发布的 Minecraft Java 版服务器程序，不含任何第三方修改与优化，忠实还原游戏本体的全部特性与机制，是纯净开服的基准选择。"
 href: "https://www.minecraft.net/en-us/download/server"
 icon: "/icons/minecraft-logo.webp"
 category: "服务端"

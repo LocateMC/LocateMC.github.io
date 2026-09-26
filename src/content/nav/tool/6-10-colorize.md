@@ -1,6 +1,6 @@
 ---
 title: 'Colorize'
-description: '一个功能强大的在线工具，用于生成彩色、渐变和彩虹效果的文本，并支持导出为多种游戏及社区常用格式。'
+description: 'Colorize 是 Minecraft 在线文本美化工具，可加纯色、渐变或彩虹效果，结果一键转为 MOTD、JSON 指令、BBCode 与 HTML 等格式。'
 href: 'https://colorize.fun/en/minecraft'
 icon: '/icons/sample.webp'
 category: '在线工具' # 用于分类

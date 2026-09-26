@@ -1,6 +1,6 @@
 ---
 title: 'Structura Lab'
-description: '一个专注于建筑结构文件（.mcstructure）的分享与发现平台。'
+description: '专注于建筑结构文件分享的网站，玩家可寻找、分享、下载 .mcstructure 格式的 Structura 文件，内容涵盖建筑、地形、雕像与自动农场等。'
 href: 'https://structuralab.com/'
 icon: '/icons/sample.webp'
 category: '资源' # 分类为资源

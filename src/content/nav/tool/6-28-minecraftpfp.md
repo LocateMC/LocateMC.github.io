@@ -1,6 +1,6 @@
 ---
 title: 'Minecraft PFP Maker'
-description: '一个专门用于制作玩家个性化社交头像 (PFP) 的在线工具。'
+description: 'Minecraft PFP Maker 输入游戏 ID 即在 3D 预览中看到皮肤头像，并可自定义背景、轮廓与阴影，几秒得到干净的社交头像。'
 href: 'https://minecraftpfp.com/'
 icon: '/icons/minecraftpfp.webp'
 category: '在线工具' # 用于分类

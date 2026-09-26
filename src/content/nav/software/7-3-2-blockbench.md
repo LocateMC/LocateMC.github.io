@@ -1,6 +1,6 @@
 ---
 title: 'BlockBench'
-description: '免费的 3D 模型编辑器，为创建自定义方块、物品与生物而生。'
+description: 'BlockBench 是免费开源跨平台的 3D 模型编辑器，被广泛视为 Minecraft 创作标准工具，支持创建 Java 版与基岩版的方块与实体模型。'
 href: 'https://www.blockbench.net/'
 icon: '/icons/blockbench.webp' # 假设图标文件名
 category: '软件程序'

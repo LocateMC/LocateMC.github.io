@@ -1,6 +1,6 @@
 ---
 title: 'bridge.'
-description: '为基岩版 Add-on 创作而生的强大集成开发环境 (IDE)。'
+description: 'bridge. 是专为 Minecraft 基岩版 Add-on 开发打造的集成开发环境，提供语法高亮、自动补全的代码编辑器与可视化组件编辑器。'
 href: 'https://bridge-core.app/'
 icon: '/icons/bridge.webp' # 假设图标文件名
 category: '软件程序'

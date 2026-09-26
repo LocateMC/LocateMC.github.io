@@ -1,6 +1,6 @@
 ---
 title: 'Chunky'
-description: '强大的光线追踪渲染器，用于创作电影级的游戏艺术作品。'
+description: 'Chunky 是采用光线追踪技术的独立 Minecraft 场景渲染器，可加载游戏世界并自由设置相机、光照与材质，渲染逼真光影图像。'
 href: 'https://chunky-dev.github.io/docs/'
 icon: '/icons/chunky.webp' # 假设图标文件名
 category: '软件程序'

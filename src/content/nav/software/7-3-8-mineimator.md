@@ -1,6 +1,6 @@
 ---
 title: 'Mine-imator'
-description: '免费易上手的动画制作软件，为新手快速创作视频而生。'
+description: 'Mine-imator 是广受欢迎的免费 3D 动画制作软件，专为 Minecraft 设计，以极低门槛让玩家导入世界、角色与方块，用关键帧创作动画。'
 href: 'https://www.mineimator.com/'
 icon: '/icons/mineimator.webp' # 假设图标文件名
 category: '软件程序'

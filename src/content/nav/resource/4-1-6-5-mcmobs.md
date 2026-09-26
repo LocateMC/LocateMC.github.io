@@ -1,6 +1,6 @@
 ---
 title: 'MCMobs'
-description: '一个专注于销售高质量、预制生物和 NPC 的专业在线市场。'
+description: '专业在线市场，销售高质量预制生物与 NPC，含幻想怪物、Boss 与友善 NPC，自带 3D 模型、动画与 AI 配置，可经 MythicMobs 等插件部署。'
 href: 'https://www.mcmobs.net'
 icon: '/icons/mcmobs.webp'
 category: '资源' # 分类为资源

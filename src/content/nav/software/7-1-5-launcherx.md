@@ -1,6 +1,6 @@
 ---
 title: 'LauncherX'
-description: '多平台统一的启动器，致力于现代化的游戏管理体验。'
+description: 'LauncherX 是现代化跨平台的开源 Minecraft 启动器，支持 Windows、macOS 与 Linux，以简洁界面提供多账户与版本安装。'
 href: 'https://corona.studio/'
 icon: '/icons/launcherx.webp' # 假设图标文件名
 category: '软件程序'

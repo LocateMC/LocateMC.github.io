@@ -1,6 +1,6 @@
 ---
 title: '渐变文字生成器'
-description: '一个用于快速生成彩色渐变文本的在线工具，支持多种文本格式和实时预览。'
+description: 'Minecraft Gradient Text Generator 是在线工具，为 Minecraft 生成渐变色文本，支持 13 种以上格式与原版颜色代码并实时预览。'
 href: 'https://mcg.tuanzi.ink' # 文本未提供具体链接
 icon: '/icons/mgtg.webp'
 category: '在线工具' # 用于分类

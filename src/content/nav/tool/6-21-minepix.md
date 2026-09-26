@@ -1,6 +1,6 @@
 ---
 title: 'MinePix'
-description: '一个可以快速、轻松地制作自定义主题壁纸的在线工具，拥有超过 700 个预设场景可供选择。'
+description: 'MinePix 专精 Minecraft 壁纸制作，内置 700 多个预设 3D 场景，输入玩家 ID 即自动将皮肤渲染进场景，生成个性化壁纸。'
 href: 'https://www.minepix.app/'
 icon: '/icons/minepix.webp'
 category: '在线工具' # 用于分类

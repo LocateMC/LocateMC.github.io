@@ -1,6 +1,6 @@
 ---
 title: "BBSPK"
-description: "《我的世界》中文论坛生态普查页，盘点 MCBBS 关站后 81 个新兴论坛的存活状态与备案信息。"
+description: "BBSPK 是社区维护的《我的世界》简体中文论坛生态普查页，以晋级赛叙事逐年盘点 MCBBS 关站后的新兴论坛，截至 2026 年 9 月收录 81 个站点。"
 href: "https://mcbbs.rip"
 icon: "/icons/bbspk.webp"
 category: "收纳"

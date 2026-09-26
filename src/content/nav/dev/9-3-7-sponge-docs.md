@@ -1,6 +1,6 @@
 ---
 title: 'Sponge 文档'
-description: 'Sponge 服务器 API 平台的官方技术文档，为服务器管理员和插件开发者提供权威的指南和参考。'
+description: 'Sponge Documentation 是 Sponge 官方文档，提供较 Bukkit/Spigot 更现代健壮的插件框架，兼容 Forge 服务器。'
 href: 'https://docs.spongepowered.org/'
 icon: '/icons/sponge.webp'
 category: '开发'

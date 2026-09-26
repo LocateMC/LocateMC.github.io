@@ -1,6 +1,6 @@
 ---
 title: '开发者收益计算器'
-description: '一个由开发者 LRan 创建的，用于为《我的世界》中国版的开发者计算其收益的在线工具。'
+description: '这是 LRan 创建的专属计算器，为「我的世界中国版」创作者估算收益：输入作品获得的钻石数量，即可快速换算对应的实际收益，免去等待官方结算周期。'
 href: 'https://dev.lran.top/'
 icon: '/icons/income.webp'
 category: '在线工具' # 用于分类

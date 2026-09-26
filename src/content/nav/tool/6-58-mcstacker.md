@@ -1,6 +1,6 @@
 ---
 title: 'MC Stacker'
-description: '功能极其全面的、用于生成各类复杂游戏命令的在线可视化工具。'
+description: 'MC Stacker 是 Java 版命令生成器，以图形界面创建 /give、/summon 等命令，支持深度 NBT 编辑与按版本切换语法，被公认为权威工具。'
 href: 'https://mcstacker.net/'
 icon: '/icons/mcstacker.webp'
 category: '在线工具' # 用于分类

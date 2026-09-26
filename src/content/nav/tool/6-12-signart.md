@@ -1,6 +1,6 @@
 ---
 title: '方块字告示牌生成器'
-description: '一个专门用于生成告示牌“像素画”的在线工具，利用特殊的 UTF 字符块来创造精细的图案。'
+description: '方块字告示牌生成器由 kqakqakqa 制作，输入文字与颜色即生成告示牌像素画指令，利用特殊 Unicode 方块字符自动排版。'
 href: 'https://kqakqakqa.github.io/utf-block-sign-art/'
 icon: '/icons/sample.webp'
 category: '在线工具' # 用于分类

@@ -1,6 +1,6 @@
 ---
 title: 'Cubic Wiki'
-description: '中文社区维护的高版本 Java/基岩 MC 服务器开服运维百科（项目原名 NitWikit）。'
+description: 'Cubic Wiki（原 NitWikit）是中文社区共建的 MC 开服运维百科，按 Java 版、基岩版与通用分线手把手教搭建运营服务器，面向想自己开服的新手玩家。'
 href: 'https://nitwikit.8aka.org'
 icon: '/icons/cubic-wiki.webp'
 category: '百科'

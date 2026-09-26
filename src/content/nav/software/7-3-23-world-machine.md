@@ -1,6 +1,6 @@
 ---
 title: "World Machine"
-description: "程序化地形生成软件，以节点图与侵蚀模拟仿真出真实地貌，导出高度图供地图创作使用。"
+description: "World Machine 是面向技术美术的专业级程序化地形生成软件，用节点图与侵蚀模拟产出高度图与遮罩，虽非 Minecraft 专用却可作上游源头。"
 href: "https://www.world-machine.com"
 icon: "/icons/world-machine.webp"
 category: "软件程序"

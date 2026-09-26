@@ -1,6 +1,6 @@
 ---
 title: 'ぷっこ村通信'
-description: '日本基岩版 Add-on 创作者ししゃも的 WordPress 个人博客，记录 Marketplace 作品（Feltlings / Astro Sargasso 等）的开发日记、Blockbench 与基岩版技术备忘。'
+description: 'ぷっこ村通信是日本开发者ししゃも的 WordPress 博客，记录基岩版 Add-on 与 Marketplace 作品，分享 Blockbench 使用与技术备忘。'
 href: 'https://sisyamo-pukkovillage.com'
 icon: '/icons/pukko-village.webp'
 category: '博客'

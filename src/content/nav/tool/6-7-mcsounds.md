@@ -1,6 +1,6 @@
 ---
 title: 'McSounds'
-description: '一个由“SomeBottle”创建并维护的音效库网站，提供在线搜索、试听、分享和下载游戏内音效的功能。'
+description: 'McSounds 是 SomeBottle 于 2018 年发起的在线音效库，按标签搜索、随机试听并分享链接，收录各版本游戏音效，方便创作者取用。'
 href: 'https://o.xbottle.top/mcsounds/'
 icon: '/icons/mcsounds.webp'
 category: '在线工具' # 用于分类

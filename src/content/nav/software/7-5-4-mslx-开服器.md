@@ -1,6 +1,6 @@
 ---
 title: "MSLX 开服器"
-description: "新一代跨平台 MC 服务器管理与联机工具，一键开服、内置内网穿透、Web 管理面板。"
+description: "MSLX 开服器是面向玩家的新一代跨平台服务器管理与联机工具，开源且把开服、管服与联机合而为一，内置镜像源、MSLFrp 内网穿透与 Web 面板。"
 href: "https://mslx.mslmc.cn"
 icon: "/icons/mslx.webp"
 category: "软件程序"

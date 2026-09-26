@@ -1,6 +1,6 @@
 ---
 title: 'MCDL'
-description: '基岩版版本库，提供安卓，iOS 与 Windows 客户端下载。'
+description: 'MCDL 是 MineBBS 社区推出的 Minecraft 基岩版资源下载站，专注 Android 与 Windows 等平台的历史版本客户端，提供稳定可靠渠道。'
 href: 'https://mc.minebbs.com/'
 icon: '/icons/mcbedl.webp' # 假设图标文件名
 category: '软件程序'

@@ -1,6 +1,6 @@
 ---
 title: "Geyser"
-description: "GeyserMC 核心桥接，让基岩版玩家加入 Java 版服务器。"
+description: "GeyserMC 团队开发的开源桥接插件与独立代理，把基岩版玩家的协议流量转译为 Java 服务端数据包，让基岩版玩家无需正版账号即可加入 Java 版服务器。"
 href: "https://geysermc.org/"
 icon: "/icons/geyser.webp"
 category: "服务端"

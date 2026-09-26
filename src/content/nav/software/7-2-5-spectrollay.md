@@ -1,6 +1,6 @@
 ---
 title: '星月 Minecraft 版本库'
-description: '一个始于个人留档、后因共享精神而对外开放的非盈利资源站，专注于收录并提供历史上所有发布过的版本。'
+description: '星月 Minecraft 版本库是一座开放共享的非盈利资源站，始于 2020 年个人留档后公开分享，收录并维护 Minecraft 发布过的全部历史版本。'
 href: 'https://mcarc.spectrollay.com/minecraft_repository/'
 icon: '/icons/spectrollay.webp'
 category: '软件程序' # 用于分类

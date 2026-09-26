@@ -1,6 +1,6 @@
 ---
 title: 'Mod Manager'
-description: '基于命令行的模组下载与更新工具，为整合包开发者设计。'
+description: 'Mod Manager 是专为整合包开发者设计的开源命令行模组管理工具，用一份配置定义模组列表（支持 CurseForge 与 Modrinth）批量下载。'
 href: 'https://github.com/kaniol-lck/modmanager'
 icon: '/icons/modmanager.webp' # 假设图标文件名
 category: '软件程序'

@@ -1,6 +1,6 @@
 ---
 title: 'Architectury 文档'
-description: '一个旨在统一 Forge 和 Fabric 两大模组平台的 API，让开发者可以轻松地进行跨平台模组开发的官方文档。'
+description: 'Architectury API 文档是该中间件 API 官方技术文档，抽象 Forge 与 Fabric 差异，让开发者编写一套核心代码即可把模组同时发布到两个平台。'
 href: 'https://docs.architectury.dev/'
 icon: '/icons/architectury-docs.webp'
 category: '开发'

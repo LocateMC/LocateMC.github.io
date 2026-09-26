@@ -1,6 +1,6 @@
 ---
 title: 'Modpack Index'
-description: '一个强大的整合包 (Modpack) 跨平台搜索引擎，聚合了来自 CurseForge, Modrinth 和 FTB App 的内容。'
+description: '非官方的社区项目，作为整合包跨平台搜索引擎，聚合 CurseForge、Modrinth 与 FTB App 三大平台的整合包，让玩家一站搜索筛选发现。'
 href: 'https://www.modpackindex.com/'
 icon: '/icons/modpackindex.webp'
 category: '资源' # 用于分类

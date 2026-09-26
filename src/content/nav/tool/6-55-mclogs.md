@@ -1,6 +1,6 @@
 ---
 title: 'MCLogs'
-description: '一个用于粘贴、分享和智能分析游戏日志的在线工具。'
+description: 'MCLogs 由 Aternos 运营，是免费日志粘贴、分享与分析服务，自动高亮错误并隐藏 IP，生成永久短链，并提供插件与 API 集成。'
 href: 'https://mclo.gs/'
 icon: '/icons/mclogs.webp'
 category: '在线工具' # 用于分类

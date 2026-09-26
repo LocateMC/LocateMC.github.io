@@ -1,6 +1,6 @@
 ---
 title: 'Bedrock.gg'
-description: 'Bedrock.gg 是一个面向基岩版官方市场的一站式浏览器门户，集中提供完整的附加包、世界、皮肤、材质与混搭包目录，并附带社区评分、投票与创作者榜单。'
+description: 'Bedrock.gg 是基岩版官方市场的一站式网页门户，收录附加包、世界、皮肤与材质全目录，附社区评分、投票与创作者榜单，以智能筛选弥补浏览不足。'
 href: 'https://bedrock.gg/'
 icon: '/icons/bedrockgg.webp'
 category: '市场'

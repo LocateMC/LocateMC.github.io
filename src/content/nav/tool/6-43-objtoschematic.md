@@ -1,6 +1,6 @@
 ---
 title: 'OBJ to Schematic'
-description: '功能强大的在线转换器，能将标准的 3D 模型文件 (.obj) 转换为原理图 (.schematic) 文件。'
+description: 'OBJ to Schematic 把 .obj 模型「体素化」为方块结构并输出 .schematic，借 WorldEdit 导入游戏世界。'
 href: 'https://objtoschematic.com/'
 icon: '/icons/objtoschematic.webp'
 category: '在线工具' # 用于分类

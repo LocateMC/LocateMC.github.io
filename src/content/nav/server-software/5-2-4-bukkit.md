@@ -1,6 +1,6 @@
 ---
 title: "Bukkit"
-description: "定义服务端插件 API 的鼻祖项目，Java 版插件生态的事实标准基础。"
+description: "定义 Minecraft Java 版服务端插件 API 的开源项目，虽官方服务端已停更，但其 API 设计深刻影响 Spigot、Paper 等所有主流核心。"
 href: "https://www.spigotmc.org/wiki/bukkit/"
 icon: "/icons/bukkit.webp"
 category: "服务端"

@@ -1,6 +1,6 @@
 ---
 title: "Minecraft 存档管理器"
-description: "免安装的 Java 版存档管理器，跨启动器汇总存档并一键备份与恢复。"
+description: "Minecraft 存档管理器是面向 Windows 的 Java 版存档工具，可跨 PCL2、HMCL、Prism 等启动器汇总散落存档并一键备份与恢复。"
 href: "https://github.com/Aaron88915/MinecraftWorldBrowser"
 icon: "/icons/minecraftworldbrowser.webp"
 category: "软件程序"

@@ -1,6 +1,6 @@
 ---
 title: 'MC 可爱头像生成器'
-description: '一个专门用于生成风格可爱 Q 版头像的在线工具。'
+description: 'MC 可爱头像生成器输入玩家 ID 或上传皮肤即生成统一萌系 Q 版头像，把皮肤特征转化为可爱社交符号，无需任何绘画技能，适合在社交平台展示。'
 href: 'https://mccag.cn/'
 icon: '/icons/mccag.webp'
 category: '在线工具' # 用于分类

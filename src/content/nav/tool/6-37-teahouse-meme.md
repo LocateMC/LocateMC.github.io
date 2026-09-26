@@ -1,6 +1,6 @@
 ---
 title: '梗体中文资源包'
-description: '一个由茶馆工作室 (Teahouse Studios) 社区驱动的在线工具，用于构建和自定义“梗体中文”这一将游戏内文本替换为梗和笑话的资源包。'
+description: '该站是茶馆工作室的「梗体中文」资源包构建器，把游戏内中文译名替换为社区梗与笑话，可按版本勾选生成并内置 SFW 模式，图形化降低普通玩家上手门槛。'
 href: 'https://meme.teahouse.team/'
 icon: '/icons/teahouse-meme.webp'
 category: '在线工具' # 用于分类

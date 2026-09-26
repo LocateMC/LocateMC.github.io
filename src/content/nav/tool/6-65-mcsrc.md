@@ -1,6 +1,6 @@
 ---
 title: 'mcsrc.dev'
-description: '在浏览器里阅读 Minecraft Java 版的反编译源码，支持版本差异对比、继承关系可视化与引用查找。'
+description: 'mcsrc.dev 由 FabricMC 维护，把阅读 Minecraft Java 版反编译源码变成网页点击，浏览器本地完成反编译，支持版本对比与引用跳转。'
 href: 'https://mcsrc.dev'
 icon: '/icons/mcsrc.webp'
 category: '在线工具' # 用于分类

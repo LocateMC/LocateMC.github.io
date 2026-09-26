@@ -1,6 +1,6 @@
 ---
 title: "Leaf"
-description: "高性能 Minecraft 服务端核心，专注实体与红石运算的极致优化。"
+description: "基于 Paper 的高性能服务端分支（又称 PaperLeaf），针对实体运算、红石与区块调度做大量深度优化，在更高 TPS 下保持对 Paper 插件的完整兼容。"
 href: "https://github.com/Winds-Studio/Leaf"
 icon: "/icons/leaf.webp"
 category: "服务端"

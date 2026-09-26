@@ -1,6 +1,6 @@
 ---
 title: "Forge"
-description: "历史最悠久的 Minecraft Java 版模组加载器，服务端模组生态的奠基者。"
+description: "最经典的 Java 版模组加载框架，支持把成百上千个模组同时加载于服务端与客户端，凭多年积累的庞大模组生态仍是众多模组服务器的基础。"
 href: "https://files.minecraftforge.net/"
 icon: "/icons/forge-community-wiki.webp"
 category: "服务端"

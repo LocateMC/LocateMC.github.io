@@ -1,6 +1,6 @@
 ---
 title: '苦力怕论坛'
-description: '专注基岩版的中文论坛，提供资源、教程与创作交流。'
+description: '苦力怕论坛（KLPBBS）是专注基岩版与网易版的中文社区，围绕附加包、皮肤、地图与脚本开发展开，是基岩版玩家找资源、学创作技巧的重要平台，扮演基岩版大本营角色。'
 href: 'https://www.klpbbs.com/'
 icon: '/icons/klpbbs.webp' # 假设图标文件名
 category: '社区' # 用于分类

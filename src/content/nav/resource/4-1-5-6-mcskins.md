@@ -1,6 +1,6 @@
 ---
 title: 'MCskins.top'
-description: '一个专注于通过 3D 交互式目录展示热门皮肤的在线画廊。'
+description: '以视觉展示为核心的皮肤画廊，用交互式 3D 角色网格集中陈列精选热门皮肤，用户拖动点击即可直观预览下载，重点在浏览器内的直观呈现而非检索效率。'
 href: 'https://mcskins.top/'
 icon: '/icons/mcskins.webp'
 category: '资源' # 分类为资源

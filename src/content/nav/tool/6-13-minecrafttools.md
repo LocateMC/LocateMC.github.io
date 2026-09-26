@@ -1,6 +1,6 @@
 ---
 title: 'Minecraft Tools'
-description: '一个功能极其全面的在线工具集网站，提供从命令生成、游戏机制计算到信息查询等多种便捷服务。'
+description: 'Minecraft.Tools 是一站式在线工具集，涵盖物品 ID、附魔计算、旗帜、烟花、自定义盔甲与命令生成等常见需求，界面统一易用。'
 href: 'https://minecraft.tools/'
 icon: '/icons/minecrafttools.webp'
 category: '在线工具' # 用于分类

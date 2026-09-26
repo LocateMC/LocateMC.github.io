@@ -1,6 +1,6 @@
 ---
 title: 'NameMC'
-description: '提供玩家名称、皮肤、披风和服务器信息查询的综合性在线服务平台。'
+description: 'NameMC 是玩家身份与服务器查询平台，可查曾用名、下载皮肤、展示披风并精确到秒给出名称释放倒计时，最初靠名称狙击成名，另带服务器列表。'
 href: 'https://namemc.com/'
 icon: '/icons/namemc.webp'
 category: '在线工具' # 用于分类

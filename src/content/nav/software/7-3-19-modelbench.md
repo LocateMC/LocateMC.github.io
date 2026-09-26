@@ -1,6 +1,6 @@
 ---
 title: 'Modelbench'
-description: '一个由 Mine-imator 开发团队创建的、专门用于为 Mine-imator 动画制作 3D 模型的免费建模程序。'
+description: 'Modelbench 是由 Mine-imator 团队开发的免费 3D 建模程序，专为 Mine-imator 动画制作打造，可创建、编辑并导入修改 Java 版模型。'
 href: 'https://www.mineimatorforums.com/index.php?/topic/79256-modelbench-115/'
 icon: '/icons/modelbench.webp'
 category: '软件程序' # 用于分类

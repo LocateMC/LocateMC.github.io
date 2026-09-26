@@ -1,6 +1,6 @@
 ---
 title: "Multicraft"
-description: "商用级 Minecraft 托管控制面板，单面板管理上千服，内置 FTP 与计费系统集成。"
+description: "Multicraft 是面向托管场景的商用控制面板，采用 Panel 与 Daemon 分离架构，单面板最多管理数千台服务器，内置 FTP、数据库与计费集成。"
 href: "https://multicraft.org"
 icon: "/icons/multicraft.webp"
 category: "软件程序"

@@ -1,6 +1,6 @@
 ---
 title: 'Minecraft Art'
-description: '一个集 2D 像素画/地图画、3D 雕塑和红石音乐创作于一体的综合性艺术在线平台。'
+description: 'PX Minecraft 艺术是集成创作平台，将 2D 像素画/地图画、3D 雕塑与红石音乐三大模块合一，供建筑师与艺术家同站创作。'
 href: 'https://mcpixelart.com/'
 icon: '/icons/mcpixelart.webp'
 category: '在线工具' # 用于分类

@@ -1,6 +1,6 @@
 ---
 title: '基岩版开发者文档'
-description: '一个面向基岩版创作者的社区驱动的资源门户和导航中心。'
+description: '基岩版开发者门户是社区驱动的资源聚合与导航中心，作为中央枢纽整合社区维基、官方文档、Discord 与第三方工具，方便开发者快速取用。'
 href: 'https://bedrock.dev/'
 icon: '/icons/bedrock-dev.webp'
 category: '开发'

@@ -1,6 +1,6 @@
 ---
 title: 'Server Pack Creator'
-description: '自动化整合包服务端创建工具，简化多人模组服的部署。'
+description: 'Server Pack Creator 是简化模组化服务器部署的工具，选定版本与加载器后自动从 CurseForge、Modrinth 拉取模组及依赖并生成整合包。'
 href: 'https://serverpackcreator.de/'
 icon: '/icons/serverpackcreator.webp' # 假设图标文件名
 category: '软件程序'

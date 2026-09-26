@@ -1,6 +1,6 @@
 ---
 title: "MCSManager"
-description: "开源网页开服面板，一键部署管理 Minecraft/Steam 游戏服务器。"
+description: "MCSManager（MCSM）是开源免费的游戏服务器管理面板，浏览器即可一键部署、启停并监控 Minecraft Java 版、基岩版及泰拉瑞亚等服务器。"
 href: "https://mcsmanager.com"
 icon: "/icons/mcsmanager.webp"
 category: "软件程序"

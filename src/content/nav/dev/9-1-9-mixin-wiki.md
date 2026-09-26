@@ -1,6 +1,6 @@
 ---
 title: 'Mixin Wiki'
-description: '一个强大的 Java Mixin 框架的官方维基，该框架允许开发者在运行时精确地修改 Java 字节码。'
+description: 'Mixin 是强大的 Java 字节码修改框架官方维基，提供声明式 API 在运行时精确注入修改 Java 类，文档详述其原理、注解用法与最佳实践。'
 href: 'https://github.com/SpongePowered/Mixin/wiki/'
 icon: '/icons/sample.webp'
 category: '开发'

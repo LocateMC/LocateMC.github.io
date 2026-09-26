@@ -1,6 +1,6 @@
 ---
 title: 'BlueMap'
-description: '高性能的 3D 地图渲染器，在浏览器中呈现精美的世界模型。'
+description: 'BlueMap 是高性能的 Minecraft 世界 3D 地图渲染器，可作为服务端插件或独立程序运行，将世界渲染成精细美观的 3D 模型供网页浏览。'
 href: 'https://bluemap.bluecolored.de/'
 icon: '/icons/bluemap.webp' # 假设图标文件名
 category: '软件程序'

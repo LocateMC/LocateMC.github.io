@@ -1,6 +1,6 @@
 ---
 title: 'KLPBBS 版本库'
-description: '一个专注于基岩版 (Bedrock Edition) APK 文件下载的网站，涵盖了正式版、测试版和预览版。'
+description: 'MCAPKS.net 是专一的基岩版安卓安装包下载站，系统性收录正式版、测试版与预览版等各版本 APK，为受限或想尝鲜的玩家提供替代渠道。'
 href: 'https://mcapks.net'
 icon: '/icons/mcapks.webp'
 category: '软件程序' # 用于分类

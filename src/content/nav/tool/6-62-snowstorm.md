@@ -1,6 +1,6 @@
 ---
 title: 'Snowstorm'
-description: '由 Blockbench 作者 JannisX11 打造的基岩版粒子效果可视化编辑器，浏览器打开即用，实时预览调参并导出 .particle.json。'
+description: 'Snowstorm 是 JannisX11 的基岩版 .particle.json 粒子可视化编辑器，提供网页与扩展形态，支持实时 3D 预览与 Molang 表达式。'
 href: 'https://snowstorm.app'
 icon: '/icons/snowstorm.webp'
 category: '在线工具' # 用于分类

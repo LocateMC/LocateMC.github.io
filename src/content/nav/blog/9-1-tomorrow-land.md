@@ -1,6 +1,6 @@
 ---
 title: "北山_Besson"
-description: "中文 Minecraft 模组开发教程博客，覆盖 NeoForge / Forge / Fabric 从零开始的系列文章。"
+description: "Tomorrow-Land 是北山_Besson 的中文模组开发博客，以系列文章教写模组，覆盖 NeoForge 与 Fabric，已积累约 195 篇教程。"
 href: "https://beishanair.github.io"
 icon: "/icons/tomorrow-land.webp"
 category: "博客"

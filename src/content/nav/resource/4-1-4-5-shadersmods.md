@@ -1,6 +1,6 @@
 ---
 title: 'ShadersMods'
-description: '一个提供光影、模组、资源包和种子的综合性资源门户网站。'
+description: '提供游戏增强资源的综合门户，覆盖光影包、模组、资源包与种子四大内容，以博客文章详介特色、用途与安装，兼顾追求画质玩家与刚入门的新手。'
 href: 'https://shadersmods.com'
 icon: '/icons/shadersmods.webp'
 category: '资源' # 分类为资源

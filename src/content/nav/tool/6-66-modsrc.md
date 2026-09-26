@@ -1,6 +1,6 @@
 ---
 title: 'modsrc.dev'
-description: '在浏览器里挑一个 Modrinth 模组，直接阅读它的反编译 Java 源码，无需下载与配置。'
+description: 'modsrc.dev 是 mcsrc 的模组版，在 Modrinth 选定模组即于浏览器内下载并反编译其 Java 源码，继承 mcsrc 的编辑器与导航能力。'
 href: 'https://modsrc.dev'
 icon: '/icons/modsrc.webp'
 category: '在线工具' # 用于分类

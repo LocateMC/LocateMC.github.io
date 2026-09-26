@@ -1,6 +1,6 @@
 ---
 title: 'StarMap'
-description: '一个专注于地图存档分享与交流的中文社区网站。'
+description: '为中国玩家提供地图存档下载、分享与交流的社区，收录国内外玩家创作的建筑、跑酷、解密、生存与小游戏等地图，下载后可直接载入自己的游戏游玩。'
 href: 'https://www.mcmaps.cn'
 icon: '/icons/starmap.webp'
 category: '资源' # 分类为资源

@@ -1,6 +1,6 @@
 ---
 title: 'BungeeCord Wiki'
-description: '一个由 SpigotMC 社区维护的、关于 BungeeCord 代理服务器的设置与使用指南。'
+description: 'SpigotMC 官方维基下关于 BungeeCord 的专门板块，为管理员提供代理服务器安装配置实用指南，涵盖基础设置、子服连接、权限与故障解决。'
 href: 'https://www.spigotmc.org/wiki/bungeecord/'
 icon: '/icons/bungeecord.webp'
 category: '开发'

@@ -1,6 +1,6 @@
 ---
 title: "Minecraft Search"
-description: "全能型 MC 内容检索站：3000+ 物品/生物/方块/群系，查配方、掉落、属性，另附 9 款免费在线工具，同时覆盖 Java 与基岩版。"
+description: "Minecraft Search 是全能检索站，收录 3000+ 条物品、生物、方块与群系数据并附配方与属性，同步 Java 与基岩版，另集多种工具。"
 href: "https://minecraftsearch.com/"
 icon: "/icons/minecraftsearch.webp"
 category: "在线工具"

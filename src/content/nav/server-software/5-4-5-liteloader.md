@@ -1,6 +1,6 @@
 ---
 title: "LiteLoader"
-description: "Java 版老牌轻量模组加载器，以零侵入的方式为客户端与服务端补充模组。"
+description: "面向 Java 版的轻量级模组加载器，主打轻量透明，不修改原版代码即可加载模组，早期以众多实用小功能模组著称，是 1.12 及更早版本的经典选择。"
 href: "https://www.liteloader.com/"
 icon: "/icons/sample.webp"
 category: "服务端"

@@ -1,6 +1,6 @@
 ---
 title: '微软基岩版创作者文档'
-description: '由微软官方提供的创作者学习门户，为基岩版的附加包、脚本和市场内容创作提供权威的文档与教程。'
+description: 'Minecraft Creator Learning Portal 是微软官方维护的基岩版创作者门户，提供从入门到精通的结构化路径，覆盖附加包、脚本 API 等。'
 href: 'https://learn.microsoft.com/minecraft/creator/'
 icon: '/icons/microsoft.webp'
 category: '开发'

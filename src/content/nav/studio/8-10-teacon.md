@@ -1,6 +1,6 @@
 ---
 title: 'TeaCon | 模组开发茶会'
-description: '一个由中文模组社区成员自发组织的、纯线上的模组开发竞赛（Hackathon）。'
+description: 'TeaCon（模组开发茶会）是面向模组爱好者的年度线上开发竞赛，以慢节奏黑客马拉松形式鼓励围绕年度主题创作全新可玩模组，独创游戏内「展馆」展示，由社区执行委员会运营。'
 href: 'https://www.teacon.cn/'
 icon: '/icons/teacon.webp'
 category: '工作室 & 组织' # 用于分类

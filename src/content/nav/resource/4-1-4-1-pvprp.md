@@ -1,6 +1,6 @@
 ---
 title: 'PVPRP'
-description: '专注 PvP 优化的材质包分享平台，提升竞技战斗体验。'
+description: '专注 PvP 领域的材质包分享平台，提供海量优化材质包，具备提升帧率、简化纹理、优化 UI 与自定义准星等特性，助力竞技战斗体验。'
 href: 'https://pvprp.com/'
 icon: '/icons/pvprp.webp' # 假设图标文件名
 category: '资源' # 分类为资源

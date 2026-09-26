@@ -1,6 +1,6 @@
 ---
 title: 'Bedrock Explorer'
-description: '一个展示和索引基岩版官方市场 (Marketplace) 内容的非官方浏览器，提供了便捷的搜索和发现功能。'
+description: 'Bedrock Explorer 是非官方的基岩版官方市场网页浏览器，把市场内的皮肤包、世界与材质包系统化抓取展示，提供比客户端更快速便捷的搜索与预览。'
 href: 'https://www.bedrockexplorer.com'
 icon: '/icons/bedrockexplorer.webp'
 category: '市场'

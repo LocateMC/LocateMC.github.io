@@ -1,6 +1,6 @@
 ---
 title: 'Minecraft Schematics'
-description: '全球最大的建筑蓝图分享站，提供海量可复用结构文件。'
+description: '建筑蓝图分享站，提供 .schem / .schematic 下载，内容从房屋、雕像到城堡、红石装置，可经 WorldEdit、Litematica 导入游戏快速复用。'
 href: 'https://www.minecraft-schematics.com/'
 icon: '/icons/minecraft-schematics.webp' # 假设图标文件名
 category: '资源' # 分类为资源

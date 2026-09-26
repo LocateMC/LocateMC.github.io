@@ -1,6 +1,6 @@
 ---
 title: '像素茶艺地图站'
-description: '专注精品原创地图的社区，强调艺术审美与分享体验。'
+description: '专注高质量原创地图的中文社区，以独特艺术视角与社区氛围为特色，为玩家提供发现美学地图的平台，也为地图创作者提供优雅的作品展示空间。'
 href: 'https://pixelmap.minegraph.cn/'
 icon: '/icons/pixelmap.webp' # 假设图标文件名
 category: '资源' # 分类为资源

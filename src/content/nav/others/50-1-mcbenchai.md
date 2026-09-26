@@ -1,6 +1,6 @@
 ---
 title: 'MC-Bench'
-description: '一个评测并比较 AI 智能体创造性建筑能力的基准。'
+description: 'MC-Bench 是 MindCraft 项目的评测基准，标准化比较 GPT-4、Claude 等 LLM 在 Minecraft 中建造的能力，是 AI 建筑竞技场。'
 href: 'https://mcbench.ai/'
 icon: '/icons/mcbench.webp' # 假设图标文件名
 category: '收纳'

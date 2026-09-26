@@ -1,6 +1,6 @@
 ---
 title: 'Canvas Wiki'
-description: '一个为 Fabric 模组提供的高性能、高级渲染 API 库，旨在为开发者提供强大的自定义渲染能力。'
+description: 'Canvas 是为 Fabric 模组生态设计的高性能渲染库，供开发者调用的 API，可高效渲染复杂 3D 模型、自定义方块流体特效与高级图形效果。'
 href: 'https://github.com/vram-guild/canvas/wiki'
 icon: '/icons/canvas.webp'
 category: '开发'

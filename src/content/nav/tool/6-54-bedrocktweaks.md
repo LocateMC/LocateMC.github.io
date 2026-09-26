@@ -1,6 +1,6 @@
 ---
 title: 'Bedrock Tweaks'
-description: '作为 Vanilla Tweaks 的姊妹篇，专为基岩版提供模块化定制工具。'
+description: 'Bedrock Tweaks 是 Vanilla Tweaks 的官方基岩版对应站，沿用勾选界面提供资源包层面的视觉与 UI 微调，打包成 .mcpack 一键导入。'
 href: 'https://bedrocktweaks.net/'
 icon: '/icons/bedrocktweaks.webp'
 category: '在线工具' # 用于分类

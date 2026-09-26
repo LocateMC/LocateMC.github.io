@@ -1,6 +1,6 @@
 ---
 title: 'Modrinth'
-description: '现代化的模组托管平台，提供纯净、快速的资源下载体验。'
+description: '开源的 Minecraft 内容托管平台，无广告且下载极速，汇集模组、插件、着色器与资源包，其 API 被 Prism Launcher 等第三方启动器选为首选内容源。'
 href: 'https://www.modrinth.com/'
 icon: '/icons/modrinth.webp' # 假设图标文件名
 category: '资源' # 用于分类

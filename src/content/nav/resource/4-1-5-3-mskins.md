@@ -1,6 +1,6 @@
 ---
 title: 'MSkins.net'
-description: '一个拥有现代化界面的皮肤数据库，提供便捷的皮肤搜索、发现和下载服务。'
+description: '拥有现代化界面的在线皮肤数据库，提供关键词搜索、热门榜单与最新上传浏览，并支持按颜色筛选，帮助玩家快速精准找到心仪外观，打开即可开始挑选。'
 href: 'https://mskins.net/'
 icon: '/icons/mskins.webp'
 category: '资源' # 分类为资源

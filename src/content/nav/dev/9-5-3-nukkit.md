@@ -1,6 +1,6 @@
 ---
 title: 'Nukkit'
-description: '一个用 Java 语言从头开始编写的基岩版 (Bedrock Edition) 服务器软件，拥有自己的插件 API。'
+description: 'Nukkit 是用 Java 为基岩版从零编写的服务器软件，通过逆向工程重实现协议与游戏逻辑，让开发者用成熟 Java 生态为基岩版编写插件。'
 href: 'https://cloudburstmc.org/wiki/nukkit'
 icon: '/icons/nukkit.webp'
 category: '开发'

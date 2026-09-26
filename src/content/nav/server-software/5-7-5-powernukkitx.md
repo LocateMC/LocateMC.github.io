@@ -1,6 +1,6 @@
 ---
 title: "PowerNukkitX"
-description: "Nukkit 的增强分支，支持最新版本与更多特性的 Java 基岩版服务端。"
+description: "基于 Nukkit 的增强分支，由国内社区主导开发，持续跟进最新基岩版版本，在原版基础上加入大量新特性与性能优化，适合追求丰富玩法的基岩服。"
 href: "https://powernukkitx.com/"
 icon: "/icons/powernukkitx.webp"
 category: "服务端"

@@ -1,6 +1,6 @@
 ---
 title: 'Forge 社区 Wiki'
-description: 'Forge 模组平台的现代化官方文档，为模组开发者提供权威的教程、参考和指南。'
+description: 'Forge 社区 Wiki 是老牌模组加载器 Forge 的现代化官方文档，由社区与团队维护，涵盖环境搭建、事件总线、注册表与数据生成器等开发环节。'
 href: 'https://forge.gemwire.uk/'
 icon: '/icons/forge-community-wiki.webp'
 category: '开发'

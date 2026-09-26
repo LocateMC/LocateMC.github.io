@@ -1,6 +1,6 @@
 ---
 title: 'BakaXL'
-description: '以其精美的 UI 设计与独特的视觉增强功能而闻名的启动器。'
+description: 'BakaXL 是主打美学与视觉体验的第三方 Minecraft 启动器，除游戏与模组管理外，以华丽界面、3D 皮肤预览与主题系统著称。'
 href: 'https://www.bakaxl.com/'
 icon: '/icons/bakaxl.webp' # 假设图标文件名
 category: '软件程序'

@@ -1,6 +1,6 @@
 ---
 title: "Nukkit"
-description: "使用 Java 语言编写的基岩版服务器软件，经典的开源解决方案。"
+description: "使用 Java 编写的基岩版服务器软件，由 CloudburstMC 社区维护，凭借 Java 生态的开发便利性成为许多基岩版服主的入门选择。"
 href: "https://cloudburstmc.org/"
 icon: "/icons/nukkit.webp"
 category: "服务端"

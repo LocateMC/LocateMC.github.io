@@ -1,6 +1,6 @@
 ---
 title: "Serein"
-description: "开源服务器自动化管理工具，多服统一管理、群服互通、网页远程控制。"
+description: "Serein 是开源免费的游戏服务器自动化管理工具（C#/.NET），单界面即可统一管理 Java 版、基岩版与泰拉瑞亚等多服并桥接 QQ、Discord。"
 href: "https://sereindev.github.io"
 icon: "/icons/serein.webp"
 category: "软件程序"

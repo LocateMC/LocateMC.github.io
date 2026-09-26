@@ -1,6 +1,6 @@
 ---
 title: "YSS Group"
-description: "一个专注于开发和改进基岩版 (Bedrock Edition) 光影着色器，旨在提升游戏视觉体验的开发者团队。"
+description: "YSS Group 是专注 Minecraft 基岩版光影着色器研发的开发者团队，拥有五年以上历史，持续开发与优化 Shaders，是基岩版顶尖光影技术标杆。"
 href: "https://yss.rf.gd/"
 icon: "/icons/yssgroup.webp"
 category: "工作室 & 组织"

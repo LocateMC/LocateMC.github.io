@@ -1,6 +1,6 @@
 ---
 title: 'HMCL'
-description: '历史悠久的开源启动器，以其跨平台与高度自定义性著称。'
+description: 'HMCL 是国内历史最悠久的开源 Minecraft 启动器，支持 Windows、macOS 与 Linux，提供版本隔离、模组管理与整合包导入。'
 href: 'https://hmcl.huangyuhui.net/'
 icon: '/icons/hmcl.webp' # 假设图标文件名
 category: '软件程序'

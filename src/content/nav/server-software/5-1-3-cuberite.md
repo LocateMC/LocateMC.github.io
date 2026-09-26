@@ -1,6 +1,6 @@
 ---
 title: "Cuberite"
-description: "C++ 实现的轻量高性能 Minecraft 服务端，自带 Lua 插件体系，跨平台。"
+description: "使用 C++ 编写的 Minecraft 服务器软件，与官方服务端完全独立且不依赖 Java，凭轻量高效架构在小内存设备与嵌入式场景中表现出色。"
 href: "https://cuberite.org/"
 icon: "/icons/cuberite.webp"
 category: "服务端"

@@ -1,6 +1,6 @@
 ---
 title: 'SpigotMC Javadocs'
-description: '著名服务器软件 Spigot 的官方 Java API 参考文档 (Javadocs)。'
+description: 'Spigot Javadocs 是服务器软件 Spigot 的 Java API 参考文档，由源码注释自动生成，供插件开发者快速精确查询每个 API 中类、方法与字段。'
 href: 'https://hub.spigotmc.org/javadocs/spigot/'
 icon: '/icons/spigot.webp'
 category: '开发'

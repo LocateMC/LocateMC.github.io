@@ -1,6 +1,6 @@
 ---
 title: 'MaxKim'
-description: 'MaxKim 的个人站点：Minecraft 建筑与视频创作作品集、粉丝作品画廊，以及运行七年的社区服务器。'
+description: 'MaxKim 是个人内容总站，汇集 YouTube 与 Bilibili 的建筑教程视频、历年代表作、粉丝画廊与运行七年的社区服务器，是作品与影响力的一站式索引。'
 href: 'https://max.kim'
 icon: '/icons/maxkim.webp'
 category: '博客'

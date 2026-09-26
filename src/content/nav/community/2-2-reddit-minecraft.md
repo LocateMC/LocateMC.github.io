@@ -1,6 +1,6 @@
 ---
 title: 'Reddit r/Minecraft'
-description: '全球最大的玩家社交中心，分享作品与讨论的聚集地。'
+description: 'Reddit r/Minecraft 是社交媒体上最大的 MC 主题社区，拥有数百万会员，分享建筑截图、红石机械与玩法视频，凭投票机制筛选热门，是玩家的公共广场。'
 href: 'https://www.reddit.com/r/Minecraft/'
 icon: '/icons/reddit-minecraft.webp' # 假设图标文件名
 category: '社区' # 用于分类

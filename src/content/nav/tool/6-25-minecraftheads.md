@@ -1,6 +1,6 @@
 ---
 title: 'Minecraft Heads'
-description: '一个专注于提供自定义玩家头颅的超大型在线数据库，是建筑与装饰社区最重要的资源站之一。'
+description: 'Minecraft-Heads.com 是收录极丰的自定义玩家头颅数据库，按食物、方块、动物等详类整理并支持关键词检索，一键获取 /give 指令。'
 href: 'https://minecraft-heads.com/'
 icon: '/icons/minecraft-heads.webp'
 category: '在线工具' # 用于分类

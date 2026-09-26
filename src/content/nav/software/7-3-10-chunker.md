@@ -1,6 +1,6 @@
 ---
 title: 'Chunker'
-description: '官方背景的开源世界转换工具，实现 Java 与基岩版存档互转。'
+description: 'Chunker 是拥有官方背景的开源 Minecraft 世界转换工具，最初由 Mojang 推出、现由社区维护，专注 Java 版与基岩版存档互转。'
 href: 'https://www.chunker.app'
 icon: '/icons/chunker.webp' # 假设图标文件名
 category: '软件程序'

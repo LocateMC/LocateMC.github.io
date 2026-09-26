@@ -1,6 +1,6 @@
 ---
 title: 'MC 蓝图站'
-description: '中文建筑蓝图分享平台，提供海量便捷的结构文件下载。'
+description: '中文建筑蓝图分享社区，提供 .schem、.litematic 等蓝图文件下载分享，可借助 Litematica、WorldEdit 等模组快速导入游戏复现建筑。'
 href: 'https://www.mcschematic.top/'
 icon: '/icons/mcschematic.webp' # 假设图标文件名
 category: '资源' # 分类为资源

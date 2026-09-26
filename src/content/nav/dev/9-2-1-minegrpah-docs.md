@@ -1,6 +1,6 @@
 ---
 title: 'MGC 文档'
-description: '一个专注于图形学领域的、开放的中文技术文档与知识社区。'
+description: 'MineGraph 是专注 Minecraft 图形学的中文开放知识社区与技术文档库，系统整理光影、渲染、材质制作与 GLSL 编程教程，供开发者交流学习。'
 href: 'https://docs.minegraph.cn/home'
 icon: '/icons/minegraph.webp'
 category: '开发'

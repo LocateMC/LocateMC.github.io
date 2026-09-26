@@ -1,6 +1,6 @@
 ---
 title: '网易我的世界'
-description: '我的世界中国官方正版，提供便捷社交与一站式组件体验。'
+description: '网易我的世界是 Minecraft 在中国大陆的唯一官方正版代理，免费下载加道具内购，深度整合社交、好友联机、租赁服与组件中心，让玩家一键订阅模组与联机。'
 href: 'https://mc.163.com'
 icon: '/icons/minecraft-163.webp'
 category: '官方'

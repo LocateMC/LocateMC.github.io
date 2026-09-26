@@ -1,6 +1,6 @@
 ---
 title: 'Bukkit Javadocs'
-description: '由 SpigotMC 团队维护的、最原始且最核心的 Bukkit API 的官方 Java 参考文档 (Javadocs)。'
+description: 'SpigotMC 官方维护的 Bukkit API Java 参考文档，由源码注释生成，定义构成现代 Minecraft 服务器插件生态基石的核心类、方法与事件。'
 href: 'https://hub.spigotmc.org/javadocs/bukkit/'
 icon: '/icons/bukkit.webp'
 category: '开发'

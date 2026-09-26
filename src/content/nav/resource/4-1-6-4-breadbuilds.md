@@ -1,6 +1,6 @@
 ---
 title: 'BreadBuilds'
-description: '一个专注于销售高质量、专业级预制建筑的在线市场。'
+description: '高度专业化的在线市场，核心业务销售高质量预制建筑，含主城、重生点、大厅、PvP 竞技场与生存地图，作为标准数字商品购买后可直接用于服务器。'
 href: 'https://www.breadbuilds.com'
 icon: '/icons/breadbuilds.webp'
 category: '资源' # 分类为资源

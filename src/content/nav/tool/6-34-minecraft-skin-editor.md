@@ -1,6 +1,6 @@
 ---
 title: 'Minecraft 皮肤编辑器'
-description: '一个经典的、所见即所得的在线皮肤编辑器，提供基础的像素绘画工具。'
+description: 'Minecraft 皮肤编辑器是经典在线工具，提供类画图软件界面逐像素绘制皮肤，配备铅笔、油漆桶等工具并实时 3D 预览，是无数玩家创作第一个皮肤的起点。'
 href: 'https://minecraft-skin-editor.com/cn/'
 icon: '/icons/minecraft-skin-editor.webp'
 category: '在线工具' # 用于分类

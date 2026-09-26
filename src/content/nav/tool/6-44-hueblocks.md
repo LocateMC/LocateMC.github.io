@@ -1,6 +1,6 @@
 ---
 title: 'HueBlocks'
-description: '可以根据用户选择的颜色和方块，自动生成平滑的方块颜色渐变的在线工具。'
+description: 'HueBlocks 为建筑生成平滑方块颜色渐变，输入起止颜色即自动算出最佳排列顺序，渐变长度可自定义并支持新老材质切换，是托管于 GitHub Pages 的开源项目。'
 href: 'https://1280px.github.io/hueblocks/'
 icon: '/icons/hueblocks.webp'
 category: '在线工具' # 用于分类

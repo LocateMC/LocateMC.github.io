@@ -1,6 +1,6 @@
 ---
 title: "Gate"
-description: "Minekube 出品的 Go 语言现代代理端，无需 JVM，约 10MB 内存即可承载大型服务器网络。"
+description: "Minekube 团队用 Go 编写的现代代理端，不依赖 JVM，单文件即可运行，内存约 10MB，支持 1.8 至最新版本，尤其适合容器化与云原生部署。"
 href: "https://gate.minekube.com"
 icon: "/icons/gate.webp"
 category: "服务端"

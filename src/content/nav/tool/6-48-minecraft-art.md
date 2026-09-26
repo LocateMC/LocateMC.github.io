@@ -1,6 +1,6 @@
 ---
 title: 'Minecraft Art'
-description: '一个拥有现代化界面的、能将图片实时转换为像素画的在线生成器。'
+description: 'Minecraft Art 是托管 Netlify 的现代化工具，把任意图片即时转为方块像素艺术并实时预览，还能选定调色板输出材料清单。'
 href: 'https://minecraftart.netlify.app'
 icon: '/icons/minecraft-art.webp'
 category: '在线工具' # 用于分类

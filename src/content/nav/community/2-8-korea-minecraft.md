@@ -1,6 +1,6 @@
 ---
 title: '韩国 Minecraft 论坛'
-description: '韩国的技术论坛，专注资源与开发者深度交流。'
+description: '韩国 Minecraft 论坛是面向开发者与服主的传统技术社区，聚焦模组、插件、服务端整合包发布与编程建筑深度交流，是韩国技术开发者的避风港与资源精选库。'
 href: 'https://www.koreaminecraft.net/'
 icon: '/icons/korea-minecraft.webp' # 假设图标文件名
 category: '社区' # 用于分类

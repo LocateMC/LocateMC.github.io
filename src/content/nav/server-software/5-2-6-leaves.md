@@ -1,6 +1,6 @@
 ---
 title: "Leaves"
-description: "基于 Paper 的分支服务端，专注红石、生电玩法的纯净优化体验。"
+description: "基于 Paper 的服务端分支，核心目标为纯净、专为生电（红石/技术）设计，在贴近原版特性的前提下优化生电机制，并保留灵活的自定义开关。"
 href: "https://github.com/LeavesMC/Leaves"
 icon: "/icons/leaves.webp"
 category: "服务端"

@@ -1,6 +1,6 @@
 ---
 title: 'PCL2 CE'
-description: 'PCL2 的社区维护版本，在原作者基础上持续提供更新与优化。'
+description: 'PCL2 CE 是由社区开发者接力的开源启动器，在龙腾猫跃原版 PCL2 基础上持续修复与更新，继承其友好界面与管理功能，让项目延续生命力。'
 href: 'https://github.com/PCL-Community/PCL2-CE'
 icon: '/icons/pcl2-ce.webp' # 假设图标文件名
 category: '软件程序'

@@ -1,6 +1,6 @@
 ---
 title: 'Resource Packs 24'
-description: '德语区领先的材质包网站，提供多样化风格与高清资源。'
+description: '源自德国的全球材质包分享网站，以海量多样高质量著称，覆盖原版优化到超高清写实等风格，并按 16x、128x、512x 分辨率清晰分类。'
 href: 'https://resourcepacks24.de/'
 icon: '/icons/resourcepacks24.webp' # 假设图标文件名
 category: '资源' # 分类为资源

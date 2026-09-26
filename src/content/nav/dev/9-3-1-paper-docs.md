@@ -1,6 +1,6 @@
 ---
 title: 'PaperMC 文档'
-description: '一个高性能服务器软件 PaperMC 的官方技术文档，为服务器管理员和插件开发者提供权威的配置指南、开发教程与 API 参考。'
+description: 'PaperMC Documentation 是服务器软件 Paper（Spigot 分支）的官方文档，服务管理员与插件开发者，提供配置优化指南与独有 API 开发教程。'
 href: 'https://docs.papermc.io/'
 icon: '/icons/papermc.webp'
 category: '开发'

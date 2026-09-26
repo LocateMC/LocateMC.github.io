@@ -1,6 +1,6 @@
 ---
 title: 'Skinseed'
-description: '一个功能极其强大的移动端皮肤创作与分享社区平台，以其先进的编辑器和庞大的社区而闻名。'
+description: 'Skinseed 是移动端（安卓与 iOS）一站式 Minecraft 皮肤平台，集智能纹理生成的 3D 编辑器、数百万用户的皮肤社区与个人衣柜于一体。'
 href: 'https://play.google.com/store/apps/details?id=com.africasunrise.skinseed'
 icon: '/icons/skinseed.webp'
 category: '软件程序' # 用于分类

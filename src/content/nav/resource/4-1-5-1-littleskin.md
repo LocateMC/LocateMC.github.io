@@ -1,6 +1,6 @@
 ---
 title: 'LittleSkin'
-description: '一个面向中国社区的、功能强大的第三方皮肤站，提供皮肤上传、管理、分享以及一个独立的 Yggdrasil 身份验证服务。'
+description: '面向中国社区的第三方皮肤站，提供皮肤上传、管理与分享，并配套独立 Yggdrasil 身份验证服务，让非官方启动器玩家显示自定义皮肤披风。'
 href: 'https://littleskin.cn/'
 icon: '/icons/littleskin.webp'
 category: '资源' # 分类为资源

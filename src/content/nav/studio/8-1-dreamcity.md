@@ -1,6 +1,6 @@
 ---
 title: '夢想之都工作室'
-description: '深耕创作并拓展 VTuber 业务的台湾综合内容工作室。'
+description: '夢想之都工作室是 2015 年成立的台湾内容团队，以 Minecraft 原创地图起家，2021 年起拓展 VTuber 业务并推出虚拟主播嘟比Duby。'
 href: 'https://www.dreamcity.studio/'
 icon: '/icons/dreamcity.webp'
 category: '工作室 & 组织'

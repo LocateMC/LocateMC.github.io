@@ -1,6 +1,6 @@
 ---
 title: "Folia"
-description: "PaperMC 团队出品的多线程服务端，按区域并行调度彻底释放多核性能。"
+description: "PaperMC 团队推出的多线程服务端核心，把世界划分成多个独立区域并行调度，突破单线程 tick 限制，显著利用多核 CPU 承载更大规模服务器。"
 href: "https://papermc.io/software/folia"
 icon: "/icons/folia.webp"
 category: "服务端"

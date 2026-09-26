@@ -1,6 +1,6 @@
 ---
 title: 'Planet Minecraft'
-description: '全球性的创作分享平台，聚焦皮肤、地图与材质包艺术。'
+description: '以玩家创作为核心的全球内容社区，专注皮肤、地图、材质包与数据包等艺术内容，并提供作品展示、社区竞赛与发现功能，形成完整的创作互动循环。'
 href: 'https://www.planetminecraft.com/'
 icon: '/icons/planetminecraft.webp' # 假设图标文件名
 category: '资源' # 用于分类

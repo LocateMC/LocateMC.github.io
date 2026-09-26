@@ -1,6 +1,6 @@
 ---
 title: 'Sponge Javadocs'
-description: 'Sponge 服务器 API 平台的官方 Java API 参考文档 (Javadocs)。'
+description: 'Sponge Javadocs 是 Sponge 服务器 API 平台的 Java 参考文档，由源码注释自动生成，供插件开发者快速精确查询每个 API 中类、接口与方法。'
 href: 'https://spongepowered.org/jd/'
 icon: '/icons/sponge.webp'
 category: '开发'

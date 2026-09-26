@@ -1,6 +1,6 @@
 ---
 title: '图形化自定义数据包'
-description: '一个用于通过图形化界面创建和自定义数据包的强大在线工具。'
+description: '图形化自定义数据包是可视化在线工具，点击即可创建与定制数据包，生成自定义合成、进度、函数与战利品表，无需手写 JSON，大幅降低数据包制作门槛。'
 href: 'https://www.sandclocks.cn/'
 icon: '/icons/sandclock.webp'
 category: '在线工具' # 用于分类

@@ -1,6 +1,6 @@
 ---
 title: 'Build It'
-description: '一个专注于提供建筑教程和设计灵感的在线平台。'
+description: 'Build It 是面向 Minecraft 玩家的建筑教程与设计灵感平台，以图文步骤详解房屋、城堡、花园等搭建，配大量截图与清晰说明，是建筑新手的在线课堂。'
 href: 'https://builditapp.com'
 icon: '/icons/buildit.webp'
 category: '收纳' # 用于分类

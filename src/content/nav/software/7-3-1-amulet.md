@@ -1,6 +1,6 @@
 ---
 title: 'Amulet'
-description: '强大的开源地图编辑器，支持 Java 与基岩版世界双向编辑与转换。'
+description: 'Amulet 是支持 Windows、macOS 与 Linux 的开源 Minecraft 地图编辑器，能无缝读取、编辑并保存 Java 版与基岩版世界并双向转换。'
 href: 'https://www.amuletmc.com/'
 icon: '/icons/amulet.webp' # 假设图标文件名
 category: '软件程序'

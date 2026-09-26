@@ -1,6 +1,6 @@
 ---
 title: '巴哈姆特 Minecraft 看板'
-description: '台灣最大的玩家社群，聚焦資訊、創作分享與深度討論。'
+description: '巴哈姆特 Minecraft 看板是台港澳及海外繁体中文玩家最大社群，涵盖最新资讯、精华攻略、模组介绍与服务器宣传，精华区沉淀大量技术文，是繁体中文世界的资讯与创作核心。'
 href: 'https://forum.gamer.com.tw/A.php?bsn=18673'
 icon: '/icons/bahamute-minecraft.webp' # 假设图标文件名
 category: '社区' # 用于分类

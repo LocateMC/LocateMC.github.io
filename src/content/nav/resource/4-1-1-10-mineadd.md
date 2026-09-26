@@ -1,6 +1,6 @@
 ---
 title: 'MineAdd'
-description: '一个面向日本社区的、综合性的创作链接分享服务，创作者可在此自由分享地图、材质、附加包和服务器等内容的链接。'
+description: '面向日本社区的创作链接分享服务，本身不存储文件，而是把地图、材质、附加包与服务器等作品的发布链接集中成中央目录，供创作者自由发布。'
 href: 'https://mineadd.net'
 icon: '/icons/mineadd.webp'
 category: '资源' # 用于分类

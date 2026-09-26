@@ -1,6 +1,6 @@
 ---
 title: '开服手册'
-description: '70 余篇中文开服文档：Java 环境、服务端核心选型、配置文件逐项解读、网络与运维、插件与反作弊推荐；同站聚合 Spigot · Hangar · Modrinth 三平台插件。'
+description: '开服手册是中文开服文档集，70 余篇从装 Java 到配 server.properties，同站聚合 Spigot、Hangar、Modrinth 插件可调用。'
 href: 'https://plugins.little100.cn/#/docs'
 icon: '/icons/little100.webp'
 category: '百科'

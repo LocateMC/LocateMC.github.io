@@ -1,6 +1,6 @@
 ---
 title: 'WorldPainter'
-description: '强大的自定义地形生成器，像绘画一样创造你的世界。'
+description: 'WorldPainter 是交互式地图生成器，用于创造大规模、完全自定义的 Minecraft 世界，像绘图软件一样用各类笔刷绘制地形与生物群系后导出。'
 href: 'https://www.worldpainter.net/'
 icon: '/icons/worldpainter.webp' # 假设图标文件名
 category: '软件程序'

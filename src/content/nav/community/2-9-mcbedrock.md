@@ -1,6 +1,6 @@
 ---
 title: 'MCBedrock'
-description: '一个专注于 Minecraft 基岩版（Bedrock Edition）的内容发现与下载的社区中心。'
+description: 'MCBedrock 是非官方的基岩版内容中心，以博客形式每日更新全球创作者提交的模组、地图、皮肤与资源包，配截图视频与下载链接，是基岩版玩家发现与获取新内容的聚合枢纽。'
 href: 'https://www.mcbedrock.com/'
 icon: '/icons/mcbedrock.webp'
 category: '社区' # 用于分类

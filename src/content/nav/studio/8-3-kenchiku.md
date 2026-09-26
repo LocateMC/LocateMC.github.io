@@ -1,6 +1,6 @@
 ---
 title: 'Minecraft 建筑社区'
-description: '一个活跃的日本建筑主题社区博客，主要组织线上建筑活动、发布活动成果并分享优秀作品。'
+description: 'Minecraft 建筑社区是日本建筑主题社区博客，自 2014 年起组织线上建筑活动并以世界存档分享协作成果，专注社区共建，是日系建筑文化的组织者。'
 href: 'https://mc-kenchiku-com.blog.jp'
 icon: '/icons/kenchiku.webp' # 假设图标文件名
 category: '工作室 & 组织' # 用于分类

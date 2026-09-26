@@ -1,6 +1,6 @@
 ---
 title: 'Minecraft Education'
-description: '游戏化学习平台，旨在通过沉浸式的游戏体验，向全球的教育工作者和学生教授各类学科知识。'
+description: 'Minecraft Education 是微软与 Mojang 的官方教育平台，把开放创造用于课堂教学，覆盖 STEM 到历史语言艺术，内置课堂模式与代码编辑器。'
 href: 'https://education.minecraft.net/'
 icon: '/icons/minecraft-edu.webp'
 category: '官方' # 用于分类

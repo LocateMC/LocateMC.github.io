@@ -1,6 +1,6 @@
 ---
 title: "LeviLamina"
-description: "专为 BDS 设计的跨语言插件加载器与开发框架，LiteLoaderBDS 的官方继任者。"
+description: "专为基岩版官方服务端 BDS 设计的插件加载器，允许用 C++、C#、JavaScript、Lua 等多种语言编写插件，是基岩版模组生态的核心基础设施。"
 href: "https://lamina.levimc.org/"
 icon: "/icons/levilamina.webp"
 category: "服务端"

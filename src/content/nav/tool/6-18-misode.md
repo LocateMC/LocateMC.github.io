@@ -1,6 +1,6 @@
 ---
 title: 'Misode''s Generators'
-description: '一个由 Misode 开发的、功能强大且极为专业的数据包与游戏内容生成器套件。'
+description: 'Misode 生成器套件由 Misode 维护，是 Java 版专业生成器，覆盖战利品表、进度、世界生成与自定义合成，以紧跟快照版更新著称。'
 href: 'https://misode.github.io/'
 icon: '/icons/sample.webp'
 category: '在线工具' # 用于分类
