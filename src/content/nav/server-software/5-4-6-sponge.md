@@ -8,12 +8,8 @@ subcategory: "Mod服核心"
 tags: ["服务端", "Java版", "Sponge", "插件", "开源"]
 order: 6
 ---
-Sponge（SpongeAPI）是 SpongePowered 社区打造的现代化服务端插件 API，其纯服务端形态 SpongeVanilla 在保持原版玩法的基础上提供统一而强大的插件接口，设计上追求长期稳定与向后兼容。
+Sponge（SpongeAPI）是 SpongePowered 社区打造的现代化服务端插件 API。它的纯服务端形态 SpongeVanilla 在保持原版玩法的基础上提供统一而强大的插件接口，设计上追求长期稳定与向后兼容。
 
-### 特点
+这套 API 面向事件与数据驱动设计，插件开发体验较好；项目本身把 API 兼容与长期维护放在首位，因此更受看重稳定性的团队青睐。形态上除 SpongeVanilla 之外，还有可配合 Forge 模组使用的 SpongeForge（归在混合端一类）。
 
-- **现代化 API**：面向事件与数据驱动设计，插件开发体验优秀
-- **稳定优先**：强调 API 兼容与长期维护
-- **双形态**：另有 SpongeForge 可配合 Forge 模组使用（见混合端）
-
-官方网站：https://www.spongepowered.org/
+如果你的团队愿意为「接口稳定、升级不痛」付出一定学习成本，Sponge 值得评估；相关下载与文档都在官方网站。

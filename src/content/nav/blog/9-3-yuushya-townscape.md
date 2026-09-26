@@ -8,28 +8,10 @@ tags: ['建筑', '装饰', '模组', '材质', '作品展示', '方块小镇', '
 order: 3
 ---
 
-方块小镇（Yuushya Townscape）是一个结合 Mod 与材质的 Minecraft Java 版建筑系列，2020 年 4 月立项，目标是「在游戏中还原现实市井」。官方主页以中文介绍模组理念、美术风格与玩法系统，并配套作品画廊与 docsify 教程文档，是了解与入门该模组的首选入口。
+方块小镇（Yuushya Townscape）是一个结合 Mod 与材质的 Minecraft Java 版建筑系列，2020 年 4 月立项，目标是「在游戏中还原现实市井」。官方主页以中文介绍模组理念、美术风格与玩法系统，并配套作品画廊与 docsify 教程文档，是了解与入门该模组的首选入口；无论只是想先看看成品效果，还是准备动手搭建属于自己的小镇，都能从主页上找到对应的板块。
 
-### 核心特性
-- **建材库**：1000+ 新增建材与装饰，另有 1500+ 方块模板变种（官网口径，合计约 2600+ 可用方块），材质走「写实」风格，同时兼容卡通风格小镇搭建；
-- **方块建模**：自研方块模型位移、旋转与拼合系统，可在一定范围内自由摆弄任何方块模型——甚至包括其他模组的方块，颠覆「一个萝卜一个坑」的原版放置逻辑；
-- **小系统**：Yuushya 注册 API、不同颜色的抽象文字、Connected Model 等，为建筑提供扩展支持。
+它的建材库提供 1000+ 新增建材与装饰，另有 1500+ 方块模板变种（官网口径，合计约 2600+ 可用方块），材质走「写实」风格，同时兼容卡通风格小镇搭建，等于同时覆盖了写实街景与卡通小镇两种审美取向。更特别的是它自研的方块建模系统：支持方块模型的位移、旋转与拼合，可在一定范围内自由摆弄任何方块模型——甚至包括其他模组的方块，颠覆了「一个萝卜一个坑」的原版放置逻辑，让建筑的摆放不再受固定网格限制，细节堆积的自由度明显更高。此外还有 Yuushya 注册 API、不同颜色的抽象文字、Connected Model 等小系统，为建筑提供扩展支持。
 
-### 作品展示
-主页 artworks 板块按应用场景陈列创作——民宿、餐车、教室、起居室、便利店、画室、小巷、洗衣店等 20+ 场景标签，收录了朝凪fatapulse、夏日小镇服务器等作者的写实小镇作品，可直接感受模组的成片效果。
+主页的 artworks 板块按应用场景陈列创作，覆盖民宿、餐车、教室、起居室、便利店、画室、小巷、洗衣店等 20+ 场景标签，收录了朝凪fatapulse、夏日小镇服务器等作者的写实小镇作品，可以直接感受模组的成片效果与不同场景下的表现力——这些场景标签本身就像一份能力清单，想找参考时可以先按用途筛选。教程文档则在站内的 docsify 手册中分章给出建筑标准、方块建模与生存模式玩法三条入门路径，按需翻看即可，读完后对这套系统该怎么用会有比较完整的认识。
 
-### 教程文档
-- 建筑标准：<https://yuushya.com/townscape/guide/#/standardized_building>
-- 方块建模：<https://yuushya.com/townscape/guide/#/block-modeling-basic>
-- 生存模式玩法：<https://yuushya.com/townscape/guide/#/survival-mode-gameplay>
-
-### 平台与生态
-- 加载器：Forge / Fabric / NeoForge；支持 Java 版 1.16.5 ~ 26.1；
-- 依赖：需 [Architectury API](https://modrinth.com/mod/architectury-api)；若装 Sodium 还需 Indium；
-- 配套材质包（Yuushya）+ CTM 支持模组（Optifine / CTM / Continuity）方可完整显示；
-- 关联模组：[Yuushya Modeling](https://modrinth.com/mod/yuushya-modelling)。
-
-### 下载与社区
-- Modrinth：<https://modrinth.com/mod/yuushya-townscape>
-- CurseForge 材质包：<https://www.curseforge.com/minecraft/texture-packs/yuushya-16x>
-- GitHub 源码：<https://github.com/XiLaiTL/Yuushya-Townscape>
+运行环境上，它支持 Forge / Fabric / NeoForge 加载器与 Java 版 1.16.5 ~ 26.1；需要 Architectury API 作为依赖，若安装 Sodium 还需 Indium；完整显示效果则需配合 Yuushya 材质包与 CTM 支持模组（Optifine / CTM / Continuity），另有关系密切的 Yuushya Modeling 模组可以搭配使用。模组本体发布在 Modrinth，配套材质包在 CurseForge，源码公开在 GitHub，可分别前往这些平台获取；如果只想先体验效果，也可以从作品画廊里的成片作品入手，对本页信息有疑问时，再回官方主页与文档核对最新的版本状态。
